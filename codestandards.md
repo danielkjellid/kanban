@@ -25,7 +25,7 @@ En attributt er en verdi som vi kan putte inni HTML elementer:
 
 ## Navngiving
 
-* Vi skriver all kode (inkludert HTML) på engelsk, men ren innholdstekst skrives på norsk.
+* Vi skriver all kode (inkludert HTML) på og tekst på engelsk.
 
 ## Ryddighet og struktur
 
