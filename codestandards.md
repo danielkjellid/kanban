@@ -1,7 +1,3 @@
-# Gruppens kodestandarder
-
-> Vi har valgt å gå litt mer i dybden ved konvensjoner, og har derfor ikke plassert de i en tabell, men et mer strukturert oppsett med eksempler. Håper dette går fint.
-
 # HTML Konvensjoner
 
 ## Terminologi
@@ -15,7 +11,7 @@ HTML elementer består av start- og sluttag. Unntaket her er void elementer.
 <img src="kilde"> <!-- Void element -->
 ```
 
-### AttributT
+### Attributt
 
 En attributt er en verdi som vi kan putte inni HTML elementer:
 
@@ -37,7 +33,7 @@ En attributt er en verdi som vi kan putte inni HTML elementer:
 * Vi bruker tab (4 spaces) for innrykk.
 * Nye tagger får ny linje. 
 
-### dårlig
+### Dårlig
 
 ```
 <head>
@@ -52,7 +48,7 @@ som forklarer noe
 </BODY>
 ```
 
-### bra
+### Bra
 
 ```
 <!DOCTYPE html>
@@ -98,7 +94,7 @@ som forklarer noe
 
 ## Terminologi
 
-### REgel
+### Regel
 
 En regel er navnet gitt til en velger (eller gruppe av velgere), samt deklarasjonen av egenskaper og verdiene deres.
 
@@ -109,7 +105,7 @@ En regel er navnet gitt til en velger (eller gruppe av velgere), samt deklarasjo
 }
 ```
 
-### velgere
+### Velgere
 
 I en regel deklarasjon, er velgere deler som bestemmer hvilket element som stilsettes med definere egenskaper. Velgere kan matche HTML elementer og attributter. Velgere:
 
@@ -149,7 +145,7 @@ Egenskaper er det som bestemmer stilsettingen av velgere:
 * Legg inn en blank linje mellom regel deklarasjoner.
 * Vi bruker hex-kode fremfor rgb og fargekoder (black, white) så langt det lar seg gjøre.
 
-### dårlig
+### Dårlig
 
 ```
 .velger{border-radius:50%; border:2px; }
@@ -158,7 +154,7 @@ Egenskaper er det som bestemmer stilsettingen av velgere:
 }
 ```
 
-### bra
+### Bra
 
 ```
 .velger {
@@ -181,7 +177,7 @@ Egenskaper er det som bestemmer stilsettingen av velgere:
 
 ## Annet
 
-### border
+### Border
 
 Bruk `0` istedenfor `none` for å spesifisere at stilen ikke har en border.
 
@@ -193,11 +189,11 @@ Bruk `0` istedenfor `none` for å spesifisere at stilen ikke har en border.
 }
 ```
 
-### bra
+### Bra
 
 ```
 .velger {
-    border: 0
+    border: 0;
 }
 ```
 
