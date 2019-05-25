@@ -1,0 +1,68 @@
+body {
+  background: #f8f8f8;
+}
+
+.card {
+  background: red;
+  position: relative;
+  height: 50px;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+  cursor: pointer;
+}
+
+/*function classes*/
+.hold {
+  border: solid 5px #ccc;
+}
+
+.hover {
+  border-style: dashed !important;
+}
+/*function classes end*/
+
+.card-dragging {
+  display: absolute;
+}
+
+.lists {
+  margin: 25px;
+  display: inline-block;
+}
+
+.lists .list{
+  display: block;
+  height: auto;
+  width: 200px;
+  border: #333 solid 3px;
+}
+
+.lists .list .list-header {
+
+}
+
+.lists .list .list-body {
+  display: block;
+  
+}
+
+.lists .list .list-footer {
+  
+}
+
+.lists .list .list-body .taskContainer {
+  height: 60px;
+  width: 160px;
+  margin: 10px;
+  border: solid 3px salmon;
+  background: white;
+}
+
+.lists .list .list-body .newCardContainer {
+  height: 60px;
+  width: 160px;
+  margin: 10px;
+  border: solid 3px green;
+  background: white;
+}
