@@ -40,21 +40,6 @@ function dragDrop() {
     this.append(draggingCard);
 }
 
-function createCard() {
-    var card = document.createElement('div');
-    card.className = "card";
-
-    card.setAttribute('draggable', true);
-    addCardListeners(card);
-    return card;
-}
-
-function addCard(destination) {
-    container = document.getElementById(destination);
-    createCard();
-    container.appendChild(createCard());
-}
-
 function addCardListeners(card) {
     card.addEventListener('dragstart', dragStart);
     card.addEventListener('dragend', dragEnd);

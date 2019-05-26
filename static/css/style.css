@@ -27,12 +27,11 @@ body {
 
 .lists {
   margin: 25px;
-  display: inline-block;
 }
 
 .lists 
 .list{
-  display: block;
+  display: inline-block;
   height: auto;
   width: 200px;
   border: #333 solid 3px;
@@ -59,4 +58,20 @@ body {
 
 button {
   display: block;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }

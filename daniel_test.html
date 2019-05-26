@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="static/css/style.css">
     </head>
     <body>
+        <h2>Kanban</h2>
         <button onclick="addCard('backlog')">Add new card (backlog)</button>
         <div class="lists">
             <div class="list">
@@ -21,8 +22,6 @@
                     <button onclick="addCard('backlog')">Add ned card</button>
                 </div>
             </div>
-        </div>
-        <div class="lists">
             <div class="list">
                 <div class="list-header">
                     <h2>To-do</h2>
@@ -37,8 +36,6 @@
                     <button onclick="addCard('to-do')">Add ned card</button>
                 </div>
             </div>
-        </div>
-        <div class="lists">
             <div class="list">
                 <div class="list-header">
                     <h2>In progress</h2>
@@ -53,8 +50,6 @@
                     <button onclick="addCard('in-progress')">Add ned card</button>
                 </div>
             </div>
-        </div>
-        <div class="lists">
             <div class="list">
                 <div class="list-header">
                     <h2>Done</h2>
@@ -69,7 +64,65 @@
                     <button onclick="addCard('done')">Add ned card</button>
                 </div>
             </div>
-        </div>  
+        </div>
+        <div>
+            <h2>Add member form</h2>
+            <table style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Form</th>
+                        <th>Members</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <form onsubmit="addMember()" id="addMemberForm">
+                                <br>
+                                Full name
+                                <br>
+                                <input type="text" id="fullname">
+                                <br>
+                                Initials
+                                <br>
+                                <input type="text" id="initials">
+                                <br>
+                                <input type="submit">
+                            </form>
+                        </td>
+                        <td>Test</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div> 
+        <div>
+            <h2>Add card form</h2>
+
+        </div>
+        <div>
+            <h2>Add card to member form</h2>
+            <form onsubmit="addAssignment()" id="addCardToMemberForm">
+                <br>
+                Card
+                <br>
+                <select id="CardToMember">
+                    <!-- option created by DOM-->
+                </select>
+                <br>
+                Member 
+                <br>
+                <select id="MemberToCard">
+                    <!-- options created by DOM-->
+                </select>
+                <br>
+                <input type="submit">
+            </form>
+
+        </div>
         <script src="static/js/dragdrop.js"></script>
+        <script src="static/js/assignments.js"></script>
+        <script src="static/js/members.js"></script>
+        <script src="static/js/tasks.js"></script>
+        <script src="static/js/tags.js"></script>
     </body>
 </html>
