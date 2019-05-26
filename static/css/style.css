@@ -13,7 +13,6 @@ body {
   margin-bottom: 10px;
 }
 
-/*function classes*/
 .hold {
   border: solid 5px #ccc;
 }
@@ -21,7 +20,6 @@ body {
 .hover {
   border-style: dashed !important;
 }
-/*function classes end*/
 
 .card-dragging {
   display: absolute;
@@ -32,27 +30,25 @@ body {
   display: inline-block;
 }
 
-.lists .list{
+.lists 
+.list{
   display: block;
   height: auto;
   width: 200px;
   border: #333 solid 3px;
 }
 
-.lists .list .list-header {
-
-}
-
-.lists .list .list-body {
+.lists 
+.list 
+.list-body {
   display: block;
   
 }
 
-.lists .list .list-footer {
-  
-}
-
-.lists .list .list-body .taskContainer {
+.lists 
+.list 
+.list-body 
+.taskContainer {
   height: auto;
   width: 160px;
   margin: 10px;

@@ -43,7 +43,6 @@ function dragDrop() {
 function createCard() {
     var card = document.createElement('div');
     card.className = "card";
-    card.id = "new-card";
 
     card.setAttribute('draggable', true);
     addCardListeners(card);
