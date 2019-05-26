@@ -10,6 +10,7 @@ body {
   top: 5px;
   left: 5px;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 /*function classes*/
@@ -52,17 +53,10 @@ body {
 }
 
 .lists .list .list-body .taskContainer {
-  height: 60px;
+  height: auto;
   width: 160px;
   margin: 10px;
   border: solid 3px salmon;
   background: white;
-}
-
-.lists .list .list-body .newCardContainer {
-  height: 60px;
-  width: 160px;
-  margin: 10px;
-  border: solid 3px green;
-  background: white;
+  min-height: 60px;
 }
