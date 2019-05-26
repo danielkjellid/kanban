@@ -60,3 +60,7 @@ body {
   background: white;
   min-height: 60px;
 }
+
+button {
+  display: block;
+}

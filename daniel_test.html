@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="static/css/style.css">
     </head>
     <body>
+        <button onclick="addCard('backlog')">Add new card (backlog)</button>
         <div class="lists">
             <div class="list">
                 <div class="list-header">
@@ -17,7 +18,7 @@
                 </div>
                 <div class="list-footer">
                     <p>footer</p>
-                    <button onclick="addCard()">Add ned card</button>
+                    <button onclick="addCard('backlog')">Add ned card</button>
                 </div>
             </div>
         </div>
@@ -28,12 +29,12 @@
                 </div>
                 <div class="list-body">
                     <p>body</p>
-                    <div class="taskContainer">
+                    <div class="taskContainer" id="to-do">
                     </div>
                 </div>
                 <div class="list-footer">
                     <p>footer</p>
-                    <button>Add ned card</button>
+                    <button onclick="addCard('to-do')">Add ned card</button>
                 </div>
             </div>
         </div>
@@ -44,12 +45,12 @@
                 </div>
                 <div class="list-body">
                     <p>body</p>
-                    <div class="taskContainer">
+                    <div class="taskContainer" id="in-progress">
                     </div>
                 </div>
                 <div class="list-footer">
                     <p>footer</p>
-                    <button>Add ned card</button>
+                    <button onclick="addCard('in-progress')">Add ned card</button>
                 </div>
             </div>
         </div>
@@ -60,12 +61,12 @@
                 </div>
                 <div class="list-body">
                     <p>body</p>
-                    <div class="taskContainer">
+                    <div class="taskContainer" id="done">
                     </div>
                 </div>
                 <div class="list-footer">
                     <p>footer</p>
-                    <button>Add ned card</button>
+                    <button onclick="addCard('done')">Add ned card</button>
                 </div>
             </div>
         </div>  

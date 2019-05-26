@@ -32,7 +32,6 @@ function dragEnter(e) {
 }
 
 function dragLeave() {
-    console.log("Leave")
     this.className = 'taskContainer';
 }
 
@@ -41,15 +40,20 @@ function dragDrop() {
     this.append(draggingCard);
 }
 
-function addCard() {
-    var container = document.getElementById('backlog');
+function createCard() {
     var card = document.createElement('div');
     card.className = "card";
     card.id = "new-card";
 
     card.setAttribute('draggable', true);
     addCardListeners(card);
-    container.appendChild(card);
+    return card;
+}
+
+function addCard(destination) {
+    container = document.getElementById(destination);
+    createCard();
+    container.appendChild(createCard());
 }
 
 function addCardListeners(card) {
