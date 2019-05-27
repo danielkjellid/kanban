@@ -1,57 +1,55 @@
 window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDb || window.msIndexedDB;
 
-var textDB;
-var textRequest;
-var textTransaction;
-var textObjectStore;
+let textRequest = window.indexedDB.open("infoDatabase", 2), 
+    textDB,
+    textTx,
+    textStore,
+    index;
 
-function init() {
-    
-    /*request to open the database*/
-    textRequest = window.indexedDB.open("keptText", 2);
-}
-
-function changeText() {
-    var titleIn = document.getElementById("title");
-    var newTitle = noteIn.value;
-
-    if(newTitle.length>0) {
-        textTransaction = textDB.transaction("text", IDBTransaction.READ_WRITE);
+request.onupgradeneeded = function(event) {
+    let textDB = textRequest.result,
         
-        textObjectStore = textTransaction.objectStore("text");
-    }
-}
-
-textRequest = textObjectStore.add({text: newText});
-    /*error fires if user does not agree*/
-textRequest.onerror = function(event) {
-    alert("Can't open text database! " + evt.target.errorCode);
+    titleStore = textDB.createObjectStore("titleStore", { keyPath: "titleID", autoIncrement: true}), 
+        
+    titleIndex = titlesStore.createIndex("title", { unique: false}), 
+        
+    duedateStore = textDB.createObjectStore("duedateStore", { keyPath: "duedateID", autoIncrement: true}), 
+        
+    duedateIndex = duedateStore.createIndex("text", { unique: false}), 
+        
+    descriptionStore = textDB.createObjectStore("descriptionStore", { keyPath: "descriptionID", autoIncrement: true}), 
+        
+    descriptionIndex = descriptionStore.createIndex("text", { unique: false});
 };
 
-    /*success fires if user agrees*/ 
-textRequest.onsuccess = function(event) {
-    
-    noteIn.value="";
-    
-    /*initiate database*/
-    textDB = noterequest.result;
-    
-    /*call function to read exisiting text and display them*/
-    getText();
-}
+request.onerrer = function(event) {
+    console.log("There was an error opening the database: " + e.target.errorCode);
+};
 
-    /*if upgrading - this is where we specify the structure*/
-textRequest.onupgradeneeded = function(event) {
+request.onsuccess = function(event) {
+    textDB = textRequest.result;
     
-    /*get the database*/
-    textDB = event.target.result;
+    //title
+    titleTx = textDB.transaction("titleStore", "readwrite");
+    titleStore = textDB.objectStore("titleStore");
+    titleIndex = titleStore.index("title");
     
-    var textObjectStore = textDB.createObjectStore("text", { keyPath: "textID", autoIncrement: true});
+    //duedate
+    duedateTx = textDB.transaction("duedateStore", "readwrite");
+    duedateStore = duedateTx.obejctStore("duedateStore");
+    duedateIndex = duedateStore.index("text");
+    
+    //description
+    descriptionTx = textDB.transaction("descriptionStore", "readwrite");
+    descriptionStore = descriptionTx.objectStore("descriptionStore");
+    descriptionIndex = descriptionStore.index("text");
+    
+    textDB.onerror = function (event) {
+        console.log("ERROR " + e.target.errorCode);
+    }
+    
     
 }
-
-    /*start the database once dom objects are loaded*/
-window.addEventListener("DOMContentLoaded", init, false);
 
 
 
