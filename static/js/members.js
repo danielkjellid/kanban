@@ -1,64 +1,56 @@
-let team =[
-    {
-        id: 1,
-        name: "Daniel Kjellid",
-        initials: "DK"
-    },
-    /*
-    {
-        id: 2,
-        name: "Jonmar Rmt",
-        initials: "JR"
-    },
-    */
-    {
-        id: 2,
-        name: "Kainat Zahoor",
-        initials: "KZ"
-    },
-    {
-        id: 3,
-        name: "Linnea S. Fylling",
-        initials: "LF"
-    },
-    {
-        id: 4,
-        name: "Magomed Derbtichev",
-        initials: "MD"
-    },
-    {
-        id: 5,
-        name: "Sultan Khan",
-        initials: "SK"
-    },
-]
-
+//add member function
 function addMember() {
-    fullname = document.getElementById('fullname').value;
-    initials = document.getElementById('initials').value;
-    team.push({
-        id: team.length+1,
-        name: this.fullname, 
-        initials: this.initials
-    });
-    console.log(team);
+    //define user input in the addMemberForm
+    var fullNameInput = document.getElementById('fullname').value;
+    var initialsInput = document.getElementById('initials').value;
+
+    //open connection to database
+    let request = window.indexedDB.open("KanbanDatabase", 2), 
+    db,
+    tx,
+    store,
+    index;
+
+    //error handler on connection
+    request.onerror = function(e) {
+        console.log("There was en error adding a member " + e.target.errorCode);
+    }
+
+    //success handler on connection
+    request.onsuccess = function(e) {
+        console.log("Successfully added member to database");
+        db = request.result;
+
+        //define transaction, store and index
+        membersTx = db.transaction("membersStore", "readwrite");
+        membersStore = membersTx.objectStore("membersStore");
+        membersIndex = membersStore.index("fullName");
+
+        //error handler on result of the request
+        db.onerror = function(e) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+
+        //add new member variables to the database
+        let newMember = membersStore.add({
+            fullName: fullNameInput,
+            initials: initialsInput
+        });
+
+        //success handler on adding member to database handler
+        newMember.onsuccess = function() {
+            console.log(newMember.result);
+        }
+
+    }
 }
 
-var addMemberForm = document.getElementById("addMemberForm");
-
+//form handler to prevent page from reloading
 function handleForm(e) {
     e.preventDefault();
 }
 
+var addMemberForm = document.getElementById("addMemberForm");
+
 //to prevent page from reloading
 addMemberForm.addEventListener('submit', handleForm);
-
-//add options to member in "Add card to member firm"
-var selectMember = document.getElementById("MemberToCard");
-
-for (i = 0; i < team.length; i++) {
-    var option = document.createElement('option');
-    option.value = team[i].name;
-    option.text = team[i].name;
-    selectMember.add(option);
-}

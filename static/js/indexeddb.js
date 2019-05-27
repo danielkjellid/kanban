@@ -44,6 +44,7 @@ request.onupgradeneeded = function(e) {
         unique: true
     });
 };
+
 //open database will return response. 
 //error handler:
 request.onerror = function(e) {
@@ -101,9 +102,11 @@ request.onsuccess = function(e) {
     });
     */
 
+    
+
     //retrive data
     let t1 = tasksStore.get(1);
-    let m1 = membersStore.get(1);
+    let m1 = membersStore.get(2);
     let a1 = assignmentStore.get(1);
 
     t1.onsuccess = function() {
