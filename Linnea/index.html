@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <script type="text/javascript" src="index.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    <body>
+        <div id="container">
+            <a href="information.html" class="button">Overview</a>
+            
+            <a href="index.html" class="button">Edit information</a>
+            
+                <form method="GET" action="information.html">
+                    
+                    <h1>TITLE:</h1>
+                    <p><input type="text" id="title" name="title"></p>
+               
+                    <h1>DUE DATE:</h1>
+                    <p><input type="text" id="duedate" name="duedate"></p>
+              
+                    <h1>DESCRIPTION:</h1>
+                    <p><input type="text" id="description" name="description"></p><br> 
+                    
+                    <button onclick="changeText()">Save Changes</button>
+                    
+                    <a href="information.html" class="button">Cancel</a>
+                </form>   
+            
+               
+        </div>
+    </body>
+    </head>
+</html>
