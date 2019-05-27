@@ -1,34 +1,59 @@
-let tasks = [
-    {
-        id: 1,
-        tags: {
-        },
-        title: "Desgin kanban board for exam project",
-        dueDate: "2019-05-25",
-        description: "This is a description describing the task that is to be done. Lorem ipsum dolor amet asymmetrical artisan literally pork belly pug microdosing kitsch authentic pinterest subway tile tousled craft beer church-key art party. Chambray brooklyn copper DemsuigndkiarencbtatnrabdoeairPdhofonreemxaumstawcehbe typewriter paleo selvage."
+//add member function
+function addTask() {
+    //define user input in the addTaskForm
+    var titleInput = document.getElementById('task-title').value;
+    var statusInput = document.getElementById('task-status').value;
+    var tagInput = document.getElementById("task-tag").value;
+    var dueDateInput = document.getElementById("task-dueDate").value;
+    var descriptionInput = document.getElementById("task-desc").value;
+
+    //open connection to database
+    let request = window.indexedDB.open("KanbanDatabase", 2), 
+    db,
+    tx,
+    store,
+    index;
+
+    //error handler on connection
+    request.onerror = function(e) {
+        console.log("There was en error adding a task: " + e.target.errorCode);
     }
-]
 
-var selectCard = document.getElementById("CardToMember");
+    //success handler on connection
+    request.onsuccess = function(e) {
+        console.log("Successfully added task to database");
+        db = request.result;
 
-for (i = 0; i < tasks.length; i++) {
-    var option = document.createElement('option');
-    option.value = tasks[i].title;
-    option.text = tasks[i].title;
-    selectCard.add(option);
+        //define transaction, store and index
+        tasksTx = db.transaction("tasksStore", "readwrite");
+        tasksStore = tasksTx.objectStore("tasksStore");
+        tasksIndex = tasksStore.index("title");
+
+        //error handler on result of the request
+        db.onerror = function(e) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+
+        //add new member variables to the database
+        let newTask = tasksStore.add({
+            title: titleInput,
+            status: statusInput,
+            tags: tagInput,
+            dueDate: dueDateInput,
+            description: descriptionInput
+        });
+
+        //success handler on adding member to database handler
+        newTask.onsuccess = function() {
+            console.log(newTask.result);
+        }
+
+    }
 }
 
-function createCard() {
-    var card = document.createElement('div');
-    card.className = "card";
+//handleForm is defined in members.js
+//form handler to prevent page from reloading
+var addTaskForm = document.getElementById("addTaskForm");
 
-    card.setAttribute('draggable', true);
-    addCardListeners(card);
-    return card;
-}
-
-function addCard(destination) {
-    container = document.getElementById(destination);
-    createCard();
-    container.appendChild(createCard());
-}
+//to prevent page from reloading
+addTaskForm.addEventListener('submit', handleForm);

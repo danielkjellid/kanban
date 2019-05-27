@@ -100,8 +100,6 @@ request.onsuccess = function(e) {
         memberID: 1,
         taskID: 1
     });
-    */
-
     
 
     //retrive data
@@ -120,6 +118,7 @@ request.onsuccess = function(e) {
     a1.onsuccess = function() {
         console.log(a1.result);
     }
+    */
     
     //close DB conection once transaction is complete.
     tasksTx.oncomplete = function() {
