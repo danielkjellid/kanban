@@ -1,4 +1,20 @@
-//add member function
+//add task button function
+function createCard() {
+    var card = document.createElement('div');
+    card.className = "card";
+
+    card.setAttribute('draggable', true);
+    addCardListeners(card);
+    return card;
+}
+
+ function addCard(destination) {
+    container = document.getElementById(destination);
+    createCard();
+    container.appendChild(createCard());
+} 
+
+//add task form function
 function addTask() {
     //define user input in the addTaskForm
     var titleInput = document.getElementById('task-title').value;

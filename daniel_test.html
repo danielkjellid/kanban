@@ -102,29 +102,49 @@
         </div> 
         <div>
             <h2>Add task form</h2>
-            <form onsubmit="addTask()" id="addTaskForm">
-                <br>
-                Title
-                <br>
-                <input type="text" id="task-title">
-                <br>
-                Status (backlog, to-do, in-progress, done, archived)
-                <br>
-                <input type="text" id="task-status">
-                <br>
-                Tag (not functional)
-                <br>
-                <input type="text" id="task-tag">
-                <br>
-                Due date (yyyy-mm-dd)
-                <br>
-                <input type="text" id="task-dueDate">
-                <br>
-                Description
-                <br>
-                <input type="text" id="task-desc">
-                <input type="submit">
-            </form>
+            <table style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Form</th>
+                        <th>Tasks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <form onsubmit="addTask()" id="addTaskForm">
+                                <br>
+                                Title
+                                <br>
+                                <input type="text" id="task-title">
+                                <br>
+                                Status (backlog, to-do, in-progress, done, archived)
+                                <br>
+                                <input type="text" id="task-status">
+                                <br>
+                                Tag (not functional)
+                                <br>
+                                <input type="text" id="task-tag">
+                                <br>
+                                Due date (yyyy-mm-dd)
+                                <br>
+                                <input type="text" id="task-dueDate">
+                                <br>
+                                Description
+                                <br>
+                                <input type="text" id="task-desc">
+                                <input type="submit">
+                            </form>
+                        </td>
+                        <td>
+                            <ul id="listMembers">
+
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
         </div>
         <div>
             <h2>Add card to member form</h2>
