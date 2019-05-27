@@ -1,0 +1,86 @@
+body{
+    background: #fff;
+}
+
+.button{
+    background: pink;
+    padding: 15px;
+    top: 50%;
+    left: 50%;
+    margin: 40%;
+    color: white;
+    border: 0;
+}
+
+.box{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.boxContent{
+    background-color: white;
+    margin: 40% auto;
+    padding: 20px;
+    width: 70%;
+}
+
+.closeBtn{
+    color: #ccc;
+    float: right;
+    font-size: 20px;
+}
+
+.closeBtn:hover, .closeBtn:focus{
+    color: black;
+    cursor: pointer;
+}
+
+h3 {
+    font-size: 13px;
+    text-align: left;
+    margin: 20px 0 10px;
+}
+
+h1{
+    font-size: 25px;
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
