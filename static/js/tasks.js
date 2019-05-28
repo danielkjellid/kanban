@@ -70,6 +70,63 @@ function addTask() {
 //handleForm is defined in members.js
 //form handler to prevent page from reloading
 var addTaskForm = document.getElementById("addTaskForm");
+var tasksForm = document.getElementById("tasksForm");
 
 //to prevent page from reloading
 addTaskForm.addEventListener('submit', handleForm);
+tasksForm.addEventListener('submit', handleForm);
+
+//List card function
+function listTask() {
+    //open connection to database
+    let request = window.indexedDB.open("KanbanDatabase", 2), 
+    db,
+    tx,
+    store,
+    index;
+
+    //error handler on connection
+    request.onerror = function(e) {
+        console.log("There was en error listing tasks: " + e.target.errorCode);
+    }
+
+    //success handler on connection
+    request.onsuccess = function(e) {
+        console.log("Successfully listed tasks");
+        db = request.result;
+
+        //define transaction, store and index
+        tasksTx = db.transaction("tasksStore", "readwrite");
+        tasksStore = tasksTx.objectStore("tasksStore");
+        tasksIndex = tasksStore.index("title", "status");
+
+        //error handler on result of the request
+        db.onerror = function(e) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+
+        //variable for counting objects in the index
+        let amountOfTasks = tasksIndex.count();
+
+        //error handler
+        amountOfTasks.onerror = function() {
+            console.log("There was an error finding the amount of tasks")
+        }
+
+        //success handler
+        amountOfTasks.onsuccess = function() {
+            //console.log("Tasks: " + amountOfTasks.result);
+            for (i = 0; i < amountOfTasks.result+1; i++) {
+                let getTasks = tasksStore.get(i);
+                
+                getTasks.onerror = function() {
+                    console.log("There was an error looping through the tasks")
+                }
+
+                getTasks.onsuccess = function() {
+                    console.log(getTasks.result);
+                }
+            }   
+        }
+    }
+}

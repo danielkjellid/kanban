@@ -26,7 +26,7 @@ request.onupgradeneeded = function(e) {
     tasksStore = db.createObjectStore("tasksStore",{
         keyPath: "taskID", autoIncrement: true
     }),
-    tasksIndex = tasksStore.createIndex("title", "title", {
+    tasksIndex = tasksStore.createIndex(["title", "status"], "title", {
         unique: false
     }),
     //members
@@ -58,7 +58,7 @@ request.onsuccess = function(e) {
     //tasks
     tasksTx = db.transaction("tasksStore", "readwrite");
     tasksStore = tasksTx.objectStore("tasksStore");
-    tasksIndex = tasksStore.index("title");
+    tasksIndex = tasksStore.index("title", "status");
 
     //members
     membersTx = db.transaction("membersStore", "readwrite");
