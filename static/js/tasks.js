@@ -67,15 +67,6 @@ function addTask() {
     }
 }
 
-//handleForm is defined in members.js
-//form handler to prevent page from reloading
-var addTaskForm = document.getElementById("addTaskForm");
-var tasksForm = document.getElementById("tasksForm");
-
-//to prevent page from reloading
-addTaskForm.addEventListener('submit', handleForm);
-tasksForm.addEventListener('submit', handleForm);
-
 //List card function
 function listTask() {
     //open connection to database
@@ -116,6 +107,7 @@ function listTask() {
         //success handler
         amountOfTasks.onsuccess = function() {
             //console.log("Tasks: " + amountOfTasks.result);
+            //TODO: add destination to the function to be able to list tasks with the specific statuses
             for (i = 0; i < amountOfTasks.result+1; i++) {
                 let getTasks = tasksStore.get(i);
                 
@@ -130,3 +122,12 @@ function listTask() {
         }
     }
 }
+
+//handleForm is defined in members.js
+//form handler to prevent page from reloading
+var addTaskForm = document.getElementById("addTaskForm");
+var tasksForm = document.getElementById("tasksForm");
+
+//to prevent page from reloading
+addTaskForm.addEventListener('submit', handleForm);
+tasksForm.addEventListener('submit', handleForm);
