@@ -2,6 +2,7 @@
 function onLoad() {
     listMembers();
     listTasks();
+    listAssignments();
 }
 
 //form handler to prevent page from reloading

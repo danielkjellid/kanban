@@ -48,6 +48,10 @@ function addMember() {
             getMembersElementContainer.appendChild(createMembersList);
             createMembersList.innerHTML = JSON.stringify(newMember);
         }
+
+        membersTx.oncomplete = function() {
+            db.close();
+        }
     }
 }
 
@@ -66,7 +70,6 @@ function listMembers() {
 
    //success handler on connection
    request.onsuccess = function(e) {
-       console.log("Successfully listed members");
        db = request.result;
 
        //define transaction, store and index
@@ -95,6 +98,11 @@ function listMembers() {
                let getMembersElementContainer = document.getElementById("list-members");
                let createMembersList = document.createElement("li");
                createMembersList.id = "member-" + i;
+
+               //adding member to select for assigning members to tasks
+               let getAssignmentElementSelect = document.getElementById("list-available-members");
+               let createMemberOption = document.createElement("option");
+               createMemberOption.id = "member-option-" + i;
                
                getMembers.onerror = function() {
                    console.log("There was an error looping through the members")
@@ -104,9 +112,18 @@ function listMembers() {
                    getMembersElementContainer.appendChild(createMembersList);
                    //JSON stringify to return object in string format, and not [Object object]
                    createMembersList.innerHTML = JSON.stringify(getMembers.result);
+
+                   //adding member to select for assigning members to tasks
+                   getAssignmentElementSelect.appendChild(createMemberOption);
+                   createMemberOption.innerHTML = JSON.stringify(getMembers.result.fullName);
+                   createMemberOption.value = getMembers.result.memberID;
                }
            }   
-       }
+        }
+
+        membersTx.oncomplete = function() {
+            db.close();
+        }
    } 
 }
 

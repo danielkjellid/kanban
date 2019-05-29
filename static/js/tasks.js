@@ -63,9 +63,18 @@ function addTask() {
 
         //success handler on adding member to database handler
         addNewTask.onsuccess = function() {
-            console.log(addNewTask.result);
+            console.log("Successfully added task to database");
+            
+            let getTasksElementContainer = document.getElementById("list-tasks");
+            let createTasksList = document.createElement("li");
+            createTasksList.id = "newMember";
+            getTasksElementContainer.appendChild(createTasksList);
+            createTasksList.innerHTML = JSON.stringify(newTask);
         }
 
+        tasksTx.oncomplete = function() {
+            db.close();
+        };
     }
 }
 
@@ -80,12 +89,11 @@ function listTasks() {
 
     //error handler on connection
     request.onerror = function(e) {
-        console.log("There was en error listing tasks: " + e.target.errorCode);
+        console.log("There was en error connecting to the DB: " + e.target.errorCode);
     }
 
     //success handler on connection
     request.onsuccess = function(e) {
-        console.log("Successfully listed tasks");
         db = request.result;
 
         //define transaction, store and index
@@ -112,21 +120,37 @@ function listTasks() {
             for (var i = 1; i < amountOfTasks.result+1; i++) {
                 let getTasks = tasksStore.get(i);
 
+                //listing tasks
                 let getTasksElementContainer = document.getElementById("list-tasks");
                 let createTasksList = document.createElement("li");
                 createTasksList.id = "task-" + i;
+
+                //adding tasks to select for assigning members to tasks
+                let getAssignmentElementSelect = document.getElementById("list-available-tasks");
+                let createTaskOption = document.createElement("option");
+                createTaskOption.id = "task-option-" + i;
                 
                 getTasks.onerror = function() {
-                    console.log("There was an error looping through the tasks")
+                    console.log("There was an error looping through the tasks");
                 }
 
                 getTasks.onsuccess = function() {
+                    //listing tasks
                     getTasksElementContainer.appendChild(createTasksList);
                     //JSON stringify to return object in string format, and not [Object object]
                     createTasksList.innerHTML = JSON.stringify(getTasks.result);
+                    
+                    //adding tasks to select for assigning members to tasks
+                    getAssignmentElementSelect.appendChild(createTaskOption);
+                    createTaskOption.innerHTML = JSON.stringify("[" + getTasks.result.taskID + "] " + getTasks.result.title);
+                    createTaskOption.value = getTasks.result.taskID;
                 }
             }   
         }
+
+        tasksTx.oncomplete = function() {
+            db.close();
+        };
     }
 }
 

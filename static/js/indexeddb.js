@@ -81,35 +81,37 @@ request.onsuccess = function(e) {
     //put object in tasksStore
     /*
     tasksStore.put({
-        taskID: 1,
         title: "Desgin kanban board for exam project",
         status: "backlog",
         tags: "Priority",
         dueDate: "2019-29-05",
-        description: "This is a description describing the task that is to be done. Lorem ipsum dolor amet asymmetrical artisan literally pork belly pug microdosing kitsch authentic pinterest subway tile tousled craft beer church-key art party. Chambray brooklyn copper DemsuigndkiarencbtatnrabdoeairPdhofonreemxaumstawcehbe typewriter paleo selvage."
+        description: "This is a description describing the task that is to be done. Lorem ipsum dolor amet asymmetrical artisan literally pork belly pug microdosing kitsch authentic pinterest subway tile tousled craft beer church-key art party. Chambray brooklyn copper DemsuigndkiarencbtatnrabdoeairPdhofonreemxaumstawcehbe typewriter paleo selvage.",
+        taskID: 1
     });
     
 
     //put object in membersStore
     membersStore.put({
-        memberID: 1,
         fullName: "Daniel Kjellid",
-        initials: "DK"
+        initials: "DK",
+        memberID: 1
     });
     
     //put object in assignmentStore
     assignmentStore.put({
-        assigmentID: 1,
         memberID: 1,
-        taskID: 1
+        taskID: 1,
+        assigmentID: 1
     });*/
 
     //retrive data
     /*
     let t1 = tasksStore.get(1);
     let m1 = membersStore.get(2);
-    let a1 = assignmentStore.get(1);
+    */
+    let a1 = assignmentStore.get(5);
 
+    /*
     t1.onsuccess = function() {
         console.log(t1.result);
     }
@@ -117,10 +119,10 @@ request.onsuccess = function(e) {
     m1.onsuccess = function() {
         console.log(m1.result);
     }
-
+    */
     a1.onsuccess = function() {
         console.log(a1.result);
-    }*/
+    }
 
     //close DB conection once transaction is complete.
     tasksTx.oncomplete = function() {
