@@ -50,18 +50,20 @@ function addTask() {
             console.log("ERROR " + e.target.errorCode);
         }
 
-        //add new member variables to the database
-        let newTask = tasksStore.add({
+        //add new task variables to the database
+        let newTask = [{
             title: titleInput,
             status: statusInput,
             tags: tagInput,
             dueDate: dueDateInput,
             description: descriptionInput
-        });
+        }];
+
+        var addNewTask = tasksStore.add(newTask[0]);
 
         //success handler on adding member to database handler
-        newTask.onsuccess = function() {
-            console.log(newTask.result);
+        addNewTask.onsuccess = function() {
+            console.log(addNewTask.result);
         }
 
     }
@@ -106,9 +108,8 @@ function listTask() {
 
         //success handler
         amountOfTasks.onsuccess = function() {
-            //console.log("Tasks: " + amountOfTasks.result);
             //TODO: add destination to the function to be able to list tasks with the specific statuses
-            for (var i = 0; i < amountOfTasks.result+1; i++) {
+            for (var i = 1; i < amountOfTasks.result+1; i++) {
                 let getTasks = tasksStore.get(i);
 
                 let getTasksElementContainer = document.getElementById("list-tasks");
@@ -120,10 +121,9 @@ function listTask() {
                 }
 
                 getTasks.onsuccess = function() {
-                    console.log(getTasks.result);
                     getTasksElementContainer.appendChild(createTasksList);
                     //JSON stringify to return object in string format, and not [Object object]
-                    createTasksList.innerHTML = JSON.stringify(getTasks.result);
+                    createTasksList.innerHTML = JSON.stringify(getTasks.result.title);
                 }
             }   
         }

@@ -29,4 +29,4 @@ function handleForm(e) {
 }
 
 //prevent refresh after submit
-addCardToMemberForm.addEventListener('submit', handleForm);
+//addCardToMemberForm.addEventListener('submit', handleForm);
