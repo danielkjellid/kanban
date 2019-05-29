@@ -9,18 +9,18 @@
             
             <a href="index.html" class="button">Edit information</a>
             
-                <form method="GET" action="information.html">
+                <form onsubmit="addText()" action="information.html" id="addTextForm">
                     
-                    <h1>TITLE:</h1>
-                    <p><input type="text" id="title" name="title"></p>
+                    <h1></h1>
+                    <p><input type="text" id="title" name="title" placeholder="TITLE"></p>
                
                     <h1>DUE DATE:</h1>
-                    <p><input type="text" id="duedate" name="duedate"></p>
+                    <p><input type="text" id="duedate" name="duedate" placeholder="DUE DATE"></p>
               
                     <h1>DESCRIPTION:</h1>
-                    <p><input type="text" id="description" name="description"></p><br> 
+                    <p><input type="text" id="description" name="description" placeholder="DESCRIPTION"></p> 
                     
-                    <button onclick="changeText()">Save Changes</button>
+                    <button onclick="addText()">Save Changes</button>
                     
                     <a href="information.html" class="button">Cancel</a>
                 </form>   

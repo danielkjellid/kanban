@@ -14,30 +14,6 @@
                     <p id="new-duedate"></p>
                 <h1>DESCRIPTION:</h1>
                     <p id="new-description"></p>
-            
-            <script type="text/javascript">
-                function getUrlVars() {
-                    var vars = {};
-                    var url = decodeURIComponent(window.location.href.replace(/\+/g, '%20'));
-                    var parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-                        function(m,key,value) {
-                            vars[key] = value;
-                            });
-                                return vars;
-}
-
-                    var text = getUrlVars()["title"];
-                    document.getElementById("new-info").innerHTML = text;
-                
-                    var text1 = getUrlVars()["duedate"];
-                    document.getElementById("new-duedate").innerHTML = text1;
-                
-                    var text2 = getUrlVars()["description"];
-                    document.getElementById("new-description").innerHTML = text1;
-            </script>
-                   
-           
-    
         </div>
     </body>
     </head>

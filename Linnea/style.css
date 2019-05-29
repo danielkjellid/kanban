@@ -8,12 +8,11 @@ body {
     background-color: white;
     height: 450px;
     width: 450px;
+    left: 50%;
+    bottom: 10%;
 }
 
 form {
     position: absolute;
-    bottom: 50%;
-    right: 50%
-    
 }
 
