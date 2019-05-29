@@ -1,0 +1,462 @@
+/* CSS document for recurring elements such as navigation bar and footer */
+*{
+    font-family: sans-serif;
+}
+
+body{  /*CSS code for body*/
+    margin: 0;
+    background-color: rgb(250,250,250);
+    overflow: hidden;
+    animation: Colors 40s infinite;
+    animation: Colors 40s infinite;
+    
+} 
+/*End of CSS body*/
+
+/*Background color changer belongs to the body */
+@keyframes Colors { 
+    0% {
+        background: rgb(250, 250, 250);
+    }
+   25% {
+        background: rgb(135,152,255);
+    }
+    50%{
+        background: rgb(136, 249, 149);
+    }
+    75%{
+        background: rgb(255, 194, 110);
+    }
+    100%{
+        background: rgb(50,40,59);
+    }
+}
+
+
+}
+
+a{
+    text-decoration: none;
+}
+
+#title {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 90px;
+    left: 100px;
+    font-family: verdana;
+    font-size: 30px;
+    font-weight: bold;
+
+    
+    
+}
+
+#nav{
+    background-color: rgb(250, 250, 250);
+    height: 70px;
+    width: 100%;
+    text-align: right;
+    border-top: 2px solid rgb(255, 82, 193);
+    overflow: hidden;
+    position: relative;
+    top: 100px;
+   
+
+}
+
+#nav p{
+    color: rgb(255, 82, 193);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0px;
+    padding: 23px 35px 0px 35px;
+    height: 30px;
+    display: inline-block;
+    transition: .2s ease;
+    position: relative;
+    right: 560px;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 110px;
+    right: 40px;
+    text-align: center;
+    color: rgb(255, 82, 193);
+    border-radius: 33px;
+    -moz-border-radius: 10px;
+    background: white;
+    border: 2px solid rgb(255, 82, 193);
+    
+
+}
+
+.button :hover{
+    text-decoration: underline;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+#nav p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+/* End-of NAV */
+
+
+#logo1 {
+    height: 90px;
+    width: 100px;
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    right: 730px;
+}
+
+/* SIDEINNHOLD CONTAINER: Endre etter behov på hver side */
+#container {
+    position: relative;
+    top: 100px;
+    background-color: rgb(250, 250, 250);
+    height: 1000px; /* <-- Endre etter behov */
+    overflow: hidden;
+}
+
+h1 {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+}
+
+menu {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+menu.kanban .viewlist,
+menu.list .viewkanban {
+  display: inline;
+}
+
+menu.kanban .viewkanban,
+menu.list .viewlist {
+  display: none;
+}
+
+.dd {
+  max-width: 100%;
+  top: 88px;
+  margin: 0 auto;
+  display: block;
+  vertical-align: top;
+}
+
+ol {
+  transition: border-color 2s ease, all 0.1s ease;
+}
+
+ol.list {
+  padding-top: 2em;
+  padding-left: 15px;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+ol.list .text {
+  float: right;
+  width: 60%;
+}
+
+ol.list h3,
+ol.list .actions,
+ol.list label {
+  float: left;
+  width: 30%;
+}
+
+ol.list > li,
+ol.list > h3 {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+ol.list > h2 {
+  padding-bottom: 6px;
+}
+
+
+H2,
+h1,
+button {
+  margin-left: 5px;
+  font-family: 'Arbutus Slab', serif;
+  background-color: rgb(255,200,237);
+  height: 50px;
+}
+
+h2 {
+  color: rgb(180,0,120);
+}
+
+h2 .material-icons {
+  line-height: 1.5;
+}
+
+.dd-handle .material-icons {
+  color: #B0BEC5;
+  font-size: 14px;
+  line-height: 2rem;
+  position: relative;
+  padding: 5px 16px;
+}
+
+button>.material-icons {
+  line-height: 0.2;
+  position:relative;
+  top:7px;
+}
+
+.dd-item:hover,
+button:hover {
+  color: rgb(255,0,0);
+  will-change: box-shadow;
+  transition: box-shadow .2s cubic-bezier(.4, 0, 1, 1), background-color .2s cubic-bezier(.4, 0, .2, 1), color .2s cubic-bezier(.4, 0, .2, 1);
+  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, .14), 0 3px 1px -6px rgba(0, 0, 0, .2), 2px 5px 3px 0 rgba(0, 0, 0, .12);
+}
+
+button.addbutt {
+  background-color: rgb(250, 250, 250);
+  width: 200px;
+   height: 40px; 
+}
+
+.list > button.addbutton {
+  max-width: 330px;
+}
+
+
+ol.kanban.To-do {
+  border-top: 5px solid rgb(255, 82, 193);
+}
+
+ol.kanban.Gone {
+  border-top: 5px solid rgb(255, 82, 193);
+}
+
+ol.kanban.progress {
+  border-top: 5px solid rgb(255, 82, 193);
+}
+
+ol.kanban.Done {
+  border-top: 5px solid rgb(255, 82, 193);
+}
+
+ol.kanban {
+  width: 20%;
+  height: auto;
+  margin: 1%;
+  max-width: 250px;
+  min-width: 120px;
+  display: inline-block;
+  vertical-align: top;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+  flex-direction: column;
+  min-height: 200px;
+  z-index: 1;
+  position: relative;
+  background: #fff;
+  padding: 1em;
+  border-radius: 10px;
+}
+
+.dd-item {
+  display: block;
+  position: relative;
+  list-style: none;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  min-height: 48px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-size: 16px;
+  min-height: 120px;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+  background: #fff;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.title {
+  align-self: flex-end;
+  color: inherit;
+  display: block;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 15px;
+  line-height: normal;
+  overflow: hidden;
+  -webkit-transform-origin: 149px 48px;
+  transform-origin: 149px 48px;
+  margin: 0;
+}
+
+.text {
+  color: grey;
+  border-top: 1px solid font-size: 1rem;
+  font-weight: 400;
+  line-height: 18px;
+  overflow: hidden;
+  padding: 16px;
+  width: 90%;
+}
+
+.actions {
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  font-size: 8px;
+  line-height: normal;
+  width: 100%;
+  color: #B0BEC5;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+
+/**
+ * Nestable
+ */
+
+.dd {
+  position: relative;
+  display: block;
+  list-style: none;
+}
+
+.dd-list {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dd-list .dd-list {
+  padding-left: 30px;
+}
+
+.dd-collapsed .dd-list {
+  display: none;
+}
+
+.dd-item {
+  display: block;
+  margin: 5px 0;
+  padding: 5px 10px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  background: #fafafa;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+   border-radius: 10px;
+}
+
+.dd-item:hover {
+  background: #fff;
+}
+
+.dd-item > button {
+  display: block;
+  position: relative;
+  cursor: move;
+  float: left;
+  width: 25px;
+  height: 20px;
+  margin: 5px 0;
+  padding: 0;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+  font-weight: bold;
+}
+
+.dd-item > button:before {
+  content: '+';
+  display: block;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  text-indent: 0;
+}
+
+.dd-item > button[data-action="collapse"]:before {
+  content: '<i class="material-icons">filter_none</i>';
+}
+
+.dd-placeholder,
+.dd-empty {
+  margin: 5px 0;
+  padding: 0;
+  min-height: 30px;
+  background: #E0E0E0;
+  border: 1px dashed #b6bcbf;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+.dd-empty {
+  border: 1px dashed #bbb;
+  min-height: 100px;
+  background-color: #E0E0E0;
+  background-size: 60px 60px;
+  background-position: 0 0, 30px 30px;
+}
+
+.dd-dragel {
+  position: absolute;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.dd-dragel > .dd-item .dd-handle {
+  margin-top: 0;
+  cursor: move;
+}
+
+.dd-dragel .dd-item {
+  -webkit-box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .5);
+  box-shadow: 2px 4px 6px 0 rgba(0, 0, 0, .5);
+  cursor: move;
+}
+
+
+/* =================================================== */
+/* PAGE SPECIFIC CODE: */
+
+
+
+
+
+
+
+/* END OF PAGE SPECIFIC CODE */
