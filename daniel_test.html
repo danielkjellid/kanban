@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="static/css/style.css">
         <script src="static/js/indexeddb.js"></script>
     </head>
-    <body>
+    <body onload="onLoad()">
         <h2>Kanban</h2>
         <button onclick="addCard('backlog')">Add new card (backlog)</button>
         <div class="lists">
@@ -92,7 +92,7 @@
                             </form>
                         </td>
                         <td>
-                            <ul id="listMembers">
+                            <ul id="list-members">
 
                             </ul>
                         </td>
@@ -146,16 +146,11 @@
             </table>
             
         </div>
-        <div>
-            <p>Database result</p>
-            <form onsubmit="listTask()" id="tasksForm">
-                <input type="submit">
-            </form>
-        </div>
         <script src="static/js/dragdrop.js"></script>
         <script src="static/js/assignments.js"></script>
         <script src="static/js/members.js"></script>
         <script src="static/js/tasks.js"></script>
         <script src="static/js/tags.js"></script>
+        <script src="static/js/misc.js"></script>
     </body>
 </html>

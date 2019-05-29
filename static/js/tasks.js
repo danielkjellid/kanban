@@ -70,7 +70,7 @@ function addTask() {
 }
 
 //List card function
-function listTask() {
+function listTasks() {
     //open connection to database
     let request = window.indexedDB.open("KanbanDatabase", 2), 
     db,
@@ -123,18 +123,16 @@ function listTask() {
                 getTasks.onsuccess = function() {
                     getTasksElementContainer.appendChild(createTasksList);
                     //JSON stringify to return object in string format, and not [Object object]
-                    createTasksList.innerHTML = JSON.stringify(getTasks.result.title);
+                    createTasksList.innerHTML = JSON.stringify(getTasks.result);
                 }
             }   
         }
     }
 }
 
-//handleForm is defined in members.js
+//handleForm is defined in misc.js
 //form handler to prevent page from reloading
 var addTaskForm = document.getElementById("addTaskForm");
-var tasksForm = document.getElementById("tasksForm");
 
 //to prevent page from reloading
 addTaskForm.addEventListener('submit', handleForm);
-tasksForm.addEventListener('submit', handleForm);
