@@ -108,8 +108,12 @@ function listTask() {
         amountOfTasks.onsuccess = function() {
             //console.log("Tasks: " + amountOfTasks.result);
             //TODO: add destination to the function to be able to list tasks with the specific statuses
-            for (i = 0; i < amountOfTasks.result+1; i++) {
+            for (var i = 0; i < amountOfTasks.result+1; i++) {
                 let getTasks = tasksStore.get(i);
+
+                let getTasksElementContainer = document.getElementById("list-tasks");
+                let createTasksList = document.createElement("li");
+                createTasksList.id = "task-" + i;
                 
                 getTasks.onerror = function() {
                     console.log("There was an error looping through the tasks")
@@ -117,6 +121,9 @@ function listTask() {
 
                 getTasks.onsuccess = function() {
                     console.log(getTasks.result);
+                    getTasksElementContainer.appendChild(createTasksList);
+                    //JSON stringify to return object in string format, and not [Object object]
+                    createTasksList.innerHTML = JSON.stringify(getTasks.result);
                 }
             }   
         }

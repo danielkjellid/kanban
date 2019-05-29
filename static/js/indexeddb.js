@@ -22,6 +22,7 @@ let request = window.indexedDB.open("KanbanDatabase", 2),
 //when creating a new databse, a store(structure) must be added
 request.onupgradeneeded = function(e) {
     let db = request.result,
+
     //tasks
     tasksStore = db.createObjectStore("tasksStore",{
         keyPath: "taskID", autoIncrement: true
@@ -119,6 +120,8 @@ request.onsuccess = function(e) {
         console.log(a1.result);
     }
     */
+
+    
     
     //close DB conection once transaction is complete.
     tasksTx.oncomplete = function() {
