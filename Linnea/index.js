@@ -1,8 +1,9 @@
 window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDb || window.msIndexedDB;
 
 
-//function to store the input in the database
+//add text form function
 function addText() {
+    //define user input in the addTextForm
     var titleInput = document.getElementById("title").value;
     var duedateInput = document.getElementById("duedate").value;
     var descriptionInput = document.getElementById("description").value;
@@ -17,7 +18,7 @@ let request = window.indexedDB.open("infoDatabase", 2),
     
  //upgrade the database
 request.onupgradeneeded = function(event) {
-    let textDB = textRequest.result,
+    let textDB = request.result,
         
         
     //titleDatabase    
@@ -40,80 +41,134 @@ request.onupgradeneeded = function(event) {
     descriptionIndex = descriptionStore.createIndex("description", { unique: false});
 };
 
-//error handler on connection
-request.onerror = function(event) {
-    console.log("There was an error opening the database: " + e.target.errorCode);
+    //error handler on connection
+    request.onerror = function(event) {
+        console.log("There was an error opening the database: " + e.target.errorCode);
     }
 
  
     //success handler
-request.onsuccess = function(event) {
-    textDB = request.result;
+    request.onsuccess = function(event) {
+        console.log("Successfully added task to database");
+        textDB = request.result;
     
-    //define transaction, store and index 
-    //title
-    titleTx = textDB.transaction("titleStore", "readwrite");
-    titleStore = textDB.objectStore("titleStore");
-    titleIndex = titleStore.index("title");
+        //define transaction, store and index 
+        //title
+        titleTx = textDB.transaction("titleStore", "readwrite");
+        titleStore = textDB.objectStore("titleStore");
+        titleIndex = titleStore.index("title");
     
-    //duedate
-    duedateTx = textDB.transaction("duedateStore", "readwrite");
-    duedateStore = duedateTx.obejctStore("duedateStore");
-    duedateIndex = duedateStore.index("duedate");
+        //duedate
+        duedateTx = textDB.transaction("duedateStore", "readwrite");
+        duedateStore = duedateTx.obejctStore("duedateStore");
+        duedateIndex = duedateStore.index("duedate");
     
-    //description
-    descriptionTx = textDB.transaction("descriptionStore", "readwrite");
-    descriptionStore = descriptionTx.objectStore("descriptionStore");
-    descriptionIndex = descriptionStore.index("description");
-    }
-
-
-//add new variables to the database
-    let newTitle = titleStore.add({
+        //description
+        descriptionTx = textDB.transaction("descriptionStore", "readwrite");
+        descriptionStore = descriptionTx.objectStore("descriptionStore");
+        descriptionIndex = descriptionStore.index("description");
+        
+        //error handler on result of the request
+        textDB.onerror = function(event) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+        
+        //add new variables to the database
+        let newTitle = titleStore.add({
         title: titleInput
-    });
+        });
     
-    let newDuedate = duedateStore.add({
+        let newDuedate = duedateStore.add({
         duedate: duedateInput
-    });
+        });
     
-    let newDescription = descriptionStore.add({
+        let newDescription = descriptionStore.add({
         description: descriptionInput
-    });
-
-    
-    newTitle.onsuccess = function() {
-        console.log(newTitle.result);
+        });
+        
+        
+        //success handler on adding new info to the database handler
+        newTitle.onsuccess = function() {
+            console.log(newTitle.result);
     }
     
-    newDuedate.onsuccess = function() {
-        console.log(newDuedate.result);
+        newDuedate.onsuccess = function() {
+            console.log(newDuedate.result);
     }
     
-    newDescription.onsuccess = function() {
-        console.log(newDescription.result);
+        newDescription.onsuccess = function() {
+            console.log(newDescription.result);
+        
+        }
+    
+function listText() {
+    //open connection to database 
+    let request = window.indexedDB.open("infoDatabase", 2), 
+        textDB,
+        textTx,
+        textStore,
+        index;
+    
+    //error handler on connection
+    request.onerror = function(event) {
+        console.log("There was ane rror listing text: " + e.target.errorCode);
     }
     
-    textDB.onerror = function (event) {
-        console.log("ERROR " + e.target.errorCode);
-    }
+    //success handler on connection
+    request.onsuccess = function(event) {
+        console.log("Successfully listed text");
+        textDB = request.result;
+        
+        //define transaction, store and index
+        //title
+        titleTx = textDB.transaction("titleStore", "readwrite");
+        titleStore = textDB.objectStore("titleStore");
+        titleIndex = titleStore.index("title");
     
-    titleTx.oncomplete = function() {
-        textDB.close();
-    }
+        //duedate
+        duedateTx = textDB.transaction("duedateStore", "readwrite");
+        duedateStore = duedateTx.obejctStore("duedateStore");
+        duedateIndex = duedateStore.index("duedate");
     
-    duedateTx.oncomplete = function() {
-        textDB.close();
-    
-    }
-    
-    descriptionTx.oncomplete = function() {
-        textDB.close();
+        //description
+        descriptionTx = textDB.transaction("descriptionStore", "readwrite");
+        descriptionStore = descriptionTx.objectStore("descriptionStore");
+        descriptionIndex = descriptionStore.index("description");
+        
+        //error handler on result of the request
+        textDB.onerror = function(event) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+        
+        //variable for counting objects in the index
+        let amountOfText = titleIndex.count();
+        
+        //error handler
+        amountOfText.onerror = function() {
+            console.log("There was an error finding the amount of tasks");
+        }
+        
+        //success handler 
+        amountOfText.onsuccess = function() {
+        
+            for (i = 0; i < amountOfText.result+1; i++) {
+                let getText = titleStore.get(i);
+                
+                getText.onerror = function() {
+                    console.log("There was an error looping through the text");
+                }
+                
+                getText.onsuccess = function() {
+                    console.log(getText.result);
+                }
+            }
         }
     }
-
+}
+    
+   
 
 var addTextForm = document.getElementById("addTextForm");
-
-
+        
+addTextForm.addEventListener('submit', handleForm);
 

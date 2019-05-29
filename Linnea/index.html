@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <script type="text/javascript" src="index.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
     <body>
         <div id="container">
@@ -9,7 +8,7 @@
             
             <a href="index.html" class="button">Edit information</a>
             
-                <form onsubmit="addText()" action="information.html" id="addTextForm">
+                <form method="GET" action="information.html" id="addTextForm">
                     
                     <h1></h1>
                     <p><input type="text" id="title" name="title" placeholder="TITLE"></p>
@@ -24,7 +23,27 @@
                     
                     <a href="information.html" class="button">Cancel</a>
                 </form>   
-            
+             
+            <script 
+                type="text/javascript">
+                function getUrlVars() {
+                    var vars = {};
+                    var url = decodeURIComponent(window.location.href.replace(/\+/g, '%20'));
+                    var parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+                        function(m,key,value) {
+                            vars[key] = value;
+                            });
+                                return vars;
+}
+                    var text = getUrlVars()["title"];
+                    document.getElementById("new-title").innerHTML = text;
+                
+                    var text1 = getUrlVars()["duedate"];
+                    document.getElementById("new-duedate").innerHTML = text1;
+                
+                    var text2 = getUrlVars()["description"];
+                    document.getElementById("new-description").innerHTML = text1;
+            </script>
                
         </div>
     </body>
