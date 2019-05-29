@@ -5,7 +5,7 @@ function addMember() {
     var initialsInput = document.getElementById('initials').value;
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 2), 
+    let request = window.indexedDB.open("KanbanDatabase", 4), 
     db,
     tx,
     store,
@@ -53,7 +53,7 @@ function addMember() {
 
 function listMembers() {
    //open connection to database
-   let request = window.indexedDB.open("KanbanDatabase", 2), 
+   let request = window.indexedDB.open("KanbanDatabase", 4), 
    db,
    tx,
    store,

@@ -24,7 +24,7 @@ function addTask() {
     var descriptionInput = document.getElementById("task-desc").value;
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 2), 
+    let request = window.indexedDB.open("KanbanDatabase", 4), 
     db,
     tx,
     store,
@@ -43,7 +43,7 @@ function addTask() {
         //define transaction, store and index
         tasksTx = db.transaction("tasksStore", "readwrite");
         tasksStore = tasksTx.objectStore("tasksStore");
-        tasksIndex = tasksStore.index("title");
+        tasksIndex = tasksStore.index("status");
 
         //error handler on result of the request
         db.onerror = function(e) {
@@ -72,7 +72,7 @@ function addTask() {
 //List card function
 function listTasks() {
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 2), 
+    let request = window.indexedDB.open("KanbanDatabase", 4), 
     db,
     tx,
     store,
@@ -91,7 +91,7 @@ function listTasks() {
         //define transaction, store and index
         tasksTx = db.transaction("tasksStore", "readwrite");
         tasksStore = tasksTx.objectStore("tasksStore");
-        tasksIndex = tasksStore.index("title", "status");
+        tasksIndex = tasksStore.index("status");
 
         //error handler on result of the request
         db.onerror = function(e) {
