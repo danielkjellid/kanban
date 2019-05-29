@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="static/css/style.css">
         <script src="static/js/indexeddb.js"></script>
     </head>
-    <body>
+    <body onload="onLoad()">
         <h2>Kanban</h2>
         <button onclick="addCard('backlog')">Add new card (backlog)</button>
         <div class="lists">
@@ -92,7 +92,7 @@
                             </form>
                         </td>
                         <td>
-                            <ul id="listMembers">
+                            <ul id="list-members">
 
                             </ul>
                         </td>
@@ -120,7 +120,13 @@
                                 <br>
                                 Status (backlog, to-do, in-progress, done, archived)
                                 <br>
-                                <input type="text" id="task-status">
+                                <select id="task-status">
+                                    <option>backlog</option>
+                                    <option>to-do</option>
+                                    <option>in-progress</option>
+                                    <option>done</option>
+                                    <option>archived</option>
+                                </select>
                                 <br>
                                 Tag (not functional)
                                 <br>
@@ -128,7 +134,7 @@
                                 <br>
                                 Due date (yyyy-mm-dd)
                                 <br>
-                                <input type="text" id="task-dueDate">
+                                <input type="date" id="task-dueDate">
                                 <br>
                                 Description
                                 <br>
@@ -137,45 +143,56 @@
                             </form>
                         </td>
                         <td>
-                            <ul id="listMembers">
+                            <ul id="list-tasks">
 
                             </ul>
                         </td>
                     </tr>
                 </tbody>
             </table>
-            
         </div>
         <div>
-            <h2>Add card to member form</h2>
-            <form onsubmit="addAssignment()" id="addCardToMemberForm">
-                <br>
-                Card
-                <br>
-                <select id="CardToMember">
-                    <!-- option created by DOM-->
-                </select>
-                <br>
-                Member 
-                <br>
-                <select id="MemberToCard">
-                    <!-- options created by DOM-->
-                </select>
-                <br>
-                <input type="submit">
-            </form>
+            <h2>Add assignment form</h2>
+            <table style="width: 100%">
+                <thead>
+                    <tr>
+                        <th>Form</th>
+                        <th>Assignments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <form onsubmit="" id="addAssignmentForm">
+                                <br>
+                                Member
+                                <br>
+                                <select id="list-available-members">
+                                    
+                                </select>
 
+                                <br>
+                                Task
+                                <br>
+                                <select id="list-available-tasks">
+                                    
+                                </select>
+                                <input type="submit">
+                            </form>
+                        </td>
+                        <td>
+                            <ul id="list-assignments">
+
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div>
-            <p>Database result</p>
-            <form onsubmit="listTask()" id="tasksForm">
-                <input type="submit">
-            </form>
-        </div>
+        <script src="static/js/misc.js"></script>
         <script src="static/js/dragdrop.js"></script>
         <script src="static/js/assignments.js"></script>
         <script src="static/js/members.js"></script>
         <script src="static/js/tasks.js"></script>
-        <script src="static/js/tags.js"></script>
     </body>
 </html>

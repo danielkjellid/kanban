@@ -24,7 +24,7 @@ function addTask() {
     var descriptionInput = document.getElementById("task-desc").value;
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 2), 
+    let request = window.indexedDB.open("KanbanDatabase", 4), 
     db,
     tx,
     store,
@@ -43,34 +43,45 @@ function addTask() {
         //define transaction, store and index
         tasksTx = db.transaction("tasksStore", "readwrite");
         tasksStore = tasksTx.objectStore("tasksStore");
-        tasksIndex = tasksStore.index("title");
+        tasksIndex = tasksStore.index("status");
 
         //error handler on result of the request
         db.onerror = function(e) {
             console.log("ERROR " + e.target.errorCode);
         }
 
-        //add new member variables to the database
-        let newTask = tasksStore.add({
+        //add new task variables to the database
+        let newTask = [{
             title: titleInput,
             status: statusInput,
             tags: tagInput,
             dueDate: dueDateInput,
             description: descriptionInput
-        });
+        }];
+
+        var addNewTask = tasksStore.add(newTask[0]);
 
         //success handler on adding member to database handler
-        newTask.onsuccess = function() {
-            console.log(newTask.result);
+        addNewTask.onsuccess = function() {
+            console.log("Successfully added task to database");
+            
+            let getTasksElementContainer = document.getElementById("list-tasks");
+            let createTasksList = document.createElement("li");
+            createTasksList.id = "newMember";
+            getTasksElementContainer.appendChild(createTasksList);
+            createTasksList.innerHTML = JSON.stringify(newTask);
         }
 
+        tasksTx.oncomplete = function() {
+            db.close();
+        };
     }
 }
 
 //List card function
-function listTask() {
+function listTasks() {
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 2), 
+    let request = window.indexedDB.open("KanbanDatabase", 4), 
     db,
     tx,
     store,
@@ -78,18 +89,17 @@ function listTask() {
 
     //error handler on connection
     request.onerror = function(e) {
-        console.log("There was en error listing tasks: " + e.target.errorCode);
+        console.log("There was en error connecting to the DB: " + e.target.errorCode);
     }
 
     //success handler on connection
     request.onsuccess = function(e) {
-        console.log("Successfully listed tasks");
         db = request.result;
 
         //define transaction, store and index
         tasksTx = db.transaction("tasksStore", "readwrite");
         tasksStore = tasksTx.objectStore("tasksStore");
-        tasksIndex = tasksStore.index("title", "status");
+        tasksIndex = tasksStore.index("status");
 
         //error handler on result of the request
         db.onerror = function(e) {
@@ -106,28 +116,47 @@ function listTask() {
 
         //success handler
         amountOfTasks.onsuccess = function() {
-            //console.log("Tasks: " + amountOfTasks.result);
             //TODO: add destination to the function to be able to list tasks with the specific statuses
-            for (i = 0; i < amountOfTasks.result+1; i++) {
+            for (var i = 1; i < amountOfTasks.result+1; i++) {
                 let getTasks = tasksStore.get(i);
+
+                //listing tasks
+                let getTasksElementContainer = document.getElementById("list-tasks");
+                let createTasksList = document.createElement("li");
+                createTasksList.id = "task-" + i;
+
+                //adding tasks to select for assigning members to tasks
+                let getAssignmentElementSelect = document.getElementById("list-available-tasks");
+                let createTaskOption = document.createElement("option");
+                createTaskOption.id = "task-option-" + i;
                 
                 getTasks.onerror = function() {
-                    console.log("There was an error looping through the tasks")
+                    console.log("There was an error looping through the tasks");
                 }
 
                 getTasks.onsuccess = function() {
-                    console.log(getTasks.result);
+                    //listing tasks
+                    getTasksElementContainer.appendChild(createTasksList);
+                    //JSON stringify to return object in string format, and not [Object object]
+                    createTasksList.innerHTML = JSON.stringify(getTasks.result);
+                    
+                    //adding tasks to select for assigning members to tasks
+                    getAssignmentElementSelect.appendChild(createTaskOption);
+                    createTaskOption.innerHTML = JSON.stringify("[" + getTasks.result.taskID + "] " + getTasks.result.title);
+                    createTaskOption.value = getTasks.result.taskID;
                 }
             }   
         }
+
+        tasksTx.oncomplete = function() {
+            db.close();
+        };
     }
 }
 
-//handleForm is defined in members.js
+//handleForm is defined in misc.js
 //form handler to prevent page from reloading
 var addTaskForm = document.getElementById("addTaskForm");
-var tasksForm = document.getElementById("tasksForm");
 
 //to prevent page from reloading
 addTaskForm.addEventListener('submit', handleForm);
-tasksForm.addEventListener('submit', handleForm);

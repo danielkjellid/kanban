@@ -4,6 +4,8 @@
 //Tasks: taskID (autoincremented), title, status, tags, dueDate, description
 //Members: memberID, fullName, initials
 //Assignments: assignmentID, memberID, taskID
+
+
 window.webkitIndexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
 //check for support
@@ -13,7 +15,7 @@ if(!window.indexedDB) {
 
 //open database "KanbanDatabase" version 1. 
 //db = database, tx = transaction, store = store data, index = index (seach data).
-let request = window.indexedDB.open("KanbanDatabase", 2), 
+let request = window.indexedDB.open("KanbanDatabase", 4), 
     db,
     tx,
     store,
@@ -26,7 +28,7 @@ request.onupgradeneeded = function(e) {
     tasksStore = db.createObjectStore("tasksStore",{
         keyPath: "taskID", autoIncrement: true
     }),
-    tasksIndex = tasksStore.createIndex(["title", "status"], "title", {
+    tasksIndex = tasksStore.createIndex("status", "status", {
         unique: false
     }),
     //members
@@ -58,7 +60,7 @@ request.onsuccess = function(e) {
     //tasks
     tasksTx = db.transaction("tasksStore", "readwrite");
     tasksStore = tasksTx.objectStore("tasksStore");
-    tasksIndex = tasksStore.index("title", "status");
+    tasksIndex = tasksStore.index("status");
 
     //members
     membersTx = db.transaction("membersStore", "readwrite");
@@ -75,38 +77,41 @@ request.onsuccess = function(e) {
     }
 
     /* commented out to not put the same objects in the stores multiple times.
-    Do not uncomment! Easy to view the structure:
+    Do not uncomment! Easy to view the structure:*/
     //put object in tasksStore
+    /*
     tasksStore.put({
-        taskID: 1,
         title: "Desgin kanban board for exam project",
         status: "backlog",
         tags: "Priority",
         dueDate: "2019-29-05",
-        description: "This is a description describing the task that is to be done. Lorem ipsum dolor amet asymmetrical artisan literally pork belly pug microdosing kitsch authentic pinterest subway tile tousled craft beer church-key art party. Chambray brooklyn copper DemsuigndkiarencbtatnrabdoeairPdhofonreemxaumstawcehbe typewriter paleo selvage."
+        description: "This is a description describing the task that is to be done. Lorem ipsum dolor amet asymmetrical artisan literally pork belly pug microdosing kitsch authentic pinterest subway tile tousled craft beer church-key art party. Chambray brooklyn copper DemsuigndkiarencbtatnrabdoeairPdhofonreemxaumstawcehbe typewriter paleo selvage.",
+        taskID: 1
     });
     
 
     //put object in membersStore
     membersStore.put({
-        memberID: 1,
         fullName: "Daniel Kjellid",
-        initials: "DK"
+        initials: "DK",
+        memberID: 1
     });
     
     //put object in assignmentStore
     assignmentStore.put({
-        assigmentID: 1,
         memberID: 1,
-        taskID: 1
-    });
-    
+        taskID: 1,
+        assigmentID: 1
+    });*/
 
     //retrive data
+    /*
     let t1 = tasksStore.get(1);
     let m1 = membersStore.get(2);
-    let a1 = assignmentStore.get(1);
+    let a1 = assignmentStore.get(5);
+    */
 
+    /*
     t1.onsuccess = function() {
         console.log(t1.result);
     }
@@ -117,9 +122,8 @@ request.onsuccess = function(e) {
 
     a1.onsuccess = function() {
         console.log(a1.result);
-    }
-    */
-    
+    }*/
+
     //close DB conection once transaction is complete.
     tasksTx.oncomplete = function() {
         db.close();
