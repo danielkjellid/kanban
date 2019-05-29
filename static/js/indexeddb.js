@@ -108,8 +108,8 @@ request.onsuccess = function(e) {
     /*
     let t1 = tasksStore.get(1);
     let m1 = membersStore.get(2);
-    */
     let a1 = assignmentStore.get(5);
+    */
 
     /*
     t1.onsuccess = function() {
@@ -119,10 +119,10 @@ request.onsuccess = function(e) {
     m1.onsuccess = function() {
         console.log(m1.result);
     }
-    */
+
     a1.onsuccess = function() {
         console.log(a1.result);
-    }
+    }*/
 
     //close DB conection once transaction is complete.
     tasksTx.oncomplete = function() {
