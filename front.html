@@ -4,14 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Kanban</title>
     <!--<link rel="stylesheet" href="static/css/bulma.css">-->
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
+    <!--navbar-->
+    <nav class="navbar is-white">
+        <div class="container is-fluid">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="#">
+                    <svg width="170px" height="28px" viewBox="0 0 252 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="Front" transform="translate(-25.000000, -14.000000)">
+                                <g id="Header" transform="translate(0.000000, -3.000000)">
+                                    <g id="Logo" transform="translate(25.000000, 0.000000)">
+                                        <rect id="Rectangle" fill="#F364A2" x="17" y="19" width="16" height="44" rx="2"></rect>
+                                        <rect id="Rectangle" fill="#F364A2" x="0" y="19" width="16" height="33" rx="2"></rect>
+                                        <text id="Kanban" font-family="GTWalsheim-Medium, GT Walsheim" font-size="63" font-weight="400" fill="#3E4C59">
+                                            <tspan x="36.5" y="62">Kanban</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+                <div class="navbar-burger burger" data-target="navbar">
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+            </div>
+            
+            <div id="navbar" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item is-active" href="https://bulma.io/">
+                        Board
+                    </a>
+                    <a class="navbar-item" href="https://bulma.io/">
+                        Leaderboard
+                    </a>
+                    <a class="navbar-item" href="https://bulma.io/">
+                        Archive
+                    </a>
+                </div>
+
+                <div class="navbar-center">
+                    
+                </div>
+            
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a class="button is-brand is-rounded is-outlined" href="https://github.com/jgthms/bulma/releases/download/0.7.5/bulma-0.7.5.zip">
+                            <span>Add new card</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--navbar end-->
     <div class="container is-fluid">
+        <progress class="progress is-brand is-large" value="90" max="100">90%</progress>
+           
         <div class="columns">
-            <!--Backlog-->
+            <!--backlog-->
             <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
                 <nav class="list">
                     <p class="list-heading">Backlog</p>
