@@ -74,7 +74,7 @@
                 <nav class="list">
                     <p class="list-heading">Backlog</p>
                     <div class="list-block">
-                        <div class="card-container">
+                        <div class="card-container" id="backlog">
                             <div class="task-card" draggable="true">
                                 <div class="task-card-header">
                                     <div class="tags">
@@ -256,7 +256,7 @@
                 <nav class="list">
                     <p class="list-heading">To-do</p>
                     <div class="list-block">
-                        <div class="card-container">
+                        <div class="card-container" id="to-do">
 
                         </div>
                     </div>
@@ -271,7 +271,7 @@
                 <nav class="list">
                     <p class="list-heading">In progress</p>
                     <div class="list-block">
-                        <div class="card-container">
+                        <div class="card-container" id="in-progress">
 
                         </div>
                     </div>
@@ -286,7 +286,7 @@
                 <nav class="list">
                     <p class="list-heading">Done</p>
                     <div class="list-block">
-                        <div class="card-container">
+                        <div class="card-container" id="done">
 
                         </div>
                     </div>
@@ -298,6 +298,25 @@
             <!--done end-->
         </div>
     </div> 
+
+    <form onsubmit="makeCard('backlog')" id="someForm">
+            <input type="submit">
+        </form>
+
+        <script>
+            function handleForm(e) {
+                e.preventDefault();
+            }
+
+            var getForm = document.getElementById("someForm");
+            getForm.addEventListener('submit', handleForm);
+        </script>
+
     <script src="static/js/dragdrop.js"></script>
+    <script src="static/js/indexeddb.js"></script>
+    <script src="static/js/assignments.js"></script>
+    <script src="static/js/members.js"></script>
+    <script src="static/js/tasks.js"></script>
+    <script src="static/js/misc.js"></script>
 </body>
 </html>

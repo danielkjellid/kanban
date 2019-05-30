@@ -129,6 +129,7 @@ function listTasks() {
                 let getAssignmentElementSelect = document.getElementById("list-available-tasks");
                 let createTaskOption = document.createElement("option");
                 createTaskOption.id = "task-option-" + i;
+
                 
                 getTasks.onerror = function() {
                     console.log("There was an error looping through the tasks");

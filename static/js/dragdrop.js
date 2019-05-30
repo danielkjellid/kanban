@@ -1,6 +1,6 @@
 const card = document.querySelector('.task-card');
 const cards = document.querySelectorAll('.task-card')
-const taskContainers = document.querySelectorAll('.card-container');
+const cardContainers = document.querySelectorAll('.card-container');
 
 var draggingCard = null;
 
@@ -8,7 +8,7 @@ var draggingCard = null;
 cards.forEach(addCardListeners);
 
 // Loop through taskContainer boxes and add listeners
-taskContainers.forEach(addContainerListeners);
+cardContainers.forEach(addContainerListeners);
 
 // Drag Functions
 function dragStart(event) {
@@ -45,9 +45,9 @@ function addCardListeners(card) {
     card.addEventListener('dragend', dragEnd);
 }
 
-function addContainerListeners(taskContainer) {
-    taskContainer.addEventListener('dragover', dragOver);
-    taskContainer.addEventListener('dragenter', dragEnter);
-    taskContainer.addEventListener('dragleave', dragLeave);
-    taskContainer.addEventListener('drop', dragDrop);
+function addContainerListeners(cardContainer) {
+    cardContainer.addEventListener('dragover', dragOver);
+    cardContainer.addEventListener('dragenter', dragEnter);
+    cardContainer.addEventListener('dragleave', dragLeave);
+    cardContainer.addEventListener('drop', dragDrop);
 }
