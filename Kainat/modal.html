@@ -6,10 +6,11 @@
     </head>
     
     <body>
+        <!--Main page with Button function-->
         <div class="mainPage">
            <button onclick="openModal()" class="button">Click here for information</button>
         </div>
-        
+        <!--All content placed in a container-->
         <div id="mainBox" class="box">
             <div class="boxContent">
                 <span onclick="closeModal()" class="closeBtn">&times;</span>
@@ -51,8 +52,13 @@
                 
                 <!--Second tab-->
                 <div id="Edit" class="tabContent"> 
-                    <p>This is a description describing the task that is to be done. This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done. </p>
+                    <p id="paragraph">This is a description describing the task that is to be done. This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done. </p>
                 </div>
+                
+                <div id="tagCheckbox">
+                    
+                </div>
+                
             </div>
         </div>
         <script src="modal.js"></script>
