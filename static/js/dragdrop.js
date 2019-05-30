@@ -12,7 +12,7 @@ taskContainers.forEach(addContainerListeners);
 
 // Drag Functions
 function dragStart(event) {
-    this.className += ' hold';
+    this.className += ' card-hold';
     setTimeout(() => (this.className = 'invisible'), 0); //set timeout so card wont dissapear
     draggingCard = event.target;
 }
@@ -28,7 +28,7 @@ function dragOver(e) {
 
 function dragEnter(e) {
     e.preventDefault();
-    this.className += ' hover';
+    this.className += ' card-container-hover';
 }
 
 function dragLeave() {

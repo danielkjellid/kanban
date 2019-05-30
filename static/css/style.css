@@ -1,3 +1,6 @@
+/* ============================ FONT IMPORT ============================ */
+
+/* ===== GT Walsheim ===== */
 @font-face{
   font-family: 'Walsheim';
   font-style: normal;
@@ -35,7 +38,61 @@
   src: url("../fonts/gt-walsheim/gt-walsheim-bold-oblique-web.ttf");
 }
 
-/*Bulma contents*/
+/* ============================ RESET ============================ */
+
+/*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================= GENERAL TAGS ======================== */
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+html {
+  background-color: white;
+  font-size: 16px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-width: 300px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+
 body,
 button,
 input,
@@ -44,160 +101,57 @@ textarea {
   font-family: 'Walsheim';
 }
 
-.task-card {
-  background-color: white;
-  border-radius: 6px;
-  box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
-  color: #3E4C59;
-  display: block;
-  padding: 13px;
-  padding-bottom: 0;
-  width: 220px;
-}
-
-.task-card 
-.task-body p.task-title{
-  display: inline-block;
-  margin-top: 0;
-  
-}
-
-.task-card 
-.task-footer {
-  border-top: 1px solid #E4E7EB;
-  width: 112%;
-  margin-left: -0.8rem;
-}
-
-.task-card 
-.task-footer 
-.task-asignee,
-.task-card 
-.task-footer 
-.task-dueDate {
-  margin-left: 13px;
-  margin-right: 13px;
-}
-
-.icon {
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  height: 1.5rem;
-  width: 1.5rem;
-}
-
-.task-card 
-.task-footer 
-.task-asignee > p,
-.task-card 
-.task-footer 
-.task-dueDate > p {
-  color: #7B8794;
-  font-size: 12px;
-  display: inline-block;
-  bottom: 0;
-
-}
-
-.task-card 
-.task-footer 
-.task-asignee > span.icon,
-.task-card 
-.task-footer 
-.task-dueDate > span.icon {
-    margin-right: -5px;
-    margin-left: -5px;
-}
-
-a.more-actions {
-  margin-bottom: 0.4rem;
-}
-
-.add-new-card {
-  color: #CBD2D9;
-  text-decoration: none;
-}
-
-.tags {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
-.tags .tag {
-  margin-bottom: 0.4rem;
-}
-
-.tags .tag:not(:last-child) {
-  margin-right: 0.4rem;
-}
-
-.tags:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-.tag:not(body) {
-  align-items: center;
-  background-color: whitesmoke;
-  border-radius: 4px;
+body {
   color: #4a4a4a;
-  display: inline-flex;
-  font-size: 0.75rem;
-  height: 2em;
-  justify-content: center;
+  font-size: 1em;
+  font-weight: 400;
   line-height: 1.5;
-  padding-left: 0.75em;
-  padding-right: 0.75em;
-  white-space: nowrap;
 }
 
-.tag:not(body).is-rounded {
-  border-radius: 290486px;
+/* ========================= GENERIC CLASSES ======================== */
+
+/* ===== A* ===== */
+
+/* ===== B* ===== */
+
+/* ===== C* ===== */
+
+.card-container {
+  background: white;
+  height: auto;
+  margin: 2px;
+  min-height: 150px;
+  width: 115%;
+}
+
+.card-container-hover { 
+  border: dashed 3px #F364A2 !important;
+}
+
+.card-dragging {
+  display: absolute;
+}
+
+.card-hold {
+  border: solid 5px #ccc;
 }
 
 .container {
   flex-grow: 1;
-  margin: 32px;
+  margin: 0 auto;
   position: relative;
   width: auto;
-  max-width: 1152px !important;
-  display: block;
 }
 
-.panel {
-  font-size: 1rem;
-  box-shadow: 0 2px 4px rgba(10, 10, 10, 0.1);
-}
-
-.panel:not(:last-child) {
-  margin-bottom: 1.5rem;
-}
-
-.panel-heading {
-  background-color: #FFE3EC;
-  border-radius: 4px 4px 0 0;
-  color: #A30664;
-  font-size: 1.25em;
-  font-weight: 600;
-  line-height: 1.25;
-  padding: 0.5em 0.75em;
-  margin-bottom: 0px;
-}
-
-.panel-block {
-  align-items: center;
-  color: #363636;
-  display: flex;
-  justify-content: flex-start;
-  padding: 0.5em 0.75em;
-}
-
-.panel-block > .control {
-  flex-grow: 1;
-  flex-shrink: 1;
-  width: 100%;
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+  .container.is-fluid {
+    margin-left: 32px;
+    margin-right: 32px;
+    max-width: none;
+  }
 }
 
 .column {
@@ -206,6 +160,20 @@ a.more-actions {
   flex-grow: 1;
   flex-shrink: 1;
   padding: 0.75rem;
+}
+
+@media screen and (min-width: 769px), print {
+  .column.is-one-third, .column.is-one-third-tablet {
+    flex: none;
+    width: 33.3333%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .column.is-one-quarter-desktop {
+    flex: none;
+    width: 25%;
+  }
 }
 
 .columns {
@@ -218,613 +186,191 @@ a.more-actions {
   margin-bottom: -0.75rem;
 }
 
-
-.columns.is-centered {
-  justify-content: center;
-}
-
-.columns.is-gapless {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-}
-
-.columns.is-gapless > .column {
-  margin: 0;
-  padding: 0 !important;
-}
-
-.columns.is-gapless:not(:last-child) {
-  margin-bottom: 1.5rem;
-}
-
-.columns.is-gapless:last-child {
-  margin-bottom: 0;
-}
-
-.columns.is-mobile {
-  display: flex;
-}
-
-.columns.is-multiline {
-  flex-wrap: wrap;
-}
-
-.columns.is-vcentered {
-  align-items: center;
-}
-
 @media screen and (min-width: 769px), print {
   .columns:not(.is-desktop) {
     display: flex;
   }
 }
 
-@media screen and (min-width: 1024px) {
-  .columns.is-desktop {
-    display: flex;
-  }
-}
-
-.columns.is-variable {
-  --columnGap: 0.75rem;
-  margin-left: calc(-1 * var(--columnGap));
-  margin-right: calc(-1 * var(--columnGap));
-}
-
-.columns.is-variable .column {
-  padding-left: var(--columnGap);
-  padding-right: var(--columnGap);
-}
-
-.columns.is-variable.is-0 {
-  --columnGap: 0rem;
-}
-
-@media screen and (max-width: 768px) {
-  .columns.is-variable.is-0-mobile {
-    --columnGap: 0rem;
-  }
-}
-
-@media screen and (min-width: 769px), print {
-  .columns.is-variable.is-0-tablet {
-    --columnGap: 0rem;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .columns.is-variable.is-0-tablet-only {
-    --columnGap: 0rem;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .columns.is-variable.is-0-touch {
-    --columnGap: 0rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .columns.is-variable.is-0-desktop {
-    --columnGap: 0rem;
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
-  .columns.is-variable.is-0-desktop-only {
-    --columnGap: 0rem;
-  }
-}
-
-@media screen and (min-width: 1216px) {
-  .columns.is-variable.is-0-widescreen {
-    --columnGap: 0rem;
-  }
-}
-
-@media screen and (min-width: 1216px) and (max-width: 1407px) {
-  .columns.is-variable.is-0-widescreen-only {
-    --columnGap: 0rem;
-  }
-}
-
-@media screen and (min-width: 1408px) {
-  .columns.is-variable.is-0-fullhd {
-    --columnGap: 0rem;
-  }
-}
-
-.columns.is-variable.is-1 {
-  --columnGap: 0.25rem;
-}
-
-@media screen and (max-width: 768px) {
-  .columns.is-variable.is-1-mobile {
-    --columnGap: 0.25rem;
-  }
-}
-
-@media screen and (min-width: 769px), print {
-  .columns.is-variable.is-1-tablet {
-    --columnGap: 0.25rem;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .columns.is-variable.is-1-tablet-only {
-    --columnGap: 0.25rem;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .columns.is-variable.is-1-touch {
-    --columnGap: 0.25rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .columns.is-variable.is-1-desktop {
-    --columnGap: 0.25rem;
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
-  .columns.is-variable.is-1-desktop-only {
-    --columnGap: 0.25rem;
-  }
-}
-
-@media screen and (min-width: 1216px) {
-  .columns.is-variable.is-1-widescreen {
-    --columnGap: 0.25rem;
-  }
-}
-
-@media screen and (min-width: 1216px) and (max-width: 1407px) {
-  .columns.is-variable.is-1-widescreen-only {
-    --columnGap: 0.25rem;
-  }
-}
-
-@media screen and (min-width: 1408px) {
-  .columns.is-variable.is-1-fullhd {
-    --columnGap: 0.25rem;
-  }
-}
-
-.columns.is-variable.is-2 {
-  --columnGap: 0.5rem;
-}
-
-@media screen and (max-width: 768px) {
-  .columns.is-variable.is-2-mobile {
-    --columnGap: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 769px), print {
-  .columns.is-variable.is-2-tablet {
-    --columnGap: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .columns.is-variable.is-2-tablet-only {
-    --columnGap: 0.5rem;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .columns.is-variable.is-2-touch {
-    --columnGap: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .columns.is-variable.is-2-desktop {
-    --columnGap: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
-  .columns.is-variable.is-2-desktop-only {
-    --columnGap: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 1216px) {
-  .columns.is-variable.is-2-widescreen {
-    --columnGap: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 1216px) and (max-width: 1407px) {
-  .columns.is-variable.is-2-widescreen-only {
-    --columnGap: 0.5rem;
-  }
-}
-
-@media screen and (min-width: 1408px) {
-  .columns.is-variable.is-2-fullhd {
-    --columnGap: 0.5rem;
-  }
-}
-
-.columns.is-variable.is-3 {
-  --columnGap: 0.75rem;
-}
-
-@media screen and (max-width: 768px) {
-  .columns.is-variable.is-3-mobile {
-    --columnGap: 0.75rem;
-  }
-}
-
-@media screen and (min-width: 769px), print {
-  .columns.is-variable.is-3-tablet {
-    --columnGap: 0.75rem;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .columns.is-variable.is-3-tablet-only {
-    --columnGap: 0.75rem;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .columns.is-variable.is-3-touch {
-    --columnGap: 0.75rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .columns.is-variable.is-3-desktop {
-    --columnGap: 0.75rem;
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
-  .columns.is-variable.is-3-desktop-only {
-    --columnGap: 0.75rem;
-  }
-}
-
-@media screen and (min-width: 1216px) {
-  .columns.is-variable.is-3-widescreen {
-    --columnGap: 0.75rem;
-  }
-}
-
-@media screen and (min-width: 1216px) and (max-width: 1407px) {
-  .columns.is-variable.is-3-widescreen-only {
-    --columnGap: 0.75rem;
-  }
-}
-
-@media screen and (min-width: 1408px) {
-  .columns.is-variable.is-3-fullhd {
-    --columnGap: 0.75rem;
-  }
-}
-
-.columns.is-variable.is-4 {
-  --columnGap: 1rem;
-}
-
-@media screen and (max-width: 768px) {
-  .columns.is-variable.is-4-mobile {
-    --columnGap: 1rem;
-  }
-}
-
-@media screen and (min-width: 769px), print {
-  .columns.is-variable.is-4-tablet {
-    --columnGap: 1rem;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .columns.is-variable.is-4-tablet-only {
-    --columnGap: 1rem;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .columns.is-variable.is-4-touch {
-    --columnGap: 1rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .columns.is-variable.is-4-desktop {
-    --columnGap: 1rem;
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
-  .columns.is-variable.is-4-desktop-only {
-    --columnGap: 1rem;
-  }
-}
-
-@media screen and (min-width: 1216px) {
-  .columns.is-variable.is-4-widescreen {
-    --columnGap: 1rem;
-  }
-}
-
-@media screen and (min-width: 1216px) and (max-width: 1407px) {
-  .columns.is-variable.is-4-widescreen-only {
-    --columnGap: 1rem;
-  }
-}
-
-@media screen and (min-width: 1408px) {
-  .columns.is-variable.is-4-fullhd {
-    --columnGap: 1rem;
-  }
-}
-
-.columns.is-variable.is-5 {
-  --columnGap: 1.25rem;
-}
-
-@media screen and (max-width: 768px) {
-  .columns.is-variable.is-5-mobile {
-    --columnGap: 1.25rem;
-  }
-}
-
-@media screen and (min-width: 769px), print {
-  .columns.is-variable.is-5-tablet {
-    --columnGap: 1.25rem;
-  }
-}
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .columns.is-variable.is-5-tablet-only {
-    --columnGap: 1.25rem;
-  }
-}
-
-@media screen and (max-width: 1023px) {
-  .columns.is-variable.is-5-touch {
-    --columnGap: 1.25rem;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .columns.is-variable.is-5-desktop {
-    --columnGap: 1.25rem;
-  }
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
-  .columns.is-variable.is-5-desktop-only {
-    --columnGap: 1.25rem;
-  }
-}
-
-@media screen and (min-width: 1216px) {
-  .columns.is-variable.is-5-widescreen {
-    --columnGap: 1.25rem;
-  }
-}
-
-@media screen and (min-width: 1216px) and (max-width: 1407px) {
-  .columns.is-variable.is-5-widescreen-only {
-    --columnGap: 1.25rem;
-  }
-}
-
-@media screen and (min-width: 1408px) {
-  .columns.is-variable.is-5-fullhd {
-    --columnGap: 1.25rem;
-  }
-}
-
-.columns.is-variable.is-6 {
-  --columnGap: 1.5rem;
-}
-
-@media screen and (max-width: 768px) {
-  .columns.is-variable.is-6-mobile {
-    --columnGap: 1.5rem;
-  }
-}
+/* ===== D* ===== */
 
-@media screen and (min-width: 769px), print {
-  .columns.is-variable.is-6-tablet {
-    --columnGap: 1.5rem;
-  }
-}
+/* ===== E* ===== */
 
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .columns.is-variable.is-6-tablet-only {
-    --columnGap: 1.5rem;
-  }
-}
+/* ===== F* ===== */
 
-@media screen and (max-width: 1023px) {
-  .columns.is-variable.is-6-touch {
-    --columnGap: 1.5rem;
-  }
-}
+/* ===== G* ===== */
 
-@media screen and (min-width: 1024px) {
-  .columns.is-variable.is-6-desktop {
-    --columnGap: 1.5rem;
-  }
-}
+/* ===== H* ===== */
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
-  .columns.is-variable.is-6-desktop-only {
-    --columnGap: 1.5rem;
-  }
-}
+/* ===== I* ===== */
 
-@media screen and (min-width: 1216px) {
-  .columns.is-variable.is-6-widescreen {
-    --columnGap: 1.5rem;
-  }
+.icon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  height: 1.1rem;
+  width: 1.1rem;
 }
 
-@media screen and (min-width: 1216px) and (max-width: 1407px) {
-  .columns.is-variable.is-6-widescreen-only {
-    --columnGap: 1.5rem;
-  }
-}
+/* ===== J* ===== */
 
-@media screen and (min-width: 1408px) {
-  .columns.is-variable.is-6-fullhd {
-    --columnGap: 1.5rem;
-  }
-}
+/* ===== K* ===== */
 
-.columns.is-variable.is-7 {
-  --columnGap: 1.75rem;
-}
+/* ===== L* ===== */
 
-@media screen and (max-width: 768px) {
-  .columns.is-variable.is-7-mobile {
-    --columnGap: 1.75rem;
-  }
+.list {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  font-size: 1rem;
 }
 
-@media screen and (min-width: 769px), print {
-  .columns.is-variable.is-7-tablet {
-    --columnGap: 1.75rem;
-  }
+.list-heading:first-child,
+.list-block:first-child {
+  border-top: 1px solid #dbdbdb;
 }
 
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .columns.is-variable.is-7-tablet-only {
-    --columnGap: 1.75rem;
-  }
+.list-heading {
+  background-color: #FFE3EC;
+  border-radius: 8px 8px 0 0;
+  color: #A30664;
+  font-size: 1.25em;
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 0.5em 0.75em;
 }
 
-@media screen and (max-width: 1023px) {
-  .columns.is-variable.is-7-touch {
-    --columnGap: 1.75rem;
-  }
+.list-block {
+  align-items: center;
+  color: #363636;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5em 0.75em;
 }
 
-@media screen and (min-width: 1024px) {
-  .columns.is-variable.is-7-desktop {
-    --columnGap: 1.75rem;
-  }
+.list-block:last-child {
+  border-radius: 0 0 8px 8px;
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
-  .columns.is-variable.is-7-desktop-only {
-    --columnGap: 1.75rem;
-  }
-}
+/* ===== M* ===== */
 
-@media screen and (min-width: 1216px) {
-  .columns.is-variable.is-7-widescreen {
-    --columnGap: 1.75rem;
-  }
-}
+/* ===== N* ===== */
 
-@media screen and (min-width: 1216px) and (max-width: 1407px) {
-  .columns.is-variable.is-7-widescreen-only {
-    --columnGap: 1.75rem;
-  }
-}
+/* ===== O* ===== */
 
-@media screen and (min-width: 1408px) {
-  .columns.is-variable.is-7-fullhd {
-    --columnGap: 1.75rem;
-  }
-}
+/* ===== P* ===== */
 
-.columns.is-variable.is-8 {
-  --columnGap: 2rem;
-}
+/* ===== Q* ===== */
 
-@media screen and (max-width: 768px) {
-  .columns.is-variable.is-8-mobile {
-    --columnGap: 2rem;
-  }
-}
+/* ===== R* ===== */
 
-@media screen and (min-width: 769px), print {
-  .columns.is-variable.is-8-tablet {
-    --columnGap: 2rem;
-  }
-}
+/* ===== S* ===== */
 
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .columns.is-variable.is-8-tablet-only {
-    --columnGap: 2rem;
-  }
-}
+/* ===== T* ===== */
 
-@media screen and (max-width: 1023px) {
-  .columns.is-variable.is-8-touch {
-    --columnGap: 2rem;
-  }
+.tag {
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 290486px;
+  color: #4a4a4a;
+  display: inline-flex;
+  font-size: 0.75rem;
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  white-space: nowrap;
+  margin-bottom: 15px;
 }
 
-@media screen and (min-width: 1024px) {
-  .columns.is-variable.is-8-desktop {
-    --columnGap: 2rem;
-  }
+.tags .tag:not(:last-child) {
+  margin-right: 0.4rem;
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1215px) {
-  .columns.is-variable.is-8-desktop-only {
-    --columnGap: 2rem;
-  }
+.task-card {
+  border-radius: 8px;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
+  color: #3E4C59;
+  height: auto;
+  margin-bottom: 13px;
+  width: 100%;
 }
 
-@media screen and (min-width: 1216px) {
-  .columns.is-variable.is-8-widescreen {
-    --columnGap: 2rem;
-  }
+.task-card-body {
+  background-color: #fff !important;
+  height: auto;
+  padding: 13px;
+  width: 100%;
 }
 
-@media screen and (min-width: 1216px) and (max-width: 1407px) {
-  .columns.is-variable.is-8-widescreen-only {
-    --columnGap: 2rem;
-  }
+.task-card-body p {
+  display: block;
+  margin-right: 60px;
 }
 
-@media screen and (min-width: 1408px) {
-  .columns.is-variable.is-8-fullhd {
-    --columnGap: 2rem;
-  }
+.task-card-footer {
+  background-color: #fff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top: 1px #E4E7EB solid;
+  color: #7B8794;
+  font-size: 14px;
+  height: 45px;
+  padding: 13px;
 }
 
-.is-pulled-left {
+.task-card-footer .asignee {
+  display: inline-block;
   float: left !important;
+  width: 50%;
 }
 
-.is-pulled-right {
+.task-card-footer .dueDate {
+  display: inline-block;
+  float: right !important;
+  width: 50%;
+}
+
+.task-card-footer .dueDate span {
   float: right !important;
 }
 
-/* test */
-.hold {
-  border: solid 5px #ccc;
-}
-
-.hover {
-  border-style: dashed !important;
-}
-
-.card-dragging {
-  display: absolute;
-}
-
-.card-container {
+.task-card-header {
+  background-color: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   height: auto;
-  width: 115%;
-  margin: 2px;
-  border: solid 3px #fae4ec;
-  background: white;
-  min-height: 150px;
+  padding: 13px;  
 }
+
+.task-card-header .actions {
+  float: right !important;
+  width: 10%;
+}
+
+.task-card-header .actions a {
+  float: right !important;
+  text-decoration: none;
+}
+
+.task-card-header .tags {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  float: left !important;
+  justify-content: flex-start;
+  width: 90%;
+}
+
+/* ===== U* ===== */
+
+/* ===== V* ===== */
+
+/* ===== W* ===== */
+
+/* ===== X* ===== */
+
+/* ===== Y* ===== */
+
+/* ===== Z* ===== */
