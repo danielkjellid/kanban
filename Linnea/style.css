@@ -3,17 +3,143 @@ body {
     background-color: grey;
 }
 
-#container {
-    position: absolute;
-    background-color: white;
-    height: 400px;
-    width: 600px;
-    left: 350px;
+#greyContPart {
+    background-color: rgba(240,240,240,240);
+    padding: 20px;
+    position: fixed;
     bottom: 100px;
+    left: 330px;
+    height: 20px;
+    width: 540px;
+    border-radius: 0px 0px 10px 10px;
+    z-index: 2;
 }
 
-form {
+#contentContainer {
+    background-color: rgba(255,255,255,255);
+    padding: 20px;
+    position: fixed;
+    bottom: 100px;
+    left: 330px;
+    height: 380px;
+    width: 540px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
+
+#btnSaveChanges {
+    background-color: #F464A1;
+    border: none;
+    color: rgba(255,255,255,255);
+    padding: 10px 13px;
+    border-radius: 50px;
+    position: fixed;
+    bottom: 112px;
+    left: 770px;
+    font-size: 14px;
+    z-index: 2;
+}
+
+a {
+    color: rgba(150,150,150,150);
+    font-family: sans-serif;
+    padding: 10px 13px;
+    font-size: 14px;
+    z-index: 10;
+}
+
+#btnCancel {
+    text-decoration-line: none;
+    position: fixed;
+    bottom: 112px;
+    left: 700px
+}
+
+#btnEditInfo {
+    text-decoration-line: none;
+    position: fixed;
+    left: 610px;
+}
+
+#btnEditInfo:hover {
+    color: rgba(50,50,50,50);
+    border-bottom: 1px solid #F464A1;
+   
+}
+
+#btnEditInfo:active {
+    color: rgba(50,50,50,50);
+    border-bottom: 1px solid #F464A1;
+}
+
+#btnOverview {
+    text-decoration-line: none;
+    position: fixed;
+    left: 530px;
+}
+
+#btnOverview:hover {
+    color: rgba(50,50,50,50);
+    border-bottom: 1px solid #F464A1;
+}
+
+#btnOverview:active {
+    color: rgba(50,50,50,50);
+    border-bottom: 1px solid #F464A1;
+}
+
+#edit-title {
+    width: 540px;
+    height: 20px;
     position: absolute;
-    left: 50px;
+    bottom: 300px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 0.5px solid rgba(220,220,220,220);
 }
 
+#edit-dueDate {
+    width: 540px;
+    height: 20px;
+    position: absolute;
+    bottom: 240px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 0.5px solid rgba(220,220,220,220);
+
+}
+
+#edit-description {
+    width: 540px;
+    height: 100px;
+    position: absolute;
+    bottom: 100px;
+    padding: 12px 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 0.5px solid rgba(220,220,220,220);
+}
+
+h1 {
+    font-family: sans-serif;
+    font-size: 10px;
+    color: rgba(210,210,210,210);
+}
+
+#titleID {
+    position: fixed;
+    bottom: 425px;
+}
+
+#duedateID {
+    position: fixed;
+    bottom: 365px;
+}
+
+#descID {
+    position: fixed;
+    bottom: 300px;
+}

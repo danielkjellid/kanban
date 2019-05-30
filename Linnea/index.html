@@ -5,27 +5,31 @@
     <body>
             <div id="container">
                 
-                <a href="information.html" class="button">Overview</a>
-                <a href="index.html" class="button">Edit information</a>
+                <div id="greyContPart"></div>
+                <div id="contentContainer">
+                <a href="information.html" id="btnOverview" class="button1">Overview</a>
+                <a href="index.html" id="btnEditInfo" class="button1">Edit information</a>
             
                     
                 <form id="addInfoForm">
                     
-                    Title:
+                    <h1 id="titleID">TITLE</h1>
                     <p><input type="text" id="edit-title" name="title" placeholder="TITLE"></p>
                
-                    Due date:
+                    <h1 id="duedateID">DUE DATE</h1>
                     <p><input type="text" id="edit-dueDate" name="duedate" placeholder="DUE DATE"></p>
               
-                    Desription:
+                    <h1 id="descID">DESCRIPTION</h1>
                     <p><input type="text" id="edit-description" name="description" placeholder="DESCRIPTION"></p> 
                     
-                   <button>Save Changes</button>
-                 </form>   
                 
+                    <a href="information.html" id="btnCancel" class="button1">Cancel</a>
+                        <button id="btnSaveChanges">Save Changes</button>
+                 </form>   
+              
                 <script src="../static/js/indexeddb.js"></script>
                 <script src="../static/js/tasks.js"></script>
-                     
+            </div>           
         </div>
     </body>
     </head>
