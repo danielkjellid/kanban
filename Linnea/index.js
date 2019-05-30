@@ -9,7 +9,7 @@ function addText() {
     var descriptionInput = document.getElementById("description").value;
     
 
-//open connection to database
+    //open connection to database
     let request = window.indexedDB.open("infoDatabase", 2), 
         textDB,
         textTx,

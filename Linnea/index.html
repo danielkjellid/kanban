@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <script type=text/javascript src="indexedDB.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css">
     <body>
-        <div id="container">
-            <a href="information.html" class="button">Overview</a>
+        <script type=text/javascript src="indexedDB.js"></script>
+            <div id="container">
+                
+                <a href="information.html" class="button">Overview</a>
+                <a href="index.html" class="button">Edit information</a>
             
-            <a href="index.html" class="button">Edit information</a>
-            
-                <form onsubmit="addText()" action="information.html" id="addTextForm">
                     
-                    <h1></h1>
+                <form id="addInfoForm">
+                    
+                    Title:
                     <p><input type="text" id="title" name="title" placeholder="TITLE"></p>
                
-                    <h1>DUE DATE:</h1>
+                    Due date:
                     <p><input type="text" id="duedate" name="duedate" placeholder="DUE DATE"></p>
               
-                    <h1>DESCRIPTION:</h1>
+                    Desription:
                     <p><input type="text" id="description" name="description" placeholder="DESCRIPTION"></p> 
                     
-                    <input type="submit" onsubmit="listText()" id="listText">
+                   <button onclick="createDB(); addText();"id="btnCreateDB">Save Changes</button>
+                 </form>   
                     
-                    <a href="information.html" class="button">Cancel</a>
-                </form>        
+                     
         </div>
     </body>
     </head>
