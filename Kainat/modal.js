@@ -1,3 +1,4 @@
+//Function to open and close modal
 var main = document.getElementById("mainBox");
 var openBtn = document.getElementById("button");
 var closeBtn = document.getElementsByClassName("closeBtn")[0];
@@ -18,50 +19,23 @@ function closeModal(){
 
 
 //Tab function
-
-
-/*
-
-//Tab function
-
-var firstTab = document.getElementById("firstTab");
-var overview = document.getElementsByClassName("overview");
-var secondTab = document.getElementById("secondTab");
-var edit = document.getElementsByClassName("edit");
-
-
-function open(tabName) {
-    var i;
-    var x = document.getElementsByClassName(tabs);
-    for(i = 0; i < x.length; i++) {
-        x[i].style.display = none;
+function openTab(evt, tabName) {
+    //Declaring all variables
+    var i, tabContent, tabs; //het tablinks
+    
+    tabContent = document.getElementsByClassName("tabContent");
+    for (i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
     }
+    
+    tabs = document.getElementsByClassName("tabs");
+    for (i = 0; i < tabs.length; i++) {
+        tabs[i].className = tabs[i].className.replace(" active", "");
+    }
+    
     document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -1,110 +1,60 @@
 <!DOCTYPE>
 <html>
     <head>
-        <link rel="stylesheet" href="bulm.css">
-        <link rel="stylesheet" href="modal.css">
-        <title>Modal</title>
+    <link rel="stylesheet" href="modal.css">
+    <title>New Modal</title>
     </head>
     
     <body>
-        <button onclick="openModal()" class="button">Click here for information</button>
+        <div class="mainPage">
+           <button onclick="openModal()" class="button">Click here for information</button>
+        </div>
         
         <div id="mainBox" class="box">
             <div class="boxContent">
-        
-                
-                
-                <button class="overview" onclick="open()">OverView</button>
-                <button class="edit" onclick="open1()">Edit Information</button>
-                
-    
-                <div id="firstTab" class="tabs">
-                    <span onclick="closeModal()" class="closeBtn">&times;</span>
-                    <h1>Design Kanban board for exam web project</h1>
-                
-            <div class="tagContent">
-                <h3>TAGS</h3>
-                <div class="tags">
-                    <span class="tag green">Frontend</span>
-                    <span class="tag purple">Design</span>
-                    <span class="tag pink">Priority</span>
-                    <button onclick="addTag()" id="addTags"><strong>+ </strong>Add new tag</button>
+                <span onclick="closeModal()" class="closeBtn">&times;</span>
+            
+                <!--Tab bar-->
+                <div class="tab">
+                    <button class="tabs" onclick="openTab(event, 'Overview')">Overview</button>
+                    <button class="tabs" onclick="openTab(event, 'Edit')">Edit Information</button>
                 </div>
-            </div>
                 
-            <div class="descriptionContent">
-                <h3>DESCRIPTION</h3>
-                <p id="mainParagraph">This is a description describing the task that is to be done. This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done. </p>
-            </div>
-                
-            <div class="memberContent">
-                <h3>MEMEBERS</h3>
-                    <div class="allMembers">
-                        <span class="members m1"><strong>MD</strong></span>
-                        <span class="members m2"><strong>DK</strong></span>
-                        <button onclick="addMember()" id="addMember"><strong>+ </strong>Add new member</button>
+                <!--First tab-->
+                <div id="Overview" class="tabContent" style="display: block"> 
+                    <h1>Design Kanban board for exam web project</h1>
+                    <div class="tagContent">
+                        <h3>TAGS</h3>
+                        <div class="tags">
+                            <span class="tag green">Frontend</span>
+                            <span class="tag purple">Design</span>
+                            <span class="tag pink">Priority</span>
+                            <button onclick="addTag()" id="addTags"><strong>+ </strong>Add new tag</button>
+                        </div>
                     </div>
-            </div>
+                    <div class="descriptionContent">
+                        <h3>DESCRIPTION</h3>
+                            <p id="mainParagraph">This is a description describing the task that is to be done. This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done. </p>
+                    </div>
+                    <div class="memberContent">
+                        <h3>MEMEBERS</h3>
+                        <div class="allMembers">
+                            <span class="members m1"><strong>MD</strong></span>
+                            <span class="members m2"><strong>DK</strong></span>
+                            <button onclick="addMember()" id="addMember"><strong>+ </strong>Add new member</button>
+                        </div>
+                    </div>
                     <div class="actionContent">
                         <h3>ACTIONS</h3>
                     </div>
-                    
-                    
-                    
-                    
-                    
-                    
-                
                 </div>
                 
-                <div id="secondTab" class="tabs">
+                <!--Second tab-->
+                <div id="Edit" class="tabContent"> 
                     <p>This is a description describing the task that is to be done. This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done. </p>
-                    
                 </div>
-                
-                
-                
-                
-                
-                
             </div>
         </div>
         <script src="modal.js"></script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -45,6 +45,39 @@ body{
     cursor: pointer;
 }
 
+.tab{
+    overflow: hidden;
+    border-bottom-color: #dbdbdb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.tab button {
+    position: relative;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px 10px;
+    left: 300px;
+    transition: 0.3s;
+}
+
+.tab button:hover{
+    background-color: rgba(235, 60, 60, 0.2);
+}
+
+.tab button.active{
+    background-color: #ccc;
+}
+
+.tabContent {
+    display: none;
+    border-top: none;
+    
+}
+
 h3 {
     position: relative;
     font-size: 15px;
@@ -55,12 +88,10 @@ h1{
     position: relative;
     font-size: 25px;
     text-align: left;
-    top: 30px;
 }
 
 .tagContent{
     position: relative;
-    top: 30px;
 }
 
 .tag:not(body).green {
@@ -99,7 +130,6 @@ h1{
 
 .descriptionContent{
     position: relative;
-    top: 30px;
 }
 
 
@@ -130,27 +160,13 @@ h1{
     color: whitesmoke;
 }
 
-
 .memberContent{
     position: relative;
-    top: 30px;
 }
 
 .actionContent{
     position: relative;
-    top: 40px;
 }
-
-
-
-#secondTab{
-    position: relative;
-    display: none;
-}
-
-
-
-
 
 
 /*.tabs ul {
