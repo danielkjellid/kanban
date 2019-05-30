@@ -3,48 +3,28 @@
     <head> 
         <link rel="stylesheet" type="text/css" href="style.css">
     <body>
-        <div id="container">
-            <a href="information.html" class="button">Overview</a>
+        <script type=text/javascript src="indexedDB.js"></script>
+            <div id="container">
+                
+                <a href="information.html" class="button">Overview</a>
+                <a href="index.html" class="button">Edit information</a>
             
-            <a href="index.html" class="button">Edit information</a>
-            
-                <form method="GET" action="information.html" id="addTextForm">
                     
-                    <h1></h1>
+                <form id="addInfoForm">
+                    
+                    Title:
                     <p><input type="text" id="title" name="title" placeholder="TITLE"></p>
                
-                    <h1>DUE DATE:</h1>
+                    Due date:
                     <p><input type="text" id="duedate" name="duedate" placeholder="DUE DATE"></p>
               
-                    <h1>DESCRIPTION:</h1>
+                    Desription:
                     <p><input type="text" id="description" name="description" placeholder="DESCRIPTION"></p> 
                     
-                    <button onclick="addText()">Save Changes</button>
+                   <button onclick="createDB(); addText();"id="btnCreateDB">Save Changes</button>
+                 </form>   
                     
-                    <a href="information.html" class="button">Cancel</a>
-                </form>   
-             
-            <script 
-                type="text/javascript">
-                function getUrlVars() {
-                    var vars = {};
-                    var url = decodeURIComponent(window.location.href.replace(/\+/g, '%20'));
-                    var parts = url.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-                        function(m,key,value) {
-                            vars[key] = value;
-                            });
-                                return vars;
-}
-                    var text = getUrlVars()["title"];
-                    document.getElementById("new-title").innerHTML = text;
-                
-                    var text1 = getUrlVars()["duedate"];
-                    document.getElementById("new-duedate").innerHTML = text1;
-                
-                    var text2 = getUrlVars()["description"];
-                    document.getElementById("new-description").innerHTML = text1;
-            </script>
-               
+                     
         </div>
     </body>
     </head>
