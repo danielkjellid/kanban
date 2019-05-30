@@ -1,6 +1,38 @@
-/* CSS document for recurring elements such as navigation bar and footer */
-*{
-    font-family: sans-serif;
+@font-face{
+  font-family: 'Walsheim';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../static/fonts/gt-walsheim/gt-walsheim-web.ttf");
+}
+@font-face{
+  font-family: 'Walsheim';
+  font-style: italic;
+  font-weight: 400;
+  src: url("../static/fonts/gt-waslheim/gt-walsheim-regular-oblique-web.ttf");
+}
+@font-face{
+  font-family: 'Walsheim';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../static/fonts/gt-walsheim/gt-walsheim-medium-web.zip");
+}
+@font-face{
+  font-family: 'Walsheim';
+  font-style: italic;
+  font-weight: 500;
+  src: url("../static/fonts/gt-washeim/gt-walsheim-medium-oblique-web.ttf");
+}
+@font-face{
+  font-family: 'Walsheim';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../static/fonts/gt-walsheim/gt-walsheim-bold-web.ttf");
+}
+@font-face{
+  font-family: 'Walsheim';
+  font-style: italic;
+  font-weight: 700;
+  src: url("../static/fonts/gt-walsheim/gt-walsheim-bold-oblique-web.ttf");
 }
 
 body{  /*CSS code for body*/
@@ -456,20 +488,231 @@ ol.kanban {
 }
 
 #first {
-  width: 100%;
-  text-align: center;
-  color: white;
-  font-size: 36px;
-  line-height: 100px;
-  z-index:5621;
+    width: 300px;
+    height: 300px;
+    left: 800px;
+    top: 100px;
+    color: black;
+    font-size: 24px;
+    position: absolute;
+    font-family: 'Walsheim';
 }
-/* =================================================== */
-/* PAGE SPECIFIC CODE: */
 
+#first p{
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    left: 50px;
+    font-family: 'Walsheim';
+}
 
+#first_orb {
+    background-color: rgb(255, 227, 236);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    left: 90px;
+}
 
+#first_orb p {
+    color: rgb(163, 5, 100);
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    font-size: 50px;
+    font-family: 'Walsheim' !important;
+}
 
+#second {
+    width: 250px;
+    height: 250px;
+    left: 450px;
+    top: 200px;
+    color: black;
+    font-size: 24px;
+    position: absolute;
+    font-family: 'Walsheim' !important;
+}
 
+#second p {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    left: 4px;
+    font-family: 'Walsheim' !important;
+}
 
+#second_orb {
+    background-color: rgb(255, 227, 236);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    left: 80px;
+    position: absolute;
+    top: 0px;
+}
 
-/* END OF PAGE SPECIFIC CODE */
+#second_orb p {
+    color: rgb(163, 5, 100);
+    position:absolute;
+    left: 24px;
+    bottom: 0px;
+    font-size: 28px;
+}
+
+#third {
+    width: 250px;
+    height: 250px;
+    left: 1200px;
+    top: 200px;
+    color: black;
+    font-size: 24px;
+    position: absolute;
+}
+
+#third p{
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    left: 40px;
+}
+
+#third_orb {
+    background-color: rgb(255, 227, 236);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 80px;
+    top: 0px;
+    
+}
+
+#third_orb p {
+    color: rgb(163, 5, 100);
+    position: absolute;
+    left: 24px;
+    bottom: 0px;
+    font-size: 28px;
+}
+
+#fourth {
+    top: 550px;
+    left: 260px;
+    width: 440px;
+    height: 120px;
+    color: black;
+    font-size: 24px;
+    position: absolute;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+    border-radius: 6px;
+}
+
+#fourth p {
+    position: absolute;
+    left: 120px;
+    top: 8px;
+}
+
+#fourth_orb {
+    background-color: rgb(255, 227, 236);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+#fourth_orb p {
+    color: rgb(163, 5, 100);
+    position: absolute;
+    left: 26px;
+    top: 0px;
+    font-size: 28px;
+}
+
+#fifth {
+    top: 550px;
+    left: 740px;
+    width: 440px;
+    height: 120px;
+    color: black;
+    font-size: 24px;
+    position: absolute;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+    border-radius: 6px;
+}
+
+#fifth p {
+    position: absolute;
+    left: 120px;
+    top: 8px;
+}
+
+#fifth_orb {
+    background-color: rgb(255, 227, 236);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+#fifth_orb p{
+    color: rgb(163, 5, 100);
+    position: absolute;
+    left: 26px;
+    top: 0px;
+    font-size: 28px;
+}
+
+#sixth {
+    top: 550px;
+    left: 1220px;
+    width: 440px;
+    height: 120px;
+    color: black;
+    font-size: 24px;
+    position: absolute;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+    border-radius: 6px;
+}
+
+#sixth p {
+    position: absolute;
+    left: 120px;
+    top: 8px;
+}
+
+#sixth_orb {
+    background-color: rgb(255, 227, 236);
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+}
+
+#sixth_orb p {
+    color: rgb(163, 5, 100);
+    position: absolute;
+    left: 26px;
+    top: 0px;
+    font-size: 28px;
+}
+
+#crown {
+    position: absolute;
+    left: 930px;
+    top: 75px;
+}
