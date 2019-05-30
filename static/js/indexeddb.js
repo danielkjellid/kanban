@@ -5,7 +5,6 @@
 //Members: memberID, fullName, initials
 //Assignments: assignmentID, memberID, taskID
 
-
 window.webkitIndexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
 //check for support
@@ -15,7 +14,7 @@ if(!window.indexedDB) {
 
 //open database "KanbanDatabase" version 1. 
 //db = database, tx = transaction, store = store data, index = index (seach data).
-let request = window.indexedDB.open("KanbanDatabase", 4), 
+let request = window.indexedDB.open("KanbanDatabase", 7), 
     db,
     tx,
     store,
@@ -88,7 +87,6 @@ request.onsuccess = function(e) {
         description: "This is a description describing the task that is to be done. Lorem ipsum dolor amet asymmetrical artisan literally pork belly pug microdosing kitsch authentic pinterest subway tile tousled craft beer church-key art party. Chambray brooklyn copper DemsuigndkiarencbtatnrabdoeairPdhofonreemxaumstawcehbe typewriter paleo selvage.",
         taskID: 1
     });
-    
 
     //put object in membersStore
     membersStore.put({
@@ -101,7 +99,7 @@ request.onsuccess = function(e) {
     assignmentStore.put({
         memberID: 1,
         taskID: 1,
-        assigmentID: 1
+        assignmentID: 1
     });*/
 
     //retrive data
@@ -127,7 +125,7 @@ request.onsuccess = function(e) {
     //close DB conection once transaction is complete.
     tasksTx.oncomplete = function() {
         db.close();
-    };
+    }
 
     membersTx.oncomplete = function() {
         db.close();

@@ -24,7 +24,7 @@ function addTask() {
     var descriptionInput = document.getElementById("task-desc").value;
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 4), 
+    let request = window.indexedDB.open("KanbanDatabase", 7), 
     db,
     tx,
     store,
@@ -81,7 +81,7 @@ function addTask() {
 //List card function
 function listTasks() {
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 4), 
+    let request = window.indexedDB.open("KanbanDatabase", 7), 
     db,
     tx,
     store,
@@ -150,13 +150,6 @@ function listTasks() {
 
         tasksTx.oncomplete = function() {
             db.close();
-        };
+        }
     }
 }
-
-//handleForm is defined in misc.js
-//form handler to prevent page from reloading
-var addTaskForm = document.getElementById("addTaskForm");
-
-//to prevent page from reloading
-addTaskForm.addEventListener('submit', handleForm);

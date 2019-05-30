@@ -4,8 +4,3 @@ function onLoad() {
     listTasks();
     listAssignments();
 }
-
-//form handler to prevent page from reloading
-function handleForm(e) {
-    e.preventDefault();
-}

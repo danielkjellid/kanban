@@ -1,9 +1,11 @@
+
+
 function addAssignment() {
-    var memberInput = document.getElementById("list-members").value;
-    var taskInput = document.getElementById("list-tasks").value;
+    var memberInput = parseInt(document.getElementById("list-available-members").value);
+    var taskInput = parseInt(document.getElementById("list-available-tasks").value);
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 4), 
+    let request = window.indexedDB.open("KanbanDatabase", 7), 
     db,
     tx,
     store,
@@ -48,7 +50,7 @@ function addAssignment() {
 
 function listAssignments() {
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 4), 
+    let request = window.indexedDB.open("KanbanDatabase", 7), 
     db,
     tx,
     store,
@@ -98,7 +100,6 @@ function listAssignments() {
                     getAssignmentElementContainer.appendChild(createAssignmentList);
                     //JSON stringify to return object in string format, and not [Object object]
                     createAssignmentList.innerHTML = JSON.stringify(getAssignments.result);
-                    console.log(getAssignments.result);
                 }
             }   
          }
@@ -107,4 +108,4 @@ function listAssignments() {
             db.close();
         }
     } 
- }
+}
