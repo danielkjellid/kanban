@@ -1,6 +1,6 @@
-const card = document.querySelector('.card');
-const cards = document.querySelectorAll('.card')
-const taskContainers = document.querySelectorAll('.taskContainer');
+const card = document.querySelector('.task-card');
+const cards = document.querySelectorAll('.task-card')
+const taskContainers = document.querySelectorAll('.card-container');
 
 var draggingCard = null;
 
@@ -18,7 +18,7 @@ function dragStart(event) {
 }
 
 function dragEnd() {
-    this.className = 'card';
+    this.className = 'task-card';
     draggingCard = null;
 }
 
@@ -32,11 +32,11 @@ function dragEnter(e) {
 }
 
 function dragLeave() {
-    this.className = 'taskContainer';
+    this.className = 'card-container';
 }
 
 function dragDrop() {
-    this.className = 'taskContainer';
+    this.className = 'card-container';
     this.append(draggingCard);
 }
 
