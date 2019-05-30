@@ -1,7 +1,8 @@
 <!DOCTYPE>
 <html>
     <head>
-        <link rel="stylesheet" href="test2.css">
+        <link rel="stylesheet" href="bulm.css">
+        <link rel="stylesheet" href="modal.css">
         <title>Modal</title>
     </head>
     
@@ -11,12 +12,24 @@
         <div id="mainBox" class="box">
             <div class="boxContent">
         
-                <span onclick="closeModal()" class="closeBtn">&times;</span>
-                <h1>Design Kanban board for exam web project</h1>
+                
+                
+                <button class="overview" onclick="open()">OverView</button>
+                <button class="edit" onclick="open1()">Edit Information</button>
+                
+    
+                <div id="firstTab" class="tabs">
+                    <span onclick="closeModal()" class="closeBtn">&times;</span>
+                    <h1>Design Kanban board for exam web project</h1>
                 
             <div class="tagContent">
                 <h3>TAGS</h3>
-                <button onclick="addTag()" id="tags">Add new tag</button>
+                <div class="tags">
+                    <span class="tag green">Frontend</span>
+                    <span class="tag purple">Design</span>
+                    <span class="tag pink">Priority</span>
+                    <button onclick="addTag()" id="addTags"><strong>+ </strong>Add new tag</button>
+                </div>
             </div>
                 
             <div class="descriptionContent">
@@ -26,14 +39,37 @@
                 
             <div class="memberContent">
                 <h3>MEMEBERS</h3>
-                <button onclick="addMember()" id="Member">Add new member</button>
+                    <div class="allMembers">
+                        <span class="members m1"><strong>MD</strong></span>
+                        <span class="members m2"><strong>DK</strong></span>
+                        <button onclick="addMember()" id="addMember"><strong>+ </strong>Add new member</button>
+                    </div>
             </div>
+                    <div class="actionContent">
+                        <h3>ACTIONS</h3>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    
                 
-                <h3>ACTIONS</h3>
+                </div>
+                
+                <div id="secondTab" class="tabs">
+                    <p>This is a description describing the task that is to be done. This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done.This is a description describing the task that is to be done. </p>
+                    
+                </div>
+                
+                
+                
+                
+                
+                
             </div>
         </div>
-        
-        <script src="test.js"></script>
+        <script src="modal.js"></script>
     </body>
 </html>
 

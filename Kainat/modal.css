@@ -25,6 +25,9 @@ body{
 }
 
 .boxContent{
+    position: relative;
+    border-radius: 10px;
+    height: 400px;
     background-color: white;
     margin: 40% auto;
     padding: 20px;
@@ -43,15 +46,492 @@ body{
 }
 
 h3 {
-    font-size: 13px;
+    position: relative;
+    font-size: 15px;
     text-align: left;
-    margin: 20px 0 10px;
 }
 
 h1{
+    position: relative;
     font-size: 25px;
     text-align: left;
+    top: 30px;
 }
+
+.tagContent{
+    position: relative;
+    top: 30px;
+}
+
+.tag:not(body).green {
+    background-color: rgb(121, 199, 199);
+    color: whitesmoke;
+}
+
+.tag:not(body).purple {
+    background-color:rgb(160, 121, 199) ;
+    color: whitesmoke;
+}
+
+.tag:not(body).pink {
+    background-color: hsla(0, 100%, 50%, 0.4);
+    color: whitesmoke;
+}
+
+.tag:not(body) {
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    color: #4a4a4a;
+    display: inline-flex;
+    font-size: 0.75rem;
+    height: 2em;
+    justify-content: center;
+    line-height: 1.5;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    white-space: nowrap;
+}
+
+#addTags{
+    border: 0;
+}
+
+.descriptionContent{
+    position: relative;
+    top: 30px;
+}
+
+
+#addMember{
+    border: 0;
+}
+
+.members:not(body) {
+    align-items: center;
+    background-color: skyblue;
+    border-radius: 100%;
+    color: #4a4a4a;
+    line-height: 1.5;
+    padding-left: 0.50em;
+    padding-right: 0.50em;
+    padding-top: 0.50em;
+    padding-bottom: 0.50em;
+    white-space: nowrap;
+}
+
+.members:not(body).m1 {
+    background-color: hsla(0, 100%, 50%, 0.4);
+    color: whitesmoke;
+}
+
+.members:not(body).m2 {
+    background-color: hsla(0, 100%, 50%, 0.4);
+    color: whitesmoke;
+}
+
+
+.memberContent{
+    position: relative;
+    top: 30px;
+}
+
+.actionContent{
+    position: relative;
+    top: 40px;
+}
+
+
+
+#secondTab{
+    position: relative;
+    display: none;
+}
+
+
+
+
+
+
+/*.tabs ul {
+    align-items: center;
+    border-bottom-color: #dbdbdb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: flex-start;
+}
+
+.tabs {
+    align-items: stretch;
+    font-size: 1rem;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+
+/*
+
+.tabs:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.tabs ul {
+    align-items: center;
+    border-bottom-color: #dbdbdb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    justify-content: flex-start;
+}
+
+.tabs {
+    -webkit-overflow-scrolling: touch;
+    align-items: stretch;
+    display: flex;
+    font-size: 1rem;
+    justify-content: space-between;
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+
+
+
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+
+.tagContent{
+    position: relative;
+    background-color: ;
+    width: 300px;
+    height: 50px;
+}
+
+#tag1{
+    position: relative;
+    font-size: 13px;
+    bottom: 10px;
+    z-index: 10;
+}
+
+#tag2{
+    position: relative;
+    bottom: 38px;
+    left: 65px;
+    font-size: 13px;
+    z-index: 11;
+}
+
+#tags{
+    position: relative;
+    border: 0;
+    bottom: 66px;
+    left: 120px;
+}
+
+#style1{
+    position: relative;
+    width: 60px;
+    height: 20px;
+    background-color: lightpink;
+    bottom: 85px;
+    left: -6px;
+    border-radius: 20px;
+}
+
+#style2{
+    position: relative;
+    width: 50px;
+    height: 20px;
+    background-color: lightseagreen;
+    bottom: 105px;
+    left: 58px;
+    border-radius: 20px;
+}
+
+.memberContent{
+    position: relative;
+    width: auto;
+    height: 80px;
+    background-color:;
+}
+
+#member1{
+    position: relative;
+    font-size: 15px;
+    left: 10px;
+    z-index: 12;
+    top: 10;
+    color: lightpink;
+}
+
+#member2{
+    position: relative;
+    font-size: 15px;
+    left: 60px;
+    bottom: 20px;
+    z-index: 13;
+    color: lightpink;
+}
+
+#member{
+    position: relative;
+    border:0;
+    bottom: 50px;
+    left: 110px;
+}
+
+#round1{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: lightcoral;
+    border-radius: 100%;
+    bottom: 81;
+    left: 1;
+}
+
+#round2{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background-color: lightcoral;
+    border-radius: 100%;
+    bottom: 120;
+    left: 51;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+<!--<p id="tag1">Frontend</p>
+                 <p id="tag2">Design</p>
+                <div id="style1"></div>
+                <div id="style2"></div>
+                -->
+
+
+.tag1{
+    font-size: 14px;
+    background-color: lightpink;
+}
+
+.tags {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.tags .tag {
+  margin-bottom: 0.5rem;
+}
+
+.tags .tag:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.tags:last-child {
+  margin-bottom: -0.5rem;
+}
+
+.tags:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.tags.are-medium .tag:not(.is-normal):not(.is-large) {
+  font-size: 1rem;
+}
+
+.tags.are-large .tag:not(.is-normal):not(.is-medium) {
+  font-size: 1.25rem;
+}
+
+.tags.has-addons .tag {
+  margin-right: 0;
+}
+
+.tags.has-addons .tag:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.tags.has-addons .tag:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.tags.is-centered {
+  justify-content: center;
+}
+
+.tags.is-centered .tag {
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+.tags.is-right {
+  justify-content: flex-end;
+}
+
+.tags.is-right .tag:not(:first-child) {
+  margin-left: 0.5rem;
+}
+
+.tags.is-right .tag:not(:last-child) {
+  margin-right: 0;
+}
+
+.tags.has-addons .tag {
+  margin-right: 0;
+}
+
+.tags.has-addons .tag:not(:first-child) {
+  margin-left: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.tags.has-addons .tag:not(:last-child) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.tag:not(body) {
+  align-items: center;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  color: #4a4a4a;
+  display: inline-flex;
+  font-size: 0.75rem;
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  white-space: nowrap;
+}
+
+.tag:not(body) .delete {
+  margin-left: 0.25rem;
+  margin-right: -0.375rem;
+}
+
+.tag:not(body).is-white {
+  background-color: white;
+  color: #0a0a0a;
+}
+
+.tag:not(body).is-black {
+  background-color: #0a0a0a;
+  color: white;
+}
+
+.tag:not(body).is-light {
+  background-color: whitesmoke;
+  color: #363636;
+}
+
+.tag:not(body).is-dark {
+  background-color: #363636;
+  color: whitesmoke;
+}
+
+.tag:not(body).is-primary {
+  background-color: #00d1b2;
+  color: #fff;
+}
+
+.tag:not(body).is-link {
+  background-color: #3273dc;
+  color: #fff;
+}
+
+
+
+
+
+
+/*
+
+ <input id="age" placeholder="Skriv inn alder" />
+        <button id="pressMe">Trykk meg!</button>
+
+
+var pressMe = document.getElementById("pressMe");
+
+pressMe.addEventListener('click', function() {
+    alert("Du trykket på knappen!");
+});
+
+
+/*
+Metoden .addEventListener (hendelse (click), funskjon). Metoden gjør at vi kan lytte på hendelser i DOM-en. 
+
+Function
+funksjonen er det vi kallen en anonym funskjon - den har ikke noe navn.
+
+Click
+Når enn bruker trykker ("click") på knappen vi har referert til som domElement, så vil funksjonen kjøre.
+
+*/
+
+
+
+
+
+
+/*
+//Utvidelse av samme oppgave, vi setter inn ekstra element i html: input. 
+//Oppgaven går ut på bruken av .value
+
+var userAge = document.getElementById("age");
+var pressME = document.getElementById("pressMe");
+
+pressME.addEventListener("click", function(){
+   alert("Du er " + userAge.value + " år gammel!"); 
+});
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

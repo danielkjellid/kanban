@@ -17,40 +17,29 @@ function closeModal(){
 
 
 
+//Tab function
 
 
+/*
 
-/*var btn = document.getElementById('boxOpener');
-var box = document.getElementById('.box');
+//Tab function
 
-function attachBoxListeners(boxFunction){
-boxFunction.querySelector('.closeBox').addEventListener('click', mainBox);
-boxFunction.querySelector('.overlay').addEventListener('click', mainBox);
-}
+var firstTab = document.getElementById("firstTab");
+var overview = document.getElementsByClassName("overview");
+var secondTab = document.getElementById("secondTab");
+var edit = document.getElementsByClassName("edit");
 
-function detachBoxListener(boxFunction){
-boxFunction.querySelector('.closeBox').removeEventListener('click', mainBox);
-boxFunction.querySelector('.overlay').removeEventListener('click', mainBox);
-}
 
-function mainBox(){
-    var currentState = box.style.display;
-    
-    if(currentState === 'none'){
-        box.style.display = 'block';
-        attachBoxListeners(box);
-    } else {
-        box.style.display = 'none';
-        detachBoxListener(box);
+function open(tabName) {
+    var i;
+    var x = document.getElementsByClassName(tabs);
+    for(i = 0; i < x.length; i++) {
+        x[i].style.display = none;
     }
+    document.getElementById(tabName).style.display = "block";
 }
 
-btn.addEventListener('click', mainBox);*/
-
-
-
-
-
+*/
 
 
 

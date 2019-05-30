@@ -1,0 +1,79 @@
+
+  
+  body {
+    background: #f8f8f8;
+  }
+  
+  .card {
+    background: red;
+    position: relative;
+    height: 50px;
+    width: 150px;
+    top: 5px;
+    left: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .hold {
+    border: solid 5px #ccc;
+  }
+  
+  .hover {
+    border-style: dashed !important;
+  }
+  
+  .card-dragging {
+    display: absolute;
+  }
+  
+  .lists {
+    margin: 25px;
+  }
+  
+  .lists 
+  .list{
+    display: inline-block;
+    height: auto;
+    width: 200px;
+    border: #333 solid 3px;
+  }
+  
+  .lists 
+  .list 
+  .list-body {
+    display: block;
+    
+  }
+  
+  .lists 
+  .list 
+  .list-body 
+  .taskContainer {
+    height: auto;
+    width: 160px;
+    margin: 10px;
+    border: solid 3px salmon;
+    background: white;
+    min-height: 60px;
+  }
+  
+  button {
+    display: block;
+  }
+  
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
