@@ -153,3 +153,51 @@ function listTasks() {
         }
     }
 }
+
+//to be added. Waiting for add card first
+/*
+function editTask() {
+    var titleInput = document.getElementById("edit-title").value;
+    var dueDateInput = document.getElementById("edit-dueDate").value;
+    var descInput = document.getElementById("edit-description").value;
+    
+     //open connection to database
+    let request = window.indexedDB.open("KanbanDatabase", 7), 
+    db,
+    tx,
+    store,
+    index;
+
+    //error handler on connection
+    request.onerror = function(e) {
+        console.log("There was en error connecting to the DB: " + e.target.errorCode);
+    }
+
+    //success handler on connection
+    request.onsuccess = function(e) {
+        db = request.result;
+
+        //define transaction, store and index
+        tasksTx = db.transaction("tasksStore", "readwrite");
+        tasksStore = tasksTx.objectStore("tasksStore");
+        tasksIndex = tasksStore.index("status");
+
+        //error handler on result of the request
+        db.onerror = function(e) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+
+        var editTask = [{
+            title: titleInput,
+            dueDate: dueDateInput,
+            description: descInput
+        }];
+        
+        var addEditedTask = tasksStore.put(editTask[0]);
+        
+        addEditedTask.onsuccess = function() {
+            console.log("Success")
+        }
+        
+}
+*/

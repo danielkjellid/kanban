@@ -6,13 +6,14 @@ body {
 #container {
     position: absolute;
     background-color: white;
-    height: 450px;
-    width: 450px;
-    left: 50%;
-    bottom: 10%;
+    height: 400px;
+    width: 600px;
+    left: 350px;
+    bottom: 100px;
 }
 
 form {
     position: absolute;
+    left: 50px;
 }
 

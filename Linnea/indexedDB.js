@@ -1,7 +1,9 @@
+/*
 window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDb || window.msIndexedDB;
 
 
-function addText() {
+
+ function addText() {
     //define user input
     var titleInput = document.getElementById("title").value;
     var duedateInput = document.getElementById("duedate").value;
@@ -17,53 +19,42 @@ function addText() {
     //error handler on connection
     request.onerror = function(e) {
         alert("There was an error adding a task: " + e.target.errorCode);
-    }
+    } 
     
     //success handler on connection
     request.onsuccess = function(e) {
         db = request.result;
         
-        var titleTx = db.transaction("titleStore", "readwrite");
-        var titleStore = titleTx.objectStore("titleStore");
-        var titleIndex = titleStore.index("title");
+        //define transaction, store and index
+        var tx = db.transaction("info", "readwrite");
+        var infoStore = tx.objectStore("info");
+        var index = infoStore.index("title","duedate","description");
         
-        
-        var duedateTx = db.transaction("duedateStore", "readwrite");
-        var duedateStore = duedateTx.objectStore("duedateStore");
-        var duedateIndex = duedateStore.index("duedate");
-        
-        
-        var descriptionTx = db.transaction("descriptionStore", "readwrite");
-        var descriptionStore = descriptionTx.objectStore("descriptionStore");
-        var descriptionIndex = descriptionStore.index("description");
         
         //error handler on result of the request
         db.onerror = function(e) {
             alert("ERROR " + e.target.errorCode);
         }
         
-            let newTitle = [{
-                titleID: auto,
-                title: titleInput
-            }];
-
-            let newDuedate = [{
-                duedateID: auto,
-                duedate: duedateInput
-            }];
-
-            let newDescription = [{
-                descriptionID: auto, 
+        
+        //adding user input to the store 
+            let newInfo = [{
+                title: titleInput,
+                duedate: duedateInput,
                 description: descriptionInput
         }];
         
-        var addNewTitle = titleStore.add(newTitle[i]);
+        var addNewInfo = infoStore.add(newInfo[0]);
+                                                
+        addNewInfo.onsuccess = function() {
+            console.log("Great success")
+                                                
+        }
 
     }
    
     
 }
-
 
 
 function createDB() {
@@ -83,19 +74,10 @@ function createDB() {
         request.onupgradeneeded = function(e) {
             let db = request.result,
                 
-                titleStore = db.createObjectStore("titles", {keyPath: "titleID", autoIncrement: true}),
-                
-                titleIndex = titleStore.createIndex("title", "title", {unique: false}),
-                
-                duedateStore = db.createObjectStore("duedates", {keyPath: "duedateID", autoIncrement: true}),
-                
-                duedateIndex = duedateStore.createIndex("duedate", "duedate", {unique: false}),
-                
-                descriptionStore = db.createObjectStore("descriptions", {keyPath: "descriptionID", autoIncrement: true}),
-                
-                descriptionIndex = descriptionStore.createIndex("description", "description", {unique: false});
+                infoStore = db.createObjectStore("info", {keyPath: "text", autoIncrement: true}),
+                infoIndex = infoStore.index("title", "duedate", "description", {unique: false});
+        
             
-
         }
 
         //on success
@@ -107,4 +89,5 @@ function createDB() {
             alert("error!")
         }
     
-}
+} */
+

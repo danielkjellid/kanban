@@ -3,7 +3,6 @@
     <head> 
         <link rel="stylesheet" type="text/css" href="style.css">
     <body>
-        <script type=text/javascript src="indexedDB.js"></script>
             <div id="container">
                 
                 <a href="information.html" class="button">Overview</a>
@@ -13,17 +12,19 @@
                 <form id="addInfoForm">
                     
                     Title:
-                    <p><input type="text" id="title" name="title" placeholder="TITLE"></p>
+                    <p><input type="text" id="edit-title" name="title" placeholder="TITLE"></p>
                
                     Due date:
-                    <p><input type="text" id="duedate" name="duedate" placeholder="DUE DATE"></p>
+                    <p><input type="text" id="edit-dueDate" name="duedate" placeholder="DUE DATE"></p>
               
                     Desription:
-                    <p><input type="text" id="description" name="description" placeholder="DESCRIPTION"></p> 
+                    <p><input type="text" id="edit-description" name="description" placeholder="DESCRIPTION"></p> 
                     
-                   <button onclick="createDB(); addText();"id="btnCreateDB">Save Changes</button>
+                   <button>Save Changes</button>
                  </form>   
-                    
+                
+                <script src="../static/js/indexeddb.js"></script>
+                <script src="../static/js/tasks.js"></script>
                      
         </div>
     </body>
