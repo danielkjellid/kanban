@@ -1,18 +1,3 @@
-//add task button function
-function createCard() {
-    var card = document.createElement("div");
-    card.className = "card";
-
-    card.setAttribute("draggable", true);
-    addCardListeners(card);
-    return card;
-}
-
- function addCard(destination) {
-    container = document.getElementById(destination);
-    createCard();
-    container.appendChild(createCard());
-} 
 
 //add task form function
 function addTask() {
@@ -121,9 +106,11 @@ function listTasks() {
                 let getTasks = tasksStore.get(i);
 
                 //adding tasks to select for assigning members to tasks
+                /*
                 let getAssignmentElementSelect = document.getElementById("list-available-tasks");
                 let createTaskOption = document.createElement("option");
                 createTaskOption.id = "task-option-" + i;
+                */
 
                 getTasks.onerror = function() {
                     console.log("There was an error looping through the tasks");
@@ -132,28 +119,28 @@ function listTasks() {
                 getTasks.onsuccess = function() {
                     if (getTasks.result.status == "backlog") {
                         let getCardContainer = document.getElementById("list-backlog");
-                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+                        let createCard = addCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, i);
 
                         getCardContainer.appendChild(createCard);
 
                     } else if (getTasks.result.status == "to-do") {
                         let getCardContainer = document.getElementById("list-to-do");
-                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+                        let createCard = addCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, );
 
                         getCardContainer.appendChild(createCard);
                     } else if (getTasks.result.status == "in-progress") {
                         let getCardContainer = document.getElementById("list-in-progress");
-                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+                        let createCard = addCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, i);
 
                         getCardContainer.appendChild(createCard);
                     } else if (getTasks.result.status == "done") {
                         let getCardContainer = document.getElementById("list-done");
-                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+                        let createCard = addCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, i);
 
                         getCardContainer.appendChild(createCard);
                     } else if (getTasks.result.status == "archived") {
                         let getCardContainer = document.getElementById("list-archived");
-                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+                        let createCard = addCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, i);
 
                         getCardContainer.appendChild(createCard);
                     }
