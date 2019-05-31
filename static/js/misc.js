@@ -32,6 +32,8 @@ function makeCard(destination) {
     //creating card
     createTaskCard.className = "task-card";
     createTaskCard.setAttribute("draggable", true);
+    addCardListeners(createTaskCard);
+
     
     //addding class/id and HTML to task header
     createTaskHeader.className = "task-card-header";
@@ -74,4 +76,6 @@ function makeCard(destination) {
 
     //appending card to card container
     getCardContainer.appendChild(createTaskCard);
+
+    return createTaskCard;
 }

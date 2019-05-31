@@ -553,14 +553,14 @@ a.navbar-item,
   margin-right: 0.4rem;
 }
 
-.task-card {
-  border-radius: 8px;
-  box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
-  color: #3E4C59;
-  height: auto;
-  margin-bottom: 13px;
-  width: 100%;
-}
+    .task-card {
+      border-radius: 8px;
+      box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
+      color: #3E4C59;
+      height: auto;
+      margin-bottom: 13px;
+      width: 100%;
+    }
 
 .task-card-body {
   background-color: #fff !important;
