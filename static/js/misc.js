@@ -12,7 +12,37 @@ function addCard(title, tags, dueDate, id) {
 
     //HTML structure:
     /*
-
+    <div class="task-card" id="4" draggable="true">
+        <div class="task-card-header">
+            <div class="tags">
+                <span class="tag" id="tag-">Priority</span>
+            </div>
+            <div class="actions">
+                <a href="#">
+                    <span class="icon">
+                        <img src="static/img/dots-horizontal-triple.png" height="16px" width="4px">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="task-card-body">
+            <p>Desgin kanban board for exam project</p>
+        </div>
+        <div class="task-card-footer">
+            <div class="asignee">
+                <span class="icon">
+                    <img src="static/img/person.png" height="13px" width="13px">
+                </span>
+                <span>Assignee name</span>
+            </div>
+            <div class="dueDate">
+                <span>2019-29-05</span>
+                <span class="icon">
+                    <img src="static/img/calendar.png" height="14px" width="13px">
+                </span>
+            </div>
+        </div>
+    </div>
     */
 
     //create card

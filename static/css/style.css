@@ -99,6 +99,16 @@ a {
   text-decoration: none;
 }
 
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+  display: block;
+}
+
 body,
 button,
 input,
@@ -195,6 +205,11 @@ a.navbar-item,
   color: #fff;
 }
 
+.button.is-brand:hover {
+  background-color: #CE4A83;
+  color: #fff;
+}
+
 .button.is-brand.is-outlined {
   background-color: transparent;
   border-color: #F364A2;
@@ -211,6 +226,12 @@ a.navbar-item,
   border-radius: 290486px;
   padding-left: 1em;
   padding-right: 1em;
+}
+
+.button.is-silenced {
+  background: 0;
+  border: 0;
+  color: #7B8794;
 }
 
 /* ===== C* ===== */
@@ -353,6 +374,129 @@ a.navbar-item,
 }
 
 /* ===== M* ===== */
+
+.modal {
+  align-items: center;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  z-index: 40;
+}
+
+.modal.is-active {
+  display: flex;
+}
+
+.modal, .modal-background {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.modal-background {
+  background-color: rgba(10, 10, 10, 0.86);
+}
+
+.modal-content,
+.modal-card {
+  margin: 0 20px;
+  max-height: calc(100vh - 160px);
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
+
+@media screen and (min-width: 769px), print {
+  .modal-content,
+  .modal-card {
+    margin: 0 auto;
+    max-height: calc(100vh - 40px);
+    width: 640px;
+  }
+}
+
+.modal-card {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  -ms-overflow-y: visible;
+}
+
+.modal-card-body {
+  -webkit-overflow-scrolling: touch;
+  background-color: white;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: auto;
+  padding: 20px;
+}
+
+.modal-card-head {
+  align-items: center;
+  background-color: #FFFFFF;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom: 1px solid #E4E7EB;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.modal-card-head-menu {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  padding: 20px 20px 0px 20px;
+  position: relative;
+  width: auto;
+}
+
+.modal-card-head-menu a.menu-item{
+  color: #7B8794;
+  display: flex;
+  margin-right: 20px;
+  padding-bottom: 20px;
+  padding: 0px 15px 15px 15px;
+  text-decoration: none;
+}
+
+.modal-card-head-menu a.menu-item:hover{
+  color: #3E4C59;
+}
+
+.modal-card-head-menu a.menu-item:last-child{
+  margin-right: 0px;
+  padding-right: 0px;
+}
+
+.modal-card-head-menu a.menu-item.is-active{
+  border-bottom: 3px solid #D96F9D;
+  color: #3E4C59;
+}
+
+.modal-card-foot {
+  align-items: center;
+  background-color: #E4E7EB;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  padding: 20px;
+  position: relative;
+}
+
+.modal-card-foot .button:not(:last-child) {
+  margin-right: 0.5em;
+}
 
 /* ===== N* ===== */
 
@@ -640,3 +784,91 @@ a.navbar-item,
 /* ===== Y* ===== */
 
 /* ===== Z* ===== */
+
+.label {
+  color: #9AA5B1;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.field:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+
+.control {
+  box-sizing: border-box;
+  clear: both;
+  font-size: 1rem;
+  margin-top: 5px;
+  position: relative;
+  text-align: left;
+}
+
+.input, .textarea, .select select {
+  background-color: white;
+  border-color: #e0e3e8;
+  border-radius: 4px;
+  color: #363636;
+}
+
+.input::-webkit-input-placeholder, .textarea::-webkit-input-placeholder, .select select::-webkit-input-placeholder {
+  color: rgba(54, 54, 54, 0.3);
+}
+
+.input, .textarea {
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%;
+}
+
+.textarea {
+  display: block;
+  max-width: 100%;
+  min-width: 100%;
+  padding: 0.625em;
+  resize: vertical;
+}
+
+.textarea:not([rows]) {
+  max-height: 600px;
+  min-height: 120px;
+}
+
+.select {
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
+  vertical-align: top;
+}
+
+.select:not(.is-multiple) {
+  height: 2.25em;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: #3273dc;
+  right: 1.125em;
+  z-index: 4;
+}
+
+.select select {
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  max-width: 100%;
+  outline: none;
+}
+
+.select select:not([multiple]) {
+  padding-right: 2.5em;
+}
+
+.select.is-fullwidth {
+  width: 100%;
+}
+
+.select.is-fullwidth select {
+  width: 100%;
+}

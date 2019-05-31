@@ -57,7 +57,7 @@
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <a class="button is-brand is-rounded is-outlined" href="https://github.com/jgthms/bulma/releases/download/0.7.5/bulma-0.7.5.zip">
-                                <span>Add new card</span>
+                                <span>Add new</span>
                             </a>
                         </div>
                     </div>
@@ -69,21 +69,6 @@
             <progress class="progress is-brand is-large" value="90" max="100">90%</progress>
             
             <div class="columns">
-                <!--backlog-->
-                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                    <nav class="list">
-                        <p class="list-heading">Backlog</p>
-                        <div class="list-block">
-                            <div class="card-container" id="list-backlog">
-                                <!-- card(s) created by DOM/listTasks() -->
-                            </div>
-                        </div>
-                        <div class="list-block">
-                            <p>Add new card</p>
-                        </div>
-                    </nav>
-                </div>
-                <!--backlog end-->
                 <!--to-do-->
                 <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
                     <nav class="list">
@@ -129,20 +114,98 @@
                     </nav>
                 </div>
                 <!--done end-->
+                <!--upcoming due dates-->
+                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
+                    <nav class="list">
+                        <p class="list-heading">Done</p>
+                        <div class="list-block">
+                            
+                        </div>
+                    </nav>
+                </div>
+                <!--done end-->
             </div>
         </div> 
 
-        <form onsubmit="makeCard('backlog')" id="someForm">
-            <input type="submit" value="createCard">
-        </form>
-            <script>
-                function handleForm(e) {
-                    e.preventDefault();
-                }
+        <div class="modal">
+            <div class="modal-background">
 
-                var getForm = document.getElementById("someForm");
-                getForm.addEventListener('submit', handleForm);
-            </script>
+            </div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <div class="modal-card-head-menu">
+                        <a class="menu-item is-active">
+                            New card
+                        </a>
+                        <a class="menu-item">
+                            New member
+                        </a>
+                        <a class="menu-item">
+                            New tag
+                        </a>
+                        <a class="menu-item">
+                            New assignment
+                        </a>
+                    </div>
+                </header>
+                <section class="modal-card-body">
+                        <div class="field">
+                            <label class="label">Title</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="e.g Alex Smith">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Status</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select>
+                                        <option>To-do</option>
+                                        <option>In-progress</option>
+                                        <option>Done</option>
+                                        <option>Archived</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Tags</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="e.g Alex Smith">
+                            </div>
+                        </div>
+                        
+                        <div class="field">
+                            <label class="label">Due Date</label>
+                            <div class="control">
+                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Description</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="something"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Assign</label>
+                            <div class="control">
+                                <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                            </div>
+                        </div>
+                    
+
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button is-silenced">Cancel</button>
+                    <button class="button is-brand is-rounded">Add new card</button>
+                </footer>
+            </div>
+        </div>
 
         <script src="static/js/dragdrop.js"></script>
         <script src="static/js/indexeddb.js"></script>

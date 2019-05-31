@@ -1,11 +1,10 @@
 
-
 function addAssignment() {
     var memberInput = parseInt(document.getElementById("list-available-members").value);
     var taskInput = parseInt(document.getElementById("list-available-tasks").value);
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 7), 
+    let request = window.indexedDB.open("KanbanDatabase", 9), 
     db,
     tx,
     store,
@@ -50,7 +49,7 @@ function addAssignment() {
 
 function listAssignments() {
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 7), 
+    let request = window.indexedDB.open("KanbanDatabase", 9), 
     db,
     tx,
     store,
