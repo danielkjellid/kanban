@@ -1,9 +1,9 @@
 //add task button function
 function createCard() {
-    var card = document.createElement('div');
+    var card = document.createElement("div");
     card.className = "card";
 
-    card.setAttribute('draggable', true);
+    card.setAttribute("draggable", true);
     addCardListeners(card);
     return card;
 }
@@ -17,8 +17,8 @@ function createCard() {
 //add task form function
 function addTask() {
     //define user input in the addTaskForm
-    var titleInput = document.getElementById('task-title').value;
-    var statusInput = document.getElementById('task-status').value;
+    var titleInput = document.getElementById("task-title").value;
+    var statusInput = document.getElementById("task-status").value;
     var tagInput = document.getElementById("task-tag").value;
     var dueDateInput = document.getElementById("task-dueDate").value;
     var descriptionInput = document.getElementById("task-desc").value;
@@ -120,31 +120,50 @@ function listTasks() {
             for (var i = 1; i < amountOfTasks.result+1; i++) {
                 let getTasks = tasksStore.get(i);
 
-                //listing tasks
-                let getTasksElementContainer = document.getElementById("list-tasks");
-                let createTasksList = document.createElement("li");
-                createTasksList.id = "task-" + i;
-
                 //adding tasks to select for assigning members to tasks
                 let getAssignmentElementSelect = document.getElementById("list-available-tasks");
                 let createTaskOption = document.createElement("option");
                 createTaskOption.id = "task-option-" + i;
 
-                
                 getTasks.onerror = function() {
                     console.log("There was an error looping through the tasks");
                 }
 
                 getTasks.onsuccess = function() {
-                    //listing tasks
-                    getTasksElementContainer.appendChild(createTasksList);
-                    //JSON stringify to return object in string format, and not [Object object]
-                    createTasksList.innerHTML = JSON.stringify(getTasks.result);
-                    
+                    if (getTasks.result.status == "backlog") {
+                        let getCardContainer = document.getElementById("list-backlog");
+                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+
+                        getCardContainer.appendChild(createCard);
+
+                    } else if (getTasks.result.status == "to-do") {
+                        let getCardContainer = document.getElementById("list-to-do");
+                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+
+                        getCardContainer.appendChild(createCard);
+                    } else if (getTasks.result.status == "in-progress") {
+                        let getCardContainer = document.getElementById("list-in-progress");
+                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+
+                        getCardContainer.appendChild(createCard);
+                    } else if (getTasks.result.status == "done") {
+                        let getCardContainer = document.getElementById("list-done");
+                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+
+                        getCardContainer.appendChild(createCard);
+                    } else if (getTasks.result.status == "archived") {
+                        let getCardContainer = document.getElementById("list-archived");
+                        let createCard = makeCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, "task-" + i);
+
+                        getCardContainer.appendChild(createCard);
+                    }
+
+                    /*
                     //adding tasks to select for assigning members to tasks
                     getAssignmentElementSelect.appendChild(createTaskOption);
                     createTaskOption.innerHTML = JSON.stringify("[" + getTasks.result.taskID + "] " + getTasks.result.title);
                     createTaskOption.value = getTasks.result.taskID;
+                    */
                 }
             }   
         }

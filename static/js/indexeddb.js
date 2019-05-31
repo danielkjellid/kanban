@@ -122,6 +122,7 @@ request.onsuccess = function(e) {
         console.log(a1.result);
     }*/
 
+
     //close DB conection once transaction is complete.
     tasksTx.oncomplete = function() {
         db.close();
