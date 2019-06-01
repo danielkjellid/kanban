@@ -687,8 +687,10 @@ a.navbar-item,
   color: #4a4a4a;
   display: inline-flex;
   font-size: 0.75rem;
+  font-weight: 600;
   height: 2em;
   justify-content: center;
+  letter-spacing: 0.4px;
   line-height: 1.5;
   padding-left: 0.75em;
   padding-right: 0.75em;
