@@ -63,3 +63,50 @@ function addTask() {
         };
     }
 }*/
+
+//list functions
+function listTasks() {
+    //variable for counting objects in the index
+    let amountOfTasks = tasksIndex.count();
+
+    //error handler
+    amountOfTasks.onerror = function() {
+        console.error("There was an error finding the amount of tasks");
+    }
+
+    //success handler
+    amountOfTasks.onsuccess = function() {
+        //i starts at 1 because the key in the store starts at 1
+        for (var i = 1; i < amountOfTasks.result+1; i++) {
+            let getTasks = tasksStore.get(i);
+
+            getTasks.onerror = function() {
+                console.error("There was an error looping through the tasks");
+            }
+
+            getTasks.onsuccess = function() {
+                if (getTasks.result.status == "to-do") {
+                    let getCardContainer = document.getElementById("list-to-do");
+                    let createCard = addCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
+
+                    getCardContainer.appendChild(createCard);
+                } else if (getTasks.result.status == "in-progress") {
+                    let getCardContainer = document.getElementById("list-in-progress");
+                    let createCard = addCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
+
+                    getCardContainer.appendChild(createCard);
+                } else if (getTasks.result.status == "done") {
+                    let getCardContainer = document.getElementById("list-done");
+                    let createCard = addCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
+
+                    getCardContainer.appendChild(createCard);
+                } else if (getTasks.result.status == "archived") {
+                    let getCardContainer = document.getElementById("list-archived");
+                    let createCard = addCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
+
+                    getCardContainer.appendChild(createCard);
+                }
+            }
+        }   
+    }
+}

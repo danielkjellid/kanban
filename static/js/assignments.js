@@ -1,4 +1,4 @@
-
+/*
 function addAssignment() {
     var memberInput = parseInt(document.getElementById("list-available-members").value);
     var taskInput = parseInt(document.getElementById("list-available-tasks").value);
@@ -107,4 +107,4 @@ function listAssignments() {
             db.close();
         }
     } 
-}
+}*/

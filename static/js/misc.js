@@ -4,31 +4,16 @@ function onLoad() {
     listTasks();
     listAssignments();*/
 
-    connectToDB();
+    connectToDB("KanbanDatabase", 12);
 }
 
-function addTag(tagName, tagColor, textColor, tagID, taskID) {
-    let getTaskCard = document.querySelectorAll("[data-taskid=" + taskID + "]");
-    let createTags = document.createElement("div");
-    let createTag = document.createElement("span");
-
-    createTags.className = "tags";
-    createTag.className = "tag";
-    createTag.setAttribute("data-tagid=" + tagID);
-    createTag.setAttribute("style", "background-color: " + tagColor + "; " + "color " + textColor + ";");
-
-    getTaskCard.appendChild(createTags);
-    createTags.appendChild(createTag);
-}
-
-
-function addCard(title, tags, dueDate, id) {
+function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagTextColor) {
 
     //create card
     let createTaskCard = document.createElement("div");
 
     createTaskCard.className = "task-card";
-    createTaskCard.setAttribute("data-taskid", id);
+    createTaskCard.setAttribute("data-taskid", taskID);
     createTaskCard.setAttribute("draggable", true);
     addCardListeners(createTaskCard);
 
@@ -46,8 +31,8 @@ function addCard(title, tags, dueDate, id) {
     createTaskHeader.className = "task-card-header";
     createTags.className = "tags";
     createTag.className = "tag";
-    createTag.id = "tag-";
-    createTag.innerHTML = tags;
+    createTag.innerHTML = tagName;
+    createTag.setAttribute("style", "background-color: " + tagColor + "; color: " + tagTextColor + ";");
     createActionsBtn.className = "actions";
 
     createActionA.setAttribute("href", "#");
@@ -93,7 +78,7 @@ function addCard(title, tags, dueDate, id) {
     createAsigneeIconImg.setAttribute("src", "static/img/person.png");
     createAsigneeIconImg.setAttribute("height", "13px");
     createAsigneeIconImg.setAttribute("width", "13px");
-    createAsigneeMember.innerHTML = "Assignee name";
+    createAsigneeMember.innerHTML = memberFullName;
 
     createDueDate.className = "dueDate";
     createDueDateDate.innerHTML = dueDate;
