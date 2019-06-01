@@ -357,8 +357,10 @@ a.navbar-item,
   color: #A30664;
   font-size: 1.25em;
   font-weight: 600;
+  letter-spacing: 1.1px;
   line-height: 1.25;
   padding: 0.5em 0.75em;
+  text-transform: uppercase;
 }
 
 .list-block {
@@ -871,4 +873,118 @@ a.navbar-item,
 
 .select.is-fullwidth select {
   width: 100%;
+}
+
+
+.due-date-list {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+}
+
+.due-date-list-heading {
+  border-radius: 8px 8px 0 0;
+  font-size: 1.25em;
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 0.75em 0.75em 0em 0.75em;
+}
+
+.due-date-list-block {
+  align-items: center;
+  color: #363636;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5em 0.75em;
+}
+
+.due-date-list-block:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.due-date-list-heading h1 {
+  color: #7B8794;
+  font-size: 16px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.due-date-list-heading:first-child,
+.due-date-list-block:first-child {
+  border-top: 1px solid #dbdbdb;
+}
+
+.due-date-list-card {
+  width: 100%;
+  border-left: 3px solid #F364A2;
+  padding-left: 8px;
+}
+
+.due-date-list-card .meta {
+  width: 80%;
+  float: left;
+}
+
+.due-date-list-card span {
+  color: #7B8794;
+  font-size: 16px;
+}
+
+.due-date-list-card .mini-tags {
+  width: 20%;
+  float: right;
+  height: auto;
+}
+
+.due-date-list-card .mini-tag {
+  float: right;
+  height: 18px;
+  width: 18px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.due-date-list-card .mini-tag:first-child {
+  margin-right: 0px;
+}
+
+.due-date-list-card .title {
+  width: 100%;
+  float: left;
+}
+
+.due-date-list-card .title p {
+  color: #616E7C;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.due-date-list-progress {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 290486px;
+  display: block;
+  height: 1rem;
+  margin-top: 10px;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+.due-date-list-progress::-webkit-progress-bar {
+  background-color: #E4E7EB;
+}
+
+.due-date-list-progress.is-brand::-webkit-progress-value {
+  background-color: #f15998;
+}
+
+.due-date-list-progress.is-large {
+  height: 2rem;
 }

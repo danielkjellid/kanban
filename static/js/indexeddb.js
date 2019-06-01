@@ -6,10 +6,12 @@
 //Assignments: assignmentID, memberID, taskID
 //Tags: tagID, tagName, tagColor, textColor, taskID
 
-window.webkitIndexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+function connectToDB() {
+const indexedDB = window.webkitIndexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
 //check for support
-if(!window.indexedDB) {
+if(!indexedDB) {
     alert("Your browser do not support indexedDB. Please update you browser.")
 }
 
@@ -57,12 +59,12 @@ request.onupgradeneeded = function(e) {
 //open database will return response. 
 //error handler:
 request.onerror = function(e) {
-    console.log("There was an error opening the database: " + e.target.errorCode);
+    console.error("There was an error opening the database: " + e.target.errorCode);
 };
 
 //success handler:
 request.onsuccess = function(e) {
-    console.log("Successfully connected to database.")
+    console.log("Successfully connected to DB")
     db = request.result;
     //tasks
     tasksTx = db.transaction("tasksStore", "readwrite");
@@ -85,8 +87,148 @@ request.onsuccess = function(e) {
     tagsIndex = tagsStore.index("tagID");
 
     db.onerror = function(e) {
-        console.log("ERROR " + e.target.errorCode);
+        console.error("ERROR " + e.target.errorCode);
     }
+    
+    function listTasks() {
+        //variable for counting objects in the index
+        let amountOfTasks = tasksIndex.count();
+
+        //error handler
+        amountOfTasks.onerror = function() {
+            console.error("There was an error finding the amount of tasks");
+        }
+
+        //success handler
+        amountOfTasks.onsuccess = function() {
+            //i starts at 1 because the key in the store starts at 1
+            for (var i = 1; i < amountOfTasks.result+1; i++) {
+                let getTasks = tasksStore.get(i);
+
+                //adding tasks to select for assigning members to tasks
+                /*
+                let getAssignmentElementSelect = document.getElementById("list-available-tasks");
+                let createTaskOption = document.createElement("option");
+                createTaskOption.id = "task-option-" + i;
+                */
+
+                getTasks.onerror = function() {
+                    console.error("There was an error looping through the tasks");
+                }
+
+                getTasks.onsuccess = function() {
+                    if (getTasks.result.status == "to-do") {
+                        let getCardContainer = document.getElementById("list-to-do");
+                        let createCard = addCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, getTasks.result.taskID);
+
+                        getCardContainer.appendChild(createCard);
+                    } else if (getTasks.result.status == "in-progress") {
+                        let getCardContainer = document.getElementById("list-in-progress");
+                        let createCard = addCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, getTasks.result.taskID);
+
+                        getCardContainer.appendChild(createCard);
+                    } else if (getTasks.result.status == "done") {
+                        let getCardContainer = document.getElementById("list-done");
+                        let createCard = addCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, getTasks.result.taskID);
+
+                        getCardContainer.appendChild(createCard);
+                    } else if (getTasks.result.status == "archived") {
+                        let getCardContainer = document.getElementById("list-archived");
+                        let createCard = addCard(getTasks.result.title, getTasks.result.tags, getTasks.result.dueDate, getTasks.result.taskID);
+
+                        getCardContainer.appendChild(createCard);
+                    }
+
+                    /*
+                    //adding tasks to select for assigning members to tasks
+                    getAssignmentElementSelect.appendChild(createTaskOption);
+                    createTaskOption.innerHTML = JSON.stringify("[" + getTasks.result.taskID + "] " + getTasks.result.title);
+                    createTaskOption.value = getTasks.result.taskID;
+                    */
+
+                }
+            }   
+        }
+    }
+
+    function tagsToTasks() {
+        let amountOfTasks = tasksIndex.count();
+        let amountOfTags = tagsIndex.count();
+
+        function getTasks() {
+            for (var i = 1; i < amountOfTasks.result+1; i++) {
+                let getTasks = tasksStore.get(i);
+                
+                getTasks.onerror = function() {
+                    console.error("There was an error looping through the tasks");
+                }
+
+                getTasks.onsuccess = function() {
+                    console.log(getTasks.result.taskID)
+                }
+            }
+        }
+
+        function getTags() {
+            for (var j = 1; j < amountOfTags.result+1; j++) {
+                let getTags = tagsStore.get(j);
+
+                getTags.onerror = function() {
+                    console.error("There was en error looping through the tags");
+                }
+
+                getTags.onsuccess = function() {
+                    let result = getTags.result.taskID;
+
+                    return result;
+                }
+            }
+        }
+
+        function compareID() {
+            //what to do?
+        }
+
+        amountOfTasks.onerror = function() {
+            console.error("There was an error finding the amount of tasks");
+        }
+
+        amountOfTasks.onsuccess = function() {
+            getTasks();
+        }
+
+        amountOfTags.onerror = function() {
+            console.error("There was an error finding the amount of tags");
+        }
+
+        amountOfTags.onsuccess = function() {
+            getTags();
+        }
+
+        
+
+
+        /*amountOfTags.onsuccess = function() {
+                for (var i = 1; i < amountOfTags.result+1; i++) {
+                    let getTags = tagsStore.get(i);
+                    
+    
+                    getTags.onerror = function() {
+                        console.log("There was an error looping through the tags");
+                    }
+    
+                    getTags.onsuccess = function() {
+                        console.log(getTags.result);
+                    }
+                }
+            }*/
+
+    }
+
+
+    //fire functions
+    tagsToTasks();
+    listTasks();
 
     //close DB conection once transaction is complete.
     tasksTx.oncomplete = function() {
@@ -104,6 +246,7 @@ request.onsuccess = function(e) {
     tagsTx.oncomplete = function() {
         db.close();
     }
+}
 }
 
 
