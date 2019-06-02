@@ -56,7 +56,7 @@
                 
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <a class="button is-brand is-rounded is-outlined" href="https://github.com/jgthms/bulma/releases/download/0.7.5/bulma-0.7.5.zip">
+                            <a class="button is-brand is-rounded is-outlined">
                                 <span>Add new</span>
                             </a>
                         </div>
@@ -154,7 +154,7 @@
             </div>
         </div> 
 
-        <div class="modal">
+        <div class="modal is-active">
             <div class="modal-background">
 
             </div>
@@ -172,70 +172,70 @@
                         </a>
                     </div>
                 </header>
-                <form onsubmit="addTask()" id="addingForm">
-                    <section class="modal-card-body">
-                        <div class="field">
-                            <label class="label">Title</label>
-                            <div class="control">
-                                <input class="input" type="text" placeholder="e.g Alex Smith" id="modal-add-new-task-title">
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label class="label">Status</label>
-                            <div class="control">
-                                <div class="select is-fullwidth">
-                                    <select id="modal-add-new-task-status">
-                                        <option>To-do</option>
-                                        <option>In-progress</option>
-                                        <option>Done</option>
-                                        <option>Archived</option>
-                                    </select>
+                    <form onsubmit="addTask()" id="addingForm">
+                        <section class="modal-card-body">
+                            <div class="field">
+                                <label class="label">Title</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="e.g Alex Smith" id="modal-add-new-task-title">
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="field">
-                            <label class="label">Tag</label>
-                            <div class="control">
-                                <div class="select is-fullwidth">
-                                    <select id="modal-add-new-task-tag">
-                                        <option>PR</option>
-                                    </select>
+                            <div class="field">
+                                <label class="label">Status</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-add-new-task-status">
+                                            <option>to-do</option>
+                                            <option>In-progress</option>
+                                            <option>Done</option>
+                                            <option>Archived</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        
-                        <div class="field">
-                            <label class="label">Due Date</label>
-                            <div class="control">
-                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate">
-                            </div>
-                        </div>
 
-                        <div class="field">
-                            <label class="label">Description</label>
-                            <div class="control">
-                                <textarea class="textarea" placeholder="something" id="modal-add-new-task-desc"></textarea>
-                            </div>
-                        </div>
-
-                        <div class="field">
-                            <label class="label">Assign</label>
-                            <div class="control">
-                                <div class="select is-fullwidth">
-                                    <select id="modal-add-new-task-assignee">
-                                        <option>Daniel Kjellid</option>
-                                    </select>
+                            <div class="field">
+                                <label class="label">Tag</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-add-new-task-tag">
+                                            <option>PR</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <footer class="modal-card-foot">
-                        <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" type="submit">Add new card</button>
-                    </footer>
-                </form>
+                            
+                            <div class="field">
+                                <label class="label">Due Date</label>
+                                <div class="control">
+                                    <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Description</label>
+                                <div class="control">
+                                    <textarea class="textarea" placeholder="something" id="modal-add-new-task-desc"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Assign</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-add-new-task-assignee">
+                                            <option>Daniel Kjellid</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button is-silenced">Cancel</button>
+                            <button class="button is-brand is-rounded" type="submit">Add new card</button>
+                        </footer>
+                    </form>
             </div>
         </div>
         
