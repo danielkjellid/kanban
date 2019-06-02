@@ -76,18 +76,24 @@ function findMemberInitials(object) {
     let result = members.filter( obj => {
         return obj.memberFullName == object;
     })[0].memberInitials;
+
+    return result;
 }
 
 function findTagColor(object) {
     let result = tags.filter(obj => {
         return obj.tagName == object;
     })[0].tagColor;
+
+    return result;
 }
 
 function findTagTextColor(object) {
     let result = tags.filter(obj => {
         return obj.tagName == object;
     })[0].tagTextColor;
+
+    return result;
 }
 
 function onLoad() {
