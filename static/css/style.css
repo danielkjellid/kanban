@@ -620,7 +620,6 @@ a.navbar-item,
 
   .navbar.is-white 
   .navbar-start > a.navbar-item:focus, 
-  .navbar.is-white .navbar-start > a.navbar-item:hover, 
   .navbar.is-white .navbar-start > a.navbar-item.is-active, 
   .navbar.is-white 
   .navbar-start 
@@ -633,12 +632,16 @@ a.navbar-item,
   .navbar-link.is-active, 
   .navbar.is-white 
   .navbar-end > a.navbar-item:focus, 
-  .navbar.is-white .navbar-end > a.navbar-item:hover, 
   .navbar.is-white .navbar-end > a.navbar-item.is-active, 
   .navbar.is-white 
   .navbar-end 
   .navbar-link.is-active {
     border-bottom: 3px solid #F364A2;
+    color: #3E4C59;
+  }
+
+  .navbar.is-white .navbar-end > a.navbar-item:hover,
+  .navbar.is-white .navbar-start > a.navbar-item:hover {
     color: #3E4C59;
   }
 }
