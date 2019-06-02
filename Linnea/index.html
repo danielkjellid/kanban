@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 <html>
     <head> 
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css" "kanban/static/css/bulma_front.css">
     <body>
-            <div id="container">
-                
-                <div id="greyContPart"></div>
+        <div id="container">      
+            <div id="greyContPart"></div>
                 <div id="contentContainer">
-                <a href="information.html" id="btnOverview" class="button1">Overview</a>
-                <a href="index.html" id="btnEditInfo" class="button1">Edit information</a>
-            
                     
-                <form id="addInfoForm">
+                <div class="tabs">
+                    <ul>
+                        <li class="is-active"><a href="information.html" id="btnOverview" class="button1">Overview</a></li>
+                        
+                        <li> <a href="index.html" id="btnEditInfo" class="button1">Edit information</a></li>
+                       
+                    </ul>    
+                </div>
                     
-                    <h1 id="titleID">TITLE</h1>
-                    <p><input type="text" id="edit-title" name="title" placeholder="TITLE"></p>
-               
-                    <h1 id="duedateID">DUE DATE</h1>
-                    <p><input type="text" id="edit-dueDate" name="duedate" placeholder="DUE DATE"></p>
-              
-                    <h1 id="descID">DESCRIPTION</h1>
-                    <p><input type="text" id="edit-description" name="description" placeholder="DESCRIPTION"></p> 
+                    <form id="addInfoForm">
                     
+                        <h1 id="titleID">TITLE</h1>
+                        <p><input type="text" id="edit-title" name="title" placeholder="TITLE"></p>
+
+                        <h1 id="duedateID">DUE DATE</h1>
+                        <p><input type="text" id="edit-dueDate" name="duedate" placeholder="DUE DATE"></p>
+
+                        <h1 id="descID">DESCRIPTION</h1>
+                        <p><input type="text" id="edit-description" name="description" placeholder="DESCRIPTION"></p> 
+
                 
-                    <a href="information.html" id="btnCancel" class="button1">Cancel</a>
-                        <button id="btnSaveChanges">Save Changes</button>
-                 </form>   
+                        <a href="information.html" id="btnCancel" class="button1">Cancel</a>
+                            <button id="btnSaveChanges">Save Changes</button>
+                    </form>   
               
                 <script src="../static/js/indexeddb.js"></script>
                 <script src="../static/js/tasks.js"></script>
+                    
             </div>           
         </div>
     </body>
