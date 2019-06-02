@@ -31,9 +31,9 @@
                         </svg>
                     </a>
                     <div class="navbar-burger burger" data-target="navbar">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
                 
@@ -142,8 +142,6 @@
                                 </div>
                                 <div class="mini-tags">
                                     <span class="mini-tag"></span>
-                                    <span class="mini-tag"></span>
-                                    <span class="mini-tag"></span>
                                 </div>
                                 <div class="title">
                                     <p>Design kanban board for exam web project.</p>
@@ -172,16 +170,14 @@
                         <a class="menu-item">
                             New tag
                         </a>
-                        <a class="menu-item">
-                            New assignment
-                        </a>
                     </div>
                 </header>
-                <section class="modal-card-body">
+                <form onsubmit="addTask()" id="addingForm">
+                    <section class="modal-card-body">
                         <div class="field">
                             <label class="label">Title</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g Alex Smith">
+                                <input class="input" type="text" placeholder="e.g Alex Smith" id="modal-add-new-task-title">
                             </div>
                         </div>
 
@@ -189,7 +185,7 @@
                             <label class="label">Status</label>
                             <div class="control">
                                 <div class="select is-fullwidth">
-                                    <select>
+                                    <select id="modal-add-new-task-status">
                                         <option>To-do</option>
                                         <option>In-progress</option>
                                         <option>Done</option>
@@ -200,41 +196,57 @@
                         </div>
 
                         <div class="field">
-                            <label class="label">Tags</label>
+                            <label class="label">Tag</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g Alex Smith">
+                                <div class="select is-fullwidth">
+                                    <select id="modal-add-new-task-tag">
+                                        <option>PR</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="field">
                             <label class="label">Due Date</label>
                             <div class="control">
-                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com">
+                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate">
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Description</label>
                             <div class="control">
-                                <textarea class="textarea" placeholder="something"></textarea>
+                                <textarea class="textarea" placeholder="something" id="modal-add-new-task-desc"></textarea>
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Assign</label>
                             <div class="control">
-                                <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+                                <div class="select is-fullwidth">
+                                    <select id="modal-add-new-task-assignee">
+                                        <option>Daniel Kjellid</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                    
-
-                </section>
-                <footer class="modal-card-foot">
-                    <button class="button is-silenced">Cancel</button>
-                    <button class="button is-brand is-rounded">Add new card</button>
-                </footer>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <button class="button is-silenced">Cancel</button>
+                        <button class="button is-brand is-rounded" type="submit">Add new card</button>
+                    </footer>
+                </form>
             </div>
         </div>
+        
+        <script>
+            function handleForm(e) {
+                e.preventDefault();
+            }
+            var getForm = document.getElementById("addingForm");
+            getForm.addEventListener("submit", handleForm);
+        </script>
+        
 
         <script src="static/js/dragdrop.js"></script>
         <script src="static/js/indexeddb.js"></script>

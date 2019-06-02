@@ -1,10 +1,107 @@
 //function to load different functions onload.
+let members = [
+    {
+        id: 1,
+        memberFullName: "Daniel Kjellid",
+        memberInitials: "DK"
+    },
+    {
+        id: 2,
+        memberFullName: "Kainat Zahoor",
+        memberInitials: "KZ"
+    },
+    {
+        id: 3,
+        memberFullName: "Linnea S. Fylling",
+        memberInitials: "LF"
+    },
+    {
+        id: 4,
+        memberFullName: "Magomed Derbtichev",
+        memberInitials: "MD"
+    },
+    {
+        id: 5,
+        memberFullName: "Sultan Khan",
+        memberInitials: "SK"
+    }
+];
+
+let tags = [
+    {
+        id: 1,
+        tagName: "Markedsplan",
+        tagColor: "#dac4ff",
+        tagTextColor: "#3a106b"
+    },
+    {
+        id: 2,
+        tagName: "Markedsaktivitet",
+        tagColor: "#ffbdbd",
+        tagTextColor: "#850303"
+    },
+    {
+        id: 3,
+        tagName: "SoMe",
+        tagColor: "#c1fef6",
+        tagTextColor: "#166b6e"
+    },
+    {
+        id: 4,
+        tagName: "Kampanje",
+        tagColor: "#c1eac5",
+        tagTextColor: "#38763e"
+    },
+    {
+        id: 5,
+        tagName: "PR",
+        tagColor: "#fff3c4",
+        tagTextColor: "#745e08"
+    },
+    {
+        id: 6,
+        tagName: "Mål",
+        tagColor: "#ffd0b5",
+        tagTextColor: "#7e3105"
+    },
+    {
+        id: 7,
+        tagName: "Innhold",
+        tagColor: "#d1eefc",
+        tagTextColor: "#13506e"
+    }
+];
+
+function findMemberInitials(object) {
+    let result = members.filter( obj => {
+        return obj.memberFullName == object;
+    })[0].memberInitials;
+
+    return result;
+}
+
+function findTagColor(object) {
+    let result = tags.filter(obj => {
+        return obj.tagName == object;
+    })[0].tagColor;
+
+    return result;
+}
+
+function findTagTextColor(object) {
+    let result = tags.filter(obj => {
+        return obj.tagName == object;
+    })[0].tagTextColor;
+
+    return result;
+}
+
 function onLoad() {
     /*listMembers();
     listTasks();
     listAssignments();*/
 
-    connectToDB("KanbanDatabase", 12);
+    connectToDB("KanbanDatabase", 13);
 }
 
 function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagTextColor) {

@@ -1,16 +1,18 @@
 
-//add task form function
-/*
 function addTask() {
-    //define user input in the addTaskForm
-    var titleInput = document.getElementById("task-title").value;
-    var statusInput = document.getElementById("task-status").value;
-    var tagInput = document.getElementById("task-tag").value;
-    var dueDateInput = document.getElementById("task-dueDate").value;
-    var descriptionInput = document.getElementById("task-desc").value;
+
+    let titleInput = document.getElementById("modal-add-new-task-title").value;
+    let statusInput = document.getElementById("modal-add-new-task-status").value;
+    let tagInput = document.getElementById("modal-add-new-task-tag").value;
+    let dueDateInput = document.getElementById("modal-add-new-task-dueDate").value;
+    let descInput = document.getElementById("modal-add-new-task-desc").value;
+    let assigneeInput = document.getElementById("modal-add-new-task-assignee").value;
+    let getMemberInitials = findMemberInitials(document.getElementById("modal-add-new-task-assignee").value);
+    let getTagColor = findTagColor(document.getElementById("modal-add-new-task-tag").value);
+    let getTagTextColor = findTagTextColor(document.getElementById("modal-add-new-task-tag").value);
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 9), 
+    let request = window.indexedDB.open("KanbanDatabase", 13), 
     db,
     tx,
     store,
@@ -23,7 +25,6 @@ function addTask() {
 
     //success handler on connection
     request.onsuccess = function(e) {
-        console.log("Successfully added task to database");
         db = request.result;
 
         //define transaction, store and index
@@ -35,34 +36,31 @@ function addTask() {
         db.onerror = function(e) {
             console.log("ERROR " + e.target.errorCode);
         }
-
-        //add new task variables to the database
+    
         let newTask = [{
             title: titleInput,
-            status: statusInput,
-            tags: tagInput,
+            stauts: statusInput,
             dueDate: dueDateInput,
-            description: descriptionInput
+            description: descInput,
+            memberFullName: assigneeInput,
+            memberInitials: getMemberInitials,
+            tagName: tagInput,
+            tagColor: getTagColor,
+            tagTextColor: getTagTextColor
         }];
 
-        var addNewTask = tasksStore.add(newTask[0]);
+        let addNewTask = tasksStore.add(newTask[0]);
 
-        //success handler on adding member to database handler
-        addNewTask.onsuccess = function() {
-            console.log("Successfully added task to database");
-            
-            let getTasksElementContainer = document.getElementById("list-tasks");
-            let createTasksList = document.createElement("li");
-            createTasksList.id = "newMember";
-            getTasksElementContainer.appendChild(createTasksList);
-            createTasksList.innerHTML = JSON.stringify(newTask);
+        addNewTask.onerror = function(e) {
+            console.error("Therre was an error adding task " + e.target.errorCode);
         }
 
-        tasksTx.oncomplete = function() {
-            db.close();
-        };
+        addNewTask.onsuccess = function() {
+            console.log("Added task to database");
+        }
     }
-}*/
+}
+
 
 //list functions
 function listTasks() {
