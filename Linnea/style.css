@@ -19,11 +19,11 @@ body {
     background-color: rgba(255,255,255,255);
     padding: 20px;
     position: fixed;
-    bottom: 100px;
+    bottom: 160px;
     left: 330px;
-    height: 380px;
+    height: 300px;
     width: 540px;
-    border-radius: 10px;
+    border-radius: 10px 10px 0px 0px;
     z-index: 2;
 }
 
@@ -38,7 +38,7 @@ body {
     bottom: 112px;
     left: 770px;
     font-size: 14px;
-    z-index: 2;
+    z-index: 4;
 }
 
 a {
@@ -93,7 +93,7 @@ a {
     width: 540px;
     height: 20px;
     position: absolute;
-    bottom: 300px;
+    bottom: 240px;
     padding: 12px 10px;
     box-sizing: border-box;
     border-radius: 5px;
@@ -104,7 +104,7 @@ a {
     width: 540px;
     height: 20px;
     position: absolute;
-    bottom: 240px;
+    bottom: 180px;
     padding: 12px 10px;
     box-sizing: border-box;
     border-radius: 5px;
@@ -116,7 +116,7 @@ a {
     width: 540px;
     height: 100px;
     position: absolute;
-    bottom: 100px;
+    bottom: 40px;
     padding: 12px 10px;
     box-sizing: border-box;
     border-radius: 5px;
@@ -142,4 +142,8 @@ h1 {
 #descID {
     position: fixed;
     bottom: 300px;
+}
+
+hr {
+    border: 10px solid rgba(210,210,210,210);
 }
