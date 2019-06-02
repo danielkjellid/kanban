@@ -72,6 +72,24 @@ let tags = [
     }
 ];
 
+function findMemberInitials(object) {
+    let result = members.filter( obj => {
+        return obj.memberFullName == object;
+    })[0].memberInitials;
+}
+
+function findTagColor(object) {
+    let result = tags.filter(obj => {
+        return obj.tagName == object;
+    })[0].tagColor;
+}
+
+function findTagTextColor(object) {
+    let result = tags.filter(obj => {
+        return obj.tagName == object;
+    })[0].tagTextColor;
+}
+
 function onLoad() {
     /*listMembers();
     listTasks();

@@ -64,6 +64,68 @@ function addTask() {
     }
 }*/
 
+function addTask() {
+
+    let titleInput = document.getElementById("modal-add-new-task-title").value;
+    let statusInput = document.getElementById("modal-add-new-task-status").value;
+    let tagInput = document.getElementById("modal-add-new-task-tag").value;
+    let dueDateInput = document.getElementById("modal-add-new-task-dueDate").value;
+    let descInput = document.getElementById("modal-add-new-task-desc").value;
+    let assigneeInput = document.getElementById("modal-add-new-task-assignee").value;
+    let getMemberInitials = findMemberInitials(document.getElementById("modal-add-new-task-assignee").value);
+    let getTagColor = findTagColor(document.getElementById("modal-add-new-task-tag").value);
+    let getTagTextColor = findTagTextColor(document.getElementById("modal-add-new-task-tag").value);
+
+    //open connection to database
+    let request = window.indexedDB.open("KanbanDatabase", 12), 
+    db,
+    tx,
+    store,
+    index;
+
+    //error handler on connection
+    request.onerror = function(e) {
+        console.log("There was en error adding a task: " + e.target.errorCode);
+    }
+
+    //success handler on connection
+    request.onsuccess = function(e) {
+        db = request.result;
+
+        //define transaction, store and index
+        tasksTx = db.transaction("tasksStore", "readwrite");
+        tasksStore = tasksTx.objectStore("tasksStore");
+        tasksIndex = tasksStore.index("status");
+
+        //error handler on result of the request
+        db.onerror = function(e) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+    
+        let newTask = [{
+            title: titleInput,
+            stauts: statusInput,
+            dueDate: dueDateInput,
+            description: descInput,
+            memberFullName: assigneeInput,
+            memberInitials: getMemberInitials,
+            tagName: tagInput,
+            tagColor: getTagColor,
+            tagTextColor: getTagTextColor
+        }];
+
+        let addNewTask = tasksStore.add(newTask[0]);
+
+        addNewTask.onerror = function() {
+            console.error("Therre was an error adding task");
+        }
+
+        addNewTask.onsuccess = function() {
+            console.log("Added task to database");
+        }
+    }
+}
+
 //list functions
 function listTasks() {
     //variable for counting objects in the index
