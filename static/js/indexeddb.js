@@ -49,10 +49,16 @@ function connectToDB(database, version) {
         db.onerror = function(e) {
             console.error("ERROR " + e.target.errorCode);
         }
-    
+
         //listTasks() list all tasks and appends them to the appropriate list based on status.
         //defined in tasks.js
         listTasks();
+
+        var test = tasksStore.get(6);
+
+        test.onsuccess = function() {
+            console.log(test.result);
+        }
 
         //close DB conection once transaction is complete.
         tasksTx.oncomplete = function() {

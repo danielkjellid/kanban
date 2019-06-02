@@ -12,7 +12,11 @@ function addTask() {
     let getTagTextColor = findTagTextColor(document.getElementById("modal-add-new-task-tag").value);
 
     //open connection to database
+<<<<<<< HEAD
     let request = window.indexedDB.open("KanbanDatabase", 13), 
+=======
+    let request = window.indexedDB.open("KanbanDatabase", 12), 
+>>>>>>> 18793c3dbc78332305644cd3e1ab3fd78a1699a5
     db,
     tx,
     store,
@@ -51,16 +55,28 @@ function addTask() {
 
         let addNewTask = tasksStore.add(newTask[0]);
 
+<<<<<<< HEAD
         addNewTask.onerror = function(e) {
             console.error("Therre was an error adding task " + e.target.errorCode);
+=======
+        addNewTask.onerror = function() {
+            console.error("Therre was an error adding task");
+>>>>>>> 18793c3dbc78332305644cd3e1ab3fd78a1699a5
         }
 
         addNewTask.onsuccess = function() {
             console.log("Added task to database");
+<<<<<<< HEAD
         }
     }
 }
 
+=======
+            listTasks();
+        }
+    }
+}
+>>>>>>> 18793c3dbc78332305644cd3e1ab3fd78a1699a5
 
 //list functions
 function listTasks() {

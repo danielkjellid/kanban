@@ -425,7 +425,7 @@ a.navbar-item,
   display: flex;
   flex-direction: column;
   max-height: calc(100vh - 40px);
-  overflow: hidden;
+  overflow: auto;
   -ms-overflow-y: visible;
 }
 
@@ -620,7 +620,6 @@ a.navbar-item,
 
   .navbar.is-white 
   .navbar-start > a.navbar-item:focus, 
-  .navbar.is-white .navbar-start > a.navbar-item:hover, 
   .navbar.is-white .navbar-start > a.navbar-item.is-active, 
   .navbar.is-white 
   .navbar-start 
@@ -633,12 +632,16 @@ a.navbar-item,
   .navbar-link.is-active, 
   .navbar.is-white 
   .navbar-end > a.navbar-item:focus, 
-  .navbar.is-white .navbar-end > a.navbar-item:hover, 
   .navbar.is-white .navbar-end > a.navbar-item.is-active, 
   .navbar.is-white 
   .navbar-end 
   .navbar-link.is-active {
     border-bottom: 3px solid #F364A2;
+    color: #3E4C59;
+  }
+
+  .navbar.is-white .navbar-end > a.navbar-item:hover,
+  .navbar.is-white .navbar-start > a.navbar-item:hover {
     color: #3E4C59;
   }
 }
@@ -687,8 +690,10 @@ a.navbar-item,
   color: #4a4a4a;
   display: inline-flex;
   font-size: 0.75rem;
+  font-weight: 600;
   height: 2em;
   justify-content: center;
+  letter-spacing: 0.4px;
   line-height: 1.5;
   padding-left: 0.75em;
   padding-right: 0.75em;
