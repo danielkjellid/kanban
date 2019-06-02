@@ -97,7 +97,7 @@ function findTagTextColor(object) {
 }
 
 function onLoad() {
-    connectToDB("KanbanDatabase", 14);
+    connectToDB("KanbanDatabase", 15);
 }
 
 function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagTextColor) {
