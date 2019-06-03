@@ -8,7 +8,7 @@
         <!--<link rel="stylesheet" href="static/css/bulma.css">-->
         <link rel="stylesheet" href="static/css/style.css">
     </head>
-    <body onload="onLoad()">
+    <body>
         <!--navbar-->
         <nav class="navbar is-white">
             <div class="container is-fluid">
@@ -56,7 +56,7 @@
                 
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal" onclick=openModal()>
+                            <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal">
                                 <span>Add new</span>
                             </a>
                         </div>
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="list-block">
-                            <a class="add-new-card" onclick="addTaskFromList('list-to-do')">
+                            <a id="add-new-task-to-do" class="silenced-text">
                                 <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                         <div class="list-block">
-                            <a class="add-new-card" onclick="addTaskFromList('list-in-progress')">
+                            <a id="add-new-task-in-progress" class="silenced-text">
                                 <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                         <div class="list-block">
-                            <a class="add-new-card" onclick="addTaskFromList('list-done')">
+                            <a id="add-new-task-done" class="silenced-text">
                                 <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -167,7 +167,7 @@
                             </a>
                         </div>
                         <div class="list-block">
-                            <a class="add-new-card" onclick="archiveTasks()">
+                            <a id="done-list-archive-cards" class="silenced-text">
                                 <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -260,7 +260,7 @@
                         </a>
                     </div>
                 </header>
-                <form onsubmit="addTask()" id="add-new-modal">
+                <form id="add-new-modal">
                     <section class="modal-card-body">
                         <div class="field">
                             <label class="label">Title</label>
@@ -327,14 +327,13 @@
             </div>
         </div>
 
-        <script src="static/js/dragdrop.js"></script>
         <script src="static/js/indexeddb.js"></script>
-        <script src="static/js/assignments.js"></script>
-        <script src="static/js/members.js"></script>
         <script src="static/js/tasks.js"></script>
         <script src="static/js/tags.js"></script>
         <script src="static/js/modal.js"></script>
+        <script src="static/js/dragdrop.js"></script>
         <script src="static/js/misc.js"></script>
         <script src="static/js/utils.js"></script>
+        <script src="static/js/eventlisteners.js"></script>
     </body>
 </html>

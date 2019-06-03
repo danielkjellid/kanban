@@ -34,6 +34,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     let createTaskCard = document.createElement("div");
 
     createTaskCard.className = "task-card";
+    createTaskCard.id = "task-" + taskID;
     createTaskCard.setAttribute("data-taskid", taskID);
     createTaskCard.setAttribute("draggable", true);
     addCardListeners(createTaskCard);

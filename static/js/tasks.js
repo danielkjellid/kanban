@@ -240,3 +240,67 @@ function archiveTasks() {
         }
     }
 }
+
+function changeTaskStatus(id, list) {
+    //open connection to database
+    let request = window.indexedDB.open("KanbanDatabase", 17), 
+    db,
+    tx,
+    store,
+    index;
+
+    //error handler on connection
+    request.onerror = function(e) {
+        console.error("There was an error opening the database: " + e.target.errorCode);
+    }
+
+    //success handler on connection
+    request.onsuccess = function(e) {
+        db = request.result;
+
+        //define transaction, store and index
+        tasksTx = db.transaction("tasksStore", "readwrite");
+        tasksStore = tasksTx.objectStore("tasksStore");
+        tasksIndex = tasksStore.index("status");
+
+        //error handler on result of the request
+        db.onerror = function(e) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+
+        let getTask = tasksStore.get(id);
+
+        getTask.onerror = function() {
+            console.error("There was an error getting the dropped task");
+        }
+
+        getTask.onsuccess = function(e) {
+            let data = e.target.result;
+
+            if (list == "list-to-do") {
+                data.status = "to-do";
+            } else if (list == "list-in-progress") {
+                data.status = "in-progress";
+            } else if (list == "list-done") {
+                data.status = "done";
+            } else {
+                console.error("List not found")
+            }
+            
+            let requestUpdate = tasksStore.put(data);
+
+            requestUpdate.onerror = function() {
+                console.error("There was an error updating the status of the dropped task")
+            }
+
+            requestUpdate.onsuccess = function() {
+                console.log("Dropped task's status updated successfully");
+            }
+        }
+
+        //close database after transaction is complete
+        tasksTx.oncomplete = function() {
+            db.close();
+        }
+    }
+}

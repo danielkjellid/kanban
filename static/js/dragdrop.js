@@ -35,9 +35,14 @@ function dragLeave() {
     this.className = 'card-container';
 }
 
-function dragDrop() {
+function dragDrop(target) {
     this.className = 'card-container';
     this.append(draggingCard);
+
+    let getCardId = parseInt(draggingCard.getAttribute("data-taskid"));
+    let getList = this.id;
+
+    changeTaskStatus(getCardId, getList);
 }
 
 function addCardListeners(taskCard) {

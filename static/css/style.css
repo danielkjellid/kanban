@@ -13,37 +13,37 @@
 /* ============================ FONT IMPORT ============================ */
 
 /* ===== GT Walsheim ===== */
-@font-face{
+@font-face {
   font-family: 'Walsheim';
   font-style: normal;
   font-weight: 400;
   src: url("../fonts/gt-walsheim/gt-walsheim-web.ttf");
 }
-@font-face{
+@font-face {
   font-family: 'Walsheim';
   font-style: italic;
   font-weight: 400;
   src: url("../fonts/gt-waslheim/gt-walsheim-regular-oblique-web.ttf");
 }
-@font-face{
+@font-face {
   font-family: 'Walsheim';
   font-style: normal;
   font-weight: 500;
   src: url("../fonts/gt-walsheim/gt-walsheim-medium-web.zip");
 }
-@font-face{
+@font-face {
   font-family: 'Walsheim';
   font-style: italic;
   font-weight: 500;
   src: url("../fonts/gt-washeim/gt-walsheim-medium-oblique-web.ttf");
 }
-@font-face{
+@font-face {
   font-family: 'Walsheim';
   font-style: normal;
   font-weight: 700;
   src: url("../fonts/gt-walsheim/gt-walsheim-bold-web.ttf");
 }
-@font-face{
+@font-face {
   font-family: 'Walsheim';
   font-style: italic;
   font-weight: 700;
@@ -161,12 +161,12 @@ a.navbar-item,
   }
 }
 
-.add-new-card {
+.silenced-text {
   color: #CBD2D9;
   text-decoration: none;
 }
 
-.add-new-card span {
+.silenced-text span {
   margin-right: 2px;
 }
 
