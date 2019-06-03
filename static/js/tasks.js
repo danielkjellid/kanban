@@ -268,15 +268,19 @@ function changeTaskStatus(id, list) {
             console.log("ERROR " + e.target.errorCode);
         }
 
+        //get data-taskid of card dropped
         let getTask = tasksStore.get(id);
 
+        //error handler for getting data-taskid
         getTask.onerror = function() {
             console.error("There was an error getting the dropped task");
         }
 
+        //success handler for getting data-taskid
         getTask.onsuccess = function(e) {
             let data = e.target.result;
 
+            //change status based on parent element's id
             if (list == "list-to-do") {
                 data.status = "to-do";
             } else if (list == "list-in-progress") {
@@ -287,12 +291,15 @@ function changeTaskStatus(id, list) {
                 console.error("List not found")
             }
             
+            //update the object in the database
             let requestUpdate = tasksStore.put(data);
 
+            //error handler for updating object
             requestUpdate.onerror = function() {
                 console.error("There was an error updating the status of the dropped task")
             }
 
+            //success handler for updating object
             requestUpdate.onsuccess = function() {
                 console.log("Dropped task's status updated successfully");
             }

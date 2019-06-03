@@ -43,7 +43,7 @@ let tags = [
     }
 ];
 
-function listTags() {
+function listTagsOverview() {
     let getTagContainer = document.getElementById("tag-container");
 
     //For loop to traverse through the array
@@ -62,5 +62,18 @@ function listTags() {
         getTagContainer.appendChild(createTagDiv);
         createTagDiv.appendChild(createTag);
         createTagDiv.appendChild(createTagName);
+    }
+}
+
+function listTagsSelect() {
+    
+    let getSelect = document.getElementById("modal-add-new-task-tag");
+
+    for (i = 1; i < tags.length; i++) {
+        let createOption = document.createElement("option");
+
+        createOption.innerHTML = tags[i].tagName;
+
+        getSelect.appendChild(createOption);
     }
 }
