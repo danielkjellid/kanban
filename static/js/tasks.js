@@ -1,4 +1,36 @@
 
+    function addTaskFromList(destination) {
+
+        function activateModal() {
+            var modal = document.querySelector('.modal');  // only works with a single modal
+            var html = document.querySelector('html');
+            modal.classList.add('is-active');
+            html.classList.add('is-clipped');
+        
+            modal.querySelector('.modal-background').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    modal.classList.remove('is-active');
+                    html.classList.remove('is-clipped');
+            });
+        }
+
+        if (destination == "list-to-do") {
+            let getSelectItem = document.getElementById("select-to-do");
+            getSelectItem.setAttribute("selected", "selected");
+            activateModal();
+        } else if (destination == "list-in-progress") {
+            let getSelectItem = document.getElementById("select-in-progress");
+            getSelectItem.setAttribute("selected", "selected");
+            activateModal();
+        } else if (destination == "list-done") {
+            let getSelectItem = document.getElementById("select-done");
+            getSelectItem.setAttribute("selected", "selected");
+            activateModal();
+        } else {
+            console.error("There was an error finding the selected destination.");
+        }
+    }
+    
     function addTask() {
 
         let titleInput = document.getElementById("modal-add-new-task-title").value;

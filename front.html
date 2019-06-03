@@ -39,13 +39,13 @@
                 
                 <div id="navbar" class="navbar-menu">
                     <div class="navbar-start">
-                        <a class="navbar-item is-active" href="https://bulma.io/">
+                        <a class="navbar-item is-active" href="#">
                             Board
                         </a>
-                        <a class="navbar-item" href="https://bulma.io/">
+                        <a class="navbar-item" href="#">
                             Leaderboard
                         </a>
-                        <a class="navbar-item" href="https://bulma.io/">
+                        <a class="navbar-item" href="#">
                             Archive
                         </a>
                     </div>
@@ -56,7 +56,7 @@
                 
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <a class="button is-brand is-rounded is-outlined">
+                            <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal" onclick=openModal()>
                                 <span>Add new</span>
                             </a>
                         </div>
@@ -77,7 +77,26 @@
                             </div>
                         </div>
                         <div class="list-block">
-                            <p>Add new card</p>
+                            <a class="add-new-card" onclick="addTaskFromList('list-to-do')">
+                                <span>
+                                    <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Front-Copy" transform="translate(-745.000000, -809.000000)" fill="#CBD2D9" fill-rule="nonzero">
+                                                <g id="Body" transform="translate(25.000000, 100.000000)">
+                                                    <g id="Backlog" transform="translate(710.000000, 0.000000)">
+                                                        <g id="Add-new-card" transform="translate(10.000000, 706.000000)">
+                                                            <g id="add-outline" transform="translate(0.000000, 3.000000)">
+                                                                <polygon id="Shape" points="7.2 4.8 12 4.8 12 7.2 7.2 7.2 7.2 12 4.8 12 4.8 7.2 0 7.2 0 4.8 4.8 4.8 4.8 0 7.2 0"></polygon>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span>
+                                Add new task
+                            </a>
                         </div>
                     </nav>
                 </div>
@@ -92,7 +111,26 @@
                             </div>
                         </div>
                         <div class="list-block">
-                            <p>Add new card</p>
+                            <a class="add-new-card" onclick="addTaskFromList('list-in-progress')">
+                                <span>
+                                    <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Front-Copy" transform="translate(-745.000000, -809.000000)" fill="#CBD2D9" fill-rule="nonzero">
+                                                <g id="Body" transform="translate(25.000000, 100.000000)">
+                                                    <g id="Backlog" transform="translate(710.000000, 0.000000)">
+                                                        <g id="Add-new-card" transform="translate(10.000000, 706.000000)">
+                                                            <g id="add-outline" transform="translate(0.000000, 3.000000)">
+                                                                <polygon id="Shape" points="7.2 4.8 12 4.8 12 7.2 7.2 7.2 7.2 12 4.8 12 4.8 7.2 0 7.2 0 4.8 4.8 4.8 4.8 0 7.2 0"></polygon>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span>
+                                Add new task
+                            </a>
                         </div>
                     </nav>
                 </div>
@@ -107,7 +145,26 @@
                             </div>
                         </div>
                         <div class="list-block">
-                            <p>Add new card</p>
+                            <a class="add-new-card" onclick="addTaskFromList('list-done')">
+                                <span>
+                                    <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g id="Front-Copy" transform="translate(-745.000000, -809.000000)" fill="#CBD2D9" fill-rule="nonzero">
+                                                <g id="Body" transform="translate(25.000000, 100.000000)">
+                                                    <g id="Backlog" transform="translate(710.000000, 0.000000)">
+                                                        <g id="Add-new-card" transform="translate(10.000000, 706.000000)">
+                                                            <g id="add-outline" transform="translate(0.000000, 3.000000)">
+                                                                <polygon id="Shape" points="7.2 4.8 12 4.8 12 7.2 7.2 7.2 7.2 12 4.8 12 4.8 7.2 0 7.2 0 4.8 4.8 4.8 4.8 0 7.2 0"></polygon>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </span>
+                                Add new card
+                            </a>
                         </div>
                     </nav>
                 </div>
@@ -172,7 +229,7 @@
                         </a>
                     </div>
                 </header>
-                    <form onsubmit="addTask()" id="addingForm">
+                    <form onsubmit="addTask()" id="add-new-modal">
                         <section class="modal-card-body">
                             <div class="field">
                                 <label class="label">Title</label>
@@ -186,10 +243,10 @@
                                 <div class="control">
                                     <div class="select is-fullwidth">
                                         <select id="modal-add-new-task-status">
-                                            <option>to-do</option>
-                                            <option>In-progress</option>
-                                            <option>Done</option>
-                                            <option>Archived</option>
+                                            <option id="select-to-do">To-do</option>
+                                            <option id="select-in-progress">In-progress</option>
+                                            <option id="select-done">Done</option>
+                                            <option id="select-archived">Archived</option>
                                         </select>
                                     </div>
                                 </div>
@@ -237,22 +294,14 @@
                         </footer>
                     </form>
             </div>
-        </div>
-        
-        <script>
-            function handleForm(e) {
-                e.preventDefault();
-            }
-            var getForm = document.getElementById("addingForm");
-            getForm.addEventListener("submit", handleForm);
-        </script>
-        
+        </div>    
 
         <script src="static/js/dragdrop.js"></script>
         <script src="static/js/indexeddb.js"></script>
         <script src="static/js/assignments.js"></script>
         <script src="static/js/members.js"></script>
         <script src="static/js/tasks.js"></script>
+        <script src="static/js/modal.js"></script>
         <script src="static/js/misc.js"></script>
     </body>
 </html>

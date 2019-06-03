@@ -993,3 +993,12 @@ a.navbar-item,
 .due-date-list-progress.is-large {
   height: 2rem;
 }
+
+.add-new-card {
+  color: #CBD2D9;
+  text-decoration: none;
+}
+
+.add-new-card span {
+  margin-right: 2px;
+}
