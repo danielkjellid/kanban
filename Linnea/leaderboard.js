@@ -110,6 +110,7 @@ function score() {
     let countCards = tasksIndex.count("done");
     
     let scoreCount = 0;
+    
 
     //error handler
     countCards.onerror = function() {
@@ -119,9 +120,10 @@ function score() {
     //success handler
     countCards.onsuccess = function() {
         
-        //i starts at 1 because the key in the store starts at 1
+        //i starts at 1 because the key in the store starts at 1, add count if status = "done"
         for (var i = 1; i < countCards.result+1; i++) {
-            let numberOfCards = tasksIndex.get("done");
+            if (countCards.result[i] == "done")
+                count++;
 
             numberOfCards.onerror = function() {
                 console.error("There was an error looping through the tasks");
