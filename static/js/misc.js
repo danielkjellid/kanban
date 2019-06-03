@@ -101,7 +101,7 @@ function findTagTextColor(object) {
 
 //function for loading other functions on site refresh.
 function onLoad() {
-    connectToDB("KanbanDatabase", 16);
+    connectToDB("KanbanDatabase", 17);
 }
 
 //function for adding the entire html structure for the cards.

@@ -52,7 +52,7 @@ function addTask() {
     //need to open a new connection.
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 16), 
+    let request = window.indexedDB.open("KanbanDatabase", 17), 
     db,
     tx,
     store,
@@ -150,10 +150,15 @@ function listTasks() {
 
                     getCardContainer.appendChild(createCard);
                 } else if (getTasks.result.status == "archived") {
-                    let getCardContainer = document.getElementById("list-archived");
-                    let createCard = addCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
 
-                    getCardContainer.appendChild(createCard);
+                    if (document.getElementById("list-archived")) {
+                        let getCardContainer = document.getElementById("list-archived");
+                        let createCard = addCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
+
+                        getCardContainer.appendChild(createCard);
+                    } else {
+                        //nothing
+                    }
                 }
             }
         }   
@@ -165,7 +170,7 @@ function archiveTasks() {
     //need to open a new connection.
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 16), 
+    let request = window.indexedDB.open("KanbanDatabase", 17), 
     db,
     tx,
     store,
@@ -198,7 +203,7 @@ function archiveTasks() {
 
         amountOfDoneTasks.onsuccess = function() {
             //function stops here
-            for (var i = 1; i < amountOfDoneTasks.result+1; i++) {
+            for (var i = 0; i < amountOfDoneTasks.result; i++) {
                 let getTasks = tasksIndex.get("done");
 
                 getTasks.onerror = function() {
@@ -207,7 +212,7 @@ function archiveTasks() {
 
                 getTasks.onsuccess = function(e) {
                     let data = e.target.result;
-                    data.status = "Archived";
+                    data.status = "archived";
 
                     let requestUpdate = tasksStore.put(data);
 
@@ -216,6 +221,12 @@ function archiveTasks() {
                     }
 
                     requestUpdate.onsuccess = function() {
+                        let getTaskContainer = document.getElementById("list-done");
+                        
+                        while (getTaskContainer.firstChild) {
+                            getTaskContainer.removeChild(getTaskContainer.firstChild);
+                        }
+
                         console.log("Successfully archived tasks");
                     }
                 }

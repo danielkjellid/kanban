@@ -54,11 +54,12 @@ function connectToDB(database, version) {
         //defined in tasks.js
         listTasks();
 
+        /*
         let test = tasksIndex.get("done");
 
         test.onsuccess = function() {
             console.log(test.result);
-        }
+        }*/
 
         //close DB conection once transaction is complete.
         tasksTx.oncomplete = function() {
