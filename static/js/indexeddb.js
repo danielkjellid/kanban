@@ -53,6 +53,7 @@ function connectToDB(database, version) {
         //listTasks() list all tasks and appends them to the appropriate list based on status.
         //defined in tasks.js
         listTasks();
+        progressBar();
 
         /*
         let test = tasksIndex.get("done");

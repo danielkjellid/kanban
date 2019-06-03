@@ -125,3 +125,57 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
 
     return createTaskCard;
 }
+
+//function for dynamically change the progress bar
+function progressBar() {
+
+    //count the total amount of tasks
+    let amountOfTasks = tasksStore.count();
+
+    //error handler for finding the total amount
+    amountOfTasks.onerror = function() {
+        console.error("There was an error finding the amount of tasks");
+    }
+
+    //success handler for finding the total amount
+    amountOfTasks.onsuccess = function() {
+
+        //count amount of tasks with status done
+        let amountOfDoneTasks = tasksIndex.count("done");
+
+        //error handler for finding amount of done tasks
+        amountOfDoneTasks.onerror = function() {
+            console.error("There was an error finding the amount of tasks with status done");
+        }
+
+        //success handler for finding amount of done tasks
+        amountOfDoneTasks.onsuccess = function() {
+
+            //we do not want to include archived tasks, so we have to remove them from the ecuation
+            //count amount of archived task
+            let amountOfArchivedTasks = tasksIndex.count("archived");
+
+            //error handler for finding amount of archived tasks
+            amountOfArchivedTasks.onerror = function() {
+                console.error("There was an error finding the amount of tasks with status archived")
+            }
+
+            //success handler for finding amount of archived tasks
+            amountOfArchivedTasks.onsuccess = function() {
+
+                //define variables containing results
+                let archivedTasks = amountOfArchivedTasks.result;
+                let doneTasks = amountOfDoneTasks.result;
+                let tasks = amountOfTasks.result;
+
+                //ecuation for finding percentage of completed cards, removing decimals
+                let progress = ((doneTasks/(tasks-archivedTasks))*100).toFixed(0);
+
+                //DOM to change the actuall progress bar
+                let getProgressBar = document.getElementById("progress-bar");
+                getProgressBar.setAttribute("value", progress);
+
+            }
+        }
+    }
+}

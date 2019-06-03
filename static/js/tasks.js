@@ -302,6 +302,7 @@ function changeTaskStatus(id, list) {
             //success handler for updating object
             requestUpdate.onsuccess = function() {
                 console.log("Dropped task's status updated successfully");
+                progressBar();
             }
         }
 
