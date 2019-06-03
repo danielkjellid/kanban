@@ -1,5 +1,5 @@
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 10), 
+   /* let request = window.indexedDB.open("KanbanDatabase", 10), 
     db,
     tx,
     store,
@@ -51,7 +51,7 @@
             db.close();
         };
     }
-}
+
 
 //count tasks functions
 function listTasks() {
@@ -101,39 +101,43 @@ function listTasks() {
             
      }
                 
-  }
+  }*/
 
 
-function score() {
-    
-     //variable for counting objects in the index
-    let countCards = tasksIndex.count("done");
-    
-    let scoreCount = 0;
-    
+function leaderBoard() {
 
-    //error handler
-    countCards.onerror = function() {
-        console.error("There was an error finding the amount of tasks");
+    let tasks = taskStore.count();
+    
+    let danielCounter = 0;
+    let linneaCounter = 0;
+    let kainatCounter = 0;
+    let sultanCounter = 0;
+    let magoCounter = 0;
+
+    tasks.onerror = function() {
+        //error handler
     }
 
-    //success handler
-    countCards.onsuccess = function() {
+    tasks.onsuccess = function() {
         
-        //i starts at 1 because the key in the store starts at 1, add count if status = "done"
-        for (var i = 1; i < countCards.result+1; i++) {
-            if (countCards.result[i] == "done")
-                count++;
+        //hent først ut alle kort
+        for (var i = 1; i < tasks.result+1; i++) {
+            let getTasks = taskStore.get(i);
 
-            numberOfCards.onerror = function() {
-                console.error("There was an error looping through the tasks");
+            getTasks.onerror = function() {
+                //error handler for å hente alle tasks
             }
 
-            numberOfCards.onsuccess = function() {
-                if (numberOfCards.result.status == "done") {
-                    let scoreMember = numberOfCards.result.memberFullName;
+            getTasks.onsuccess = function() {
+                if (getTasks.result.status == "done" && getTasks.result.memberFullName == "Daniel Kjellid") {
+                        danielCounter = danielCounter++;
+                        console.log(danielCounter);
+                } else if (getTasks.result.status == "done" && getTasks.result.memberFullName == "Linnea S. Fylling") {
+                        linneaCounter = linneaCounter++;
+                        console.log(linneaCounter);
+                } else if 
+                    //do nothing
                 }
-                
             }
         }
     }
