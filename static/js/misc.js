@@ -102,6 +102,7 @@ function findTagTextColor(object) {
 //function for loading other functions on site refresh.
 function onLoad() {
     connectToDB("KanbanDatabase", 17);
+    listTags();
 }
 
 //function for adding the entire html structure for the cards.
@@ -200,4 +201,26 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createTaskCard.appendChild(createTaskFooter);
 
     return createTaskCard;
+}
+
+function listTags() {
+    let getTagContainer = document.getElementById("tag-container");
+
+    //For loop to traverse through the array
+    for(i = 1; i<tags.length; i++){
+        let createTagDiv = document.createElement("div");
+        let createTag = document.createElement("span");
+        let createTagName = document.createElement("span");
+
+        createTagDiv.className = "tag-div";
+        createTagName.className = "tag-name";
+        createTagName.innerHTML = tags[i].tagName;
+        
+        
+        createTag.setAttribute("style", "background-color: " + tags[i].tagColor + ";");
+        createTag.className = "mini-tag-tag-list";
+        getTagContainer.appendChild(createTagDiv);
+        createTagDiv.appendChild(createTag);
+        createTagDiv.appendChild(createTagName);
+    }
 }

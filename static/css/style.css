@@ -349,9 +349,11 @@ a.navbar-item,
   border-radius: 8px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   font-size: 1rem;
+  margin-bottom: 20px;
 }
 
-.due-date-list-heading {
+.due-date-list-heading, 
+.tag-heading {
   border-radius: 8px 8px 0 0;
   font-size: 1.25em;
   font-weight: 600;
@@ -371,7 +373,8 @@ a.navbar-item,
   border-radius: 0 0 8px 8px;
 }
 
-.due-date-list-heading h1 {
+.due-date-list-heading h1, 
+.tag-heading h1 {
   color: #7B8794;
   font-size: 16px;
   letter-spacing: 1.6px;
@@ -548,6 +551,23 @@ a.navbar-item,
 }
 
 /* ===== M* ===== */
+
+.mini-tags-tag-list {
+  width: 20%;
+  height: auto;
+  margin-top: 15px;
+}
+
+.mini-tag-tag-list {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.mini-tag-tag-list:first-child {
+  margin-right: 0px;
+}
 
 .modal {
   align-items: center;
@@ -914,6 +934,35 @@ a.navbar-item,
   margin-right: 0.4rem;
 }
 
+.tag-overview {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+  font-size: 1rem;
+  width: 100%;
+  height: auto;
+}
+
+.tag-div {
+  justify-content: flex-start;
+  padding: 0.7em 0.7em;
+  border-bottom: 0.3px solid #E0E3E8;
+  width: 500%;
+  display: block;
+  height: auto;
+}
+
+.tag-div:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.tag-name{
+  position: relative;
+  left: 8px;
+  bottom: 3px;
+  color: #3E4C59;
+}
+
 .task-card {
   border-radius: 8px;
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
@@ -1013,3 +1062,4 @@ a.navbar-item,
 /* ===== Y* ===== */
 
 /* ===== Z* ===== */
+
