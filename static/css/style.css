@@ -1,3 +1,15 @@
+/*
+*
+* Document is ordered alphabetically, and separated into font import, reset, general tags
+* and generic tags. If you wish to view all calsses starting with the letter C, do
+* ctrl+f (cmd+f on mac) and type "C*".
+*
+* CSS for kanban exam project.
+*
+* Author: Gruppe 8
+*
+*/
+
 /* ============================ FONT IMPORT ============================ */
 
 /* ===== GT Walsheim ===== */
@@ -147,6 +159,15 @@ a.navbar-item,
   .navbar-link.is-active:not(:focus):not(:hover) {
     background-color: transparent;
   }
+}
+
+.add-new-card {
+  color: #CBD2D9;
+  text-decoration: none;
+}
+
+.add-new-card span {
+  margin-right: 2px;
 }
 
 
@@ -312,11 +333,137 @@ a.navbar-item,
   }
 }
 
+.control {
+  box-sizing: border-box;
+  clear: both;
+  font-size: 1rem;
+  margin-top: 5px;
+  position: relative;
+  text-align: left;
+}
+
 /* ===== D* ===== */
+
+.due-date-list {
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  font-size: 1rem;
+}
+
+.due-date-list-heading {
+  border-radius: 8px 8px 0 0;
+  font-size: 1.25em;
+  font-weight: 600;
+  line-height: 1.25;
+  padding: 0.75em 0.75em 0em 0.75em;
+}
+
+.due-date-list-block {
+  align-items: center;
+  color: #363636;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.5em 0.75em;
+}
+
+.due-date-list-block:last-child {
+  border-radius: 0 0 8px 8px;
+}
+
+.due-date-list-heading h1 {
+  color: #7B8794;
+  font-size: 16px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.due-date-list-heading:first-child,
+.due-date-list-block:first-child {
+  border-top: 1px solid #dbdbdb;
+}
+
+.due-date-list-card {
+  border-left: 3px solid #F364A2;
+  padding-left: 8px;
+  width: 100%;
+}
+
+.due-date-list-card .meta {
+  float: left;
+  width: 80%;
+}
+
+.due-date-list-card span {
+  color: #7B8794;
+  font-size: 16px;
+}
+
+.due-date-list-card .mini-tags {
+  float: right;
+  height: auto;
+  width: 20%;
+}
+
+.due-date-list-card .mini-tag {
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  float: right;
+  height: 18px;
+  margin-right: 5px;
+  width: 18px;
+}
+
+.due-date-list-card .mini-tag:first-child {
+  margin-right: 0px;
+}
+
+.due-date-list-card .title {
+  float: left;
+  width: 100%;
+}
+
+.due-date-list-card .title p {
+  color: #616E7C;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.due-date-list-progress {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 290486px;
+  display: block;
+  height: 1rem;
+  margin-top: 10px;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+.due-date-list-progress::-webkit-progress-bar {
+  background-color: #E4E7EB;
+}
+
+.due-date-list-progress.is-brand::-webkit-progress-value {
+  background-color: #f15998;
+}
+
+.due-date-list-progress.is-large {
+  height: 2rem;
+}
 
 /* ===== E* ===== */
 
 /* ===== F* ===== */
+
+.field:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
 
 /* ===== G* ===== */
 
@@ -333,11 +480,36 @@ a.navbar-item,
   margin-right: 3px;
 }
 
+.input, .textarea, .select select {
+  background-color: white;
+  border-color: #e0e3e8;
+  border-radius: 4px;
+  color: #363636;
+}
+
+.input::-webkit-input-placeholder, .textarea::-webkit-input-placeholder, .select select::-webkit-input-placeholder {
+  color: rgba(54, 54, 54, 0.3);
+}
+
+.input, .textarea {
+  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+  max-width: 100%;
+  width: 100%;
+}
+
 /* ===== J* ===== */
 
 /* ===== K* ===== */
 
 /* ===== L* ===== */
+
+.label {
+  color: #9AA5B1;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
 
 .list {
   background: #FFFFFF;
@@ -681,6 +853,43 @@ a.navbar-item,
 
 /* ===== S* ===== */
 
+.select {
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
+  vertical-align: top;
+}
+
+.select:not(.is-multiple) {
+  height: 2.25em;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: #3273dc;
+  right: 1.125em;
+  z-index: 4;
+}
+
+.select select {
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  max-width: 100%;
+  outline: none;
+}
+
+.select select:not([multiple]) {
+  padding-right: 2.5em;
+}
+
+.select.is-fullwidth {
+  width: 100%;
+}
+
+.select.is-fullwidth select {
+  width: 100%;
+}
+
 /* ===== T* ===== */
 
 .tag {
@@ -705,14 +914,14 @@ a.navbar-item,
   margin-right: 0.4rem;
 }
 
-    .task-card {
-      border-radius: 8px;
-      box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
-      color: #3E4C59;
-      height: auto;
-      margin-bottom: 13px;
-      width: 100%;
-    }
+.task-card {
+  border-radius: 8px;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
+  color: #3E4C59;
+  height: auto;
+  margin-bottom: 13px;
+  width: 100%;
+}
 
 .task-card-body {
   background-color: #fff !important;
@@ -780,56 +989,6 @@ a.navbar-item,
   width: 90%;
 }
 
-/* ===== U* ===== */
-
-/* ===== V* ===== */
-
-/* ===== W* ===== */
-
-/* ===== X* ===== */
-
-/* ===== Y* ===== */
-
-/* ===== Z* ===== */
-
-.label {
-  color: #9AA5B1;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-}
-
-.field:not(:last-child) {
-  margin-bottom: 0.75rem;
-}
-
-.control {
-  box-sizing: border-box;
-  clear: both;
-  font-size: 1rem;
-  margin-top: 5px;
-  position: relative;
-  text-align: left;
-}
-
-.input, .textarea, .select select {
-  background-color: white;
-  border-color: #e0e3e8;
-  border-radius: 4px;
-  color: #363636;
-}
-
-.input::-webkit-input-placeholder, .textarea::-webkit-input-placeholder, .select select::-webkit-input-placeholder {
-  color: rgba(54, 54, 54, 0.3);
-}
-
-.input, .textarea {
-  box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-  max-width: 100%;
-  width: 100%;
-}
-
 .textarea {
   display: block;
   max-width: 100%;
@@ -843,162 +1002,14 @@ a.navbar-item,
   min-height: 120px;
 }
 
-.select {
-  display: inline-block;
-  max-width: 100%;
-  position: relative;
-  vertical-align: top;
-}
+/* ===== U* ===== */
 
-.select:not(.is-multiple) {
-  height: 2.25em;
-}
+/* ===== V* ===== */
 
-.select:not(.is-multiple):not(.is-loading)::after {
-  border-color: #3273dc;
-  right: 1.125em;
-  z-index: 4;
-}
+/* ===== W* ===== */
 
-.select select {
-  cursor: pointer;
-  display: block;
-  font-size: 1em;
-  max-width: 100%;
-  outline: none;
-}
+/* ===== X* ===== */
 
-.select select:not([multiple]) {
-  padding-right: 2.5em;
-}
+/* ===== Y* ===== */
 
-.select.is-fullwidth {
-  width: 100%;
-}
-
-.select.is-fullwidth select {
-  width: 100%;
-}
-
-
-.due-date-list {
-  background: #FFFFFF;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-  font-size: 1rem;
-}
-
-.due-date-list-heading {
-  border-radius: 8px 8px 0 0;
-  font-size: 1.25em;
-  font-weight: 600;
-  line-height: 1.25;
-  padding: 0.75em 0.75em 0em 0.75em;
-}
-
-.due-date-list-block {
-  align-items: center;
-  color: #363636;
-  display: flex;
-  justify-content: flex-start;
-  padding: 0.5em 0.75em;
-}
-
-.due-date-list-block:last-child {
-  border-radius: 0 0 8px 8px;
-}
-
-.due-date-list-heading h1 {
-  color: #7B8794;
-  font-size: 16px;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  margin-top: 10px;
-}
-
-.due-date-list-heading:first-child,
-.due-date-list-block:first-child {
-  border-top: 1px solid #dbdbdb;
-}
-
-.due-date-list-card {
-  width: 100%;
-  border-left: 3px solid #F364A2;
-  padding-left: 8px;
-}
-
-.due-date-list-card .meta {
-  width: 80%;
-  float: left;
-}
-
-.due-date-list-card span {
-  color: #7B8794;
-  font-size: 16px;
-}
-
-.due-date-list-card .mini-tags {
-  width: 20%;
-  float: right;
-  height: auto;
-}
-
-.due-date-list-card .mini-tag {
-  float: right;
-  height: 18px;
-  width: 18px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.due-date-list-card .mini-tag:first-child {
-  margin-right: 0px;
-}
-
-.due-date-list-card .title {
-  width: 100%;
-  float: left;
-}
-
-.due-date-list-card .title p {
-  color: #616E7C;
-  font-size: 16px;
-  font-weight: 600;
-  margin: 0px;
-}
-
-.due-date-list-progress {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  border: none;
-  border-radius: 290486px;
-  display: block;
-  height: 1rem;
-  margin-top: 10px;
-  overflow: hidden;
-  padding: 0;
-  width: 100%;
-}
-
-.due-date-list-progress::-webkit-progress-bar {
-  background-color: #E4E7EB;
-}
-
-.due-date-list-progress.is-brand::-webkit-progress-value {
-  background-color: #f15998;
-}
-
-.due-date-list-progress.is-large {
-  height: 2rem;
-}
-
-.add-new-card {
-  color: #CBD2D9;
-  text-decoration: none;
-}
-
-.add-new-card span {
-  margin-right: 2px;
-}
+/* ===== Z* ===== */
