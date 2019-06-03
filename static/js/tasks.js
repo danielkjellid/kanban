@@ -52,7 +52,7 @@ function addTask() {
     //need to open a new connection.
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 15), 
+    let request = window.indexedDB.open("KanbanDatabase", 16), 
     db,
     tx,
     store,
@@ -70,7 +70,7 @@ function addTask() {
         //define transaction, store and index
         tasksTx = db.transaction("tasksStore", "readwrite");
         tasksStore = tasksTx.objectStore("tasksStore");
-        tasksIndex = tasksStore.index("taskID");
+        tasksIndex = tasksStore.index("status");
 
         //error handler on result of the request
         db.onerror = function(e) {
@@ -157,5 +157,75 @@ function listTasks() {
                 }
             }
         }   
+    }
+}
+
+function archiveTasks() {
+    //since we're trying to add to the database after the initial connect, we
+    //need to open a new connection.
+
+    //open connection to database
+    let request = window.indexedDB.open("KanbanDatabase", 16), 
+    db,
+    tx,
+    store,
+    index;
+
+    //error handler on connection
+    request.onerror = function(e) {
+        console.error("There was an error opening the database: " + e.target.errorCode);
+    }
+
+    //success handler on connection
+    request.onsuccess = function(e) {
+        db = request.result;
+
+        //define transaction, store and index
+        tasksTx = db.transaction("tasksStore", "readwrite");
+        tasksStore = tasksTx.objectStore("tasksStore");
+        tasksIndex = tasksStore.index("status");
+
+        //error handler on result of the request
+        db.onerror = function(e) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+        
+        let amountOfDoneTasks = tasksIndex.count("done");
+
+        amountOfDoneTasks.onerror = function(e) {
+            console.error("There was an error getting all done tasks: " + e.target.errorCode);
+        }
+
+        amountOfDoneTasks.onsuccess = function() {
+            //function stops here
+            for (var i = 1; i < amountOfDoneTasks.result+1; i++) {
+                let getTasks = tasksIndex.get("done");
+
+                getTasks.onerror = function() {
+                    console.error("There was an error looping through the tasks index");
+                }
+
+                getTasks.onsuccess = function(e) {
+                    let data = e.target.result;
+                    data.status = "Archived";
+
+                    let requestUpdate = tasksStore.put(data);
+
+                    requestUpdate.onerror = function() {
+                        console.error("There was an error updateing done entries " + e.target.errorCode);
+                    }
+
+                    requestUpdate.onsuccess = function() {
+                        console.log("Successfully archived tasks");
+                    }
+                }
+            }
+        }
+
+
+        //close database after transaction is complete
+        tasksTx.oncomplete = function() {
+            db.close();
+        }
     }
 }
