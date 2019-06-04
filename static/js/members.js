@@ -35,9 +35,29 @@ function listMemberOverview() {
         let createMemberName = document.createElement("span");
 
         createMemberDiv.className = "member-div";
-        createEmblem.setAttribute("src", "static/img/member-icons/dk.png")
-        createEmblem.setAttribute("height", "24px");
-        createEmblem.setAttribute("width", "24px");
+
+        if (members[i].memberFullName == "Daniel Kjellid") {
+            createEmblem.setAttribute("src", "static/img/member-icons/dk.png")
+            createEmblem.setAttribute("height", "24px");
+            createEmblem.setAttribute("width", "24px");
+        } else if (members[i].memberFullName == "Kainat Zahoor") {
+            createEmblem.setAttribute("src", "static/img/member-icons/kz.png")
+            createEmblem.setAttribute("height", "24px");
+            createEmblem.setAttribute("width", "24px");
+        } else if (members[i].memberFullName == "Linnea S. Fylling") {
+            createEmblem.setAttribute("src", "static/img/member-icons/lf.png")
+            createEmblem.setAttribute("height", "24px");
+            createEmblem.setAttribute("width", "24px");
+        } else if (members[i].memberFullName == "Magomed Derbtichev") {
+            createEmblem.setAttribute("src", "static/img/member-icons/md.png")
+            createEmblem.setAttribute("height", "24px");
+            createEmblem.setAttribute("width", "24px");
+        } else if (members[i].memberFullName == "Sultan Khan") {
+            createEmblem.setAttribute("src", "static/img/member-icons/sk.png")
+            createEmblem.setAttribute("height", "24px");
+            createEmblem.setAttribute("width", "24px");
+        }
+        
         createMemberName.className = "member-name";
         createMemberName.innerHTML = members[i].memberFullName;
 
