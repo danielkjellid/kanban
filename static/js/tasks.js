@@ -314,3 +314,44 @@ function changeTaskStatus(id, list) {
         }
     }
 }
+
+function listUpcomingDue() {
+    //variable for counting objects in the index
+    let amountOfTasks = tasksStore.count();
+
+    //error handler
+    amountOfTasks.onerror = function() {
+        console.error("There was an error finding the amount of tasks");
+    }
+
+    //success handler
+    amountOfTasks.onsuccess = function() {
+        //i starts at 1 because the key in the store starts at 1
+        for (var i = 1; i < amountOfTasks.result+1; i++) {
+            let getTasks = tasksStore.get(i);
+
+            getTasks.onerror = function() {
+                console.error("There was an error looping through the tasks");
+            }
+
+            getTasks.onsuccess = function() {
+                if (getTasks.result.status == "done" || getTasks.result.status == "archived") {
+                
+                } else {
+                    let now = new Date();
+                    let day = ("0" + now.getDate()).slice(-2);
+                    let month = ("0" + (now.getMonth() + 1)).slice(-2);
+                    let today = now.getFullYear() + "-" + (month) + "-" + (day);
+                    
+                    if (today < getTasks.result.dueDate) {
+                        //add through dom
+                        //get the 5 latest dates
+                        console.log(getTasks.result);
+
+                        addDueCard(getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagColor, getTasks.result.title);
+                    }
+                }
+            }
+        }   
+    }
+}

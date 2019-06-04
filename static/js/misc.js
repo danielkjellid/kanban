@@ -84,10 +84,10 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
 
     //create card footer
     let createTaskFooter = document.createElement("div");
-    let createAsignee = document.createElement("div");
-    let createAsigneeIcon = document.createElement("span");
-    let createAsigneeIconImg = document.createElement("img");
-    let createAsigneeMember = document.createElement("span");
+    let createAssignee = document.createElement("div");
+    let createAssigneeIcon = document.createElement("span");
+    let createAssigneeIconImg = document.createElement("img");
+    let createAssigneeMember = document.createElement("span");
     let createDueDate = document.createElement("div");
     let createDueDateDate = document.createElement("span");
     let createDueDateIcon = document.createElement("span");
@@ -95,12 +95,12 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
 
     createTaskFooter.className = "task-card-footer";
 
-    createAsignee.className = "asignee";
-    createAsigneeIcon.className = "icon";
-    createAsigneeIconImg.setAttribute("src", "static/img/person.png");
-    createAsigneeIconImg.setAttribute("height", "13px");
-    createAsigneeIconImg.setAttribute("width", "13px");
-    createAsigneeMember.innerHTML = memberFullName;
+    createAssignee.className = "asignee";
+    createAssigneeIcon.className = "icon";
+    createAssigneeIconImg.setAttribute("src", "static/img/person.png");
+    createAssigneeIconImg.setAttribute("height", "13px");
+    createAssigneeIconImg.setAttribute("width", "13px");
+    createAssigneeMember.innerHTML = memberFullName;
 
     createDueDate.className = "dueDate";
     createDueDateDate.innerHTML = dueDate;
@@ -109,12 +109,12 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createDueDateImg.setAttribute("height", "14px");
     createDueDateImg.setAttribute("width", "13px");
 
-    createTaskFooter.appendChild(createAsignee);
-    createAsignee.appendChild(createAsigneeIcon);
-    createAsigneeIcon.appendChild(createAsigneeIconImg);
+    createTaskFooter.appendChild(createAssignee);
+    createAssignee.appendChild(createAssigneeIcon);
+    createAssigneeIcon.appendChild(createAssigneeIconImg);
 
     createTaskFooter.appendChild(createDueDate);
-    createAsignee.appendChild(createAsigneeMember)
+    createAssignee.appendChild(createAssigneeMember)
     createDueDate.appendChild(createDueDateDate);
     createDueDate.appendChild(createDueDateIcon);
     createDueDateIcon.appendChild(createDueDateImg);
@@ -124,6 +124,47 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createTaskCard.appendChild(createTaskFooter);
 
     return createTaskCard;
+}
+
+function addDueCard(dueDate, memberFullName, tagColor, title) {
+
+    let getParent = document.getElementById("due-date-list");
+
+    let createListBlock = document.createElement("div");
+
+    createListBlock.className = "due-date-list-block";
+
+    let createListCard = document.createElement("div");
+
+    createListCard.className = "due-date-list-card";
+
+    let createMeta = document.createElement("div");
+    let createMetaSpan = document.createElement("span");
+
+    createMeta.className = "meta";
+    createMetaSpan.innerHTML = dueDate + " • " + memberFullName;
+
+    let createMiniTags = document.createElement("div");
+    let createMiniTag = document.createElement("span");
+
+    createMiniTags.className = "mini-tags";
+    createMiniTag.className = "mini-tag"
+    createMiniTag.setAttribute("style", "background-color: " + tagColor + ";");
+
+    let createTitle = document.createElement("div");
+    let createTitleP = document.createElement("p");
+
+    createTitle.className = "title";
+    createTitleP.innerHTML = title;
+
+    getParent.appendChild(createListBlock);
+    createListBlock.appendChild(createListCard);
+    createListCard.appendChild(createMeta);
+    createMeta.appendChild(createMetaSpan);
+    createListCard.appendChild(createMiniTags);
+    createMiniTags.appendChild(createMiniTag);
+    createListCard.appendChild(createTitle);
+    createTitle.appendChild(createTitleP);
 }
 
 //function for dynamically change the progress bar
