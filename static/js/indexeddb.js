@@ -54,6 +54,7 @@ function connectToDB(database, version) {
         //defined in tasks.js
         listTasks();
         progressBar();
+        leaderBoard();
 
         /*
         let test = tasksIndex.get("done");

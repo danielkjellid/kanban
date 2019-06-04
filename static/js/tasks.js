@@ -165,6 +165,7 @@ function listTasks() {
     }
 }
 
+//function for archiving an entire list at once
 function archiveTasks() {
     //since we're trying to add to the database after the initial connect, we
     //need to open a new connection.
@@ -241,6 +242,7 @@ function archiveTasks() {
     }
 }
 
+//function for chanding the status when a card is moved to a new list
 function changeTaskStatus(id, list) {
     //open connection to database
     let request = window.indexedDB.open("KanbanDatabase", 17), 
