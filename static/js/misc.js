@@ -1,32 +1,3 @@
-//function to load different functions onload.
-let members = [
-    {
-        id: 1,
-        memberFullName: "Daniel Kjellid",
-        memberInitials: "DK"
-    },
-    {
-        id: 2,
-        memberFullName: "Kainat Zahoor",
-        memberInitials: "KZ"
-    },
-    {
-        id: 3,
-        memberFullName: "Linnea S. Fylling",
-        memberInitials: "LF"
-    },
-    {
-        id: 4,
-        memberFullName: "Magomed Derbtichev",
-        memberInitials: "MD"
-    },
-    {
-        id: 5,
-        memberFullName: "Sultan Khan",
-        memberInitials: "SK"
-    }
-];
-
 //function for adding the entire html structure for the cards.
 function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagTextColor) {
 

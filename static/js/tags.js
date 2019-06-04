@@ -47,7 +47,7 @@ function listTagsOverview() {
     let getTagContainer = document.getElementById("tag-container");
 
     //For loop to traverse through the array
-    for(i = 1; i<tags.length; i++){
+    for(var i = 1; i < tags.length; i++){
         let createTagDiv = document.createElement("div");
         let createTag = document.createElement("span");
         let createTagName = document.createElement("span");
@@ -69,7 +69,7 @@ function listTagsSelect() {
     
     let getSelect = document.getElementById("modal-add-new-task-tag");
 
-    for (i = 1; i < tags.length; i++) {
+    for (var i = 1; i < tags.length; i++) {
         let createOption = document.createElement("option");
 
         createOption.innerHTML = tags[i].tagName;

@@ -3,6 +3,8 @@ function onIndexLoad() {
     connectToDB("KanbanDatabase", 17);
     listTagsOverview();
     listTagsSelect();
+    listMemberOverview();
+    listMembersSelect();
 }
 
 function onArchiveLoad() {
