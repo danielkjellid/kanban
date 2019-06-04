@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Kanban: Archive</title>
+        <link rel="stylesheet" href="static/css/style.css">
+    </head>
+    <body id="archive">
+        <!--navbar-->
+        <nav class="navbar is-white">
+            <div class="container is-fluid">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="#">
+                        <svg width="170px" height="28px" viewBox="0 0 252 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Front" transform="translate(-25.000000, -14.000000)">
+                                    <g id="Header" transform="translate(0.000000, -3.000000)">
+                                        <g id="Logo" transform="translate(25.000000, 0.000000)">
+                                            <rect id="Rectangle" fill="#F364A2" x="17" y="19" width="16" height="44" rx="2"></rect>
+                                            <rect id="Rectangle" fill="#F364A2" x="0" y="19" width="16" height="33" rx="2"></rect>
+                                            <text id="Kanban" font-family="GTWalsheim-Medium, GT Walsheim" font-size="63" font-weight="400" fill="#3E4C59">
+                                                <tspan x="36.5" y="62">Kanban</tspan>
+                                            </text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                    <div class="navbar-burger burger" data-target="navbar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                
+                <div id="navbar" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" href="#">
+                            Board
+                        </a>
+                        <a class="navbar-item" href="#">
+                            Leaderboard
+                        </a>
+                        <a class="navbar-item is-active" href="#">
+                            Archive
+                        </a>
+                    </div>
+                
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal">
+                                <span>Add new</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--navbar end-->
+        <div class="container is-fluid">            
+            <div class="columns">
+                <!--to-do-->
+                <div id="list-to-do" class="column is-full is-full-tablet is-full-mobile">
+                     
+                </div>
+            </div>
+        </div>
+        <div class="modal">
+            <div class="modal-background">
+
+            </div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <div class="modal-card-head-menu">
+                        <a class="menu-item is-active">
+                            New card
+                        </a>
+                        <a class="menu-item">
+                            New member
+                        </a>
+                        <a class="menu-item">
+                            New tag
+                        </a>
+                    </div>
+                </header>
+                <form id="add-new-modal">
+                    <section class="modal-card-body">
+                        <div class="field">
+                            <label class="label">Title</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="e.g Alex Smith" id="modal-add-new-task-title">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Status</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select id="modal-add-new-task-status">
+                                        <option id="select-to-do">To-do</option>
+                                        <option id="select-in-progress">In-progress</option>
+                                        <option id="select-done">Done</option>
+                                        <option id="select-archived">Archived</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Tag</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select id="modal-add-new-task-tag">
+                                        <option>PR</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="field">
+                            <label class="label">Due Date</label>
+                            <div class="control">
+                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Description</label>
+                            <div class="control">
+                                <textarea class="textarea" placeholder="something" id="modal-add-new-task-desc"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Assign</label>
+                            <div class="control">
+                                <div class="select is-fullwidth">
+                                    <select id="modal-add-new-task-assignee">
+                                        <option>Daniel Kjellid</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <footer class="modal-card-foot">
+                        <button class="button is-silenced">Cancel</button>
+                        <button class="button is-brand is-rounded" type="submit">Add new card</button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+
+        <script src="static/js/indexeddb.js"></script>
+        <script src="static/js/tasks.js"></script>
+        <script src="static/js/tags.js"></script>
+        <script src="static/js/modal.js"></script>
+        <script src="static/js/dragdrop.js"></script>
+        <script src="static/js/misc.js"></script>
+        <script src="static/js/utils.js"></script>
+        <script src="static/js/eventlisteners.js"></script>
+    </body>
+</html>

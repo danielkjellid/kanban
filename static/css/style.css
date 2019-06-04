@@ -161,15 +161,87 @@ a.navbar-item,
   }
 }
 
-.silenced-text {
-  color: #CBD2D9;
+.archived-card {
+  border-radius: 8px;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
+  display: inline-block;
+  color: #3E4C59;
+  height: auto;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  width: 308px;
+}
+
+.archived-card-body {
+  background-color: #fff !important;
+  height: auto;
+  padding: 13px;
+  width: 100%;
+}
+
+.archived-card-body p {
+  display: block;
+  margin-right: 60px;
+}
+
+.archived-card-footer {
+  background-color: #fff;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-top: 1px #E4E7EB solid;
+  color: #7B8794;
+  font-size: 14px;
+  height: 45px;
+  padding: 13px;
+}
+
+.archived-card-footer .asignee {
+  display: inline-block;
+  float: left !important;
+  width: 50%;
+}
+
+.archived-card-footer .dueDate {
+  display: inline-block;
+  float: right !important;
+  width: 50%;
+}
+
+.archived-card-footer .dueDate span {
+  float: right !important;
+}
+
+.archived-card-header {
+  background-color: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: auto;
+  padding: 13px;  
+}
+
+.archived-card-header .actions {
+  float: right !important;
+  width: 10%;
+}
+
+.archived-card-header .actions a {
+  float: right !important;
   text-decoration: none;
 }
 
-.silenced-text span {
-  margin-right: 2px;
+.archived-card-header .tags {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  float: left !important;
+  justify-content: flex-start;
+  width: 90%;
 }
 
+.archived-card-header .tags img{
+  margin-bottom: 15px;
+  margin-right: 8px;
+}
 
 /* ===== B* ===== */
 
@@ -307,6 +379,11 @@ a.navbar-item,
   .column.is-one-third, .column.is-one-third-tablet {
     flex: none;
     width: 33.3333%;
+  }
+
+  .column.is-full, .column.is-full-tablet {
+    flex: none;
+    width: 100%;
   }
 }
 
@@ -913,6 +990,15 @@ a.navbar-item,
 
 .select.is-fullwidth select {
   width: 100%;
+}
+
+.silenced-text {
+  color: #CBD2D9;
+  text-decoration: none;
+}
+
+.silenced-text span {
+  margin-right: 2px;
 }
 
 /* ===== T* ===== */

@@ -44,7 +44,7 @@ function leaderBoard() {
                 //do nothing
 
             }
-        
+            
         }
         
          //function to sort the score in a descending order. Highest score in index 0. 
