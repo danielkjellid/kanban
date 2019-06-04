@@ -34,9 +34,15 @@ function findTagTextColor(object) {
 
 function deleteDueList() {
     let getDueDateList = document.getElementById("due-date-card-container");
+    let getDueDateExpired = document.getElementById("due-date-expired-container");
+
+    while (getDueDateExpired.firstChild) {
+        getDueDateExpired.removeChild(getDueDateExpired.firstChild);
+    }
 
     while (getDueDateList.firstChild) {
         getDueDateList.removeChild(getDueDateList.firstChild);
+        getDueDateExpired.setAttribute("style", "display: none;")
     }
 }
 

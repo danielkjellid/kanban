@@ -167,6 +167,49 @@ function addDueCard(dueDate, memberFullName, tagColor, title) {
     createTitle.appendChild(createTitleP);
 }
 
+function addDueCardExpired(dueDate, memberFullName, tagColor, title) {
+
+    let getParent = document.getElementById("due-date-expired-container");
+
+    getParent.setAttribute("style", "display: block;")
+
+    let createListBlock = document.createElement("div");
+
+    createListBlock.className = "due-date-list-block";
+
+    let createListCard = document.createElement("div");
+
+    createListCard.className = "due-date-list-card";
+
+    let createMeta = document.createElement("div");
+    let createMetaSpan = document.createElement("span");
+
+    createMeta.className = "meta";
+    createMetaSpan.innerHTML = dueDate + " • " + memberFullName;
+
+    let createMiniTags = document.createElement("div");
+    let createMiniTag = document.createElement("span");
+
+    createMiniTags.className = "mini-tags";
+    createMiniTag.className = "mini-tag"
+    createMiniTag.setAttribute("style", "background-color: " + tagColor + ";");
+
+    let createTitle = document.createElement("div");
+    let createTitleP = document.createElement("p");
+
+    createTitle.className = "title";
+    createTitleP.innerHTML = title;
+
+    getParent.appendChild(createListBlock);
+    createListBlock.appendChild(createListCard);
+    createListCard.appendChild(createMeta);
+    createMeta.appendChild(createMetaSpan);
+    createListCard.appendChild(createMiniTags);
+    createMiniTags.appendChild(createMiniTag);
+    createListCard.appendChild(createTitle);
+    createTitle.appendChild(createTitleP);
+}
+
 //function for dynamically change the progress bar
 function progressBar() {
 

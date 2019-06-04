@@ -434,6 +434,12 @@ a.navbar-item,
   margin: 0px;
 }
 
+.due-date-expired-container {
+  border-bottom: 1px solid #e0e3e7;
+  display: none;
+  width: 100%;
+}
+
 .due-date-list-progress {
   -moz-appearance: none;
   -webkit-appearance: none;

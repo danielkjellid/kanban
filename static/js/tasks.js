@@ -343,6 +343,8 @@ function listUpcomingDue() {
                     
                     if (today < getTasks.result.dueDate) {
                         addDueCard(getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagColor, getTasks.result.title);
+                    } else {
+                        addDueCardExpired(getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagColor, getTasks.result.title);
                     }
                 }
             }
