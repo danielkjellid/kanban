@@ -222,11 +222,7 @@ function archiveTasks() {
                     }
 
                     requestUpdate.onsuccess = function() {
-                        let getTaskContainer = document.getElementById("list-done");
-                        
-                        while (getTaskContainer.firstChild) {
-                            getTaskContainer.removeChild(getTaskContainer.firstChild);
-                        }
+                        deleteDoneList();
 
                         console.log("Successfully archived tasks");
                     }
@@ -305,6 +301,8 @@ function changeTaskStatus(id, list) {
             requestUpdate.onsuccess = function() {
                 console.log("Dropped task's status updated successfully");
                 progressBar();
+                deleteDueList();
+                listUpcomingDue();
             }
         }
 
@@ -344,10 +342,6 @@ function listUpcomingDue() {
                     let today = now.getFullYear() + "-" + (month) + "-" + (day);
                     
                     if (today < getTasks.result.dueDate) {
-                        //add through dom
-                        //get the 5 latest dates
-                        console.log(getTasks.result);
-
                         addDueCard(getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagColor, getTasks.result.title);
                     }
                 }

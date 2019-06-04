@@ -128,7 +128,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
 
 function addDueCard(dueDate, memberFullName, tagColor, title) {
 
-    let getParent = document.getElementById("due-date-list");
+    let getParent = document.getElementById("due-date-card-container");
 
     let createListBlock = document.createElement("div");
 

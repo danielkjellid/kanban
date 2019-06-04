@@ -32,3 +32,19 @@ function findTagTextColor(object) {
     return result;
 }
 
+function deleteDueList() {
+    let getDueDateList = document.getElementById("due-date-card-container");
+
+    while (getDueDateList.firstChild) {
+        getDueDateList.removeChild(getDueDateList.firstChild);
+    }
+}
+
+function deleteDoneList() {
+    let getTaskContainer = document.getElementById("list-done");
+                        
+    while (getTaskContainer.firstChild) {
+        getTaskContainer.removeChild(getTaskContainer.firstChild);
+    }
+}
+
