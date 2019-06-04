@@ -14,9 +14,10 @@ function leaderBoard() {
 
     doneTasks.onsuccess = function() {
         
+        let count = 0;
         
     //hent først ut alle kort
-    for (var i = 1; i < doneTasks.result+1; i++) {
+    for (let i = 1; i < doneTasks.result+1; i++) {
         let getTasks = tasksStore.get(i);
 
         getTasks.onerror = function() {
@@ -25,27 +26,25 @@ function leaderBoard() {
 
         getTasks.onsuccess = function() {
             if (getTasks.result.memberFullName == "Daniel Kjellid") {
-                    danielCounter++;
-                    console.log("d " + danielCounter);
+                    count++;
+                    danielCounter = count;
             } else if (getTasks.result.memberFullName == "Linnea S. Fylling") {
                     linneaCounter++;
-                    console.log("l " + linneaCounter);
             } else if (getTasks.result.memeberFullName == "Kainat Zahoor") { 
                     kainatCounter++;
-                    console.log("k " + kainatCounter);
             } else if (getTasks.result.memberFullName == "Magomed Derbtichev") {
-                    magoCounter++;
-                    console.log("m " + magoCounter);
-                
+                    magoCounter++;            
             } else if (getTasks.result.memberFullName == "Sultan Khan") {
                     sultanCounter++;
-                    console.log("s " + sultanCounter);
+                
             }
                 //do nothing
 
             }
             
         }
+        
+         console.log("d " + danielCounter);
         
          //function to sort the score in a descending order. Highest score in index 0. 
          function sortScore(a, b) {
