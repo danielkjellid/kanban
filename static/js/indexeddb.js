@@ -50,19 +50,17 @@ function connectToDB(database, version) {
             console.error("ERROR " + e.target.errorCode);
         }
     
-        //listTasks() list all tasks and appends them to the appropriate list based on status.
-        //defined in tasks.js
-        listTasks();
-        progressBar();
-        leaderBoard();
-        listUpcomingDue();
+        const getBoard= document.getElementById("board");
+        const getArchive = document.getElementById("archive");
 
-        /*
-        let test = tasksIndex.get("done");
-
-        test.onsuccess = function() {
-            console.log(test.result);
-        }*/
+        if(getBoard) {
+            listTasks();
+            progressBar();
+            //leaderBoard();
+            listUpcomingDue();
+        } else if (getArchive) {
+            listArchivedTasks();
+        }
 
         //close DB conection once transaction is complete.
         tasksTx.oncomplete = function() {

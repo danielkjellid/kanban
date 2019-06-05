@@ -40,6 +40,11 @@ function leaderBoard() {
                 
             }  
 
+<<<<<<< HEAD
+=======
+            }
+            
+>>>>>>> 275c0f5eb82147a03d282c9aea895106607a018b
         }
         
      }

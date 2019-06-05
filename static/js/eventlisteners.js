@@ -3,7 +3,8 @@
 archive tasks
 addTask*/
 
-const getBody = document.querySelector("body");
+const getBoard= document.getElementById("board");
+const getArchive = document.getElementById("archive");
 const addNewCardToDo = document.getElementById("add-new-task-to-do");
 const addNewCardInProgress = document.getElementById("add-new-task-in-progress");
 const addNewCardDone = document.getElementById("add-new-task-done");
@@ -11,26 +12,45 @@ const archiveCards = document.getElementById("done-list-archive-cards");
 const addNewModal = document.getElementById("add-new-modal");
 const modalOpenBtn = document.getElementById("open-add-new-modal");
 
-getBody.addEventListener("onload", onLoad());
+if(getBoard) {
+    getBoard.addEventListener("onload", onIndexLoad());
 
-addNewCardToDo.addEventListener("click", function() {
-    addTaskFromList("list-to-do");
-});
-addNewCardInProgress.addEventListener("click", function() {
-    addTaskFromList("list-in-progress");
-});
-addNewCardDone.addEventListener("click", function() {
-    addTaskFromList("list-done");
-});
+} else if (getArchive) {
+    getArchive.addEventListener("onload", onArchiveLoad());
+}
 
-archiveCards.addEventListener("click", function() {
-    archiveTasks();
-});
+if (addNewCardToDo) {
+    addNewCardToDo.addEventListener("click", function() {
+        addTaskFromList("list-to-do");
+    });
+}
 
-addNewModal.addEventListener("submit", function() {
-    addTask();
-});
+if (addNewCardInProgress) {
+    addNewCardInProgress.addEventListener("click", function() {
+        addTaskFromList("list-in-progress");
+    });
+}
 
-modalOpenBtn.addEventListener("click", function() {
-    openModal();
-});
+if (addNewCardDone) {
+    addNewCardDone.addEventListener("click", function() {
+        addTaskFromList("list-done");
+    });
+}
+
+if (archiveCards) {
+    archiveCards.addEventListener("click", function() {
+        archiveTasks();
+    });
+}
+
+if (addNewModal) {
+    addNewModal.addEventListener("submit", function() {
+        addTask();
+    });
+}
+
+if (modalOpenBtn) {
+    modalOpenBtn.addEventListener("click", function() {
+        openModal();
+    });
+}

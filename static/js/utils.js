@@ -1,8 +1,14 @@
 //function for loading other functions on site refresh.
-function onLoad() {
+function onIndexLoad() {
     connectToDB("KanbanDatabase", 17);
     listTagsOverview();
     listTagsSelect();
+    listMemberOverview();
+    listMembersSelect();
+}
+
+function onArchiveLoad() {
+    connectToDB("KanbanDatabase", 17);
 }
 
 //function for finding memberInitials given memberFullName on add-new-card modal input

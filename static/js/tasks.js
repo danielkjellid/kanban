@@ -115,6 +115,7 @@ function addTask() {
 
 //list functions
 function listTasks() {
+    
     //variable for counting objects in the index
     let amountOfTasks = tasksStore.count();
 
@@ -162,6 +163,35 @@ function listTasks() {
                 }
             }
         }   
+    }
+}
+
+function listArchivedTasks() {
+
+    let amountOfTasks = tasksStore.count();
+
+    amountOfTasks.onerror = function() {
+        console.error("There was an error finding the amount of archived tasks.");
+    }
+
+    amountOfTasks.onsuccess = function() {
+        
+        for (var i = 1; i < amountOfTasks.result+1; i++) {
+            let getTasks = tasksStore.get(i);
+
+            getTasks.onerror = function() {
+                console.error("There was an error looping through the tasks");
+            }
+
+            getTasks.onsuccess = function() {
+                if (getTasks.result.status == "archived") {
+                    let getCardContainer = document.getElementById("list-to-do");
+                    let createCard = addArchivedCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
+
+                    getCardContainer.appendChild(createCard);
+                }
+            }
+        }
     }
 }
 
@@ -343,6 +373,7 @@ function listUpcomingDue() {
                     
                     if (today < getTasks.result.dueDate) {
                         addDueCard(getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagColor, getTasks.result.title);
+            
                     } else {
                         addDueCardExpired(getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagColor, getTasks.result.title);
                     }

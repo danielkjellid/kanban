@@ -8,7 +8,7 @@
         <!--<link rel="stylesheet" href="static/css/bulma.css">-->
         <link rel="stylesheet" href="static/css/style.css">
     </head>
-    <body>
+    <body id="board">
         <!--navbar-->
         <nav class="navbar is-white">
             <div class="container is-fluid">
@@ -39,13 +39,13 @@
                 
                 <div id="navbar" class="navbar-menu">
                     <div class="navbar-start">
-                        <a class="navbar-item is-active" href="#">
+                        <a class="navbar-item is-active" href="index.html">
                             Board
                         </a>
                         <a class="navbar-item" href="#">
                             Leaderboard
                         </a>
-                        <a class="navbar-item" href="#">
+                        <a class="navbar-item" href="archive.html">
                             Archive
                         </a>
                     </div>
@@ -209,14 +209,23 @@
 
                         </div>
                     </div>
-                    <nav class="tag-overview">
+                    <div class="tag-overview">
                         <div class="tag-heading">
-                            <h1>TAGS</h1>
+                            <h1>Tags</h1>
                         </div> 
                         <div id="tag-container" class="mini-tags-tag-list">
                             <!--Tags added by DOM-->    
                         </div>
-                    </nav>
+                    </div>
+
+                    <div class="member-overview">
+                        <div class="member-heading">
+                            <h1>Members</h1>
+                        </div> 
+                        <div id="member-container" class="member-container">
+                            <!-- members added by DOM -->
+                        </div>
+                    </div>
                     
                 </div>
                 <!--upcoming due dates end-->
@@ -246,7 +255,7 @@
                         <div class="field">
                             <label class="label">Title</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g Alex Smith" id="modal-add-new-task-title">
+                                <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-add-new-task-title">
                             </div>
                         </div>
 
@@ -285,7 +294,7 @@
                         <div class="field">
                             <label class="label">Description</label>
                             <div class="control">
-                                <textarea class="textarea" placeholder="something" id="modal-add-new-task-desc"></textarea>
+                                <textarea class="textarea" placeholder="More details about the task" id="modal-add-new-task-desc"></textarea>
                             </div>
                         </div>
 
@@ -293,7 +302,7 @@
                             <label class="label">Assign</label>
                             <div class="control">
                                 <div class="select is-fullwidth">
-                                    <select id="modal-add-new-task-assignee">
+                                    <select id="modal-add-new-task-member">
                                         <option>Daniel Kjellid</option>
                                     </select>
                                 </div>
@@ -309,9 +318,9 @@
         </div>
 
         <script src="static/js/indexeddb.js"></script>
-        <script src="Linnea/leaderboard.js"></script>
         <script src="static/js/tasks.js"></script>
         <script src="static/js/tags.js"></script>
+        <script src="static/js/members.js"></script>
         <script src="static/js/modal.js"></script>
         <script src="static/js/dragdrop.js"></script>
         <script src="static/js/misc.js"></script>
