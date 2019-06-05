@@ -43,8 +43,8 @@ function addTask() {
     let tagInput = document.getElementById("modal-add-new-task-tag").value;
     let dueDateInput = document.getElementById("modal-add-new-task-dueDate").value;
     let descInput = document.getElementById("modal-add-new-task-desc").value;
-    let assigneeInput = document.getElementById("modal-add-new-task-assignee").value;
-    let getMemberInitials = findMemberInitials(document.getElementById("modal-add-new-task-assignee").value);
+    let assigneeInput = document.getElementById("modal-add-new-task-member").value;
+    let getMemberInitials = findMemberInitials(document.getElementById("modal-add-new-task-member").value);
     let getTagColor = findTagColor(document.getElementById("modal-add-new-task-tag").value);
     let getTagTextColor = findTagTextColor(document.getElementById("modal-add-new-task-tag").value);
 
@@ -324,7 +324,7 @@ function changeTaskStatus(id, list) {
 
             //error handler for updating object
             requestUpdate.onerror = function() {
-                console.error("There was an error updating the status of the dropped task")
+                console.error("There was an error updating the status of the dropped task");
             }
 
             //success handler for updating object
@@ -381,4 +381,175 @@ function listUpcomingDue() {
             }
         }   
     }
+}
+
+function changeModal() {
+
+    function activateModal() {
+        var modal = document.getElementById("edit-modal");  // only works with a single modal
+        var html = document.querySelector('html');
+        modal.classList.add('is-active');
+        html.classList.add('is-clipped');
+    
+        modal.querySelector('.modal-background').addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.classList.remove('is-active');
+                html.classList.remove('is-clipped');
+        });
+    }
+
+    let getTaskID = parseInt(this.getAttribute("data-taskid"));
+
+    //variables for displaying correct information in the modal
+    let getTitleInput = document.getElementById("modal-edit-task-title");
+    getTitleInput.setAttribute("value", getTask.result.title);
+
+    if (getTask.result.status == "to-do") {
+        let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+        getStatusSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.status = "in-progress") {
+        let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+        getStatusSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.status == "done") {
+        let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+        getStatusSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.status == "archived") {
+        let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+        getStatusSelectItem.setAttribute("selected", "selected");
+    }
+
+    if (getTask.result.tagName.toLowerCase() == "plan") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName == "activity") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "some") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "campaign") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "pr") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "goal") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "content") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    }
+
+    let getDueDateInput = document.getElementById("modal-edit-task-dueDate");
+
+    getDueDateInput.innerHTML = getTask.result.dueDate;
+
+    let getDescInput = document.getElementById("modal-edit-task-desc");
+
+    getDescInput.innerHTML = getTask.result.description;
+    
+    if (getTask.result.memberInitials.toLowerCase() == "dk") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.memberInitials.toLowerCase() == "kz") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.memberInitials.toLowerCase() == "lf") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    } else if (ggetTask.result.memberInitials.toLowerCase() == "md") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.memberInitials.toLowerCase() == "sk") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    }
+
+    activateModal();
+
+}
+
+function editTask(id) {
+    //let card = document.querySelectorAll(".action-btn");
+  
+     //open connection to database
+    let request = window.indexedDB.open("KanbanDatabase", 17), 
+    db,
+    tx,
+    store,
+    index;
+
+    //error handler on connection
+    request.onerror = function(e) {
+        console.error("There was an error opening the database: " + e.target.errorCode);
+    }
+
+    //success handler on connection
+    request.onsuccess = function(e) {
+        db = request.result;
+
+        //define transaction, store and index
+        tasksTx = db.transaction("tasksStore", "readwrite");
+        tasksStore = tasksTx.objectStore("tasksStore");
+        tasksIndex = tasksStore.index("status");
+
+        //error handler on result of the request
+        db.onerror = function(e) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+
+        //get data-taskid of card dropped
+        let getTask = tasksStore.get(id);
+
+        //error handler for getting data-taskid
+        getTask.onerror = function() {
+            //error
+        }
+
+        //success handler for getting data-taskid
+        getTask.onsuccess = function(e) {
+
+            //variables for getting input fields
+            let titleInput = document.getElementById("modal-edit-task-title").value;
+            let statusInput = document.getElementById("modal-edit-task-status").value.toLowerCase();
+            let tagInput = document.getElementById("modal-edit-task-tag").value;
+            let dueDateInput = document.getElementById("modal-edit-task-dueDate").value;
+            let descInput = document.getElementById("modal-edit-task-desc").value;
+            let assigneeInput = document.getElementById("modal-edit-task-member").value;
+            let getMemberInitials = findMemberInitials(document.getElementById("modal-edit-task-member").value);
+            let getTagColor = findTagColor(document.getElementById("modal-edit-task-tag").value);
+            let getTagTextColor = findTagTextColor(document.getElementById("modal-edit-task-tag").value);
+
+            let data = e.target.result;
+
+            data.title = titleInput;
+            data.status = statusInput;
+            data.dueDate = dueDateInput;
+            data.description = descInput;
+            data.memberFullName = assigneeInput;
+            data.memberInitials = getMemberInitials;
+            data.tagName = tagInput;
+            data.tagColor = getTagColor;
+            data.tagTextColor = getTagTextColor;
+            
+
+            let updateTask = tasksStore.put(data);
+
+            updateTask.onerror = function() {
+                console.error("There was an error updating the task");
+            }
+
+            updateTask.onsuccess = function() {
+                console.log("Updated task successfully");
+            }
+
+        }
+
+        //close database after transaction is complete
+        tasksTx.oncomplete = function() {
+            db.close();
+        }
+    }
+
 }

@@ -2,9 +2,11 @@
 function onIndexLoad() {
     connectToDB("KanbanDatabase", 17);
     listTagsOverview();
-    listTagsSelect();
+    listTagsNewSelect();
+    listTagsEditSelect();
     listMemberOverview();
-    listMembersSelect();
+    listMembersNewSelect();
+    listMembersEditSelect();
 }
 
 function onArchiveLoad() {

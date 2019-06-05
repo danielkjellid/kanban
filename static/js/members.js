@@ -67,13 +67,28 @@ function listMemberOverview() {
     }
 }
 
-function listMembersSelect() {
+function listMembersNewSelect() {
 
     let getSelect = document.getElementById("modal-add-new-task-member");
 
-    for (var i = 1; i < members.length; i++) {
+    for (var i = 0; i < members.length; i++) {
         let createOption = document.createElement("option");
 
+        createOption.id = "member-" + members[i].memberInitials.toLowerCase();
+        createOption.innerHTML = members[i].memberFullName;
+
+        getSelect.appendChild(createOption);
+    }
+}
+
+function listMembersEditSelect() {
+
+    let getSelect = document.getElementById("modal-edit-task-member");
+
+    for (var i = 0; i < members.length; i++) {
+        let createOption = document.createElement("option");
+
+        createOption.id = "edit-member-" + members[i].memberInitials.toLowerCase();
         createOption.innerHTML = members[i].memberFullName;
 
         getSelect.appendChild(createOption);

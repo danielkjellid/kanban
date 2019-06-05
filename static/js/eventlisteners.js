@@ -10,7 +10,9 @@ const addNewCardInProgress = document.getElementById("add-new-task-in-progress")
 const addNewCardDone = document.getElementById("add-new-task-done");
 const archiveCards = document.getElementById("done-list-archive-cards");
 const addNewModal = document.getElementById("add-new-modal");
+const editTaskModal = document.getElementById("edit-task-modal");
 const modalOpenBtn = document.getElementById("open-add-new-modal");
+const getActionBtn = document.querySelectorAll(".task-card");
 
 if(getBoard) {
     getBoard.addEventListener("onload", onIndexLoad());
@@ -44,13 +46,21 @@ if (archiveCards) {
 }
 
 if (addNewModal) {
-    addNewModal.addEventListener("submit", function() {
-        addTask();
-    });
+    addNewModal.addEventListener("submit", addTask);
+}
+
+if (editTaskModal) {
+    editTaskModal.addEventListener("submit", editTask);
 }
 
 if (modalOpenBtn) {
     modalOpenBtn.addEventListener("click", function() {
         openModal();
     });
+}
+
+getActionBtn.forEach(addActionListeners);
+
+function addActionListeners(getActionBtn) {
+    getActionBtn.addEventListener("click", editTask);
 }
