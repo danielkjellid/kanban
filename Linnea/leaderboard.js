@@ -1,3 +1,5 @@
+
+
 function leaderBoard() {
 
     let doneTasks = tasksIndex.count("done");
@@ -14,9 +16,7 @@ function leaderBoard() {
 
     doneTasks.onsuccess = function() {
         
-        let count = 0;
-        
-    //hent først ut alle kort
+    //getting all the cards
     for (let i = 1; i < doneTasks.result+1; i++) {
         let getTasks = tasksStore.get(i);
 
@@ -25,9 +25,10 @@ function leaderBoard() {
         }
 
         getTasks.onsuccess = function() {
+            console.log("d " + danielCounter);
+            
             if (getTasks.result.memberFullName == "Daniel Kjellid") {
-                    count++;
-                    danielCounter = count;
+                    danielCounter++;
             } else if (getTasks.result.memberFullName == "Linnea S. Fylling") {
                     linneaCounter++;
             } else if (getTasks.result.memeberFullName == "Kainat Zahoor") { 
@@ -37,14 +38,17 @@ function leaderBoard() {
             } else if (getTasks.result.memberFullName == "Sultan Khan") {
                     sultanCounter++;
                 
-            }
-                //do nothing
+            }  
 
+<<<<<<< HEAD
+=======
             }
             
+>>>>>>> 275c0f5eb82147a03d282c9aea895106607a018b
         }
         
-         console.log("d " + danielCounter);
+     }
+        
         
          //function to sort the score in a descending order. Highest score in index 0. 
          function sortScore(a, b) {
