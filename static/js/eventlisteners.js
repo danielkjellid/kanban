@@ -45,9 +45,7 @@ if (archiveCards) {
 }
 
 if (addNewModal) {
-    addNewModal.addEventListener("submit", function() {
-        addTask();
-    });
+    addNewModal.addEventListener("submit", addTask);
 }
 
 if (modalOpenBtn) {

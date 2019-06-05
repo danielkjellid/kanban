@@ -43,8 +43,8 @@ function addTask() {
     let tagInput = document.getElementById("modal-add-new-task-tag").value;
     let dueDateInput = document.getElementById("modal-add-new-task-dueDate").value;
     let descInput = document.getElementById("modal-add-new-task-desc").value;
-    let assigneeInput = document.getElementById("modal-add-new-task-assignee").value;
-    let getMemberInitials = findMemberInitials(document.getElementById("modal-add-new-task-assignee").value);
+    let assigneeInput = document.getElementById("modal-add-new-task-member").value;
+    let getMemberInitials = findMemberInitials(document.getElementById("modal-add-new-task-member").value);
     let getTagColor = findTagColor(document.getElementById("modal-add-new-task-tag").value);
     let getTagTextColor = findTagTextColor(document.getElementById("modal-add-new-task-tag").value);
 
