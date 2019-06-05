@@ -1176,7 +1176,7 @@ a.navbar-item,
   justify-content: flex-start;
   padding: 0.7em 0.7em;
   border-bottom: 0.3px solid #E0E3E8;
-  width: 500%;
+  width: 100%;
   display: block;
   height: auto;
 }
@@ -1184,5 +1184,3 @@ a.navbar-item,
 .member-div:last-child {
   border-radius: 0 0 8px 8px;
 }
-
-.

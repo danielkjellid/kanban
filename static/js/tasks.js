@@ -382,3 +382,154 @@ function listUpcomingDue() {
         }   
     }
 }
+
+function editTask() {
+    //let card = document.querySelectorAll(".action-btn");
+
+    function activateModal() {
+        var modal = document.querySelector('.modal');  // only works with a single modal
+        var html = document.querySelector('html');
+        modal.classList.add('is-active');
+        html.classList.add('is-clipped');
+    
+        modal.querySelector('.modal-background').addEventListener('click', function(e) {
+                e.preventDefault();
+                modal.classList.remove('is-active');
+                html.classList.remove('is-clipped');
+        });
+    }
+
+    let getTaskID = parseInt(this.getAttribute("data-taskid"));
+  
+     //open connection to database
+    let request = window.indexedDB.open("KanbanDatabase", 17), 
+    db,
+    tx,
+    store,
+    index;
+
+    //error handler on connection
+    request.onerror = function(e) {
+        console.error("There was an error opening the database: " + e.target.errorCode);
+    }
+
+    //success handler on connection
+    request.onsuccess = function(e) {
+        db = request.result;
+
+        //define transaction, store and index
+        tasksTx = db.transaction("tasksStore", "readwrite");
+        tasksStore = tasksTx.objectStore("tasksStore");
+        tasksIndex = tasksStore.index("status");
+
+        //error handler on result of the request
+        db.onerror = function(e) {
+            console.log("ERROR " + e.target.errorCode);
+        }
+
+        //get data-taskid of card dropped
+        let getTask = tasksStore.get(getTaskID);
+
+        //error handler for getting data-taskid
+        getTask.onerror = function() {
+            //error
+        }
+
+        //success handler for getting data-taskid
+        getTask.onsuccess = function(e) {
+
+            let getTitleInput = document.getElementById("modal-add-new-task-title");
+            getTitleInput.setAttribute("value", getTask.result.title);
+
+            let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+
+            if (getStatusSelectItem == "select-to-do") {
+                getStatusSelectItem.setAttribute("selected", "selected");
+            } else if (getStatusSelectItem == "select-in-progress") {
+                getStatusSelectItem.setAttribute("selected", "selected");
+            } else if (getStatusSelectItem == "select-done") {
+                getStatusSelectItem.setAttribute("selected", "selected");
+            }
+
+            let getTagSelectItem = document.getElementById("tag-" + getTask.result.tagName.toLowerCase());
+
+            if (getTagSelectItem == "tag-plan") {
+                getTagSelectItem.setAttribute("selected", "selected");
+            } else if (getTagSelectItem == "tag-activity") {
+                getTagSelectItem.setAttribute("selected", "selected");
+            } else if (getTagSelectItem == "tag-some") {
+                getTagSelectItem.setAttribute("selected", "selected");
+            } else if (getTagSelectItem == "tag-campaign") {
+                getTagSelectItem.setAttribute("selected", "selected");
+            } else if (getTagSelectItem == "tag-pr") {
+                getTagSelectItem.setAttribute("selected", "selected");
+            } else if (getTagSelectItem == "tag-goal") {
+                getTagSelectItem.setAttribute("selected", "selected");
+            } else if (getTagSelectItem == "tag-content") {
+                getTagSelectItem.setAttribute("selected", "selected");
+            }
+
+            let getDueDateInput = document.getElementById("modal-add-new-task-dueDate");
+
+            getDueDateInput.innerHTML = getTask.result.dueDate;
+
+            let getDescInput = document.getElementById("modal-add-new-task-desc");
+
+            getDescInput.innerHTML = getTask.result.description;
+
+            let getAssigneeSelectItem = document.getElementById("member" + getTask.result.memberInitials);
+            
+            if (getAssigneeSelectItem == "member-dk") {
+                getAssigneeSelectItem.setAttribute("selected", "selected");
+            } else if (getAssigneeSelectItem == "member-kz") {
+                getAssigneeSelectItem.setAttribute("selected", "selected");
+            } else if (getAssigneeSelectItem == "member-lf") {
+                getAssigneeSelectItem.setAttribute("selected", "selected");
+            } else if (getAssigneeSelectItem == "member-md") {
+                getAssigneeSelectItem.setAttribute("selected", "selected");
+            } else if (getAssigneeSelectItem == "member-sk") {
+                getAssigneeSelectItem.setAttribute("selected", "selected");
+            } 
+            
+            activateModal();
+
+            /*
+            let data = e.target.result;
+
+            //change status based on parent element's id
+            if (list == "list-to-do") {
+                data.status = "to-do";
+            } else if (list == "list-in-progress") {
+                data.status = "in-progress";
+            } else if (list == "list-done") {
+                data.status = "done";
+            } else {
+                console.error("List not found")
+            }
+            
+            //update the object in the database
+            let requestUpdate = tasksStore.put(data);
+
+            //error handler for updating object
+            requestUpdate.onerror = function() {
+                console.error("There was an error updating the status of the dropped task")
+            }
+
+            //success handler for updating object
+            requestUpdate.onsuccess = function() {
+                console.log("Dropped task's status updated successfully");
+                progressBar();
+                deleteDueList();
+                listUpcomingDue();
+            }*/
+
+
+        }
+
+        //close database after transaction is complete
+        tasksTx.oncomplete = function() {
+            db.close();
+        }
+    }
+
+}

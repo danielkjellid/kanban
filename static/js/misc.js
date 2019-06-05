@@ -29,6 +29,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createActionsBtn.className = "actions";
 
     createActionA.setAttribute("href", "#");
+    createActionA.classList = "action-btn";
 
     createIcon.className="icon";
 
@@ -36,13 +37,13 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createActionsImg.setAttribute("height", "16px");
     createActionsImg.setAttribute("width", "4px");
 
-    createTaskHeader.appendChild(createTags);
-    createTags.appendChild(createTag);
-    createTaskHeader.appendChild(createActionsBtn);
-
     createActionsBtn.appendChild(createActionA);
     createActionA.appendChild(createIcon);
     createIcon.appendChild(createActionsImg);
+
+    createTaskHeader.appendChild(createActionsBtn);
+    createTaskHeader.appendChild(createTags);
+    createTags.appendChild(createTag);
 
     //create card body
     let createTaskBody = document.createElement("div");
@@ -224,8 +225,8 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
 
     createArchivedHeader.appendChild(createTags);
     createTags.appendChild(createEmblem);
-    createTags.appendChild(createTag);
     createArchivedHeader.appendChild(createActionsBtn);
+    createTags.appendChild(createTag);
 
     createActionsBtn.appendChild(createActionA);
     createActionA.appendChild(createIcon);

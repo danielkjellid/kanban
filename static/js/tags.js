@@ -1,13 +1,13 @@
 let tags = [
     {
         id: 1,
-        tagName: "Markedsplan",
+        tagName: "Plan",
         tagColor: "#dac4ff",
         tagTextColor: "#3a106b"
     },
     {
         id: 2,
-        tagName: "Markedsaktivitet",
+        tagName: "Activity",
         tagColor: "#ffbdbd",
         tagTextColor: "#850303"
     },
@@ -19,7 +19,7 @@ let tags = [
     },
     {
         id: 4,
-        tagName: "Kampanje",
+        tagName: "Campaign",
         tagColor: "#c1eac5",
         tagTextColor: "#38763e"
     },
@@ -31,13 +31,13 @@ let tags = [
     },
     {
         id: 6,
-        tagName: "Mål",
+        tagName: "Goal",
         tagColor: "#ffd0b5",
         tagTextColor: "#7e3105"
     },
     {
         id: 7,
-        tagName: "Innhold",
+        tagName: "Content",
         tagColor: "#d1eefc",
         tagTextColor: "#13506e"
     }
@@ -47,7 +47,7 @@ function listTagsOverview() {
     let getTagContainer = document.getElementById("tag-container");
 
     //For loop to traverse through the array
-    for(var i = 1; i < tags.length; i++){
+    for(var i = 0; i < tags.length; i++){
         let createTagDiv = document.createElement("div");
         let createTag = document.createElement("span");
         let createTagName = document.createElement("span");
@@ -69,9 +69,10 @@ function listTagsSelect() {
     
     let getSelect = document.getElementById("modal-add-new-task-tag");
 
-    for (var i = 1; i < tags.length; i++) {
+    for (var i = 0; i < tags.length; i++) {
         let createOption = document.createElement("option");
 
+        createOption.id = "tag-" + tags[i].tagName.toLowerCase();
         createOption.innerHTML = tags[i].tagName;
 
         getSelect.appendChild(createOption);
