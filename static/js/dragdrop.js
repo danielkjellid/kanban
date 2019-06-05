@@ -48,6 +48,7 @@ function dragDrop(target) {
 function addCardListeners(taskCard) {
     taskCard.addEventListener("dragstart", dragStart);
     taskCard.addEventListener("dragend", dragEnd);
+    taskCard.addEventListener("click", openEditModal);
 }
 
 function addContainerListeners(cardContainer) {
