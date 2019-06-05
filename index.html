@@ -318,6 +318,81 @@
             </div>
         </div>
 
+        <div id="edit-modal" class="modal">
+                <div class="modal-background">
+    
+                </div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <h1>Edit card</h1>
+                    </header>
+                    <form id="edit-task-modal">
+                        <section class="modal-card-body">
+                            <div class="field">
+                                <label class="label">Title</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-edit-task-title">
+                                </div>
+                            </div>
+    
+                            <div class="field">
+                                <label class="label">Status</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-edit-task-status">
+                                            <option id="select-to-do">To-do</option>
+                                            <option id="select-in-progress">In-progress</option>
+                                            <option id="select-done">Done</option>
+                                            <option id="select-archived">Archived</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="field">
+                                <label class="label">Tag</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-edit-task-tag">
+                                            <!-- options created by DOM -->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="field">
+                                <label class="label">Due Date</label>
+                                <div class="control">
+                                    <input class="input" type="date" id="modal-edit-task-dueDate">
+                                </div>
+                            </div>
+    
+                            <div class="field">
+                                <label class="label">Description</label>
+                                <div class="control">
+                                    <textarea class="textarea" placeholder="More details about the task" id="modal-edit-task-desc"></textarea>
+                                </div>
+                            </div>
+    
+                            <div class="field">
+                                <label class="label">Assign</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-edit-task-member">
+                                            <!-- options created by DOM-->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button class="button is-silenced">Discard changes</button>
+                            <button class="button is-brand is-rounded" type="submit">Save changes</button>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+
         <script src="static/js/indexeddb.js"></script>
         <script src="static/js/tasks.js"></script>
         <script src="static/js/tags.js"></script>

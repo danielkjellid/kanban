@@ -65,7 +65,7 @@ function listTagsOverview() {
     }
 }
 
-function listTagsSelect() {
+function listTagsNewSelect() {
     
     let getSelect = document.getElementById("modal-add-new-task-tag");
 
@@ -73,6 +73,19 @@ function listTagsSelect() {
         let createOption = document.createElement("option");
 
         createOption.id = "tag-" + tags[i].tagName.toLowerCase();
+        createOption.innerHTML = tags[i].tagName;
+
+        getSelect.appendChild(createOption);
+    }
+}
+
+function listTagsEditSelect() {
+    let getSelect = document.getElementById("modal-edit-task-tag");
+
+    for (var i = 0; i < tags.length; i++) {
+        let createOption = document.createElement("option");
+
+        createOption.id = "edit-tag-" + tags[i].tagName.toLowerCase();
         createOption.innerHTML = tags[i].tagName;
 
         getSelect.appendChild(createOption);

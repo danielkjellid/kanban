@@ -728,6 +728,13 @@ a.navbar-item,
   position: relative;
 }
 
+.modal-card-head h1 {
+  color: #838c96;
+  padding: 20px;
+  margin-right: auto;
+  justify-content: flex-start !important;
+}
+
 .modal-card-head-menu {
   display: flex;
   justify-content: center;

@@ -324,7 +324,7 @@ function changeTaskStatus(id, list) {
 
             //error handler for updating object
             requestUpdate.onerror = function() {
-                console.error("There was an error updating the status of the dropped task")
+                console.error("There was an error updating the status of the dropped task");
             }
 
             //success handler for updating object
@@ -383,11 +383,10 @@ function listUpcomingDue() {
     }
 }
 
-function editTask() {
-    //let card = document.querySelectorAll(".action-btn");
+function changeModal() {
 
     function activateModal() {
-        var modal = document.querySelector('.modal');  // only works with a single modal
+        var modal = document.getElementById("edit-modal");  // only works with a single modal
         var html = document.querySelector('html');
         modal.classList.add('is-active');
         html.classList.add('is-clipped');
@@ -400,6 +399,79 @@ function editTask() {
     }
 
     let getTaskID = parseInt(this.getAttribute("data-taskid"));
+
+    //variables for displaying correct information in the modal
+    let getTitleInput = document.getElementById("modal-edit-task-title");
+    getTitleInput.setAttribute("value", getTask.result.title);
+
+    if (getTask.result.status == "to-do") {
+        let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+        getStatusSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.status = "in-progress") {
+        let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+        getStatusSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.status == "done") {
+        let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+        getStatusSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.status == "archived") {
+        let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+        getStatusSelectItem.setAttribute("selected", "selected");
+    }
+
+    if (getTask.result.tagName.toLowerCase() == "plan") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName == "activity") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "some") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "campaign") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "pr") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "goal") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.tagName.toLowerCase() == "content") {
+        let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
+        getTagSelectItem.setAttribute("selected", "selected");
+    }
+
+    let getDueDateInput = document.getElementById("modal-edit-task-dueDate");
+
+    getDueDateInput.innerHTML = getTask.result.dueDate;
+
+    let getDescInput = document.getElementById("modal-edit-task-desc");
+
+    getDescInput.innerHTML = getTask.result.description;
+    
+    if (getTask.result.memberInitials.toLowerCase() == "dk") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.memberInitials.toLowerCase() == "kz") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.memberInitials.toLowerCase() == "lf") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    } else if (ggetTask.result.memberInitials.toLowerCase() == "md") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    } else if (getTask.result.memberInitials.toLowerCase() == "sk") {
+        let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
+        getAssigneeSelectItem.setAttribute("selected", "selected");
+    }
+
+    activateModal();
+
+}
+
+function editTask(id) {
+    //let card = document.querySelectorAll(".action-btn");
   
      //open connection to database
     let request = window.indexedDB.open("KanbanDatabase", 17), 
@@ -428,7 +500,7 @@ function editTask() {
         }
 
         //get data-taskid of card dropped
-        let getTask = tasksStore.get(getTaskID);
+        let getTask = tasksStore.get(id);
 
         //error handler for getting data-taskid
         getTask.onerror = function() {
@@ -438,91 +510,39 @@ function editTask() {
         //success handler for getting data-taskid
         getTask.onsuccess = function(e) {
 
-            let getTitleInput = document.getElementById("modal-add-new-task-title");
-            getTitleInput.setAttribute("value", getTask.result.title);
+            //variables for getting input fields
+            let titleInput = document.getElementById("modal-edit-task-title").value;
+            let statusInput = document.getElementById("modal-edit-task-status").value.toLowerCase();
+            let tagInput = document.getElementById("modal-edit-task-tag").value;
+            let dueDateInput = document.getElementById("modal-edit-task-dueDate").value;
+            let descInput = document.getElementById("modal-edit-task-desc").value;
+            let assigneeInput = document.getElementById("modal-edit-task-member").value;
+            let getMemberInitials = findMemberInitials(document.getElementById("modal-edit-task-member").value);
+            let getTagColor = findTagColor(document.getElementById("modal-edit-task-tag").value);
+            let getTagTextColor = findTagTextColor(document.getElementById("modal-edit-task-tag").value);
 
-            let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
-
-            if (getStatusSelectItem == "select-to-do") {
-                getStatusSelectItem.setAttribute("selected", "selected");
-            } else if (getStatusSelectItem == "select-in-progress") {
-                getStatusSelectItem.setAttribute("selected", "selected");
-            } else if (getStatusSelectItem == "select-done") {
-                getStatusSelectItem.setAttribute("selected", "selected");
-            }
-
-            let getTagSelectItem = document.getElementById("tag-" + getTask.result.tagName.toLowerCase());
-
-            if (getTagSelectItem == "tag-plan") {
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTagSelectItem == "tag-activity") {
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTagSelectItem == "tag-some") {
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTagSelectItem == "tag-campaign") {
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTagSelectItem == "tag-pr") {
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTagSelectItem == "tag-goal") {
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTagSelectItem == "tag-content") {
-                getTagSelectItem.setAttribute("selected", "selected");
-            }
-
-            let getDueDateInput = document.getElementById("modal-add-new-task-dueDate");
-
-            getDueDateInput.innerHTML = getTask.result.dueDate;
-
-            let getDescInput = document.getElementById("modal-add-new-task-desc");
-
-            getDescInput.innerHTML = getTask.result.description;
-
-            let getAssigneeSelectItem = document.getElementById("member" + getTask.result.memberInitials);
-            
-            if (getAssigneeSelectItem == "member-dk") {
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            } else if (getAssigneeSelectItem == "member-kz") {
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            } else if (getAssigneeSelectItem == "member-lf") {
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            } else if (getAssigneeSelectItem == "member-md") {
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            } else if (getAssigneeSelectItem == "member-sk") {
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            } 
-            
-            activateModal();
-
-            /*
             let data = e.target.result;
 
-            //change status based on parent element's id
-            if (list == "list-to-do") {
-                data.status = "to-do";
-            } else if (list == "list-in-progress") {
-                data.status = "in-progress";
-            } else if (list == "list-done") {
-                data.status = "done";
-            } else {
-                console.error("List not found")
-            }
+            data.title = titleInput;
+            data.status = statusInput;
+            data.dueDate = dueDateInput;
+            data.description = descInput;
+            data.memberFullName = assigneeInput;
+            data.memberInitials = getMemberInitials;
+            data.tagName = tagInput;
+            data.tagColor = getTagColor;
+            data.tagTextColor = getTagTextColor;
             
-            //update the object in the database
-            let requestUpdate = tasksStore.put(data);
 
-            //error handler for updating object
-            requestUpdate.onerror = function() {
-                console.error("There was an error updating the status of the dropped task")
+            let updateTask = tasksStore.put(data);
+
+            updateTask.onerror = function() {
+                console.error("There was an error updating the task");
             }
 
-            //success handler for updating object
-            requestUpdate.onsuccess = function() {
-                console.log("Dropped task's status updated successfully");
-                progressBar();
-                deleteDueList();
-                listUpcomingDue();
-            }*/
-
+            updateTask.onsuccess = function() {
+                console.log("Updated task successfully");
+            }
 
         }
 
