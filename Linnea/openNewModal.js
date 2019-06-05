@@ -1,17 +1,24 @@
-function openNewModal(pageName, elmnt) {
+function openNewModal(evt, pageName) {
     
-    let i, tabForm, menuItem;
+    //declare the variables
+    let i, 
+        tabContent, 
+        tabLinks;
     
-    tabForm = document.getElementsByClassName("tab-form");
-        for (i = 0; i < tabForm.length; i++) {
-            tabForm[i].style.display = "none";
+    //Get all elements with class="modals" and hide them
+    tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
         }
     
-    menuItem = document.getElementsByClassName("menu-item");
-        for (i = 0; i < menuItem.length; i++) { 
-            menuItem[i].style.display = "none";
+    //Get all elements with class="menu-item" and remove the class "active"
+    tabLinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tabLinks.length; i++) { 
+            tabLinks[i].className = tabLinks[i].className.replace(" active", "");
         }
-
+    
+    document.getElementById(pageName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
-document.getElementById("defaultOpen").click();
+document.getElementById("new-card").click(); 
