@@ -41,24 +41,20 @@
 
             <div id="navbar" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item is-active" href="index.html">
+                    <a class="navbar-item is-active" href="index.html" tabindex="0">
                             Board
                         </a>
-                    <a class="navbar-item" href="#">
+                    <a class="navbar-item" href="#" tabindex="0">
                             Leaderboard
                         </a>
-                    <a class="navbar-item" href="archive.html">
+                    <a class="navbar-item" href="archive.html" tabindex="0">
                             Archive
                         </a>
                 </div>
 
-                <div class="navbar-center">
-
-                </div>
-
                 <div class="navbar-end">
                     <div class="navbar-item">
-                        <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal">
+                        <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal" tabindex="0">
                             <span>Add new</span>
                         </a>
                     </div>
@@ -71,15 +67,15 @@
         <div class="columns">
             <!--to-do-->
             <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                <nav class="list">
+                <nav class="list" tabindex="0">
                     <p class="list-heading">To-do</p>
                     <div class="list-block">
-                        <div class="card-container" id="list-to-do">
+                        <div class="card-container" id="list-to-do" tabindex="0">
                             <!-- card(s) created by DOM/listTasks() -->
                         </div>
                     </div>
                     <div class="list-block">
-                        <a id="add-new-task-to-do" class="silenced-text">
+                        <a id="add-new-task-to-do" class="silenced-text" tabindex="0">
                             <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -104,15 +100,15 @@
             <!--to-do end-->
             <!--in-progress-->
             <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                <nav class="list">
+                <nav class="list" tabindex="0">
                     <p class="list-heading">In progress</p>
                     <div class="list-block">
-                        <div class="card-container" id="list-in-progress">
+                        <div class="card-container" id="list-in-progress" tabindex="0">
                             <!-- card(s) created by DOM/listTasks() -->
                         </div>
                     </div>
                     <div class="list-block">
-                        <a id="add-new-task-in-progress" class="silenced-text">
+                        <a id="add-new-task-in-progress" class="silenced-text" tabindex="0">
                             <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -137,15 +133,15 @@
             <!--in-progress end-->
             <!--done-->
             <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                <nav class="list">
+                <nav class="list" tabindex="0">
                     <p class="list-heading">Done</p>
                     <div class="list-block">
-                        <div class="card-container" id="list-done">
+                        <div class="card-container" id="list-done" tabindex="0">
                             <!-- card(s) created by DOM/listTasks() -->
                         </div>
                     </div>
                     <div class="list-block">
-                        <a id="add-new-task-done" class="silenced-text">
+                        <a id="add-new-task-done" class="silenced-text" tabindex="0">
                             <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -166,7 +162,7 @@
                         </a>
                     </div>
                     <div class="list-block">
-                        <a id="done-list-archive-cards" class="silenced-text">
+                        <a id="done-list-archive-cards" class="silenced-text" tabindex="0">
                             <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -230,20 +226,20 @@
         </div>
     </div>
 
-    <div id="add-new-modal" class="modal">
+    <div id="add-new-modal" class="modal" tabindex="0">
         <div class="modal-background">
 
         </div>
         <div class="modal-card">
             <header class="modal-card-head">
                 <div class="modal-card-head-menu tab">
-                    <button class="menu-item is-active tablinks" id="new-card" onclick="openNewModal(event, 'new-card-modal')">
+                    <button class="menu-item is-active tablinks" id="new-card" onclick="openNewModal(event, 'new-card-modal')" tabindex="0">
                         New card
                     </button>
-                    <button class="menu-item tablinks" id="new-member" onclick="openNewModal(event, 'new-member-modal')">
+                    <button class="menu-item tablinks" id="new-member" onclick="openNewModal(event, 'new-member-modal')" tabindex="0">
                         New member
                     </button>
-                    <button class="menu-item tablinks" id="new-tag" onclick="openNewModal(event, 'new-tag-modal')">
+                    <button class="menu-item tablinks" id="new-tag" onclick="openNewModal(event, 'new-tag-modal')" tabindex="0">
                         New tag
                     </button>
                 </div>
@@ -254,7 +250,7 @@
                         <div class="field">
                             <label class="label">Title</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-add-new-task-title">
+                                <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-add-new-task-title" tabindex="0">
                             </div>
                         </div>
 
@@ -262,7 +258,7 @@
                             <label class="label">Status</label>
                             <div class="control">
                                 <div class="select is-fullwidth">
-                                    <select id="modal-add-new-task-status">
+                                    <select id="modal-add-new-task-status" tabindex="0">
                                         <option id="select-to-do">To-do</option>
                                         <option id="select-in-progress">In-progress</option>
                                         <option id="select-done">Done</option>
@@ -286,21 +282,21 @@
                         <div class="field">
                             <label class="label">Due Date</label>
                             <div class="control">
-                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate">
+                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate" tabindex="0">
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Description</label>
                             <div class="control">
-                                <textarea class="textarea" placeholder="More details about the task" id="modal-add-new-task-desc"></textarea>
+                                <textarea class="textarea" placeholder="More details about the task" id="modal-add-new-task-desc" tabindex="0"></textarea>
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Assign</label>
                             <div class="control">
-                                <div class="select is-fullwidth">
+                                <div class="select is-fullwidth" tabindex="0">
                                     <select id="modal-add-new-task-member">
                                         <option>Daniel Kjellid</option>
                                     </select>
@@ -309,60 +305,60 @@
                         </div>
                     </section>
                     <footer class="modal-card-foot">
-                        <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" type="submit">Add new card</button>
+                        <button class="button is-silenced" tabindex="0">Cancel</button>
+                        <button class="button is-brand is-rounded" type="submit" tabindex="0">Add new card</button>
                     </footer>
                 </form>
             </div>
 
-            <div id="new-member-modal" class="tab-content">
+            <div id="new-member-modal" class="tab-content" tabindex="0">
                 <form id="add-new-member" class="modals">
                     <section class="modal-card-body">
                         <div class="field">
                             <label class="label">Add new member</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. Ola Nordmann" id="modal-add-new-member">
-                            </div><br>
-                                <label class="label">Add initials</label>
+                                <input class="input" type="text" placeholder="e.g. Ola Nordmann" id="modal-add-new-member" tabindex="0">
+                            </div>
+                            <label class="label">Add initials</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member-init">
+                                <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member" tabindex="0">
                             </div>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" onclick="return addNewMember()">Add new member</button>
+                        <button class="button is-brand is-rounded" type="submit" onclick="addNewMember()" tabindex="0">Add new member</button>
                     </footer>
                 </form>
             </div>
-
-            <div id="new-tag-modal" class="tab-content">
+         </div>
+                    
+                
+            <div id="new-tag-modal" class="tab-content" tabindex="0">
                 <form id="add-new-tag" class="modals">
                     <section class="modal-card-body">
                         <div class="field">
                             <label class="label">Add new tag</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. priority" id="modal-add-new-tag">
-                            </div><br>
+                                <input class="input" type="text" placeholder="e.g. priority" id="modal-add-new-tag" tabindex="0">
+                            </div>
                                 <label class="label">Add color</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. #aaf99a" id="modal-add-new-color-tag">
-                            </div><br>
-                                <label class="label">Add color to text</label>
+                                <input class="input" type="text" placeholder="e.g. #aaf99a" id="modal-add-new-color-tag" tabindex="0">
+                            <label class="label">Add textcolor</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. #3d5937" id="modal-add-new-textcolor-tag">
+                                <input class="input" type="text" placeholder="e.g. #4c6841" id="modal-add-new-textcolor-tag" tabindex="0">
+                                </div>
                             </div>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
-                        <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" onclick="return addNewTag(); listTagsNewSelect();">Add new tag</button>
+                        <button class="button is-silenced" tabindex="0">Cancel</button>
+                        <button class="button is-brand is-rounded" onclick="addNewTag()" tabindex="0">Add new tag</button>
                     </footer>
                 </form>
             </div>
-        </div>
-    </div>
-    <div id="edit-modal" class="modal">
+    <div id="edit-modal" class="modal" tabindex="0">
         <div class="modal-background">
 
         </div>
@@ -375,7 +371,7 @@
                     <div class="field">
                         <label class="label">Title</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-edit-task-title">
+                            <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-edit-task-title" tabindex="0">
                         </div>
                     </div>
 
@@ -383,7 +379,7 @@
                         <label class="label">Status</label>
                         <div class="control">
                             <div class="select is-fullwidth">
-                                <select id="modal-edit-task-status">
+                                <select id="modal-edit-task-status" tabindex="0">
                                     <option id="select-to-do">To-do</option>
                                     <option id="select-in-progress">In-progress</option>
                                     <option id="select-done">Done</option>
@@ -397,7 +393,7 @@
                         <label class="label">Tag</label>
                         <div class="control">
                             <div class="select is-fullwidth">
-                                <select id="modal-edit-task-tag">
+                                <select id="modal-edit-task-tag" tabindex="0">
                                     <!-- options created by DOM -->
                                 </select>
                             </div>
@@ -407,14 +403,14 @@
                     <div class="field">
                         <label class="label">Due Date</label>
                         <div class="control">
-                            <input class="input" type="date" id="modal-edit-task-dueDate">
+                            <input class="input" type="date" id="modal-edit-task-dueDate" tabindex="0">
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Description</label>
                         <div class="control">
-                            <textarea class="textarea" placeholder="More details about the task" id="modal-edit-task-desc"></textarea>
+                            <textarea class="textarea" placeholder="More details about the task" id="modal-edit-task-desc" tabindex="0"></textarea>
                         </div>
                     </div>
 
@@ -422,7 +418,7 @@
                         <label class="label">Assign</label>
                         <div class="control">
                             <div class="select is-fullwidth">
-                                <select id="modal-edit-task-member">
+                                <select id="modal-edit-task-member" tabindex="0">
                                     <!-- options created by DOM-->
                                 </select>
                             </div>
@@ -430,8 +426,8 @@
                     </div>
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="button is-silenced">Discard changes</button>
-                    <button class="button is-brand is-rounded" type="submit">Save changes</button>
+                    <button class="button is-silenced" tabindex="0">Discard changes</button>
+                    <button class="button is-brand is-rounded" type="submit" tabindex="0">Save changes</button>
                 </footer>
             </form>
         </div>
@@ -447,6 +443,7 @@
     <script src="static/js/utils.js"></script>
     <script src="static/js/eventlisteners.js"></script>
     <script src="Linnea/openNewModal.js"></script>
-</body>
+    </div>
+    </body>
 
 </html>
