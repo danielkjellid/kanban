@@ -340,11 +340,15 @@
                             <div class="control">
                                 <input class="input" type="text" placeholder="e.g. priority" id="modal-add-new-tag">
                             </div>
+                                <label class="label">Add color</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="e.g. ##aaf99a" id="modal-add-new-color-tag">
+                            </div>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" type="submit">Add new tag</button>
+                        <button class="button is-brand is-rounded" onclick="addNewTag(); listTagsOverview(); listTagsNewSelect();">Add new tag</button>
                     </footer>
                 </form>
             </div>
