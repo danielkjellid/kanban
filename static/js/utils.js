@@ -1,6 +1,6 @@
 //function for loading other functions on site main page refresh.
 function onIndexLoad() {
-    connectToDB("KanbanDatabase", 19);
+    connectToDB("KanbanDatabase", 20);
     listTagsOverview();
     listTagsNewSelect();
     listTagsEditSelect();
@@ -11,7 +11,7 @@ function onIndexLoad() {
 
 //function for loading other functions on archived site page refresh
 function onArchiveLoad() {
-    connectToDB("KanbanDatabase", 19);
+    connectToDB("KanbanDatabase", 20);
 }
 
 //function for finding memberInitials given memberFullName on add-new-card modal input

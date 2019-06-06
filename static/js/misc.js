@@ -78,7 +78,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createTaskFooter.className = "task-card-footer";
     createTaskFooter.setAttribute("aria-label", "Task card footer");
 
-    createAssignee.className = "asignee";
+    createAssignee.className = "assignee";
     createAssignee.setAttribute("aria-label", "Task is assigned to " + memberFullName);
     createAssigneeIcon.className = "icon";
     createAssigneeIconImg.setAttribute("src", "static/img/person.png");
@@ -277,7 +277,7 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     createArchivedFooter.className = "archived-card-footer";
     createArchivedFooter.setAttribute("aria-label", "Archived task card footer");
 
-    createAssignee.className = "asignee";
+    createAssignee.className = "assignee";
     createAssignee.setAttribute("tabindex", "0");
     createAssignee.setAttribute("aria-label", "Task was assigned to " + memberFullName);
     createAssigneeIcon.className = "icon";

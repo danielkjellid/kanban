@@ -196,7 +196,7 @@ a.navbar-item,
   padding: 13px;
 }
 
-.archived-card-footer .asignee {
+.archived-card-footer .assignee {
   display: inline-block;
   float: left !important;
   height: auto;
@@ -1160,17 +1160,17 @@ a.navbar-item,
   padding: 13px;
 }
 
-.task-card-footer .asignee {
+.task-card-footer .assignee {
   display: inline-block;
   float: left !important;
   height: auto;
-  width: 50%;
+  width: 65%;
 }
 
 .task-card-footer .dueDate {
   display: inline-block;
   float: right !important;
-  width: 50%;
+  width: 35%;
 }
 
 .task-card-footer .dueDate span {

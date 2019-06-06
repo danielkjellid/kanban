@@ -6,15 +6,15 @@ function addTaskFromList(destination) {
     if (destination == "list-to-do") {
         let getSelectItem = document.getElementById("select-to-do");
         getSelectItem.setAttribute("selected", "selected");
-        activateModal("add-new-modal");
+        openModal("add-new-modal");
     } else if (destination == "list-in-progress") {
         let getSelectItem = document.getElementById("select-in-progress");
         getSelectItem.setAttribute("selected", "selected");
-        activateModal("add-new-modal");
+        openModal("add-new-modal");
     } else if (destination == "list-done") {
         let getSelectItem = document.getElementById("select-done");
         getSelectItem.setAttribute("selected", "selected");
-        activateModal("add-new-modal");
+        openModal("add-new-modal");
     } else {
         //error handler
         console.error("There was an error finding the selected destination.");
@@ -39,7 +39,7 @@ function addTask() {
     //need to open a new connection.
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 19), 
+    let request = window.indexedDB.open("KanbanDatabase", 20), 
     db,
     tx,
     store,
@@ -200,7 +200,7 @@ function listArchivedTasks() {
 function archiveTasks() {
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 19), 
+    let request = window.indexedDB.open("KanbanDatabase", 20), 
     db,
     tx,
     store,
@@ -285,7 +285,7 @@ function archiveTasks() {
 //function for chanding the status when a card is moved to a new list
 function changeTaskStatus(id, list) {
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 19), 
+    let request = window.indexedDB.open("KanbanDatabase", 20), 
     db,
     tx,
     store,
@@ -413,7 +413,7 @@ function listUpcomingDue() {
 function editTask(id) {
   
      //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 19), 
+    let request = window.indexedDB.open("KanbanDatabase", 20), 
     db,
     tx,
     store,
