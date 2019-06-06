@@ -65,82 +65,128 @@
                 </div>
             </div>
         </div>
-        <div class="modal">
+        <div id="add-new-modal" class="modal" >
             <div class="modal-background">
             </div>
             <div class="modal-card">
                 <header class="modal-card-head">
-                    <div class="modal-card-head-menu">
-                        <a class="menu-item is-active">
+                    <div class="modal-card-head-menu tab">
+                        <button class="menu-item is-active tablinks" id="new-card" onclick="openNewModal(event, 'new-card-modal')" >
                         New card
-                        </a>
-                        <a class="menu-item">
+                        </button>
+                        <button class="menu-item tablinks" id="new-member" onclick="openNewModal(event, 'new-member-modal')" >
                         New member
-                        </a>
-                        <a class="menu-item">
+                        </button>
+                        <button class="menu-item tablinks" id="new-tag" onclick="openNewModal(event, 'new-tag-modal')" >
                         New tag
-                        </a>
+                        </button>
                     </div>
                 </header>
-                <form id="add-new-modal">
-                    <section class="modal-card-body">
-                        <div class="field">
-                            <label class="label">Title</label>
-                            <div class="control">
-                                <input class="input" type="text" placeholder="e.g Alex Smith" id="modal-add-new-task-title">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Status</label>
-                            <div class="control">
-                                <div class="select is-fullwidth">
-                                    <select id="modal-add-new-task-status">
-                                        <option id="select-to-do">To-do</option>
-                                        <option id="select-in-progress">In-progress</option>
-                                        <option id="select-done">Done</option>
-                                        <option id="select-archived">Archived</option>
-                                    </select>
+                <div id="new-card-modal" class="tab-content">
+                    <form id="add-new-modal" class="modals">
+                        <section class="modal-card-body">
+                            <div class="field">
+                                <label class="label">Title</label>
+                                <div class="control">
+                                    <input id="modal-add-new-task-title" class="input" type="text" placeholder="e.g. Design kanban board for exam web project">
                                 </div>
                             </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Tag</label>
-                            <div class="control">
-                                <div class="select is-fullwidth">
-                                    <select id="modal-add-new-task-tag">
-                                        <option>PR</option>
-                                    </select>
+                            <div class="field">
+                                <label class="label">Status</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-add-new-task-status" >
+                                            <option id="select-to-do">To-do</option>
+                                            <option id="select-in-progress">In-progress</option>
+                                            <option id="select-done">Done</option>
+                                            <option id="select-archived">Archived</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Due Date</label>
-                            <div class="control">
-                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate">
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Description</label>
-                            <div class="control">
-                                <textarea class="textarea" placeholder="something" id="modal-add-new-task-desc"></textarea>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Assign</label>
-                            <div class="control">
-                                <div class="select is-fullwidth">
-                                    <select id="modal-add-new-task-assignee">
-                                        <option>Daniel Kjellid</option>
-                                    </select>
+                            <div class="field">
+                                <label class="label">Tag</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-add-new-task-tag">
+                                            <!--options added by DOM-->
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </section>
-                    <footer class="modal-card-foot">
-                        <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" type="submit">Add new card</button>
-                    </footer>
-                </form>
+                            <div class="field">
+                                <label class="label">Due Date</label>
+                                <div class="control">
+                                    <input id="modal-add-new-task-dueDate" class="input" type="date" placeholder="e.g. alexsmith@gmail.com">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Description</label>
+                                <div class="control">
+                                    <textarea id="modal-add-new-task-desc" class="textarea" placeholder="More details about the task"></textarea>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Assign</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth" >
+                                        <select id="modal-add-new-task-member">
+                                            <!--members added by DOM-->
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button id="add-new-task-cancel" class="button is-silenced" type="button">Cancel</button>
+                            <button class="button is-brand is-rounded" type="submit">Add new card</button>
+                        </footer>
+                    </form>
+                </div>
+                <div id="new-member-modal" class="tab-content" >
+                    <form id="add-new-member" class="modals">
+                        <section class="modal-card-body">
+                            <div class="field">
+                                <label class="label">Add new member</label>
+                                <div class="control">
+                                    <input id="modal-add-new-member" class="input" type="text" placeholder="e.g. Ola Nordmann">
+                                </div>
+                                <label class="label">Add initials</label>
+                                <div class="control">
+                                    <input id="modal-add-new-member-init" class="input" type="text" placeholder="e.g. ON">
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button id="add-new-member-cancel" class="button is-silenced" type="button">Cancel</button>
+                            <button id="add-new-member-submit" class="button is-brand is-rounded" type="button">Add new member</button>
+                        </footer>
+                    </form>
+                </div>
+                <div id="new-tag-modal" class="tab-content" >
+                    <form id="add-new-tag" class="modals">
+                        <section class="modal-card-body">
+                            <div class="field">
+                                <label class="label">Add new tag</label>
+                                <div class="control">
+                                    <input id="modal-add-new-tag" class="input" type="text" placeholder="e.g. priority">
+                                </div>
+                                <label class="label">Add color</label>
+                                <div class="control">
+                                    <input id="modal-add-new-color-tag" class="input" type="text" placeholder="e.g. #aaf99a">
+                                    <label class="label">Add textcolor</label>
+                                    <div class="control">
+                                        <input id="modal-add-new-textcolor-tag" class="input" type="text" placeholder="e.g. #4c6841">
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button id="add-new-tag-cancel" class="button is-silenced" type="button">Cancel</button>
+                            <button id="add-new-tag-submit" class="button is-brand is-rounded" type="button">Add new tag</button>
+                        </footer>
+                    </form>
+                </div>
             </div>
         </div>
         <!--end og container-->

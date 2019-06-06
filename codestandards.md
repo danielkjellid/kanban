@@ -75,17 +75,17 @@ som forklarer noe
 * Kommenter gjerne for å gjøre noe mer oversiktlig (start og end kommentarer):
 
 ```
-`<!-- element start -->
+<!-- element start -->
 <div id="element1">
     <!-- kode -->
 </div>
-`<div id="element2">
+<div id="element2">
     <!-- kode -->
 </div>
-`<div id="element3">
+<div id="element3">
     <!-- kode -->
-</div>``
-<!-- element end -->`
+</div>
+<!-- element end -->
 ```
 
 * * *
@@ -197,6 +197,169 @@ Bruk `0` istedenfor `none` for å spesifisere at stilen ikke har en border.
 }
 ```
 
-# 
+# JavaScript Konvensjoner
+## Referanser
+
+Bruk `const`i konstante referanser. Unngå å bruk `var`. Dette sikrer at man ikke kan gi referansen en ny verdi, som kan forårsake mange bugs.
+
+### Dårlig
+
+```
+var a = 1;
+var b = 2;
+```
+
+### Bra
+
+```
+const a = 1;
+const b = 2;
+```
+
+Dersom referansen må gis ny verdi, bruk `let` istedenfor `var`. Dette er fordi `let` er block-scoped og ikke function-scoped som `var`.
+
+### Dårlig
+
+```
+var count = 1;
+if(true) {
+    count += 1;
+}
+```
+
+### Bra
+
+```
+let count = 1;
+if(true) {
+    count += 1;
+}
+```
+
+Merk at både `let` og `const` er block-scoped.
+
+## Objekter
+
+Bruk bokstavlig syntax for oppretting av objekter.
+
+### Dårlig
+
+```
+const item = new Object();
+```
+
+### Bra
+
+```
+const item = {};
+```
+
+## Arrays
+
+Bruk bokstavelig syntax for oppretting av array.
+
+### Dårlig
+
+```
+const items = new Array();
+```
+
+### Bra
+
+```
+const items = [];
+```
+
+Bruk `array.push` istedenfor direkte oppgaver for å legge ting inn i et array.
+
+### Dårlig
+
+```
+const someStack = [];
+someStack[someStack.length] = 'abracadabra';
+```
+
+### Bra
+
+```
+const someStack = [];
+someStack.push('abracadabra');
+```
+
+Bruk linjeskift etter åpne- og lukke krøllparantesen hvis arrayet har flere linjer.
+
+### Dårlig
+
+```
+const arr = [
+  [0, 1], [2, 3], [4, 5],
+];
+
+const objectInArray = [{
+  id: 1,
+}, {
+  id: 2,
+}];
+
+const numberInArray = [
+  1, 2,
+];
+```
+
+### Bra
+
+```
+const arr = [[0, 1], [2, 3], [4, 5]];
+
+const objectInArray = [
+  {
+    id: 1,
+  },
+  {
+    id: 2,
+  },
+];
+
+const numberInArray = [
+  1,
+  2,
+];
+```
+
+## Strings
+
+Bruk dobble anførselstegn `""` for strings.
+
+### Dårlig
+
+```
+const name = `Capt. Janeway`;
+
+const name = 'Capt. Janeway';
+```
+
+### Bra
+
+```
+const name = "Capt. Janeway";
+```
+
+## Funksjoner
+
+## Klasser
+
+## Kontrollsetninger
+
+## Kommentarer
+
+## Whitespace
+
+## Kommaer
+
+## Semikolon
+
+## Events
+
+
 
 

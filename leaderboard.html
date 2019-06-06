@@ -203,7 +203,7 @@
                             <div class="field">
                                 <label class="label">Title</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-add-new-task-title" >
+                                    <input id="modal-add-new-task-title" class="input" type="text" placeholder="e.g. Design kanban board for exam web project">
                                 </div>
                             </div>
                             <div class="field">
@@ -224,7 +224,7 @@
                                 <div class="control">
                                     <div class="select is-fullwidth">
                                         <select id="modal-add-new-task-tag">
-                                            <option>PR</option>
+                                            <!--options added by DOM-->
                                         </select>
                                     </div>
                                 </div>
@@ -232,13 +232,13 @@
                             <div class="field">
                                 <label class="label">Due Date</label>
                                 <div class="control">
-                                    <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate" >
+                                    <input id="modal-add-new-task-dueDate" class="input" type="date" placeholder="e.g. alexsmith@gmail.com">
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Description</label>
                                 <div class="control">
-                                    <textarea class="textarea" placeholder="More details about the task" id="modal-add-new-task-desc" ></textarea>
+                                    <textarea id="modal-add-new-task-desc" class="textarea" placeholder="More details about the task"></textarea>
                                 </div>
                             </div>
                             <div class="field">
@@ -246,7 +246,7 @@
                                 <div class="control">
                                     <div class="select is-fullwidth" >
                                         <select id="modal-add-new-task-member">
-                                            <option>Daniel Kjellid</option>
+                                            <!--members added by DOM-->
                                         </select>
                                     </div>
                                 </div>
@@ -254,7 +254,7 @@
                         </section>
                         <footer class="modal-card-foot">
                             <button id="add-new-task-cancel" class="button is-silenced" type="button">Cancel</button>
-                            <button class="button is-brand is-rounded" type="submit" >Add new card</button>
+                            <button class="button is-brand is-rounded" type="submit">Add new card</button>
                         </footer>
                     </form>
                 </div>
@@ -264,17 +264,17 @@
                             <div class="field">
                                 <label class="label">Add new member</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. Ola Nordmann" id="modal-add-new-member" >
+                                    <input id="modal-add-new-member" class="input" type="text" placeholder="e.g. Ola Nordmann">
                                 </div>
                                 <label class="label">Add initials</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member-init" >
+                                    <input id="modal-add-new-member-init" class="input" type="text" placeholder="e.g. ON">
                                 </div>
                             </div>
                         </section>
                         <footer class="modal-card-foot">
                             <button id="add-new-member-cancel" class="button is-silenced" type="button">Cancel</button>
-                            <button class="button is-brand is-rounded" type="submit" onclick="return addNewMember()" >Add new member</button>
+                            <button id="add-new-member-submit" class="button is-brand is-rounded" type="button">Add new member</button>
                         </footer>
                     </form>
                 </div>
@@ -284,21 +284,21 @@
                             <div class="field">
                                 <label class="label">Add new tag</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. priority" id="modal-add-new-tag" >
+                                    <input id="modal-add-new-tag" class="input" type="text" placeholder="e.g. priority">
                                 </div>
                                 <label class="label">Add color</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. #aaf99a" id="modal-add-new-color-tag" >
+                                    <input id="modal-add-new-color-tag" class="input" type="text" placeholder="e.g. #aaf99a">
                                     <label class="label">Add textcolor</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="e.g. #4c6841" id="modal-add-new-textcolor-tag" >
+                                        <input id="modal-add-new-textcolor-tag" class="input" type="text" placeholder="e.g. #4c6841">
                                     </div>
                                 </div>
                             </div>
                         </section>
                         <footer class="modal-card-foot">
                             <button id="add-new-tag-cancel" class="button is-silenced" type="button">Cancel</button>
-                            <button class="button is-brand is-rounded" onclick="return addNewTag()" >Add new tag</button>
+                            <button id="add-new-tag-submit" class="button is-brand is-rounded" type="button">Add new tag</button>
                         </footer>
                     </form>
                 </div>
