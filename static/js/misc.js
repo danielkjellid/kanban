@@ -3,6 +3,8 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
 
     //create card
     let createTaskCard = document.createElement("div");
+    createTaskCard.setAttribute("tabindex", "0");
+    createTaskCard.setAttribute("aria-label", "Task card")
 
     createTaskCard.className = "task-card";
     createTaskCard.id = "task-" + taskID;
@@ -22,14 +24,22 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     let createActionsImg = document.createElement("img");
 
     createTaskHeader.className = "task-card-header";
+    createTaskHeader.setAttribute("tabindex", "0");
+    createTaskHeader.setAttribute("aria-label", "Card header showing tag and more actions button");
+
     createTags.className = "tags";
+    createTags.setAttribute("tabindex", "0");
+    createTags.setAttribute("aria-label", "Tags used to show workflow");
     createTag.className = "tag";
     createTag.innerHTML = tagName;
     createTag.setAttribute("style", "background-color: " + tagColor + "; color: " + tagTextColor + ";");
+    createTag.setAttribute("tabindex", "0");
+    createTag.setAttribute("aria-label", "Workflow " + tagName);
     createActionsBtn.className = "actions";
 
     createActionA.setAttribute("href", "#");
     createActionA.setAttribute("tabindex", "0");
+    createActionA.setAttribute("aria-label", "More actions button. Click to edit the task attributes.")
     createActionA.classList = "action-btn";
 
     createIcon.className="icon";
@@ -37,7 +47,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createActionsImg.setAttribute("src", "static/img/dots-horizontal-triple.png");
     createActionsImg.setAttribute("height", "16px");
     createActionsImg.setAttribute("width", "4px");
-    createActionAImg.setAttribute("alt", "Three dotted button symbolizing more actions, such as editing card");
+    createActionsImg.setAttribute("alt", "Three dotted button symbolizing more actions, such as editing card");
 
     createActionsBtn.appendChild(createActionA);
     createActionA.appendChild(createIcon);
@@ -49,10 +59,15 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
 
     //create card body
     let createTaskBody = document.createElement("div");
+    createTaskBody.setAttribute("tabindex", "0");
+    createTaskBody.setAttribute("aria-label", "Task card body");
     let createTaskTitle = document.createElement("p");
+    createTaskTitle.setAttribute("tabindex", "0");
+    createTaskTitle.setAttribute("aria-label", "Task card title");
 
     createTaskBody.className = "task-card-body";
     createTaskTitle.innerHTML = title;
+    createTaskTitle.setAttribute("aria-label", "title of the task is " + title);
 
     createTaskBody.appendChild(createTaskTitle);
 
@@ -68,8 +83,12 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     let createDueDateImg = document.createElement("img");
 
     createTaskFooter.className = "task-card-footer";
+    createTaskFooter.setAttribute("tabindex", "0");
+    createTaskFooter.setAttribute("aria-label", "Task card footer");
 
     createAssignee.className = "asignee";
+    createAssignee.setAttribute("tabindex", "0");
+    createAssignee.setAttribute("aria-label", "Task is assigned to " + memberFullName);
     createAssigneeIcon.className = "icon";
     createAssigneeIconImg.setAttribute("src", "static/img/person.png");
     createAssigneeIconImg.setAttribute("height", "13px");
@@ -78,6 +97,8 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createAssigneeMember.innerHTML = memberFullName;
 
     createDueDate.className = "dueDate";
+    createDueDate.setAttribute("tabindex", "0");
+    createDueDate.setAttribute("aria-label", "task is due " + dueDate);
     createDueDateDate.innerHTML = dueDate;
     createDueDateIcon.className = "icon";
     createDueDateImg.setAttribute("src", "static/img/calendar.png");
@@ -105,19 +126,25 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
 function addDueCard(dueDate, memberFullName, tagColor, title) {
 
     let getParent = document.getElementById("due-date-card-container");
+    getParent.setAttribute("tabindex", "0");
 
     let createListBlock = document.createElement("div");
 
     createListBlock.className = "due-date-list-block";
+    createListBlock.setAttribute("tabindex", "0");
 
     let createListCard = document.createElement("div");
 
     createListCard.className = "due-date-list-card";
+    createListCard.setAttribute("tabindex", "0");
+    createListCard.setAttribute("aria-label", "Upcoming due date card")
 
     let createMeta = document.createElement("div");
     let createMetaSpan = document.createElement("span");
 
     createMeta.className = "meta";
+    createMeta.setAttribute("tabindex", "0");
+    createMeta.setAttribute("aria-label", "Meta info about when task is due, and who is assigned");
     createMetaSpan.innerHTML = dueDate + " • " + memberFullName;
 
     let createMiniTags = document.createElement("div");
@@ -132,6 +159,8 @@ function addDueCard(dueDate, memberFullName, tagColor, title) {
 
     createTitle.className = "title";
     createTitleP.innerHTML = title;
+    createTitle.setAttribute("tabindex", "0");
+    createTitle.setAttribute("aria-label", "task title is " + title);
 
     getParent.appendChild(createListBlock);
     createListBlock.appendChild(createListCard);
@@ -146,21 +175,26 @@ function addDueCard(dueDate, memberFullName, tagColor, title) {
 function addDueCardExpired(dueDate, memberFullName, tagColor, title) {
 
     let getParent = document.getElementById("due-date-expired-container");
-
     getParent.setAttribute("style", "display: block;")
+    getParent.setAttribute("tabindex", "0");
 
     let createListBlock = document.createElement("div");
 
     createListBlock.className = "due-date-list-block";
+    createListBlock.setAttribute("tabindex", "0");
 
     let createListCard = document.createElement("div");
 
     createListCard.className = "due-date-list-card";
+    createListCard.setAttribute("tabindex", "0");
+    createListCard.setAttribute("aria-label", "Expired due date card")
 
     let createMeta = document.createElement("div");
     let createMetaSpan = document.createElement("span");
 
     createMeta.className = "meta";
+    createMeta.setAttribute("tabindex", "0");
+    createMeta.setAttribute("aria-label", "Meta info about when task is due, and who is assigned");
     createMetaSpan.innerHTML = dueDate + " • " + memberFullName;
 
     let createMiniTags = document.createElement("div");
@@ -175,6 +209,8 @@ function addDueCardExpired(dueDate, memberFullName, tagColor, title) {
 
     createTitle.className = "title";
     createTitleP.innerHTML = title;
+    createTitle.setAttribute("tabindex", "0");
+    createTitle.setAttribute("aria-label", "task title is " + title);
 
     getParent.appendChild(createListBlock);
     createListBlock.appendChild(createListCard);
@@ -191,6 +227,8 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
 
     //create card
     let createArchivedCard = document.createElement("div");
+    createArchivedCard.setAttribute("tabindex", "0");
+    createArchivedCard.setAttribute("aria-label", "Archived task card")
 
     createArchivedCard.className = "archived-card";
     createArchivedCard.id = "task-" + taskID;
@@ -210,23 +248,32 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     let createActionsImg = document.createElement("img");
 
     createArchivedHeader.className = "archived-card-header";
+    createArchivedHeader.setAttribute("tabindex", "0");
+    createArchivedHeader.setAttribute("aria-label", "Archived card header showing tag and more actions button");
     createTags.className = "tags";
+    createTags.setAttribute("tabindex", "0");
+    createTags.setAttribute("aria-label", "Tags used to show workflow");
     createTag.className = "tag";
     createTag.innerHTML = tagName;
     createTag.setAttribute("style", "background-color: " + tagColor + "; color: " + tagTextColor + ";");
+    createTag.setAttribute("tabindex", "0");
+    createTag.setAttribute("aria-label", "Workflow " + tagName);
     createEmblem.setAttribute("src", "static/img/archived.png");
     createEmblem.setAttribute("height", "20px");
     createEmblem.setAttribute("width", "20px");
+    createEmblem.setAttribute("alt", "Archived icon");
     createActionsBtn.className = "actions";
 
     createActionA.setAttribute("href", "#");
+    createActionA.setAttribute("tabindex", "0");
+    createActionA.setAttribute("aria-label", "More actions button. Click to edit the task attributes.")
 
     createIcon.className="icon";
 
     createActionsImg.setAttribute("src", "static/img/dots-horizontal-triple.png");
     createActionsImg.setAttribute("height", "16px");
     createActionsImg.setAttribute("width", "4px");
-    createActionAImg.setAttribute("alt", "Three dotted button symbolizing more actions, such as editing card");
+    createActionsImg.setAttribute("alt", "Three dotted button symbolizing more actions, such as editing card");
 
 
     createArchivedHeader.appendChild(createTags);
@@ -243,7 +290,11 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     let createArchivedTitle = document.createElement("p");
 
     createArchivedBody.className = "archived-card-body";
+    createArchivedBody.setAttribute("tabindex", "0");
+    createArchivedBody.setAttribute("aria-label", "Archived task card body");
     createArchivedTitle.innerHTML = title;
+    createArchivedTitle.setAttribute("tabindex", "0");
+    createArchivedTitle.setAttribute("aria-label", "Archived task card title");
 
     createArchivedBody.appendChild(createArchivedTitle);
 
@@ -259,8 +310,12 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     let createDueDateImg = document.createElement("img");
 
     createArchivedFooter.className = "archived-card-footer";
+    createArchivedFooter.setAttribute("tabindex", "0");
+    createArchivedFooter.setAttribute("aria-label", "Archived task card footer");
 
     createAssignee.className = "asignee";
+    createAssignee.setAttribute("tabindex", "0");
+    createAssignee.setAttribute("aria-label", "Task was assigned to " + memberFullName);
     createAssigneeIcon.className = "icon";
     createAssigneeIconImg.setAttribute("src", "static/img/person.png");
     createAssigneeIconImg.setAttribute("height", "13px");
@@ -269,6 +324,8 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     createAssigneeMember.innerHTML = memberFullName;
 
     createDueDate.className = "dueDate";
+    createDueDate.setAttribute("tabindex", "0");
+    createDueDate.setAttribute("aria-label", "task was due " + dueDate);
     createDueDateDate.innerHTML = dueDate;
     createDueDateIcon.className = "icon";
     createDueDateImg.setAttribute("src", "static/img/calendar.png");
@@ -341,6 +398,8 @@ function progressBar() {
                 //DOM to change the actuall progress bar
                 let getProgressBar = document.getElementById("progress-bar");
                 getProgressBar.setAttribute("value", progress);
+                getProgressBar.setAttribute("tabindex", "0");
+                getProgressBar.setAttribute("aria-label", "amount of done task are at " + progress + "%");
 
             }
         }

@@ -57,7 +57,7 @@ function listMemberOverview() {
             createEmblem.setAttribute("src", "static/img/member-icons/md.png")
             createEmblem.setAttribute("height", "24px");
             createEmblem.setAttribute("width", "24px");
-            createEmblm.setAttribute("alt", "Circle emblem containing member " + members[i].memberFullName + "'s initials.");
+            createEmblem.setAttribute("alt", "Circle emblem containing member " + members[i].memberFullName + "'s initials.");
         } else if (members[i].memberFullName == "Sultan Khan") {
             createEmblem.setAttribute("src", "static/img/member-icons/sk.png")
             createEmblem.setAttribute("height", "24px");
