@@ -559,6 +559,11 @@ function editTask(id) {
             
 
             let updateTask = tasksStore.put(data);
+            let modal = document.getElementById('edit-modal');
+            let html = document.querySelector('html');
+            
+            modal.classList.remove("is-active");
+            html.classList.add('is-clipped');
 
             updateTask.onerror = function() {
                 console.error("There was an error updating the task");
