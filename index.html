@@ -321,19 +321,16 @@
                             </div>
                             <label class="label">Add initials</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member" tabindex="0">
+                                <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member-init" tabindex="0">
                             </div>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" type="submit" onclick="addNewMember()" tabindex="0">Add new member</button>
+                        <button class="button is-brand is-rounded" type="submit" onclick="return addNewMember()" tabindex="0">Add new member</button>
                     </footer>
                 </form>
             </div>
-         </div>
-                    
-                
             <div id="new-tag-modal" class="tab-content" tabindex="0">
                 <form id="add-new-tag" class="modals">
                     <section class="modal-card-body">
@@ -354,10 +351,15 @@
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button is-silenced" tabindex="0">Cancel</button>
-                        <button class="button is-brand is-rounded" onclick="addNewTag()" tabindex="0">Add new tag</button>
+                        <button class="button is-brand is-rounded" onclick="return addNewTag()" tabindex="0">Add new tag</button>
                     </footer>
                 </form>
             </div>
+         </div>
+                    
+                
+            
+        
     <div id="edit-modal" class="modal" tabindex="0">
         <div class="modal-background">
 
