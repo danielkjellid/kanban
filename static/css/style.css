@@ -165,7 +165,7 @@ a.navbar-item,
 .archived-card {
   border-radius: 8px;
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
-  display: inline-block;
+  display: block;
   color: #3E4C59;
   height: auto;
   margin-bottom: 30px;
@@ -192,13 +192,14 @@ a.navbar-item,
   border-top: 1px #E4E7EB solid;
   color: #7B8794;
   font-size: 14px;
-  height: 45px;
+  min-height: 90px;
   padding: 13px;
 }
 
 .archived-card-footer .asignee {
   display: inline-block;
   float: left !important;
+  height: auto;
   width: 50%;
 }
 
@@ -745,29 +746,6 @@ a.navbar-item,
   width: auto;
 }
 
-.modal-card-head-menu a.menu-item{
-  color: #7B8794;
-  display: flex;
-  margin-right: 20px;
-  padding-bottom: 20px;
-  padding: 0px 15px 15px 15px;
-  text-decoration: none;
-}
-
-.modal-card-head-menu a.menu-item:hover{
-  color: #3E4C59;
-}
-
-.modal-card-head-menu a.menu-item:last-child{
-  margin-right: 0px;
-  padding-right: 0px;
-}
-
-.modal-card-head-menu a.menu-item.is-active{
-  border-bottom: 3px solid #D96F9D;
-  color: #3E4C59;
-}
-
 .modal-card-foot {
   align-items: center;
   background-color: #E4E7EB;
@@ -1017,13 +995,14 @@ a.navbar-item,
 
 .tab button {
   background-color: inherit;
+  border: none;
   color: #7B8794;
   display: flex;
+  font-size: 18px;
   margin-right: 20px;
   padding-bottom: 20px;
   padding: 0px 15px 15px 15px;
   text-decoration: none;
-  border: none;
 }
 
 
