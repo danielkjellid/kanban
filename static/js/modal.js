@@ -1,21 +1,21 @@
-function openModal() {
-    //get a-element with id "open-add-new-modal"
-    document.querySelector('a#open-add-new-modal').addEventListener('click', function(event) {
-        event.preventDefault();
-        //find element with .modal class and html element
-        var modal = document.querySelector('.modal');  // only works with a single modal
-        var html = document.querySelector('html');
-        //add is-active to element with modal class, and is-clipped to html
-        modal.classList.add('is-active');
-        html.classList.add('is-clipped');
-        
-        //when modal-background is clicked, close modal
-        modal.querySelector('.modal-background').addEventListener('click', function(e) {
-            closeModal();
-        });
+//function for opening model by id
+function openModal(id) {
+    var modal = document.getElementById(id); 
+    var html = document.querySelector('html');
+    modal.classList.add('is-active');
+    html.classList.add('is-clipped');
+    //set focus so screen readers get "into" modal when opening
+    modal.focus();
+
+    //close modal if there is a click outside the modal
+    modal.querySelector('.modal-background').addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.classList.remove('is-active');
+        html.classList.remove('is-clipped');
     });
 }
 
+//function for closing all modals (add new, and edit)
 function closeModal() {
     let getAddNewModal = document.getElementById("add-new-modal");
     let getEditModal = document.getElementById("edit-modal");
@@ -26,24 +26,12 @@ function closeModal() {
     html.classList.remove('is-clipped');
 }
 
-function activateModal(id) {
-    var modal = document.getElementById(id); 
-    var html = document.querySelector('html');
-    modal.classList.add('is-active');
-    html.classList.add('is-clipped');
-    modal.setAttribute("tabindex", "0");
-    modal.focus();
-
-    modal.querySelector('.modal-background').addEventListener('click', function(e) {
-        e.preventDefault();
-        modal.classList.remove('is-active');
-        html.classList.remove('is-clipped');
-    });
-}
-
+//function for editing existing card
 function openEditModal() {
 
+    //get Id of task card clicked, and convert it to int
     let getTaskID = parseInt(this.getAttribute("data-taskid"));
+    //get appropriate modal
     let getModal = document.getElementById("edit-modal");
 
      //open connection to database
@@ -77,7 +65,7 @@ function openEditModal() {
  
          //error handler for getting data-taskid
          getTask.onerror = function() {
-             //error
+             console.error("There was an error getting ID of clicked task");
          }
  
          //success handler for getting data-taskid
@@ -87,20 +75,22 @@ function openEditModal() {
             let getTitleInput = document.getElementById("modal-edit-task-title");
             getTitleInput.setAttribute("value", getTask.result.title);
 
+            //select appropriate status
             if (getTask.result.status == "to-do") {
-                let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+                let getStatusSelectItem = document.getElementById("edit-select-" + getTask.result.status);
                 getStatusSelectItem.setAttribute("selected", "selected");
             } else if (getTask.result.status = "in-progress") {
-                let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+                let getStatusSelectItem = document.getElementById("edit-select-" + getTask.result.status);
                 getStatusSelectItem.setAttribute("selected", "selected");
             } else if (getTask.result.status == "done") {
-                let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+                let getStatusSelectItem = document.getElementById("edit-select-" + getTask.result.status);
                 getStatusSelectItem.setAttribute("selected", "selected");
             } else if (getTask.result.status == "archived") {
-                let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
+                let getStatusSelectItem = document.getElementById("eedit-select-" + getTask.result.status);
                 getStatusSelectItem.setAttribute("selected", "selected");
             }
 
+            //select appropriate tag
             if (getTask.result.tagName.toLowerCase() == "plan") {
                 let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
                 getTagSelectItem.setAttribute("selected", "selected");
@@ -124,14 +114,14 @@ function openEditModal() {
                 getTagSelectItem.setAttribute("selected", "selected");
             }
 
+            //get inputs
             let getDueDateInput = document.getElementById("modal-edit-task-dueDate");
-
             getDueDateInput.value = getTask.result.dueDate;
 
             let getDescInput = document.getElementById("modal-edit-task-desc");
-
             getDescInput.innerHTML = getTask.result.description;
             
+            //select appropriate member
             if (getTask.result.memberInitials.toLowerCase() == "dk") {
                 let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
                 getAssigneeSelectItem.setAttribute("selected", "selected");
@@ -149,8 +139,10 @@ function openEditModal() {
                 getAssigneeSelectItem.setAttribute("selected", "selected");
             }
 
-            activateModal("edit-modal");
+            //open modal
+            openModal("edit-modal");
 
+            //eventlistener for editing task. Defined here because IndexedDB is needed to get the task ID
             getModal.addEventListener("submit", function() {
                 editTask(getTaskID);
             }); 
@@ -161,5 +153,28 @@ function openEditModal() {
              db.close();
          }
      }
-
 }
+
+//function for changing content in add new modal
+function openNewModal(evt, pageName) {
+    
+    //declare the variables
+    let i, tabContent, tabLinks;
+    
+    //Get all elements with class="tab-content" and hide them
+    tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+    
+    //Get all elements with class="menu-item" and remove the class "active"
+    tabLinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tabLinks.length; i++) { 
+            tabLinks[i].className = tabLinks[i].className.replace(" active", "");
+        }
+    
+    document.getElementById(pageName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+document.getElementById("new-card").click(); 

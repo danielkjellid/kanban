@@ -1,8 +1,3 @@
-//listner for
-/*
-archive tasks
-addTask*/
-
 const getBoard= document.getElementById("board");
 const getArchive = document.getElementById("archive");
 const addNewCardToDo = document.getElementById("add-new-task-to-do");
@@ -17,8 +12,7 @@ const getCancelNewTagModalBtn = document.getElementById("add-new-tag-cancel");
 const getCancelNewMemberBtn = document.getElementById("add-new-member-cancel");
 const getEditCardDiscardBtn = document.getElementById("edit-task-discard");
 
-//const getActionBtn = document.querySelectorAll(".task-card");
-
+//onload functions based on site id
 if(getBoard) {
     getBoard.addEventListener("onload", onIndexLoad());
 
@@ -58,10 +52,11 @@ if (addNewModal) {
 
 if (modalOpenBtn) {
     modalOpenBtn.addEventListener("click", function() {
-        openModal();
+        openModal('add-new-modal');
     });
 }
 
+//buttons for closing modals
 if (getCancelNewTaskModalBtn) {
     getCancelNewTaskModalBtn.addEventListener("click", closeModal);
 }

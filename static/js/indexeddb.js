@@ -2,7 +2,6 @@
 
 //Structure:
 //Tasks: taskID, title, status, dueDate, description, memberName, memberInitials, tagName, tagColor, textColor
-
 function connectToDB(database, version) {
     const indexedDB = window.webkitIndexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 
@@ -41,23 +40,28 @@ function connectToDB(database, version) {
     request.onsuccess = function(e) {
         console.log("Successfully connected to DB")
         db = request.result;
-        //tasks
+
+        //defining transaction, store and index.
         tasksTx = db.transaction("tasksStore", "readwrite");
         tasksStore = tasksTx.objectStore("tasksStore");
         tasksIndex = tasksStore.index("status");
 
+        //eerror handler for result of request
         db.onerror = function(e) {
             console.error("ERROR " + e.target.errorCode);
         }
-    
+        
+        //declaring constants to load different functions on different sites
         const getBoard= document.getElementById("board");
         const getArchive = document.getElementById("archive");
 
+        //front page
         if(getBoard) {
             listTasks();
             progressBar();
             //leaderBoard();
             listUpcomingDue();
+        //archive page
         } else if (getArchive) {
             listArchivedTasks();
         }
@@ -68,21 +72,4 @@ function connectToDB(database, version) {
         }
     }
 }
-
-/*
-//Tasks: taskID, title, status, dueDate, description, memberName, memberInitials, tagName, tagColor, textColor
-tasksStore.put({
-taskID: 1,
-title: "Design kanban board for exam web project.",
-status: "to-do",
-dueDate: "2019-05-31",
-description: "Some desc",
-memberFullName: "Daniel Kjellid",
-memberInitials: "DK",
-tagName: "Priority",
-tagColor: "#fbcdcd",
-tagTextColor: "#850303"
-});
-
-*/
 
