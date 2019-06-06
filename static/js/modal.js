@@ -35,7 +35,7 @@ function openEditModal() {
     let getModal = document.getElementById("edit-modal");
 
      //open connection to database
-     let request = window.indexedDB.open("KanbanDatabase", 19), 
+     let request = window.indexedDB.open("KanbanDatabase", 20), 
      db,
      tx,
      store,

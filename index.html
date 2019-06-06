@@ -273,7 +273,7 @@
                                 <div class="control">
                                     <div class="select is-fullwidth">
                                         <select id="modal-add-new-task-tag">
-                                            <option>PR</option>
+                                            <!--options added by DOM-->
                                         </select>
                                     </div>
                                 </div>
@@ -295,7 +295,7 @@
                                 <div class="control">
                                     <div class="select is-fullwidth" >
                                         <select id="modal-add-new-task-member">
-                                            <option>Daniel Kjellid</option>
+                                            <!--members added by DOM-->
                                         </select>
                                     </div>
                                 </div>
@@ -303,7 +303,7 @@
                         </section>
                         <footer class="modal-card-foot">
                             <button id="add-new-task-cancel" class="button is-silenced" type="button">Cancel</button>
-                            <button class="button is-brand is-rounded" type="submit" >Add new card</button>
+                            <button class="button is-brand is-rounded" type="submit">Add new card</button>
                         </footer>
                     </form>
                 </div>
@@ -323,7 +323,7 @@
                         </section>
                         <footer class="modal-card-foot">
                             <button id="add-new-member-cancel" class="button is-silenced" type="button">Cancel</button>
-                            <button class="button is-brand is-rounded" type="submit" onclick="return addNewMember()" >Add new member</button>
+                            <button id="add-new-member-submit" class="button is-brand is-rounded" type="button">Add new member</button>
                         </footer>
                     </form>
                 </div>
@@ -347,7 +347,7 @@
                         </section>
                         <footer class="modal-card-foot">
                             <button id="add-new-tag-cancel" class="button is-silenced" type="button">Cancel</button>
-                            <button class="button is-brand is-rounded" onclick="return addNewTag()" >Add new tag</button>
+                            <button id="add-new-tag-submit" class="button is-brand is-rounded" type="button">Add new tag</button>
                         </footer>
                     </form>
                 </div>

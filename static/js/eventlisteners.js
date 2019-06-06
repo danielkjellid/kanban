@@ -11,6 +11,8 @@ const getCancelNewTaskModalBtn = document.getElementById("add-new-task-cancel");
 const getCancelNewTagModalBtn = document.getElementById("add-new-tag-cancel");
 const getCancelNewMemberBtn = document.getElementById("add-new-member-cancel");
 const getEditCardDiscardBtn = document.getElementById("edit-task-discard");
+const getAddNewTagModalBtn = document.getElementById("add-new-tag-submit");
+const getAddNewMemberModalBtn = document.getElementById("add-new-member-submit");
 
 //onload functions based on site id
 if(getBoard) {
@@ -44,12 +46,6 @@ if (archiveCards) {
     });
 }
 
-if (addNewModal) {
-    addNewModal.addEventListener("submit", function() {
-        addTask();
-    });
-}
-
 if (modalOpenBtn) {
     modalOpenBtn.addEventListener("click", function() {
         openModal('add-new-modal');
@@ -73,4 +69,38 @@ if (getEditCardDiscardBtn) {
     getEditCardDiscardBtn.addEventListener("click", closeModal);
 }
 
+if(getAddNewTagModalBtn) {
+    getAddNewTagModalBtn.addEventListener("click", function() {
+        //add tag
+        addNewTag();
+        //remove and readd tags in modals
+        deleteTagsAddNewSelect();
+        listTagsNewSelect();
+        deleteTagsEditSelect();
+        listTagsEditSelect();
+        //close modal
+        closeModal();
+    });
+}
+
+if(getAddNewMemberModalBtn) {
+    getAddNewMemberModalBtn.addEventListener("click", function() {
+        //add member
+        addNewMember();
+        //remove amd readd members in modals
+        deleteMembersAddNewSelect();
+        listMembersNewSelect();
+        deleteMembersEditSelect();
+        listMembersEditSelect();
+        //close modal
+        closeModal();
+    });
+}
+
+//have to be on the bottom of the file. If not empty tasks will be added when adding memebers/tags
+if (addNewModal) {
+    addNewModal.addEventListener("submit", function() {
+        addTask();
+    });
+}
 

@@ -74,12 +74,44 @@ function deleteMemberListOverview() {
     }
 }
 
+function deleteMembersAddNewSelect() {
+    let getMemberSelect = document.getElementById("modal-add-new-task-member");
+                        
+    while (getMemberSelect.firstChild) {
+        getMemberSelect.removeChild(getMemberSelect.firstChild);
+    }
+}
+
+function deleteMembersEditSelect() {
+    let getMemberSelect = document.getElementById("modal-edit-task-member");
+                        
+    while (getMemberSelect.firstChild) {
+        getMemberSelect.removeChild(getMemberSelect.firstChild);
+    }
+}
+
 //function for deleting tags list at main page. Used when new members are added, and dom needs to be reloaded.
 function deleteTagListOverview() {
     let getTagContainer = document.getElementById("tag-container");
                         
     while (getTagContainer.firstChild) {
         getTagContainer.removeChild(getTagContainer.firstChild);
+    }
+}
+
+function deleteTagsAddNewSelect() {
+    let getTagSelect = document.getElementById("modal-add-new-task-tag");
+                        
+    while (getTagSelect.firstChild) {
+        getTagSelect.removeChild(getTagSelect.firstChild);
+    }
+}
+
+function deleteTagsEditSelect() {
+    let getTagSelect = document.getElementById("modal-edit-task-tag");
+                        
+    while (getTagSelect.firstChild) {
+        getTagSelect.removeChild(getTagSelect.firstChild);
     }
 }
 
