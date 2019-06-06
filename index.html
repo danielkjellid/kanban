@@ -73,7 +73,7 @@
                     <div class="list" aria-label="Tasks that are in the to-do phase">
                         <p class="list-heading">To-do</p>
                         <div class="list-block">
-                            <div class="card-container" id="list-to-do" aria-label="Task cards">
+                            <div id="list-to-do" class="card-container" aria-label="Task cards">
                                 <!-- card(s) created by DOM/listTasks() -->
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                     <div class="list" aria-label="Tasks that are in the in-progress phase">
                         <p class="list-heading">In progress</p>
                         <div class="list-block">
-                            <div class="card-container" id="list-in-progress" aria-label="task-cards">
+                            <div id="list-in-progress" class="card-container" aria-label="task-cards">
                                 <!-- card(s) created by DOM/listTasks() -->
                             </div>
                         </div>
@@ -252,7 +252,7 @@
                             <div class="field">
                                 <label class="label">Title</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-add-new-task-title" >
+                                    <input id="modal-add-new-task-title" class="input" type="text" placeholder="e.g. Design kanban board for exam web project">
                                 </div>
                             </div>
                             <div class="field">
@@ -281,13 +281,13 @@
                             <div class="field">
                                 <label class="label">Due Date</label>
                                 <div class="control">
-                                    <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate" >
+                                    <input id="modal-add-new-task-dueDate" class="input" type="date" placeholder="e.g. alexsmith@gmail.com">
                                 </div>
                             </div>
                             <div class="field">
                                 <label class="label">Description</label>
                                 <div class="control">
-                                    <textarea class="textarea" placeholder="More details about the task" id="modal-add-new-task-desc" ></textarea>
+                                    <textarea id="modal-add-new-task-desc" class="textarea" placeholder="More details about the task"></textarea>
                                 </div>
                             </div>
                             <div class="field">
@@ -313,11 +313,11 @@
                             <div class="field">
                                 <label class="label">Add new member</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. Ola Nordmann" id="modal-add-new-member" >
+                                    <input id="modal-add-new-member" class="input" type="text" placeholder="e.g. Ola Nordmann">
                                 </div>
                                 <label class="label">Add initials</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member-init" >
+                                    <input id="modal-add-new-member-init" class="input" type="text" placeholder="e.g. ON">
                                 </div>
                             </div>
                         </section>
@@ -333,14 +333,14 @@
                             <div class="field">
                                 <label class="label">Add new tag</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. priority" id="modal-add-new-tag" >
+                                    <input id="modal-add-new-tag" class="input" type="text" placeholder="e.g. priority">
                                 </div>
                                 <label class="label">Add color</label>
                                 <div class="control">
-                                    <input class="input" type="text" placeholder="e.g. #aaf99a" id="modal-add-new-color-tag" >
+                                    <input id="modal-add-new-color-tag" class="input" type="text" placeholder="e.g. #aaf99a">
                                     <label class="label">Add textcolor</label>
                                     <div class="control">
-                                        <input class="input" type="text" placeholder="e.g. #4c6841" id="modal-add-new-textcolor-tag" >
+                                        <input id="modal-add-new-textcolor-tag" class="input" type="text" placeholder="e.g. #4c6841">
                                     </div>
                                 </div>
                             </div>
@@ -367,7 +367,7 @@
                         <div class="field">
                             <label class="label">Title</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-edit-task-title" >
+                                <input id="modal-edit-task-title" class="input" type="text" placeholder="e.g. Design kanban board for exam web project">
                             </div>
                         </div>
                         <div class="field">
@@ -396,13 +396,13 @@
                         <div class="field">
                             <label class="label">Due Date</label>
                             <div class="control">
-                                <input class="input" type="date" id="modal-edit-task-dueDate" >
+                                <input id="modal-edit-task-dueDate" class="input" type="date">
                             </div>
                         </div>
                         <div class="field">
                             <label class="label">Description</label>
                             <div class="control">
-                                <textarea class="textarea" placeholder="More details about the task" id="modal-edit-task-desc" ></textarea>
+                                <textarea id="modal-edit-task-desc" class="textarea" placeholder="More details about the task"></textarea>
                             </div>
                         </div>
                         <div class="field">
