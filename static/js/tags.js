@@ -95,9 +95,25 @@ function listTagsEditSelect() {
 function addNewTag() {
     let newTag = document.getElementById("modal-add-new-tag").value;
     let newColorTag = document.getElementById("modal-add-new-color-tag").value;
+    let newTextColorTag = document.getElementById("modal-add-new-textcolor-tag").value;
+    let modal = document.querySelector('.modal');
+    let html = document.querySelector('html');
     
-    tags.push({Id: tags.length+1, tagName: newTag});
+    tags.push({Id: tags.length+1, tagName: newTag, tagColor: newColorTag, tagTextColor: newTextColorTag});
     console.log(tags);
+    deleteTagListOverview();
+    listTagsOverview();
+     
+    modal.classList.remove("is-active");
+    html.classList.add('is-clipped');
+    
     return false;
 
 }
+
+function handleForm(e){
+    e.preventDefault();
+}
+
+let form = document.getElementById("add-new-member");
+form.addEventListener('submit', handleForm);

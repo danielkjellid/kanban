@@ -24,6 +24,8 @@ let members = [
         memberFullName: "Sultan Khan",
         memberInitials: "SK"
     }
+  
+        
 ];
 
 function listMemberOverview() {
@@ -94,3 +96,27 @@ function listMembersEditSelect() {
         getSelect.appendChild(createOption);
     }
 }
+
+function addNewMember() {
+    let newMember = document.getElementById("modal-add-new-member").value;
+    let newMemberInit = document.getElementById("modal-add-new-member-init").value;
+    let modal = document.querySelector('.modal');
+    let html = document.querySelector('html');
+    
+    members.push({id: members.length+1, memberFullName: newMember, memberInitials: newMemberInit});
+    deleteMemberListOverview();
+    listMemberOverview();
+   
+    modal.classList.remove("is-active");
+    html.classList.add('is-clipped');
+    
+    return false;
+}
+
+function handleForm(e){
+    e.preventDefault();
+}
+
+let formHandle = document.getElementById("add-new-tag");
+form.addEventListener('submit', handleForm);
+

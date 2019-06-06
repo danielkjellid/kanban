@@ -322,12 +322,16 @@
                             <label class="label">Add new member</label>
                             <div class="control">
                                 <input class="input" type="text" placeholder="e.g. Ola Nordmann" id="modal-add-new-member">
+                            </div><br>
+                                <label class="label">Add initials</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member-init">
                             </div>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" type="submit">Add new member</button>
+                        <button class="button is-brand is-rounded" onclick="return addNewMember()">Add new member</button>
                     </footer>
                 </form>
             </div>
@@ -339,16 +343,20 @@
                             <label class="label">Add new tag</label>
                             <div class="control">
                                 <input class="input" type="text" placeholder="e.g. priority" id="modal-add-new-tag">
-                            </div>
+                            </div><br>
                                 <label class="label">Add color</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. ##aaf99a" id="modal-add-new-color-tag">
+                                <input class="input" type="text" placeholder="e.g. #aaf99a" id="modal-add-new-color-tag">
+                            </div><br>
+                                <label class="label">Add color to text</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="e.g. #3d5937" id="modal-add-new-textcolor-tag">
                             </div>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" onclick="addNewTag(); listTagsOverview(); listTagsNewSelect();">Add new tag</button>
+                        <button class="button is-brand is-rounded" onclick="return addNewTag(); listTagsNewSelect();">Add new tag</button>
                     </footer>
                 </form>
             </div>

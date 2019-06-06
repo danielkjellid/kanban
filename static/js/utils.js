@@ -62,6 +62,22 @@ function deleteDoneList() {
     }
 }
 
+function deleteMemberListOverview() {
+    let getMemberContainer = document.getElementById("member-container");
+                        
+    while (getMemberContainer.firstChild) {
+        getMemberContainer.removeChild(getMemberContainer.firstChild);
+    }
+}
+
+function deleteTagListOverview() {
+    let getTagContainer = document.getElementById("tag-container");
+                        
+    while (getTagContainer.firstChild) {
+        getTagContainer.removeChild(getTagContainer.firstChild);
+    }
+}
+
 function activateModal(id) {
     var modal = document.getElementById(id); 
     var html = document.querySelector('html');
