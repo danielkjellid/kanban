@@ -38,7 +38,7 @@ function addTask() {
     //need to open a new connection.
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 17), 
+    let request = window.indexedDB.open("KanbanDatabase", 19), 
     db,
     tx,
     store,
@@ -183,11 +183,9 @@ function listArchivedTasks() {
 
 //function for archiving an entire list at once
 function archiveTasks() {
-    //since we're trying to add to the database after the initial connect, we
-    //need to open a new connection.
 
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 17), 
+    let request = window.indexedDB.open("KanbanDatabase", 19), 
     db,
     tx,
     store,
@@ -211,53 +209,57 @@ function archiveTasks() {
         db.onerror = function(e) {
             console.log("ERROR " + e.target.errorCode);
         }
-        
-        let amountOfDoneTasks = tasksIndex.count("done");
 
-        amountOfDoneTasks.onerror = function(e) {
-            console.error("There was an error getting all done tasks: " + e.target.errorCode);
+        let amountOfTasks = tasksStore.count()
+
+        amountOfTasks.onerror = function() {
+            console.error("There was an error finding the amount of tasks");
         }
 
-        amountOfDoneTasks.onsuccess = function() {
-            //function stops here
-            for (var i = 0; i < amountOfDoneTasks.result; i++) {
-                let getTasks = tasksIndex.get("done");
+        amountOfTasks.onsuccess = function() {
 
+            for (var i = 1; i < amountOfTasks.result+1; i++) {
+                let getTasks = tasksStore.get(i);
+    
                 getTasks.onerror = function() {
-                    console.error("There was an error looping through the tasks index");
+                    console.error("There was an error looping through the tasks");
                 }
-
+    
                 getTasks.onsuccess = function(e) {
-                    let data = e.target.result;
-                    data.status = "archived";
+                    if (getTasks.result.status == "done") {
+                        
+                        let data = e.target.result;
 
-                    let requestUpdate = tasksStore.put(data);
+                        data.status = "archived";
 
-                    requestUpdate.onerror = function() {
-                        console.error("There was an error updateing done entries " + e.target.errorCode);
-                    }
+                        let requestUpdate = tasksStore.put(data);
 
-                    requestUpdate.onsuccess = function() {
-                        deleteDoneList();
+                        requestUpdate.onerror = function() {
+                            console.error("There was an error archiving the task");
+                        }
 
-                        console.log("Successfully archived tasks");
+                        requestUpdate.onsuccess = function() {
+                            deleteDoneList();
+
+                            console.log("Successfully archived tasks");
+                        }
                     }
                 }
             }
         }
-
 
         //close database after transaction is complete
         tasksTx.oncomplete = function() {
             db.close();
         }
     }
+    
 }
 
 //function for chanding the status when a card is moved to a new list
 function changeTaskStatus(id, list) {
     //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 17), 
+    let request = window.indexedDB.open("KanbanDatabase", 19), 
     db,
     tx,
     store,
@@ -375,7 +377,7 @@ function openEditModal() {
     let getModal = document.getElementById("edit-modal");
 
      //open connection to database
-     let request = window.indexedDB.open("KanbanDatabase", 17), 
+     let request = window.indexedDB.open("KanbanDatabase", 19), 
      db,
      tx,
      store,
@@ -497,7 +499,7 @@ function editTask(id) {
     //let card = document.querySelectorAll(".action-btn");
   
      //open connection to database
-    let request = window.indexedDB.open("KanbanDatabase", 17), 
+    let request = window.indexedDB.open("KanbanDatabase", 19), 
     db,
     tx,
     store,
