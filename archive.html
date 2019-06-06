@@ -13,6 +13,7 @@
             <div class="container is-fluid">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="#">
+                        <!--logo in vector format-->
                         <svg width="170px" height="28px" viewBox="0 0 252 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Logo, click to go to front page">
                             <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g id="Front" transform="translate(-25.000000, -14.000000)">
@@ -28,31 +29,27 @@
                                 </g>
                             </g>
                         </svg>
+                        <!--logo end-->
                     </a>
-                    <div class="navbar-burger burger" data-target="navbar">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
                 </div>
-
-                <div id="navbar" class="navbar-menu">
+                <div class="navbar-menu">
+                    <!--navbar items-->
                     <div class="navbar-start">
                         <a class="navbar-item" href="index.html" aria-label="Navigation item, click to go to front page" role="tab">
-                                Board
-                            </a>
+                        Board
+                        </a>
                         <a class="navbar-item" href="#" aria-label="Navigation item, click to go to Leaderboard page" role="tab">
-                                Leaderboard
-                            </a>
+                        Leaderboard
+                        </a>
                         <a class="navbar-item is-active" href="archive.html" aria-label="Navigation item, click to go to archived tasks page" role="tab">
-                                Archive
-                            </a>
+                        Archive
+                        </a>
                     </div>
-
+                    <!--navbar items end-->
                     <div class="navbar-end">
                         <div class="navbar-item">
                             <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal" aria-label="Add new task, tag or member">
-                                <span>Add new</span>
+                            <span>Add new</span>
                             </a>
                         </div>
                     </div>
@@ -60,28 +57,28 @@
             </div>
         </nav>
         <!--navbar end-->
-        <div class="container is-fluid">            
+        <!--container-->
+        <div class="container is-fluid">
             <div class="columns">
                 <div id="list-archived" class="column is-full is-full-tablet is-full-mobile">
-                     <!-- cards added by DOM -->
+                    <!-- cards added by DOM -->
                 </div>
             </div>
         </div>
         <div class="modal">
             <div class="modal-background">
-
             </div>
             <div class="modal-card">
                 <header class="modal-card-head">
                     <div class="modal-card-head-menu">
                         <a class="menu-item is-active">
-                            New card
+                        New card
                         </a>
                         <a class="menu-item">
-                            New member
+                        New member
                         </a>
                         <a class="menu-item">
-                            New tag
+                        New tag
                         </a>
                     </div>
                 </header>
@@ -93,7 +90,6 @@
                                 <input class="input" type="text" placeholder="e.g Alex Smith" id="modal-add-new-task-title">
                             </div>
                         </div>
-
                         <div class="field">
                             <label class="label">Status</label>
                             <div class="control">
@@ -107,7 +103,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="field">
                             <label class="label">Tag</label>
                             <div class="control">
@@ -118,21 +113,18 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="field">
                             <label class="label">Due Date</label>
                             <div class="control">
                                 <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate">
                             </div>
                         </div>
-
                         <div class="field">
                             <label class="label">Description</label>
                             <div class="control">
                                 <textarea class="textarea" placeholder="something" id="modal-add-new-task-desc"></textarea>
                             </div>
                         </div>
-
                         <div class="field">
                             <label class="label">Assign</label>
                             <div class="control">
@@ -151,14 +143,18 @@
                 </form>
             </div>
         </div>
-
+        <!--end og container-->
+        <!--loading scripts-->
         <script src="static/js/indexeddb.js"></script>
+        <script src="Linnea/leaderboard.js"></script>
         <script src="static/js/tasks.js"></script>
+        <script src="static/js/utils.js"></script>
         <script src="static/js/tags.js"></script>
+        <script src="static/js/members.js"></script>
         <script src="static/js/modal.js"></script>
         <script src="static/js/dragdrop.js"></script>
         <script src="static/js/misc.js"></script>
-        <script src="static/js/utils.js"></script>
         <script src="static/js/eventlisteners.js"></script>
+        <!--loading scripts end-->
     </body>
 </html>

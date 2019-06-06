@@ -13,6 +13,7 @@
             <div class="container is-fluid">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="#">
+                        <!--logo in vector format-->
                         <svg width="170px" height="28px" viewBox="0 0 252 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Logo, click to go to front page">
                             <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g id="Front" transform="translate(-25.000000, -14.000000)">
@@ -28,30 +29,30 @@
                                 </g>
                             </g>
                         </svg>
+                        <!--logo end-->
                     </a>
-                    <div class="navbar-burger burger" data-target="navbar">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
                 </div>
-                <div id="navbar" class="navbar-menu">
+                <div class="navbar-menu">
+                    <!--navigation items-->
                     <div class="navbar-start">
                         <a class="navbar-item is-active" href="index.html" aria-label="Navigation item, click to go to front page" role="tab">
-                        Board
+                            Board
                         </a>
                         <a class="navbar-item" href="#" aria-label="Navigation item, click to go to Leaderboard page" role="tab">
-                        Leaderboard
+                            Leaderboard
                         </a>
                         <a class="navbar-item" href="archive.html" aria-label="Navigation item, click to go to archvied tasks page" role="tab">
-                        Archive
+                            Archive
                         </a>
                     </div>
+                    <!--navigation items end-->
                     <div class="navbar-end">
                         <div class="navbar-item">
+                            <!--add new button-->
                             <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" aria-label="Add new task, tag or member">
-                            <span>Add new</span>
+                                <span>Add new</span>
                             </a>
+                            <!--add new button end-->
                         </div>
                     </div>
                 </div>
@@ -60,9 +61,11 @@
         <!--navbar end-->
         <div class="container is-fluid">
             <div class="columns">
+                <!--overdue notification-->
                 <div id="overdue-banner" class="column is-full">
                     <!--notification added by DOM-->
                 </div>
+                <!--overdue notification end-->
             </div>
             <div class="columns">
                 <!--to-do-->
@@ -222,9 +225,10 @@
                         </div>
                     </div>
                 </div>
-                <!--upcoming due dates, tag overview & member overview-->
+                <!--upcoming due dates, tag overview & member overview end-->
             </div>
         </div>
+        <!--add new modal-->
         <div id="add-new-modal" class="modal" >
             <div class="modal-background">
             </div>
@@ -349,6 +353,8 @@
                 </div>
             </div>
         </div>
+        <!--add new modal end-->
+        <!--edit modal-->
         <div id="edit-modal" class="modal" >
             <div class="modal-background">
             </div>
@@ -417,6 +423,8 @@
                 </form>
             </div>
         </div>
+        <!--edit modal end-->
+        <!--loading scripts-->
         <script src="static/js/indexeddb.js"></script>
         <script src="Linnea/leaderboard.js"></script>
         <script src="static/js/tasks.js"></script>
@@ -427,5 +435,6 @@
         <script src="static/js/dragdrop.js"></script>
         <script src="static/js/misc.js"></script>
         <script src="static/js/eventlisteners.js"></script>
+        <!--loading scripts end-->
     </body>
 </html>
