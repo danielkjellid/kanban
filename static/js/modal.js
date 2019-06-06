@@ -11,9 +11,17 @@ function openModal() {
         
         //when modal-background is clicked, close modal
         modal.querySelector('.modal-background').addEventListener('click', function(e) {
-                e.preventDefault();
-                modal.classList.remove('is-active');
-                html.classList.remove('is-clipped');
+            closeModal();
         });
     });
+}
+
+function closeModal() {
+    let getAddNewModal = document.getElementById("add-new-modal");
+    let getEditModal = document.getElementById("edit-modal");
+    let html = document.querySelector('html');
+
+    getAddNewModal.classList.remove("is-active");
+    getEditModal.classList.remove("is-active");
+    html.classList.remove('is-clipped');
 }

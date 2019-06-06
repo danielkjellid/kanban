@@ -13,7 +13,7 @@
             <div class="container is-fluid">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="#">
-                        <svg width="170px" height="28px" viewBox="0 0 252 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <svg width="170px" height="28px" viewBox="0 0 252 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Logo, click to go to front page">
                             <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <g id="Front" transform="translate(-25.000000, -14.000000)">
                                     <g id="Header" transform="translate(0.000000, -3.000000)">
@@ -35,23 +35,23 @@
                         <span></span>
                     </div>
                 </div>
-                
+
                 <div id="navbar" class="navbar-menu">
                     <div class="navbar-start">
-                        <a class="navbar-item" href="index.html">
-                            Board
-                        </a>
-                        <a class="navbar-item" href="#">
-                            Leaderboard
-                        </a>
-                        <a class="navbar-item is-active" href="archive.html">
-                            Archive
-                        </a>
+                        <a class="navbar-item" href="index.html" aria-label="Navigation item, click to go to front page" role="tab">
+                                Board
+                            </a>
+                        <a class="navbar-item" href="#" aria-label="Navigation item, click to go to Leaderboard page" role="tab">
+                                Leaderboard
+                            </a>
+                        <a class="navbar-item is-active" href="archive.html" aria-label="Navigation item, click to go to archived tasks page" role="tab">
+                                Archive
+                            </a>
                     </div>
-                
+
                     <div class="navbar-end">
                         <div class="navbar-item">
-                            <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal">
+                            <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal" aria-label="Add new task, tag or member">
                                 <span>Add new</span>
                             </a>
                         </div>

@@ -230,12 +230,6 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     let createEmblem = document.createElement("img");
     let createTag = document.createElement("span");
 
-    let createActionsBtn = document.createElement("div");
-    let createActionA = document.createElement("a");
-    let createIcon = document.createElement("span");
-
-    let createActionsImg = document.createElement("img");
-
     createArchivedHeader.className = "archived-card-header";
     createArchivedHeader.setAttribute("tabindex", "0");
     createArchivedHeader.setAttribute("aria-label", "Archived card header showing tag and more actions button");
@@ -250,27 +244,11 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     createEmblem.setAttribute("height", "20px");
     createEmblem.setAttribute("width", "20px");
     createEmblem.setAttribute("alt", "Archived icon");
-    createActionsBtn.className = "actions";
-
-    createActionA.setAttribute("href", "#");
-    createActionA.setAttribute("aria-label", "More actions button. Click to edit the task attributes.")
-
-    createIcon.className="icon";
-
-    createActionsImg.setAttribute("src", "static/img/dots-horizontal-triple.png");
-    createActionsImg.setAttribute("height", "16px");
-    createActionsImg.setAttribute("width", "4px");
-    createActionsImg.setAttribute("alt", "Three dotted button symbolizing more actions, such as editing card");
 
 
     createArchivedHeader.appendChild(createTags);
     createTags.appendChild(createEmblem);
-    createArchivedHeader.appendChild(createActionsBtn);
     createTags.appendChild(createTag);
-
-    createActionsBtn.appendChild(createActionA);
-    createActionA.appendChild(createIcon);
-    createIcon.appendChild(createActionsImg);
 
     //create card body
     let createArchivedBody = document.createElement("div");

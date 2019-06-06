@@ -12,6 +12,10 @@ const archiveCards = document.getElementById("done-list-archive-cards");
 const addNewModal = document.getElementById("add-new-modal");
 const editTaskModal = document.getElementById("edit-task-modal");
 const modalOpenBtn = document.getElementById("open-add-new-modal");
+const getCancelNewTaskModalBtn = document.getElementById("add-new-task-cancel");
+const getCancelNewTagModalBtn = document.getElementById("add-new-tag-cancel");
+const getCancelNewMemberBtn = document.getElementById("add-new-member-cancel");
+const getEditCardDiscardBtn = document.getElementById("edit-task-discard");
 
 //const getActionBtn = document.querySelectorAll(".task-card");
 
@@ -47,18 +51,31 @@ if (archiveCards) {
 }
 
 if (addNewModal) {
-    addNewModal.addEventListener("submit", addTask);
-}
-
-/*if (editTaskModal) {
-    editTaskModal.addEventListener("submit", function() {
-        editTask();
+    addNewModal.addEventListener("submit", function() {
+        addTask();
     });
-}*/
+}
 
 if (modalOpenBtn) {
     modalOpenBtn.addEventListener("click", function() {
         openModal();
     });
 }
+
+if (getCancelNewTaskModalBtn) {
+    getCancelNewTaskModalBtn.addEventListener("click", closeModal);
+}
+
+if (getCancelNewTagModalBtn) {
+    getCancelNewTagModalBtn.addEventListener("click", closeModal);
+}
+
+if (getCancelNewMemberBtn) {
+    getCancelNewMemberBtn.addEventListener("click", closeModal);
+}   
+
+if (getEditCardDiscardBtn) {
+    getEditCardDiscardBtn.addEventListener("click", closeModal);
+}
+
 
