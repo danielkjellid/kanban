@@ -117,7 +117,7 @@ function deleteTagsEditSelect() {
 
 //function for deleting overdue notifications at main page. Used when overdue tasks are marked as done.
 function deleteOverDueNotifications() {
-    let getOverDueContainer = document.getElementById("overdue-banner");
+    let getOverDueContainer = document.getElementById("banners");
 
     while (getOverDueContainer.firstChild) {
         getOverDueContainer.removeChild(getOverDueContainer.firstChild);

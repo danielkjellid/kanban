@@ -372,7 +372,7 @@ function progressBar() {
 
 //function for creating a banner on the front page when a task is past due.
 function overDueBanner(title, task) {
-    let getParent = document.getElementById("overdue-banner");
+    let getParent = document.getElementById("banners");
 
     let createNotification = document.createElement("div");
     let createNotificationIcon = document.createElement("div");
@@ -397,6 +397,43 @@ function overDueBanner(title, task) {
 
     createNotificationMsg.className = "notification-message";
     createNotificationMsg.innerHTML = "Task " + task + " is overdue! Please extend the due date, or resolve it as soon as possible. To resolve it; move the task to done."
+
+
+    getParent.appendChild(createNotification);
+    createNotification.appendChild(createNotificationIcon);
+    createNotificationIcon.appendChild(createNotificationIconImg);
+    createNotification.appendChild(createNotificationTxt);
+    createNotificationTxt.appendChild(createNotificationTitle);
+    createNotificationTxt.appendChild(createNotificationMsg);
+}
+
+//function for creating a banner on the front page when a task is past due.
+function successBanner(title, text) {
+    let getParent = document.getElementById("banners");
+
+    let createNotification = document.createElement("div");
+    let createNotificationIcon = document.createElement("div");
+    let createNotificationIconImg = document.createElement("img");
+    let createNotificationTxt = document.createElement("div");
+    let createNotificationTitle = document.createElement("h1");
+    let createNotificationMsg = document.createElement("p");
+
+    createNotification.className = "notification is-success";
+
+    createNotificationIcon.className = "notification-icon";
+
+    createNotificationIconImg.setAttribute("src", "static/img/success.png");
+    createNotificationIconImg.setAttribute("width", "20px");
+    createNotificationIconImg.setAttribute("height", "20px");
+    createNotificationIconImg.setAttribute("alt", "Success icon on succes message");
+
+    createNotificationTxt.className = "notification-text is-success";
+
+    createNotificationTitle.className = "notification-heading";
+    createNotificationTitle.innerHTML = title;
+
+    createNotificationMsg.className = "notification-message is-success";
+    createNotificationMsg.innerHTML = text
 
 
     getParent.appendChild(createNotification);

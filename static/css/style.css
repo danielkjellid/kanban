@@ -1072,6 +1072,19 @@ a.navbar-item,
   margin-top: 5px;
 }
 
+.notification.is-success {
+  background-color: #E3FEE6;
+  border-left: 5px solid #398641;
+}
+
+.notification-text.is-success h1 {
+  color:#398641;
+}
+
+.notification-text.is-success p {
+  color: #2A7232;
+}
+
 /* ===== O* ===== */
 
 /* ===== P* ===== */
