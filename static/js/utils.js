@@ -1,4 +1,4 @@
-//function for loading other functions on site refresh.
+//function for loading other functions on site main page refresh.
 function onIndexLoad() {
     connectToDB("KanbanDatabase", 19);
     listTagsOverview();
@@ -9,6 +9,7 @@ function onIndexLoad() {
     listMembersEditSelect();
 }
 
+//function for loading other functions on archived site page refresh
 function onArchiveLoad() {
     connectToDB("KanbanDatabase", 19);
 }
@@ -40,6 +41,7 @@ function findTagTextColor(object) {
     return result;
 }
 
+//function for removing upcoming due dates list. Used when cards are moved to done.
 function deleteDueList() {
     let getDueDateList = document.getElementById("due-date-card-container");
     let getDueDateExpired = document.getElementById("due-date-expired-container");
@@ -54,6 +56,7 @@ function deleteDueList() {
     }
 }
 
+//function for removing elements from DOM when archived.
 function deleteDoneList() {
     let getTaskContainer = document.getElementById("list-done");
                         
@@ -62,6 +65,7 @@ function deleteDoneList() {
     }
 }
 
+//function for deleting members list at main page. Used when new members are added, and dom needs to be reloaded.
 function deleteMemberListOverview() {
     let getMemberContainer = document.getElementById("member-container");
                         
@@ -70,6 +74,7 @@ function deleteMemberListOverview() {
     }
 }
 
+//function for deleting tags list at main page. Used when new members are added, and dom needs to be reloaded.
 function deleteTagListOverview() {
     let getTagContainer = document.getElementById("tag-container");
                         
@@ -78,6 +83,7 @@ function deleteTagListOverview() {
     }
 }
 
+//function for deleting overdue notifications at main page. Used when overdue tasks are marked as done.
 function deleteOverDueNotifications() {
     let getOverDueContainer = document.getElementById("overdue-banner");
 
@@ -86,19 +92,8 @@ function deleteOverDueNotifications() {
     }
 }
 
-function activateModal(id) {
-    var modal = document.getElementById(id); 
-    var html = document.querySelector('html');
-    modal.classList.add('is-active');
-    html.classList.add('is-clipped');
-    modal.setAttribute("tabindex", "0");
-    modal.focus();
-
-    modal.querySelector('.modal-background').addEventListener('click', function(e) {
-        e.preventDefault();
-        modal.classList.remove('is-active');
-        html.classList.remove('is-clipped');
-    });
-
+//function for preventing forms reloading after submit. Used when adding new members and tags
+function handleForm(e){
+    e.preventDefault();
 }
 

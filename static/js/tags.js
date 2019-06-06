@@ -1,3 +1,4 @@
+//data structure for existing tags
 let tags = [
     {
         id: 1,
@@ -43,6 +44,7 @@ let tags = [
     }
 ];
 
+//function to list tags in the front overeview
 function listTagsOverview() {
     let getTagContainer = document.getElementById("tag-container");
 
@@ -52,26 +54,31 @@ function listTagsOverview() {
         let createTag = document.createElement("span");
         let createTagName = document.createElement("span");
 
+        //set classnames and innerHTML
         createTagDiv.className = "tag-div";
         createTagName.className = "tag-name";
         createTagName.innerHTML = tags[i].tagName;
 
+        //add atributes to make it WCAG
         createTagName.setAttribute("tabindex", "0");
         createTagName.setAttribute("aria-label", "Workflow: " + tags[i].tagName);
         
-        
         createTag.setAttribute("style", "background-color: " + tags[i].tagColor + ";");
         createTag.className = "mini-tag-tag-list";
+
         getTagContainer.appendChild(createTagDiv);
         createTagDiv.appendChild(createTag);
         createTagDiv.appendChild(createTagName);
     }
 }
 
+//function for adding tagslist into the selector when adding tasks
 function listTagsNewSelect() {
     
+    //get select in add-new-modal
     let getSelect = document.getElementById("modal-add-new-task-tag");
 
+    //travrese through array
     for (var i = 0; i < tags.length; i++) {
         let createOption = document.createElement("option");
 
@@ -82,9 +89,13 @@ function listTagsNewSelect() {
     }
 }
 
+//function for adding tagslist into the selector when editing existing tasks
 function listTagsEditSelect() {
+    
+    //get select in edit-modal
     let getSelect = document.getElementById("modal-edit-task-tag");
 
+    //traverese through array
     for (var i = 0; i < tags.length; i++) {
         let createOption = document.createElement("option");
 
@@ -95,13 +106,13 @@ function listTagsEditSelect() {
     }
 }
 
+//function for adding new tags to the array
 function addNewTag() {
     let newTag = document.getElementById("modal-add-new-tag").value;
     let newColorTag = document.getElementById("modal-add-new-color-tag").value;
     let newTextColorTag = document.getElementById("modal-add-new-textcolor-tag").value;
-    let modal = document.querySelector('.modal');
-    let html = document.querySelector('html');
-    
+
+    //adding input values to array
     tags.push({
         Id: tags.length+1, 
         tagName: newTag, 
@@ -109,18 +120,12 @@ function addNewTag() {
         tagTextColor: newTextColorTag
     });
 
+    //delete overview list, before recreating it to not get the list twice.
     deleteTagListOverview();
     listTagsOverview();
-     
-    modal.classList.remove("is-active");
-    html.classList.add('is-clipped');
-    
-    return false;
 }
 
-function handleForm(e){
-    e.preventDefault();
-}
+//variables to prevent default reload after tag is added to array. Handleform is defined in utils.js
+let tagForm = document.getElementById("add-new-member");
 
-let form = document.getElementById("add-new-member");
-form.addEventListener('submit', handleForm);
+tagForm.addEventListener('submit', handleForm);

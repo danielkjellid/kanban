@@ -113,6 +113,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     return createTaskCard;
 }
 
+//function for creating upcoming due card
 function addDueCard(dueDate, memberFullName, tagColor, title) {
 
     let getParent = document.getElementById("due-date-card-container");
@@ -162,6 +163,7 @@ function addDueCard(dueDate, memberFullName, tagColor, title) {
     createTitle.appendChild(createTitleP);
 }
 
+//function for adding expired due date card
 function addDueCardExpired(dueDate, memberFullName, tagColor, title) {
 
     let getParent = document.getElementById("due-date-expired-container");
@@ -368,6 +370,7 @@ function progressBar() {
     }
 }
 
+//function for creating a banner on the front page when a task is past due.
 function overDueBanner(title, task) {
     let getParent = document.getElementById("overdue-banner");
 

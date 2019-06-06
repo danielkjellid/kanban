@@ -16,6 +16,7 @@ function addTaskFromList(destination) {
         getSelectItem.setAttribute("selected", "selected");
         activateModal("add-new-modal");
     } else {
+        //error handler
         console.error("There was an error finding the selected destination.");
     }
 }
@@ -76,7 +77,7 @@ function addTask() {
             tagTextColor: getTagTextColor
         }];
 
-        //adding the task itself
+        //adding the task itself to the database
         let addNewTask = tasksStore.add(newTask[0]);
 
         //error handler on adding task
@@ -99,10 +100,10 @@ function addTask() {
 
 
 
-//list functions
+//list task function
 function listTasks() {
     
-    //variable for counting objects in the index
+    //variable for counting objects in the store
     let amountOfTasks = tasksStore.count();
 
     //error handler
@@ -116,26 +117,33 @@ function listTasks() {
         for (var i = 1; i < amountOfTasks.result+1; i++) {
             let getTasks = tasksStore.get(i);
 
+            //error handler when looping through tasks
             getTasks.onerror = function() {
                 console.error("There was an error looping through the tasks");
             }
 
+            //success handler
             getTasks.onsuccess = function() {
+                //get approrpriate list from element, and append cards using the addCard function defined in misc.js
                 if (getTasks.result.status == "to-do") {
+
                     let getCardContainer = document.getElementById("list-to-do");
                     let createCard = addCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
 
                     getCardContainer.appendChild(createCard);
                 } else if (getTasks.result.status == "in-progress") {
+
                     let getCardContainer = document.getElementById("list-in-progress");
                     let createCard = addCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
 
                     getCardContainer.appendChild(createCard);
                 } else if (getTasks.result.status == "done") {
+
                     let getCardContainer = document.getElementById("list-done");
                     let createCard = addCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
 
                     getCardContainer.appendChild(createCard);
+                    
                 } else if (getTasks.result.status == "archived") {
 
                     if (document.getElementById("list-archived")) {
@@ -154,24 +162,31 @@ function listTasks() {
 
 function listArchivedTasks() {
 
+    //variable for counting obejcts in the storee
     let amountOfTasks = tasksStore.count();
 
+    //error handler for counting objects
     amountOfTasks.onerror = function() {
         console.error("There was an error finding the amount of archived tasks.");
     }
 
+    //success handler for counting objects
     amountOfTasks.onsuccess = function() {
         
+        //i starts at 1 because the key in the store starts at 1
         for (var i = 1; i < amountOfTasks.result+1; i++) {
             let getTasks = tasksStore.get(i);
 
+            //error handler for looping through tasks
             getTasks.onerror = function() {
                 console.error("There was an error looping through the tasks");
             }
 
+            //success handler for looping through tasks.
             getTasks.onsuccess = function() {
+                //since we're only listing archived functions, we find status based on condition
                 if (getTasks.result.status == "archived") {
-                    let getCardContainer = document.getElementById("list-to-do");
+                    let getCardContainer = document.getElementById("list-archived");
                     let createCard = addArchivedCard(getTasks.result.taskID, getTasks.result.title, getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagName, getTasks.result.tagColor, getTasks.result.tagTextColor);
 
                     getCardContainer.appendChild(createCard);
@@ -181,7 +196,7 @@ function listArchivedTasks() {
     }
 }
 
-//function for archiving an entire list at once
+//function for archiving entire "done" list at once
 function archiveTasks() {
 
     //open connection to database
@@ -210,37 +225,48 @@ function archiveTasks() {
             console.log("ERROR " + e.target.errorCode);
         }
 
+        //variable for counting objects in store
         let amountOfTasks = tasksStore.count()
 
+        //success handler for getting amount of objects
         amountOfTasks.onerror = function() {
             console.error("There was an error finding the amount of tasks");
         }
 
+        //success handler for getting amount of objects
         amountOfTasks.onsuccess = function() {
 
+            //i starts at 1 because the key in the store starts at 1
             for (var i = 1; i < amountOfTasks.result+1; i++) {
                 let getTasks = tasksStore.get(i);
-    
+                
+                //error handler for looping through tasks
                 getTasks.onerror = function() {
                     console.error("There was an error looping through the tasks");
                 }
-    
+                
+                //success handler for looping through tasks
                 getTasks.onsuccess = function(e) {
+                    //get taks with status done
                     if (getTasks.result.status == "done") {
                         
                         let data = e.target.result;
 
+                        //set status to "archived"
                         data.status = "archived";
 
+                        //replacing current data in store with new
                         let requestUpdate = tasksStore.put(data);
 
+                        //error handler for replacing data
                         requestUpdate.onerror = function() {
                             console.error("There was an error archiving the task");
                         }
 
+                        //success handler for replacing data
                         requestUpdate.onsuccess = function() {
+                            //function for removing DOM items from done list
                             deleteDoneList();
-
                             console.log("Successfully archived tasks");
                         }
                     }
@@ -318,6 +344,7 @@ function changeTaskStatus(id, list) {
             //success handler for updating object
             requestUpdate.onsuccess = function() {
                 console.log("Dropped task's status updated successfully");
+                //update and delete functions for DOM elements
                 progressBar();
                 deleteDueList();
                 listUpcomingDue();
@@ -332,6 +359,7 @@ function changeTaskStatus(id, list) {
     }
 }
 
+//function for listing upcoming due tasks
 function listUpcomingDue() {
     //variable for counting objects in the index
     let amountOfTasks = tasksStore.count();
@@ -347,23 +375,31 @@ function listUpcomingDue() {
         for (var i = 1; i < amountOfTasks.result+1; i++) {
             let getTasks = tasksStore.get(i);
 
+            //error handler for looping through tasks
             getTasks.onerror = function() {
                 console.error("There was an error looping through the tasks");
             }
 
+            //success handler for looping through tasks
             getTasks.onsuccess = function() {
+                //check if tasks have status done or archived
                 if (getTasks.result.status == "done" || getTasks.result.status == "archived") {
-                
+                    //do nothing as tasks with status done and archived is finished
                 } else {
+                    //variables for getting todays date to seprate upcoming due dates, and expired due dates
                     let now = new Date();
                     let day = ("0" + now.getDate()).slice(-2);
                     let month = ("0" + (now.getMonth() + 1)).slice(-2);
                     let today = now.getFullYear() + "-" + (month) + "-" + (day);
                     
+                    //list upcoming due dates
                     if (today < getTasks.result.dueDate) {
+                        //function for adding upcoming due date card
                         addDueCard(getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagColor, getTasks.result.title);
-            
+                    
+                    //list expired due dates
                     } else {
+                        //function for adding expired due date cards and banner
                         addDueCardExpired(getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagColor, getTasks.result.title);
                         overDueBanner("Task overdue!", getTasks.result.title)
                     }
@@ -373,131 +409,8 @@ function listUpcomingDue() {
     }
 }
 
-function openEditModal() {
-
-    let getTaskID = parseInt(this.getAttribute("data-taskid"));
-    let getModal = document.getElementById("edit-modal");
-
-     //open connection to database
-     let request = window.indexedDB.open("KanbanDatabase", 19), 
-     db,
-     tx,
-     store,
-     index;
- 
-     //error handler on connection
-     request.onerror = function(e) {
-         console.error("There was an error opening the database: " + e.target.errorCode);
-     }
- 
-     //success handler on connection
-     request.onsuccess = function(e) {
-         db = request.result;
- 
-         //define transaction, store and index
-         tasksTx = db.transaction("tasksStore", "readwrite");
-         tasksStore = tasksTx.objectStore("tasksStore");
-         tasksIndex = tasksStore.index("status");
- 
-         //error handler on result of the request
-         db.onerror = function(e) {
-             console.log("ERROR " + e.target.errorCode);
-         }
- 
-         //get data-taskid of card dropped
-         let getTask = tasksStore.get(getTaskID);
- 
-         //error handler for getting data-taskid
-         getTask.onerror = function() {
-             //error
-         }
- 
-         //success handler for getting data-taskid
-         getTask.onsuccess = function(e) {
- 
-             //variables for displaying correct information in the modal
-            let getTitleInput = document.getElementById("modal-edit-task-title");
-            getTitleInput.setAttribute("value", getTask.result.title);
-
-            if (getTask.result.status == "to-do") {
-                let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
-                getStatusSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.status = "in-progress") {
-                let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
-                getStatusSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.status == "done") {
-                let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
-                getStatusSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.status == "archived") {
-                let getStatusSelectItem = document.getElementById("select-" + getTask.result.status);
-                getStatusSelectItem.setAttribute("selected", "selected");
-            }
-
-            if (getTask.result.tagName.toLowerCase() == "plan") {
-                let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.tagName == "activity") {
-                let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.tagName.toLowerCase() == "some") {
-                let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.tagName.toLowerCase() == "campaign") {
-                let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.tagName.toLowerCase() == "pr") {
-                let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.tagName.toLowerCase() == "goal") {
-                let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
-                getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.tagName.toLowerCase() == "content") {
-                let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
-                getTagSelectItem.setAttribute("selected", "selected");
-            }
-
-            let getDueDateInput = document.getElementById("modal-edit-task-dueDate");
-
-            getDueDateInput.value = getTask.result.dueDate;
-
-            let getDescInput = document.getElementById("modal-edit-task-desc");
-
-            getDescInput.innerHTML = getTask.result.description;
-            
-            if (getTask.result.memberInitials.toLowerCase() == "dk") {
-                let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.memberInitials.toLowerCase() == "kz") {
-                let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.memberInitials.toLowerCase() == "lf") {
-                let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            } else if (ggetTask.result.memberInitials.toLowerCase() == "md") {
-                let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.memberInitials.toLowerCase() == "sk") {
-                let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
-                getAssigneeSelectItem.setAttribute("selected", "selected");
-            }
-
-            activateModal("edit-modal");
-
-            getModal.addEventListener("submit", function() {
-                editTask(getTaskID);
-            }); 
-         }
- 
-         //close database after transaction is complete
-         tasksTx.oncomplete = function() {
-             db.close();
-         }
-     }
-
-}
-
+//function for editing existing task
 function editTask(id) {
-    //let card = document.querySelectorAll(".action-btn");
   
      //open connection to database
     let request = window.indexedDB.open("KanbanDatabase", 19), 
@@ -530,7 +443,7 @@ function editTask(id) {
 
         //error handler for getting data-taskid
         getTask.onerror = function() {
-            //error
+            console.error("There was an erro getting ID of dropped task.")
         }
 
         //success handler for getting data-taskid
@@ -547,8 +460,10 @@ function editTask(id) {
             let getTagColor = findTagColor(document.getElementById("modal-edit-task-tag").value);
             let getTagTextColor = findTagTextColor(document.getElementById("modal-edit-task-tag").value);
 
+            //variable for getting target data
             let data = e.target.result;
 
+            //replace existing object with new information from edit modal
             data.title = titleInput;
             data.status = statusInput;
             data.dueDate = dueDateInput;
@@ -559,22 +474,18 @@ function editTask(id) {
             data.tagColor = getTagColor;
             data.tagTextColor = getTagTextColor;
             
-
+            //variable for actually replacing the data in the database
             let updateTask = tasksStore.put(data);
-            let modal = document.getElementById('edit-modal');
-            let html = document.querySelector('html');
-            
-            modal.classList.remove("is-active");
-            html.classList.add('is-clipped');
 
+            //error handler for replacing data
             updateTask.onerror = function() {
                 console.error("There was an error updating the task");
             }
 
+            //success handleer for replacing data
             updateTask.onsuccess = function() {
                 console.log("Updated task successfully");
             }
-
         }
 
         //close database after transaction is complete
@@ -582,5 +493,4 @@ function editTask(id) {
             db.close();
         }
     }
-
 }

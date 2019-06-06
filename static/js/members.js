@@ -1,3 +1,4 @@
+//data structure for members
 let members = [
     {
         id: 1,
@@ -26,9 +27,11 @@ let members = [
     }   
 ];
 
+//function for listing members on the front page
 function listMemberOverview() {
     let getMemberContainer = document.getElementById("member-container");
 
+    //traverse through array
     for (var i = 0; i < members.length; i++) {
         let createMemberDiv = document.createElement("div");
         let createEmblem = document.createElement("img");
@@ -36,6 +39,7 @@ function listMemberOverview() {
 
         createMemberDiv.className = "member-div";
 
+        //conditional statements to select approrpriate image emblem
         if (members[i].memberFullName == "Daniel Kjellid") {
             createEmblem.setAttribute("src", "static/img/member-icons/dk.png")
             createEmblem.setAttribute("height", "24px");
@@ -75,10 +79,13 @@ function listMemberOverview() {
     }
 }
 
+//function for adding list of members to the add new task modal
 function listMembersNewSelect() {
 
+    //get select in modal
     let getSelect = document.getElementById("modal-add-new-task-member");
 
+    //traverse through array
     for (var i = 0; i < members.length; i++) {
         let createOption = document.createElement("option");
 
@@ -89,6 +96,7 @@ function listMembersNewSelect() {
     }
 }
 
+//function for adding list of members to existing cards
 function listMembersEditSelect() {
 
     let getSelect = document.getElementById("modal-edit-task-member");
@@ -103,26 +111,25 @@ function listMembersEditSelect() {
     }
 }
 
+//function for adding new members in the array
 function addNewMember() {
     let newMember = document.getElementById("modal-add-new-member").value;
     let newMemberInit = document.getElementById("modal-add-new-member-init").value;
-    let modal = document.querySelector('.modal');
-    let html = document.querySelector('html');
-    
-    members.push({id: members.length+1, memberFullName: newMember, memberInitials: newMemberInit});
+
+    //actually adding to the array.
+    members.push({
+        id: members.length+1, 
+        memberFullName: newMember, 
+        memberInitials: newMemberInit
+    });
+
+    //deleting overview first, before listing them again to avoid listning multiple times.
     deleteMemberListOverview();
     listMemberOverview();
-   
-    modal.classList.remove("is-active");
-    html.classList.add('is-clipped');
-    
-    return false;
 }
 
-function handleForm(e){
-    e.preventDefault();
-}
+//variables and event listener for avoiding page refrsh after submit to avodi losing DOM.
+let memberForm = document.getElementById("add-new-tag");
 
-let formHandle = document.getElementById("add-new-tag");
-form.addEventListener('submit', handleForm);
+memberForm.addEventListener('submit', handleForm);
 
