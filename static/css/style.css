@@ -1012,6 +1012,30 @@ a.navbar-item,
 
 /* ===== T* ===== */
 
+
+
+.tab button {
+  background-color: inherit;
+  color: #7B8794;
+  display: flex;
+  margin-right: 20px;
+  padding-bottom: 20px;
+  padding: 0px 15px 15px 15px;
+  text-decoration: none;
+  border: none;
+}
+
+
+.tab button:hover {
+  color: #3E4C59;
+}
+
+
+.tab button.active {
+  border-bottom: 3px solid #D96F9D;
+  color: #3E4C59;
+}
+
 .tag {
   align-items: center;
   background-color: whitesmoke;

@@ -91,3 +91,11 @@ function listTagsEditSelect() {
         getSelect.appendChild(createOption);
     }
 }
+
+function addNewTag() {
+    let newTag = document.getElementById("modal-add-new-tag").value;
+    
+    tags.push({Id: tags.length+1, tagName: newTag});
+    console.log(tags);
+    return false;
+}
