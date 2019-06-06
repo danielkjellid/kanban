@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Kanban</title>
+        <link rel="stylesheet" href="static/css/style.css">
+    </head>
+    <body id="leaderboard">
+        <!--navbar-->
+        <nav class="navbar is-white">
+            <div class="container is-fluid">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="#">
+                        <!--logo in vector format-->
+                        <svg width="170px" height="28px" viewBox="0 0 252 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Logo, click to go to front page">
+                            <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Front" transform="translate(-25.000000, -14.000000)">
+                                    <g id="Header" transform="translate(0.000000, -3.000000)">
+                                        <g id="Logo" transform="translate(25.000000, 0.000000)">
+                                            <rect id="Rectangle" fill="#F364A2" x="17" y="19" width="16" height="44" rx="2"></rect>
+                                            <rect id="Rectangle" fill="#F364A2" x="0" y="19" width="16" height="33" rx="2"></rect>
+                                            <text id="Kanban" font-family="GTWalsheim-Medium, GT Walsheim" font-size="63" font-weight="400" fill="#3E4C59">
+                                                <tspan x="36.5" y="62">Kanban</tspan>
+                                            </text>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                        <!--logo end-->
+                    </a>
+                </div>
+                <div class="navbar-menu">
+                    <!--navigation items-->
+                    <div class="navbar-start">
+                        <a class="navbar-item is-active" href="index.html" aria-label="Navigation item, click to go to front page" role="tab">
+                            Board
+                        </a>
+                        <a class="navbar-item" href="#" aria-label="Navigation item, click to go to Leaderboard page" role="tab">
+                            Leaderboard
+                        </a>
+                        <a class="navbar-item" href="archive.html" aria-label="Navigation item, click to go to archvied tasks page" role="tab">
+                            Archive
+                        </a>
+                    </div>
+                    <!--navigation items end-->
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <!--add new button-->
+                            <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" aria-label="Add new task, tag or member">
+                                <span>Add new</span>
+                            </a>
+                            <!--add new button end-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!--navbar end-->
+        <div class="container is-fluid">
+            <div class="columns">
+                <!--to-do-->
+                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
+                    
+                </div>
+                <!--to-do end-->
+                <!--in-progress-->
+                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
+                    
+                </div>
+                <!--in-progress end-->
+                <!--done-->
+                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
+                    
+                </div>
+                <!--done end-->
+                <!--upcoming due dates, tag overview & member overview-->
+                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
+                    
+                </div>
+                <!--upcoming due dates, tag overview & member overview end-->
+            </div>
+        </div>
+        <!--add new modal-->
+        <div id="add-new-modal" class="modal" >
+            <div class="modal-background">
+            </div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <div class="modal-card-head-menu tab">
+                        <button class="menu-item is-active tablinks" id="new-card" onclick="openNewModal(event, 'new-card-modal')" >
+                        New card
+                        </button>
+                        <button class="menu-item tablinks" id="new-member" onclick="openNewModal(event, 'new-member-modal')" >
+                        New member
+                        </button>
+                        <button class="menu-item tablinks" id="new-tag" onclick="openNewModal(event, 'new-tag-modal')" >
+                        New tag
+                        </button>
+                    </div>
+                </header>
+                <div id="new-card-modal" class="tab-content">
+                    <form id="add-new-modal" class="modals">
+                        <section class="modal-card-body">
+                            <div class="field">
+                                <label class="label">Title</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-add-new-task-title" >
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Status</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-add-new-task-status" >
+                                            <option id="select-to-do">To-do</option>
+                                            <option id="select-in-progress">In-progress</option>
+                                            <option id="select-done">Done</option>
+                                            <option id="select-archived">Archived</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Tag</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth">
+                                        <select id="modal-add-new-task-tag">
+                                            <option>PR</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Due Date</label>
+                                <div class="control">
+                                    <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate" >
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Description</label>
+                                <div class="control">
+                                    <textarea class="textarea" placeholder="More details about the task" id="modal-add-new-task-desc" ></textarea>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Assign</label>
+                                <div class="control">
+                                    <div class="select is-fullwidth" >
+                                        <select id="modal-add-new-task-member">
+                                            <option>Daniel Kjellid</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button id="add-new-task-cancel" class="button is-silenced" type="button">Cancel</button>
+                            <button class="button is-brand is-rounded" type="submit" >Add new card</button>
+                        </footer>
+                    </form>
+                </div>
+                <div id="new-member-modal" class="tab-content" >
+                    <form id="add-new-member" class="modals">
+                        <section class="modal-card-body">
+                            <div class="field">
+                                <label class="label">Add new member</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="e.g. Ola Nordmann" id="modal-add-new-member" >
+                                </div>
+                                <label class="label">Add initials</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member-init" >
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button id="add-new-member-cancel" class="button is-silenced" type="button">Cancel</button>
+                            <button class="button is-brand is-rounded" type="submit" onclick="return addNewMember()" >Add new member</button>
+                        </footer>
+                    </form>
+                </div>
+                <div id="new-tag-modal" class="tab-content" >
+                    <form id="add-new-tag" class="modals">
+                        <section class="modal-card-body">
+                            <div class="field">
+                                <label class="label">Add new tag</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="e.g. priority" id="modal-add-new-tag" >
+                                </div>
+                                <label class="label">Add color</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="e.g. #aaf99a" id="modal-add-new-color-tag" >
+                                    <label class="label">Add textcolor</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="e.g. #4c6841" id="modal-add-new-textcolor-tag" >
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <footer class="modal-card-foot">
+                            <button id="add-new-tag-cancel" class="button is-silenced" type="button">Cancel</button>
+                            <button class="button is-brand is-rounded" onclick="return addNewTag()" >Add new tag</button>
+                        </footer>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--add new modal end-->
+        
+        <!--loading scripts-->
+        <script src="static/js/indexeddb.js"></script>
+        <script src="static/js/tasks.js"></script>
+        <script src="static/js/utils.js"></script>
+        <script src="static/js/tags.js"></script>
+        <script src="static/js/members.js"></script>
+        <script src="static/js/modal.js"></script>
+        <script src="static/js/dragdrop.js"></script>
+        <script src="static/js/misc.js"></script>
+        <script src="static/js/eventlisteners.js"></script>
+        <!--loading scripts end-->
+    </body>
+</html>

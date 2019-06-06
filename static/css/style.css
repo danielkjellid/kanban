@@ -200,13 +200,13 @@ a.navbar-item,
   display: inline-block;
   float: left !important;
   height: auto;
-  width: 50%;
+  width: 65%;
 }
 
 .archived-card-footer .dueDate {
   display: inline-block;
   float: right !important;
-  width: 50%;
+  width: 35%;
 }
 
 .archived-card-footer .dueDate span {
