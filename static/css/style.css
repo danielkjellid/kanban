@@ -421,6 +421,12 @@ a.navbar-item,
   text-align: left;
 }
 
+.crown {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
 /* ===== D* ===== */
 
 .due-date-list {
@@ -554,6 +560,12 @@ a.navbar-item,
   margin-bottom: 0.75rem;
 }
 
+.first-place {
+  display: flex;
+  justify-content: center;
+
+}
+
 /* ===== G* ===== */
 
 /* ===== H* ===== */
@@ -598,6 +610,75 @@ a.navbar-item,
   font-weight: 600;
   letter-spacing: 0.6px;
   text-transform: uppercase;
+}
+
+.leaderboard-card {
+  background-color: #FFFFFF;
+  border-radius: 6px 6px 6px 6px;
+  box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
+  padding: 10px 15px 15px 10px;
+  height: auto;
+  margin-top: 20%;
+  width: 100%;
+}
+
+.leaderboard-card-circle-container {
+  float: left;
+  width: 30%;
+}
+
+.leaderboard-card-txt-container {
+  display: inline;
+}
+
+.leaderboard-card-txt-container p {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.leaderboard-card-txt-container span {
+  color: #7B8794;
+  font-size: 20px;
+  margin: 0px;
+}
+
+.leaderboard-placement {
+  display: flex;
+  justify-content: center;
+  margin-top: -25%
+}
+
+@media screen and (max-width: 600px) {
+  #first-place {
+    margin-bottom: 25%;
+  }
+
+  #second-place {
+    margin-bottom: 25%;
+  }
+
+  .leaderboard-card {
+    margin-bottom: -100px;
+    margin-left: 15%;
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 796px) {
+  #first-place {
+    margin-bottom: 25%;
+  }
+
+  #second-place {
+    margin-bottom: 25%;
+  }
+
+  .leaderboard-card {
+    margin-bottom: -70px;
+    margin-left: 15%;
+    width: 70%;
+  }
 }
 
 .list {
@@ -662,6 +743,28 @@ a.navbar-item,
   font-size: 1rem;
   width: 100%;
   height: auto;
+}
+
+.meta-text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.meta-text p.cards {
+  color: #7B8794;
+  font-size: 22px;
+}
+
+.meta-text p.placement {
+  color: #3E4C59;
+  font-size: 22px;
+}
+
+.meta-text p.member {
+  color: #3E4C59;
+  font-size: 22px;
+  font-weight: 600;
 }
 
 .mini-tags-tag-list {

@@ -35,10 +35,10 @@
                 <div class="navbar-menu">
                     <!--navigation items-->
                     <div class="navbar-start">
-                        <a class="navbar-item is-active" href="index.html" aria-label="Navigation item, click to go to front page" role="tab">
+                        <a class="navbar-item" href="index.html" aria-label="Navigation item, click to go to front page" role="tab">
                             Board
                         </a>
-                        <a class="navbar-item" href="#" aria-label="Navigation item, click to go to Leaderboard page" role="tab">
+                        <a class="navbar-item is-active" href="#" aria-label="Navigation item, click to go to Leaderboard page" role="tab">
                             Leaderboard
                         </a>
                         <a class="navbar-item" href="archive.html" aria-label="Navigation item, click to go to archvied tasks page" role="tab">
@@ -59,28 +59,124 @@
             </div>
         </nav>
         <!--navbar end-->
-        <div class="container is-fluid">
+        <div class="container">
             <div class="columns">
-                <!--to-do-->
-                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                    
+                <div class="column is-one-third-desktop is-one-third-tablet is-full-mobile">
+                 <!--empty container to center 1st place-->
                 </div>
-                <!--to-do end-->
-                <!--in-progress-->
-                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                    
+                <!--second column-->
+                <div id="first-place" class="column is-one-third-desktop is-one-third-tablet is-full-mobile" aria-label="First place. The member who has finished most tasks.">
+                    <div class="crown">
+                        <svg width="35px" height="19px" viewBox="0 0 35 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Image of a crown displayed on top of the first place emblem">
+                            <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Leaderboard" transform="translate(-703.000000, -136.000000)">
+                                    <g id="Body" transform="translate(180.000000, 136.000000)">
+                                        <g id="1st-place" transform="translate(456.000000, 0.000000)">
+                                            <image id="crown" x="67" y="0" width="35" height="18.375" xlink:href="data:image/png;base64,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"></image>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="first-place">
+                        <img src="static/img/member-icons/lf-big.png" height="100px" width="100px" alt="circular emblem displaying first place's initials">
+                    </div>
+                    <div class="meta-text">
+                        <p class="placement">1st place</p>
+                    </div>
+                    <div class="meta-text">
+                        <p class="member">Linnea S. Fylling</p>
+                    </div>
+                    <div class="meta-text">
+                        <p class="cards">30 "Done" cards</p>
+                    </div>
                 </div>
-                <!--in-progress end-->
-                <!--done-->
-                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                    
+                <!--second column end-->
+                <div class="column is-one-third-desktop is-one-third-tablet is-full-mobile">
+                    <!--empty container to center 1st place-->
                 </div>
-                <!--done end-->
-                <!--upcoming due dates, tag overview & member overview-->
-                <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                    
+            </div>
+            <div class="columns">
+                <!--first column-->
+                <div id="second-place" class="column is-one-third-desktop is-one-third-tablet is-full-mobile" aria-label="Second place. The member who has finished the second most tasks.">
+                    <div class="leaderboard-placement">
+                        <img src="static/img/member-icons/md-big.png" height="70px" width="70px" alt="circular emblem displaying second place's initials">
+                    </div>
+                    <div class="meta-text">
+                        <p class="placement">2nd place</p>
+                    </div>
+                    <div class="meta-text">
+                        <p class="member">Magomed Derbtichev</p>
+                    </div>
+                    <div class="meta-text">
+                        <p class="cards">28 "Done" cards</p>
+                    </div>
                 </div>
-                <!--upcoming due dates, tag overview & member overview end-->
+                <!--first column end-->
+                <!--second column-->
+                <div class="column is-one-third-desktop is-one-third-tablet is-full-mobile">
+                    <!--empty container to center correctly possition 2nd and 3rd-->
+                </div>
+                <!--second column end-->
+                <!--third column-->
+                <div class="column is-one-third-desktop is-one-third-tablet is-full-mobile" aria-label="Thrid place. The member who has finished the third most tasks.">
+                    <div class="leaderboard-placement">
+                        <img src="static/img/member-icons/dk-big.png" height="70px" width="70px" alt="circular emblem displaying third place's initials">
+                    </div>
+                    <div class="meta-text">
+                        <p class="placement">3rd place</p>
+                    </div>
+                    <div class="meta-text">
+                        <p class="member">Daniel Kjellid</p>
+                    </div>
+                    <div class="meta-text">
+                        <p class="cards">26 "Done" cards</p>
+                    </div>
+                </div>
+                <!--third column end-->
+            </div>
+            <div id="rest-placement" class="columns">
+                <!--first column-->
+                <div class="column is-one-third-desktop is-one-third-tablet is-full-mobile" aria-label="Fourth place. The member who has finished fourth most tasks.">
+                    <div class="leaderboard-card">
+                        <div class="leaderboard-card-circle-container">
+                            <img src="static/img/member-icons/kz-big.png" height="70px" width="70px" alt="circular emblem displaying fourth place's initials">
+                        </div>
+                        <div class="leaderboard-card-txt-container">
+                            <p>Kainar Zahoor</p>
+                            <span>4th • 16 "Done" cards</span>
+                        </div>
+                    </div>
+                </div>
+                <!--first column end-->
+                <!--second column-->
+                <div class="column is-one-third-desktop is-one-third-tablet is-full-mobile" aria-label="Fifth place. The member who has finished the fifth most tasks.">
+                    <div class="leaderboard-card">
+                        <div class="leaderboard-card-circle-container">
+                            <img src="static/img/member-icons/sk-big.png" height="70px" width="70px" alt="circular emblem displaying fifth place's initials">
+                        </div>
+                        <div class="leaderboard-card-txt-container">
+                            <p>Sultan Khan</p>
+                            <span>5th • 15 "Done" cards</span>
+                        </div>
+                    </div>
+                </div>
+                <!--second column end-->
+                <!--third column-->
+                <div class="column is-one-third-desktop is-one-third-tablet is-full-mobile" aria-label="Sixth place. The member who has finished the sixth most tasks.">
+                    <div class="leaderboard-card">
+                        <div class="leaderboard-card-circle-container">
+                            <img src="static/img/member-icons/jr-big.png" height="70px" width="70px" alt="circular emblem displaying sixth place's initials">
+                        </div>
+                        <div class="leaderboard-card-txt-container">
+                            <p>Jonmar Rmt</p>
+                            <span>6th • 0 "Done" cards</span>
+                        </div>
+                    </div>
+                </div>
+                <!--third column end-->
+            </div>
             </div>
         </div>
         <!--add new modal-->
