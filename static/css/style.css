@@ -192,7 +192,7 @@ a.navbar-item,
   border-top: 1px #E4E7EB solid;
   color: #7B8794;
   font-size: 14px;
-  min-height: 90px;
+  min-height: 45px;
   padding: 13px;
 }
 
@@ -1073,9 +1073,10 @@ a.navbar-item,
 .task-card {
   border-radius: 8px;
   box-shadow: 0 0 4px 0 rgba(0,0,0,0.50);
+  display: block;
   color: #3E4C59;
   height: auto;
-  margin-bottom: 13px;
+  margin-bottom: 10px;
   width: 100%;
 }
 
@@ -1098,13 +1099,14 @@ a.navbar-item,
   border-top: 1px #E4E7EB solid;
   color: #7B8794;
   font-size: 14px;
-  height: 45px;
+  min-height: 45px;
   padding: 13px;
 }
 
 .task-card-footer .asignee {
   display: inline-block;
   float: left !important;
+  height: auto;
   width: 50%;
 }
 
@@ -1143,6 +1145,11 @@ a.navbar-item,
   float: left !important;
   justify-content: flex-start;
   width: 90%;
+}
+
+.task-card-header .tags img{
+  margin-bottom: 15px;
+  margin-right: 8px;
 }
 
 .textarea {

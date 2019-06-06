@@ -483,8 +483,7 @@ function openEditModal() {
 
             getModal.addEventListener("submit", function() {
                 editTask(getTaskID);
-            });
- 
+            }); 
          }
  
          //close database after transaction is complete

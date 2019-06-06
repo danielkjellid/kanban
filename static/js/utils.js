@@ -83,6 +83,8 @@ function activateModal(id) {
     var html = document.querySelector('html');
     modal.classList.add('is-active');
     html.classList.add('is-clipped');
+    modal.setAttribute("tabindex", "0");
+    modal.focus();
 
     modal.querySelector('.modal-background').addEventListener('click', function(e) {
         e.preventDefault();

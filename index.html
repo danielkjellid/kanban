@@ -16,7 +16,7 @@
         <div class="container is-fluid">
             <div class="navbar-brand">
                 <a class="navbar-item" href="#">
-                    <svg width="170px" height="28px" viewBox="0 0 252 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg width="170px" height="28px" viewBox="0 0 252 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-label="Logo, click to go to front page">
                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <g id="Front" transform="translate(-25.000000, -14.000000)">
                                 <g id="Header" transform="translate(0.000000, -3.000000)">
@@ -41,20 +41,20 @@
 
             <div id="navbar" class="navbar-menu">
                 <div class="navbar-start">
-                    <a class="navbar-item is-active" href="index.html" tabindex="0">
+                    <a class="navbar-item is-active" href="index.html" aria-label="Navigation item, click to go to front page" role="tab">
                             Board
                         </a>
-                    <a class="navbar-item" href="#" tabindex="0">
+                    <a class="navbar-item" href="#" aria-label="Navigation item, click to go to Leaderboard page" role="tab">
                             Leaderboard
                         </a>
-                    <a class="navbar-item" href="archive.html" tabindex="0">
+                    <a class="navbar-item" href="archive.html" aria-label="Navigation item, click to go to archvied tasks page" role="tab">
                             Archive
                         </a>
                 </div>
 
                 <div class="navbar-end">
                     <div class="navbar-item">
-                        <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal" tabindex="0">
+                        <a id="open-add-new-modal" class="button is-brand is-rounded is-outlined" data-target="add-new-modal" aria-label="Add new task, tag or member">
                             <span>Add new</span>
                         </a>
                     </div>
@@ -67,15 +67,15 @@
         <div class="columns">
             <!--to-do-->
             <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                <nav class="list" tabindex="0">
+                <div class="list" aria-label="Tasks that are in the to-do phase">
                     <p class="list-heading">To-do</p>
                     <div class="list-block">
-                        <div class="card-container" id="list-to-do" tabindex="0">
+                        <div class="card-container" id="list-to-do" aria-label="Task cards">
                             <!-- card(s) created by DOM/listTasks() -->
                         </div>
                     </div>
                     <div class="list-block">
-                        <a id="add-new-task-to-do" class="silenced-text" tabindex="0">
+                        <a id="add-new-task-to-do" class="silenced-text" aria-label="Add new task with status to-do">
                             <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -95,20 +95,20 @@
                                 </span> Add new task
                         </a>
                     </div>
-                </nav>
+                </div>
             </div>
             <!--to-do end-->
             <!--in-progress-->
             <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                <nav class="list" tabindex="0">
+                <div class="list" aria-label="Tasks that are in the in-progress phase">
                     <p class="list-heading">In progress</p>
                     <div class="list-block">
-                        <div class="card-container" id="list-in-progress" tabindex="0">
+                        <div class="card-container" id="list-in-progress" aria-label="task-cards">
                             <!-- card(s) created by DOM/listTasks() -->
                         </div>
                     </div>
                     <div class="list-block">
-                        <a id="add-new-task-in-progress" class="silenced-text" tabindex="0">
+                        <a id="add-new-task-in-progress" class="silenced-text" aria-label="Add new task with status in-progress">
                             <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -128,20 +128,20 @@
                                 </span> Add new task
                         </a>
                     </div>
-                </nav>
+                </div>
             </div>
             <!--in-progress end-->
             <!--done-->
             <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                <nav class="list" tabindex="0">
+                <div class="list" aria-label="Tasks that are in the done phase">
                     <p class="list-heading">Done</p>
                     <div class="list-block">
-                        <div class="card-container" id="list-done" tabindex="0">
+                        <div class="card-container" id="list-done" aria-label="Task cards">
                             <!-- card(s) created by DOM/listTasks() -->
                         </div>
                     </div>
                     <div class="list-block">
-                        <a id="add-new-task-done" class="silenced-text" tabindex="0">
+                        <a id="add-new-task-done" class="silenced-text" aria-label="Add new task with status done">
                             <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -162,7 +162,7 @@
                         </a>
                     </div>
                     <div class="list-block">
-                        <a id="done-list-archive-cards" class="silenced-text" tabindex="0">
+                        <a id="done-list-archive-cards" class="silenced-text" aria-label="Archive all done cards">
                             <span>
                                     <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                         <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -182,12 +182,12 @@
                                 </span> Archive tasks
                         </a>
                     </div>
-                </nav>
+                </div>
             </div>
             <!--done end-->
-            <!--upcoming due dates-->
+            <!--upcoming due dates, tag overview & member overview-->
             <div class="column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
-                <div id="due-date-list" class="due-date-list">
+                <div id="due-date-list" class="due-date-list" aria-label="List upcoming and expired due dates">
                     <div class="due-date-list-heading">
                         <h1>Upcoming due dates</h1>
                     </div>
@@ -195,51 +195,51 @@
                         <progress id="progress-bar" class="due-date-list-progress is-brand is-large" value="90" max="100" data-label="87% of cards done!">
                         </progress>
                     </div>
-                    <div id="due-date-expired-container" class="due-date-expired-container">
+                    <div id="due-date-expired-container" class="due-date-expired-container" aria-label="Expired due date cards">
 
                     </div>
-                    <div id="due-date-card-container" class="due-date-card-container">
+                    <div id="due-date-card-container" class="due-date-card-container" aria-label="Upcoming due date cards">
                         <!-- Cards added by DOM -->
 
                     </div>
                 </div>
-                <div class="tag-overview">
-                    <div class="tag-heading">
+                <div class="tag-overview" aria-label="An overview over tags (workflows)">
+                    <div class="tag-heading" >
                         <h1>Tags</h1>
                     </div>
-                    <div id="tag-container" class="mini-tags-tag-list">
+                    <div id="tag-container" class="mini-tags-tag-list"  aria-label="A list showing tags (workflows)">
                         <!--Tags added by DOM-->
                     </div>
                 </div>
 
-                <div class="member-overview">
-                    <div class="member-heading">
+                <div class="member-overview" >
+                    <div class="member-heading" >
                         <h1>Members</h1>
                     </div>
-                    <div id="member-container" class="member-container">
+                    <div id="member-container" class="member-container"  aria-label="A list showing team members">
                         <!-- members added by DOM -->
                     </div>
                 </div>
 
             </div>
-            <!--upcoming due dates end-->
+            <!--upcoming due dates, tag overview & member overview-->
         </div>
     </div>
 
-    <div id="add-new-modal" class="modal" tabindex="0">
+    <div id="add-new-modal" class="modal" >
         <div class="modal-background">
 
         </div>
         <div class="modal-card">
             <header class="modal-card-head">
                 <div class="modal-card-head-menu tab">
-                    <button class="menu-item is-active tablinks" id="new-card" onclick="openNewModal(event, 'new-card-modal')" tabindex="0">
+                    <button class="menu-item is-active tablinks" id="new-card" onclick="openNewModal(event, 'new-card-modal')" >
                         New card
                     </button>
-                    <button class="menu-item tablinks" id="new-member" onclick="openNewModal(event, 'new-member-modal')" tabindex="0">
+                    <button class="menu-item tablinks" id="new-member" onclick="openNewModal(event, 'new-member-modal')" >
                         New member
                     </button>
-                    <button class="menu-item tablinks" id="new-tag" onclick="openNewModal(event, 'new-tag-modal')" tabindex="0">
+                    <button class="menu-item tablinks" id="new-tag" onclick="openNewModal(event, 'new-tag-modal')" >
                         New tag
                     </button>
                 </div>
@@ -250,7 +250,7 @@
                         <div class="field">
                             <label class="label">Title</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-add-new-task-title" tabindex="0">
+                                <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-add-new-task-title" >
                             </div>
                         </div>
 
@@ -258,7 +258,7 @@
                             <label class="label">Status</label>
                             <div class="control">
                                 <div class="select is-fullwidth">
-                                    <select id="modal-add-new-task-status" tabindex="0">
+                                    <select id="modal-add-new-task-status" >
                                         <option id="select-to-do">To-do</option>
                                         <option id="select-in-progress">In-progress</option>
                                         <option id="select-done">Done</option>
@@ -282,21 +282,21 @@
                         <div class="field">
                             <label class="label">Due Date</label>
                             <div class="control">
-                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate" tabindex="0">
+                                <input class="input" type="date" placeholder="e.g. alexsmith@gmail.com" id="modal-add-new-task-dueDate" >
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Description</label>
                             <div class="control">
-                                <textarea class="textarea" placeholder="More details about the task" id="modal-add-new-task-desc" tabindex="0"></textarea>
+                                <textarea class="textarea" placeholder="More details about the task" id="modal-add-new-task-desc" ></textarea>
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Assign</label>
                             <div class="control">
-                                <div class="select is-fullwidth" tabindex="0">
+                                <div class="select is-fullwidth" >
                                     <select id="modal-add-new-task-member">
                                         <option>Daniel Kjellid</option>
                                     </select>
@@ -305,53 +305,55 @@
                         </div>
                     </section>
                     <footer class="modal-card-foot">
-                        <button class="button is-silenced" tabindex="0">Cancel</button>
-                        <button class="button is-brand is-rounded" type="submit" tabindex="0">Add new card</button>
+                        <button class="button is-silenced" >Cancel</button>
+                        <button class="button is-brand is-rounded" type="submit" >Add new card</button>
                     </footer>
                 </form>
             </div>
+        </div>
+    </div>
 
-            <div id="new-member-modal" class="tab-content" tabindex="0">
+            <div id="new-member-modal" class="tab-content" >
                 <form id="add-new-member" class="modals">
                     <section class="modal-card-body">
                         <div class="field">
                             <label class="label">Add new member</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. Ola Nordmann" id="modal-add-new-member" tabindex="0">
+                                <input class="input" type="text" placeholder="e.g. Ola Nordmann" id="modal-add-new-member" >
                             </div>
                             <label class="label">Add initials</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member-init" tabindex="0">
+                                <input class="input" type="text" placeholder="e.g. ON" id="modal-add-new-member-init" >
                             </div>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
                         <button class="button is-silenced">Cancel</button>
-                        <button class="button is-brand is-rounded" type="submit" onclick="return addNewMember()" tabindex="0">Add new member</button>
+                        <button class="button is-brand is-rounded" type="submit" onclick="return addNewMember()" >Add new member</button>
                     </footer>
                 </form>
             </div>
-            <div id="new-tag-modal" class="tab-content" tabindex="0">
+            <div id="new-tag-modal" class="tab-content" >
                 <form id="add-new-tag" class="modals">
                     <section class="modal-card-body">
                         <div class="field">
                             <label class="label">Add new tag</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. priority" id="modal-add-new-tag" tabindex="0">
+                                <input class="input" type="text" placeholder="e.g. priority" id="modal-add-new-tag" >
                             </div>
                                 <label class="label">Add color</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. #aaf99a" id="modal-add-new-color-tag" tabindex="0">
+                                <input class="input" type="text" placeholder="e.g. #aaf99a" id="modal-add-new-color-tag" >
                             <label class="label">Add textcolor</label>
                             <div class="control">
-                                <input class="input" type="text" placeholder="e.g. #4c6841" id="modal-add-new-textcolor-tag" tabindex="0">
+                                <input class="input" type="text" placeholder="e.g. #4c6841" id="modal-add-new-textcolor-tag" >
                                 </div>
                             </div>
                         </div>
                     </section>
                     <footer class="modal-card-foot">
-                        <button class="button is-silenced" tabindex="0">Cancel</button>
-                        <button class="button is-brand is-rounded" onclick="return addNewTag()" tabindex="0">Add new tag</button>
+                        <button class="button is-silenced" >Cancel</button>
+                        <button class="button is-brand is-rounded" onclick="return addNewTag()" >Add new tag</button>
                     </footer>
                 </form>
             </div>
@@ -360,7 +362,7 @@
                 
             
         
-    <div id="edit-modal" class="modal" tabindex="0">
+    <div id="edit-modal" class="modal" >
         <div class="modal-background">
 
         </div>
@@ -373,7 +375,7 @@
                     <div class="field">
                         <label class="label">Title</label>
                         <div class="control">
-                            <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-edit-task-title" tabindex="0">
+                            <input class="input" type="text" placeholder="e.g. Design kanban board for exam web project" id="modal-edit-task-title" >
                         </div>
                     </div>
 
@@ -381,7 +383,7 @@
                         <label class="label">Status</label>
                         <div class="control">
                             <div class="select is-fullwidth">
-                                <select id="modal-edit-task-status" tabindex="0">
+                                <select id="modal-edit-task-status" >
                                     <option id="select-to-do">To-do</option>
                                     <option id="select-in-progress">In-progress</option>
                                     <option id="select-done">Done</option>
@@ -395,7 +397,7 @@
                         <label class="label">Tag</label>
                         <div class="control">
                             <div class="select is-fullwidth">
-                                <select id="modal-edit-task-tag" tabindex="0">
+                                <select id="modal-edit-task-tag" >
                                     <!-- options created by DOM -->
                                 </select>
                             </div>
@@ -405,14 +407,14 @@
                     <div class="field">
                         <label class="label">Due Date</label>
                         <div class="control">
-                            <input class="input" type="date" id="modal-edit-task-dueDate" tabindex="0">
+                            <input class="input" type="date" id="modal-edit-task-dueDate" >
                         </div>
                     </div>
 
                     <div class="field">
                         <label class="label">Description</label>
                         <div class="control">
-                            <textarea class="textarea" placeholder="More details about the task" id="modal-edit-task-desc" tabindex="0"></textarea>
+                            <textarea class="textarea" placeholder="More details about the task" id="modal-edit-task-desc" ></textarea>
                         </div>
                     </div>
 
@@ -420,7 +422,7 @@
                         <label class="label">Assign</label>
                         <div class="control">
                             <div class="select is-fullwidth">
-                                <select id="modal-edit-task-member" tabindex="0">
+                                <select id="modal-edit-task-member" >
                                     <!-- options created by DOM-->
                                 </select>
                             </div>
@@ -428,24 +430,23 @@
                     </div>
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="button is-silenced" tabindex="0">Discard changes</button>
-                    <button class="button is-brand is-rounded" type="submit" tabindex="0">Save changes</button>
+                    <button class="button is-silenced" >Discard changes</button>
+                    <button class="button is-brand is-rounded" type="submit" >Save changes</button>
                 </footer>
             </form>
         </div>
     </div>
-    <script src="static/js/indexeddb.js"></script>
-    <script src="Linnea/leaderboard.js"></script>
-    <script src="static/js/tasks.js"></script>
-    <script src="static/js/tags.js"></script>
-    <script src="static/js/members.js"></script>
-    <script src="static/js/modal.js"></script>
-    <script src="static/js/dragdrop.js"></script>
-    <script src="static/js/misc.js"></script>
-    <script src="static/js/utils.js"></script>
-    <script src="static/js/eventlisteners.js"></script>
-    <script src="Linnea/openNewModal.js"></script>
-    </div>
+        <script src="static/js/indexeddb.js"></script>
+        <script src="Linnea/leaderboard.js"></script>
+        <script src="static/js/tasks.js"></script>
+        <script src="static/js/tags.js"></script>
+        <script src="static/js/members.js"></script>
+        <script src="static/js/modal.js"></script>
+        <script src="static/js/dragdrop.js"></script>
+        <script src="static/js/misc.js"></script>
+        <script src="static/js/utils.js"></script>
+        <script src="static/js/eventlisteners.js"></script>
+        <script src="Linnea/openNewModal.js"></script>
     </body>
 
 </html>

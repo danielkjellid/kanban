@@ -55,6 +55,9 @@ function listTagsOverview() {
         createTagDiv.className = "tag-div";
         createTagName.className = "tag-name";
         createTagName.innerHTML = tags[i].tagName;
+
+        createTagName.setAttribute("tabindex", "0");
+        createTagName.setAttribute("aria-label", "Workflow: " + tags[i].tagName);
         
         
         createTag.setAttribute("style", "background-color: " + tags[i].tagColor + ";");
@@ -99,8 +102,13 @@ function addNewTag() {
     let modal = document.querySelector('.modal');
     let html = document.querySelector('html');
     
-    tags.push({Id: tags.length+1, tagName: newTag, tagColor: newColorTag, tagTextColor: newTextColorTag});
-    console.log(tags);
+    tags.push({
+        Id: tags.length+1, 
+        tagName: newTag, 
+        tagColor: newColorTag, 
+        tagTextColor: newTextColorTag
+    });
+
     deleteTagListOverview();
     listTagsOverview();
      
@@ -108,7 +116,6 @@ function addNewTag() {
     html.classList.add('is-clipped');
     
     return false;
-
 }
 
 function handleForm(e){

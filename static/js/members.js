@@ -23,9 +23,7 @@ let members = [
         id: 5,
         memberFullName: "Sultan Khan",
         memberInitials: "SK"
-    }
-  
-        
+    }   
 ];
 
 function listMemberOverview() {
@@ -67,6 +65,9 @@ function listMemberOverview() {
         
         createMemberName.className = "member-name";
         createMemberName.innerHTML = members[i].memberFullName;
+
+        createMemberName.setAttribute("tabindex", "0");
+        createMemberName.setAttribute("aria-label", "Member " + members[i].memberFullName);
 
         getMemberContainer.appendChild(createMemberDiv);
         createMemberDiv.appendChild(createEmblem);
