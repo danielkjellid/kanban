@@ -1,0 +1,429 @@
+/* CSS document for recurring elements such as navigation bar and footer */
+*{
+    font-family: sans-serif;
+}
+
+body{  /*CSS code for body*/
+    margin: 0;
+    background-color: rgb(250,250,250);
+    overflow: scroll;
+    scroll-behavior: smooth;
+    animation: Colors 20s infinite;
+    zoom: 100%;
+    
+} 
+/*End of CSS body*/
+
+/*Background color changer belongs to the body */
+@keyframes Colors { 
+    0% {
+        background: rgb(250, 250, 250);
+    }
+   25% {
+        background: rgb(135,152,255);
+    }
+    50%{
+        background: rgb(136, 249, 149);
+    }
+    75%{
+        background: rgb(255, 194, 110);
+    }
+    100%{
+        background: rgb(50,40,59);
+    }
+}
+
+
+}
+
+
+a{
+    text-decoration: none;
+}
+
+#title {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    font-family: verdana;
+    font-size: 30px;
+    font-weight: bold;
+
+    
+    
+}
+
+#nav{
+    background-color: rgb(250, 250, 250);
+    height: 70px;
+    width: 100%;
+    text-align: right;
+    border-top: 2px solid rgb(255, 82, 193);
+    overflow: hidden;
+    position: relative;
+    top: 100px;
+    text-align: center;
+   
+
+}
+
+#nav p{
+    color: rgb(255, 82, 193);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0px;
+    padding: 23px 35px 0px 35px;
+    height: 30px;
+    display: inline-block;
+    transition: .2s ease;
+    position: relative;
+    text-align: center;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 115px;
+    right: 40px;
+    text-align: center;
+    color: rgb(255, 82, 193);
+    border-radius: 33px;
+    -moz-border-radius: 10px;
+    background: white;
+    border: 2px solid rgb(255, 82, 193);
+    
+
+}
+
+.button :hover{
+    text-decoration: underline;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+#nav p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+/* End-of NAV */
+
+
+#logo1 {
+    height: 90px;
+    width: 100px;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    right: 730px;
+}
+
+/* SIDEINNHOLD CONTAINER: Endre etter behov på hver side */
+#container {
+    position: relative;
+    top: 100px;
+    background-color: rgb(250, 250, 250);
+    height: 1000px; /* <-- Endre etter behov */
+    overflow: hidden;
+    text-align: center;
+    
+}
+
+
+.box1 {
+    padding: 10px;
+    width: 280px;
+    height: 300px;
+    position: absolute;
+    top: 80px;
+    left: 620px;
+    text-align: center;
+    
+  
+    
+}
+
+#Crown {
+    position: absolute;
+    top: 85px;
+    left: 715px;
+    width: 70px;
+    height: 70px;
+    animation: blinker 1.5s linear infinite;
+    
+}
+
+h1 {
+    margin: 10px;
+    padding: auto;
+    display: inline-block;
+    position: absolute;
+    top: 150px;
+    left: 10px;
+    
+}   
+h2 {
+  padding: 5px;
+  position: absolute;
+  top: 105px;
+  left: 70px;
+  animation: blinker 1.5s linear infinite;
+  background-color: rgb(212,175,55);
+  border-radius: 10px;
+  
+}
+
+
+@keyframes blinker{ 
+    
+    50% {
+        opacity: 0;
+    }
+}
+
+h3 {
+    position: absolute;
+    top: 180px;
+    left: 65px;
+    opacity: 0.3;
+    
+}
+
+  #avatar {
+  width: 60px;
+  height: 60px;
+  vertical-align: middle;
+  border-radius: 50%;
+  position: absolute;
+  left: 100px;
+  top: 60px;
+  
+}
+
+.box2{
+    padding: 10px;
+    width: 280px;
+    height: 200px;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    text-align: center;
+     
+}
+
+h4 {
+    margin: 10px;
+    padding: auto;
+    display: inline-block;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+}
+
+h5 {
+  padding: 10px;
+  position: absolute;
+  left: 100px;
+  top: 50px;
+  animation: blinker 1.5s linear infinite;
+  background-color: rgb(192,192,192);
+  border-radius: 10px;
+}
+
+h6 {
+  position: absolute;
+  left: 80px;
+  top: 100px;
+  opacity: 0.3;
+  font-size: 15px;
+}
+
+#avatar1 {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    border-radius: 50%;
+    position: absolute;
+    left: 110px;
+    top: 10px;
+}
+
+#Silver-crown {
+    width: 50px;
+    height: 80px;
+    position: absolute;
+    top: 130px;
+    left: 315px;
+    animation: blinker 1.5s linear infinite;
+    
+}
+
+.box3 {
+    padding: 10px;
+    width: 280px;
+    height: 200px;
+    position: absolute;
+    top: 200px;
+    right: 150px;
+    text-align: center;
+}
+
+h7 {
+    position: absolute;
+    top: 110px;
+    right: 120px;
+    display: inline-block;
+}
+
+h8 {
+    padding: 5px;
+    position: absolute;
+    top: 80px;
+    right: 130px;
+    background-color: #cd7f32;
+    border-radius: 10px;
+    animation: blinker 1.5s linear infinite;
+}
+
+h9 {
+    position: absolute;
+    top: 140px;
+    right: 110px;
+    opacity: 0.3;
+    
+}
+
+#avatar3 {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    border-radius: 50%;
+    position: absolute;
+    right: 140px;
+    top: 15px;
+}
+
+#Bronze-crown {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 150px;
+    right: 290px;
+    animation: blinker 1.5s linear infinite;
+}
+
+.square1 {
+    width: 250px;
+    height: 20px;
+    position: absolute;
+    top: 450px;
+    left: 160px;
+    padding: 30px;
+    border: 1px solid rgb(255, 82, 198);
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(255, 82, 198);
+    text-align: center;
+    
+}
+
+h10 {
+    position: absolute;
+    left: 170px;
+    
+}
+
+h11{
+    position: absolute;
+    bottom: 10px;
+    left: 150px;
+}
+
+#avatar4 {
+    width: 60px;
+    height: 70px;
+    left: 20px;
+    position: absolute;
+    bottom: 5px;
+    
+}
+
+.square2 {
+    width: 250px;
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    left: 450px;
+    padding: 30px;
+    border: 1px solid rgb(255, 82, 198);
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(255, 82, 198);
+    text-align: center;
+    
+}
+
+h12 {
+    position: absolute;
+    left: 180px;
+    
+}
+
+h13{
+    position: absolute;
+    bottom: 10px;
+    left: 150px;
+}
+
+#avatar5 {
+    width: 60px;
+    height: 70px;
+    position: absolute;
+    bottom: 5px;
+    left: 30px;
+}
+
+.square3 {
+    width: 250px;
+    height: 20px;
+    position: absolute;
+    top: 0px;
+    left: 450px;
+    padding: 30px;
+    border: 1px solid rgb(255, 82, 198);
+    border-radius: 10px;
+    box-shadow: 5px 10px rgb(255, 82, 198);
+    text-align: center;
+}
+
+h14 {
+    position: absolute;
+    bottom: 40px;
+    left: 170px;
+}
+
+h15 {
+    position: absolute;
+    bottom: 16px;
+    left: 150px;
+}
+
+#avatar6 {
+    width: 60px;
+    height: 70px;
+    position: absolute;
+    bottom: 5px;
+    left: 30px;
+}
+/* =================================================== */
+/* PAGE SPECIFIC CODE: */
+
+
+
+
+
+
+
+/* END OF PAGE SPECIFIC CODE */
