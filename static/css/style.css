@@ -131,6 +131,7 @@ textarea {
 
 body {
   color: #4a4a4a;
+  border-top: 6px solid #f15998;
   font-size: 1em;
   font-weight: 400;
   line-height: 1.5;
@@ -729,7 +730,7 @@ a.navbar-item,
 }
 
 .modal-card-head h1 {
-  color: #838c96;
+  color: #52606D;
   padding: 20px;
   margin-right: auto;
   justify-content: flex-start !important;

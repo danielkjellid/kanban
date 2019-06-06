@@ -12,7 +12,8 @@ const archiveCards = document.getElementById("done-list-archive-cards");
 const addNewModal = document.getElementById("add-new-modal");
 const editTaskModal = document.getElementById("edit-task-modal");
 const modalOpenBtn = document.getElementById("open-add-new-modal");
-const getActionBtn = document.querySelectorAll(".task-card");
+
+//const getActionBtn = document.querySelectorAll(".task-card");
 
 if(getBoard) {
     getBoard.addEventListener("onload", onIndexLoad());
@@ -49,9 +50,11 @@ if (addNewModal) {
     addNewModal.addEventListener("submit", addTask);
 }
 
-if (editTaskModal) {
-    editTaskModal.addEventListener("submit", editTask);
-}
+/*if (editTaskModal) {
+    editTaskModal.addEventListener("submit", function() {
+        editTask();
+    });
+}*/
 
 if (modalOpenBtn) {
     modalOpenBtn.addEventListener("click", function() {
@@ -59,8 +62,3 @@ if (modalOpenBtn) {
     });
 }
 
-getActionBtn.forEach(addActionListeners);
-
-function addActionListeners(getActionBtn) {
-    getActionBtn.addEventListener("click", editTask);
-}
