@@ -29,6 +29,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createActionsBtn.className = "actions";
 
     createActionA.setAttribute("href", "#");
+    createActionA.setAttribute("tabindex", "0");
     createActionA.classList = "action-btn";
 
     createIcon.className="icon";
@@ -36,6 +37,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createActionsImg.setAttribute("src", "static/img/dots-horizontal-triple.png");
     createActionsImg.setAttribute("height", "16px");
     createActionsImg.setAttribute("width", "4px");
+    createActionAImg.setAttribute("alt", "Three dotted button symbolizing more actions, such as editing card");
 
     createActionsBtn.appendChild(createActionA);
     createActionA.appendChild(createIcon);
@@ -72,6 +74,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createAssigneeIconImg.setAttribute("src", "static/img/person.png");
     createAssigneeIconImg.setAttribute("height", "13px");
     createAssigneeIconImg.setAttribute("width", "13px");
+    createAssigneeIconImg.setAttribute("alt", "Person icon")
     createAssigneeMember.innerHTML = memberFullName;
 
     createDueDate.className = "dueDate";
@@ -80,6 +83,7 @@ function addCard(taskID, title, dueDate, memberFullName, tagName, tagColor, tagT
     createDueDateImg.setAttribute("src", "static/img/calendar.png");
     createDueDateImg.setAttribute("height", "14px");
     createDueDateImg.setAttribute("width", "13px");
+    createDueDateImg.setAttribute("alt", "Calendar icon")
 
     createTaskFooter.appendChild(createAssignee);
     createAssignee.appendChild(createAssigneeIcon);
@@ -222,6 +226,8 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     createActionsImg.setAttribute("src", "static/img/dots-horizontal-triple.png");
     createActionsImg.setAttribute("height", "16px");
     createActionsImg.setAttribute("width", "4px");
+    createActionAImg.setAttribute("alt", "Three dotted button symbolizing more actions, such as editing card");
+
 
     createArchivedHeader.appendChild(createTags);
     createTags.appendChild(createEmblem);
@@ -259,6 +265,7 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     createAssigneeIconImg.setAttribute("src", "static/img/person.png");
     createAssigneeIconImg.setAttribute("height", "13px");
     createAssigneeIconImg.setAttribute("width", "13px");
+    createAssigneeIconImg.setAttribute("alt", "Person icon")
     createAssigneeMember.innerHTML = memberFullName;
 
     createDueDate.className = "dueDate";
@@ -267,6 +274,7 @@ function addArchivedCard(taskID, title, dueDate, memberFullName, tagName, tagCol
     createDueDateImg.setAttribute("src", "static/img/calendar.png");
     createDueDateImg.setAttribute("height", "14px");
     createDueDateImg.setAttribute("width", "13px");
+    createDueDateImg.setAttribute("alt", "Calendar icon")
 
     createArchivedFooter.appendChild(createAssignee);
     createAssignee.appendChild(createAssigneeIcon);
