@@ -1,106 +1,199 @@
 <!doctype html>
-<html> <!-- Front-Page: Landing page -->
+<html> <!-- Front-Page -->
     <head>
         <title>SWAPSHIFTS</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="main.css">
-        <link rel="icon" type="image/png" href = "Logo1.png">
-        <!-- Front page work: Krister Emanuelsen -->
+        <link rel="icon" type="image/png" href = "images/Logo1.png">
+        <script src="../dots.js"></script>
+        <!-- Front page -->
     </head>
-
-    <body>
+   
+    
+    <!-- This start of Navigation Bar-->
+    <body>    
         
         <div id="nav"> <!-- Navigation bar -->
             <a href="index.html"><p>Board</p></a>
             <a href="/subsites/leaderboard.html"><p>Leaderboard</p></a>
             <a href="/subsites/archive.html"><p>Archive</p></a>
-        </div> <!-- End-of Navigation Bar -->
-        
-        
-        
-        <div id="container"> <!-- Page container --><hr>
-        
-        <!-- Simple MDL Progress Bar -->
-<div id="p1" class="mdl-progress mdl-js-progress"></div>
-            
-    
-<div class="dd">
-
-  <ol class="kanban To-do">
-    <div class="kanban__title">
-      <h2><i class="material-icons"></i>BACKLOG</h2></div>
-   <li class="dd-item" data-id="1">
-      <h3 class="title dd-handle" >Frontend<i class=" material-icons ">Design  Priority></i></h3>
-        <div class="text" contenteditable="true"> Design kanban board for exam web project.<div></div>
-    
-     </div> <i class="material-icons" id="label blue"></i><div class="actions">
-        <i class="material-icons" id="color">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-    <li class="dd-item" data-id="4">
-      <h3 class="title dd-handle"><i class=" material-icons ">SoMe  Design</i></h3>
-        <div class="text" contenteditable="true">Create template for Social media.</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-    <li class="dd-item" data-id="3">
-      <h3 class="title dd-handle"><i class=" material-icons ">Frontend</i></h3>
-        <div class="text" contenteditable="true">Design kanbon board for exam web project.</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    
-    <div class="actions">
-      <button class="addbutt"><i class="material-icons"></i> ADD NEW</button>
-    </div>
-  </ol>
-  <ol class="kanban progress">
-    <h2><i class="material-icons"></i>TO DO</h2>
-      <li class="dd-item" data-id="5">
-      <h3 class="title dd-handle"><i class=" material-icons ">SoMe  Design</i> </h3>
-        <div class="text" contenteditable="true">Create template for social media.</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-  </ol>
-  <ol class="kanban  Done">
-      <h2><i class="material-icons"></i>IN PROGRESS</h2>
-      <li class="dd-item" data-id="5">
-      <h3 class="title dd-handle"><i class=" material-icons "></i>Priority</h3>
-        <div class="text" contenteditable="true">Design kanban board for exam web project</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li></li><li class="dd-item" data-id="2">
-      <h3 class="title dd-handle"><i class=" material-icons ">Design</i></h3>
-        <div class="text" contenteditable="true">Design the front page</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-    <div class="actions">
-      <button class="addbutt"><i class="material-icons"></i> ADD NEW</button>
-    </div>
-  </ol>
-  <ol class="kanban Gone">
-    <h2><i class="material-icons"></i>DONE</h2>
-     <li class="dd-item" data-id="5">
-      <h3 class="title dd-handle"><i class=" material-icons ">Frontend</i>Priority</h3>
-        <div class="text" contenteditable="true">Design kanbon board for exam web project</div><div class="actions">
-        <i class="material-icons">palette</i><i class="material-icons">edit</i><i class="material-icons">insert_link</i><i class="material-icons">attach_file</i></div>
-      
-    </li>
-    <div class="actions">
-      <button class="addbutt"><i class="material-icons"></i> ADD NEW</button>
-    </div>
-  </ol>
-
-</div>
         </div>
+        
         
         <div class="button"><p>Add Card</p></div>
         <div>
-            <img id="logo1" src="images/Logo1.png">
+        <img id="logo1" src="images/Logo1.png">
           
         </div>
-        <div id="title"><p>SwapShifts</p></div>
+        <div id="title"><p>SWAPSHIFTS </p></div>
+        
+         <!-- End-of Navigation Bar -->
+        
+        
+        
+        <!-- Created a container for the front page-->
+        <div id="container"> <!-- Page container --><hr>
+        
+
+            
+    
+<div class="dodo">
+
+  <ol class="todo"> <!--Belongt to "TO DO" BOX-->
+     
+      <h2><i class="material-icons"></i>TO DO</h2>
+   <li class="dodo-item" data-id="1">
+      <h3 class="title dodo-handle" >Frontend<i class=" material-icons ">Design  Priority</i></h3>
+        <div class="text"> Design kanban board for exam web project.<div></div>
+           
+     </div> <i class="material-icons" id="label"></i><div class="actions">
+       <i class="material-icons" id="color">Daniel Kjellid</i></div>
+      
+    </li>
+    <li class="dodo-item" data-id="4">
+      <h3 class="title dodo-handle"><i class=" material-icons ">SoMe  Design</i></h3>
+        <div class="text">Create template for Social media.</div><div class="actions">
+        <i class="material-icons">Daniel kjellid</i></div>
+      </li>
+       <div class="actions">
+          <button class="addbutton"><i class="material-icons"></i>ADD NEW</button>
+    </div>
+
+   
+  </ol>
+    
+  <ol class="In-progress">
+    <h2><i class="material-icons"></i>INPROGRESS</h2>
+      <li class="dodo-item" data-id="5">
+      <h3 class="title dodo-handle"><i class=" material-icons ">SoMe  Design</i> </h3>
+        <div class="text">Create template for social media.</div>
+      <div class="actions">
+          <i class="material-icons">Sultan Khan/i></i>
+          </div>
+      </li>
+      <div class="actions">
+          <button class="addbutton"><i class="material-icons"></i>ADD NEW</button>
+    </div>
+          </ol>
+    
+    
+  <ol class="Done">
+      <h2><i class="material-icons"></i>DONE</h2>
+      <li class="dodo-item">
+      <h3 class="title dodo-handle"><i class=" material-icons "></i>Priority</h3>
+        <div class="text">Design kanban board for exam web project</div><div class="actions">
+          <i class="material-icons">Daniel Kjellid</i></div>
+      
+    </li><li class="dodo-item">
+      <h3 class="title dodo-handle"><i class=" material-icons ">Design</i></h3>
+        <div class="text">Design the front page</div><div class="actions">
+      <i class="material-icons">Kainat Zohoor</i></div>
+      
+    </li>
+    <div class="actions">
+      <button class="addbutton"><i class="material-icons"></i>ADD NEW</button>
+    </div>
+  </ol>
+    
+    
+  <div class="Upcoming-due-dates">
+    <div>
+        <i class="material-icons"><b>UPCOMING DUE DATES</b></i><hr>
+    <div id="text1">Design kanbon board for exam web project</div>
+        <div id="text2">Design kanbon board for exam web project</div>
+       <div id="text3">Design kanbon board for exam web project</div>
+    </div>
+    
+    <div class="Tags sideBox1">
+      <i class="material-icons"><b>TAGS</b></i><hr>
+    <div id="text">Frontend</div><hr>
+        <div id="text">Design</div><hr>
+       <div id="text">Priority</div><hr>
+    </div>
+    
+    <div class="Members sideBox2">
+      <i class="material-icons"><b>MEMBERS</b></i><hr>
+    <div id="text">Daniel Kjellid</div> <hr>
+        <div id="text">Daniel Kjellid</div> <hr>
+       <div id="text">Daniel Kjellid</div> <hr>
+    
+    </div>
+
+</div>
+    
+                 <div class="dots">
+             <!-- three dot menu -->
+                <div class="dropdown">
+                    <!-- three dots -->
+                    <ul class="dropbtn icons btn-right showLeft" onclick="display()">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <!-- menu -->
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#Edit">Edit</a>
+                        <a href="#Add Card">Add Card</a>
+                        <a href="#Delete Card">Delete Card</a>
+                    </div>
+                </div>
+            
+            </div>
+            
+            </div>
+        
+<div onclick="removePop()" id="cover" class="cover"></div>
+    
+        <!-- menu number 2-->
+        
+                 <div class="dots1">
+             <!-- three dot menu -->
+                <div class="dropdown">
+                    <!-- three dots -->
+                    <ul class="dropbtn icons btn-right showLeft" onclick="display1()">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <!-- menu -->
+                    <div id="myDropdown1" class="dropdown-content">
+                        <a href="#Edit">Edit</a>
+                        <a href="#Add Card">Add Card</a>
+                        <a href="#Delete Card">Delete Card</a>
+                    </div>
+                </div>
+            
+            </div>
+        
+  <div onclick="removePop()" id="cover" class="cover"></div>
+        
+        <!--End of menu number 2-->
+        
+        <!--Here starts code which will belong to dots menu number three-->
+                         <div class="dots2">
+             <!-- three dot menu -->
+                <div class="dropdown">
+                    <!-- three dots -->
+                    <ul class="dropbtn icons btn-right showLeft" onclick="display2()">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <!-- menu -->
+                    <div id="myDropdown2" class="dropdown-content">
+                        <a href="#Edit">Edit</a>
+                        <a href="#Add Card">Add Card</a>
+                        <a href="#Delete Card">Delete Card</a>
+                    </div>
+                </div>
+            
+            </div>
+        
+  <div onclick="removePop()" id="cover" class="cover">
+        </div>
+            
+        </div>  <!-- End of container-->
+
 
     </body> <!-- End of Body -->
 

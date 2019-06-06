@@ -40,6 +40,7 @@ a{
     text-decoration: none;
 }
 
+/* Tittle defined by using this code */
 #title {
     width: 150px;
     height: 150px;
@@ -54,6 +55,7 @@ a{
     
 }
 
+/* It is belong to the nav bar */
 #nav{
     background-color: rgb(250, 250, 250);
     height: 70px;
@@ -67,6 +69,7 @@ a{
 
 }
 
+/* It is belong to the nav bar p */
 #nav p{
     color: rgb(255, 82, 193);
     font-size: 20px;
@@ -81,6 +84,7 @@ a{
     right: 560px;
 }
 
+/* Defined the buttons */
 .button {
     width: 100px;
     height: 50px;
@@ -96,14 +100,16 @@ a{
     
 
 }
-
+/* Used hover funcion on the button */ 
 .button :hover{
     text-decoration: underline;
     cursor: pointer;
     transform: scale(1.2);
 }
 
-#nav p:hover{
+
+/* Used hover function on the Nav p */
+#nav p:hover{ 
     text-decoration: underline;
     cursor: pointer;
     transform: scale(1.2);
@@ -111,6 +117,7 @@ a{
 /* End-of NAV */
 
 
+/* This belongs to the logo*/
 #logo1 {
     height: 90px;
     width: 100px;
@@ -120,7 +127,7 @@ a{
     right: 730px;
 }
 
-/* SIDEINNHOLD CONTAINER: Endre etter behov på hver side */
+/* CONTAINER: Changes can be done here if required*/
 #container {
     position: relative;
     top: 100px;
@@ -130,25 +137,123 @@ a{
     
 }
 
-.dd-item {
-  display: block;
-  width: 300px;
-  height: 200px;
+/* Belongs to the acheive box */
+.archive-box {
   position: absolute;
-  list-style: none;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  font-size: 16px;
-  height: 120px;
-  overflow: hidden;
-  z-index: 1;
-  background: rgb(250, 250, 250);
-  border: 1px solid rgb(220, 80, 198);
-  border-radius: 5px;
-  box-sizing: border-box;
+  top: 80px;
+  left: 100px;
+  border-radius: 20px;
+  border: 2px solid rgb(255, 82, 193);
+  height: 300px;
+  width: 400px;
 }
+
+/* Used header on the box of archive */
+header {
+  width: auto;
+  height: 50px;
+  background: rgb(255, 82, 193);
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  text-align: center;
+  font-size: 25px;
+}
+
+
+/* Belong to the text-box on the archive page */
+.text-box {
+    width: 350px;
+    height: 200px;
+    border: 1px solid rgb(0, 0, 0);
+    position: absolute;
+    top: 80px;
+    left: 25px;
+    opacity: 0.1;
+
+}
+
+/* Belong to the text */
+.text {
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  position: absolute;
+  top: 80px;
+  font-family: sans-serif;
+ 
+}
+
+/* Used to decorate the line in the box */
+.line {
+  border-top: 1px dotted rgb(128,128,128);
+  margin-top: 221px;
+  opacity: 0.5px;
+}
+
+
+/* Dropbutton is action list function */
+.dropbtn {
+  width: 7px;
+  height: 7px;
+  color: white;
+  padding: 16px;
+  font-size: 15px;
+  padding: 10px;
+  
+}
+
+/* Used for dropdown menu */
+.dropdown {
+    z-index: 1001;
+  position: absolute;
+  top: 0px;
+  left: 350px;
+  display: inline-block;
+}
+
+/* Belong to LI in for dropdown menu */
+ li {
+  height: 10px;
+  position: relative;
+  left: 30px;
+  top: -20px;
+  color: rgb(180,0,120);
+   opacity: 0.5;
+}
+
+/* Belong to dropdown-content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+    top: 10px;
+  background-color: rgb(250, 250, 250);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Belong to dropdow-content a */
+.dropdown-content a {
+  color: black;
+  display: block;
+  padding: 12px 16px;
+  text-decoration: none;
+    font-size: 12pt;
+}
+
+.cover {
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index: 1000;
+    display: none
+}
+
+/* Defind the hover function and used background color on it */ 
+.dropdown-content a:hover {background-color: rgb(221, 221, 221);}
+
+/*.dropdown:hover .dropdown-content {display: block;}*/
+
+/* END OF ARCHIVE PAGE 
