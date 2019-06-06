@@ -78,6 +78,14 @@ function deleteTagListOverview() {
     }
 }
 
+function deleteOverDueNotifications() {
+    let getOverDueContainer = document.getElementById("overdue-banner");
+
+    while (getOverDueContainer.firstChild) {
+        getOverDueContainer.removeChild(getOverDueContainer.firstChild);
+    }
+}
+
 function activateModal(id) {
     var modal = document.getElementById(id); 
     var html = document.querySelector('html');

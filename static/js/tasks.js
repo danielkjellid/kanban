@@ -321,6 +321,7 @@ function changeTaskStatus(id, list) {
                 progressBar();
                 deleteDueList();
                 listUpcomingDue();
+                deleteOverDueNotifications();
             }
         }
 
@@ -364,6 +365,7 @@ function listUpcomingDue() {
             
                     } else {
                         addDueCardExpired(getTasks.result.dueDate, getTasks.result.memberFullName, getTasks.result.tagColor, getTasks.result.title);
+                        overDueBanner("Task overdue!", getTasks.result.title)
                     }
                 }
             }

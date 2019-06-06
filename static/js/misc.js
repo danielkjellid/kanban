@@ -367,3 +367,39 @@ function progressBar() {
         }
     }
 }
+
+function overDueBanner(title, task) {
+    let getParent = document.getElementById("overdue-banner");
+
+    let createNotification = document.createElement("div");
+    let createNotificationIcon = document.createElement("div");
+    let createNotificationIconImg = document.createElement("img");
+    let createNotificationTxt = document.createElement("div");
+    let createNotificationTitle = document.createElement("h1");
+    let createNotificationMsg = document.createElement("p");
+
+    createNotification.className = "notification";
+
+    createNotificationIcon.className = "notification-icon";
+
+    createNotificationIconImg.setAttribute("src", "static/img/warning.png");
+    createNotificationIconImg.setAttribute("width", "22px");
+    createNotificationIconImg.setAttribute("height", "20px");
+    createNotificationIconImg.setAttribute("alt", "Warning icon displaying overdue task");
+
+    createNotificationTxt.className = "notification-text";
+
+    createNotificationTitle.className = "notification-heading";
+    createNotificationTitle.innerHTML = title;
+
+    createNotificationMsg.className = "notification-message";
+    createNotificationMsg.innerHTML = "Task " + task + " is overdue! Please extend the due date, or resolve it as soon as possible. To resolve it; move the task to done."
+
+
+    getParent.appendChild(createNotification);
+    createNotification.appendChild(createNotificationIcon);
+    createNotificationIcon.appendChild(createNotificationIconImg);
+    createNotification.appendChild(createNotificationTxt);
+    createNotificationTxt.appendChild(createNotificationTitle);
+    createNotificationTxt.appendChild(createNotificationMsg);
+}
