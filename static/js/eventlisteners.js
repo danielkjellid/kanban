@@ -13,6 +13,9 @@ const getCancelNewMemberBtn = document.getElementById("add-new-member-cancel");
 const getEditCardDiscardBtn = document.getElementById("edit-task-discard");
 const getAddNewTagModalBtn = document.getElementById("add-new-tag-submit");
 const getAddNewMemberModalBtn = document.getElementById("add-new-member-submit");
+const getModalTabCard = document.getElementById("new-card");
+const getModalTabMember = document.getElementById("new-member");
+const getModalTabTag = document.getElementById("new-tag");
 
 //onload functions based on site id
 if(getBoard) {
@@ -95,6 +98,24 @@ if(getAddNewMemberModalBtn) {
         //close modal
         closeModal();
     });
+}
+
+if (getModalTabCard) {
+    getModalTabCard.addEventListener("click", function() {
+        openNewModal(event, "new-card-modal");
+    });
+}
+
+if (getModalTabMember) {
+    getModalTabMember.addEventListener("click", function() {
+        openNewModal(event, "new-member-modal");
+    });
+}
+
+if (getModalTabTag) {
+    getModalTabTag.addEventListener("click", function() {
+        getModalTabTag(event, "new-tag-modal");
+    })
 }
 
 //have to be on the bottom of the file. If not empty tasks will be added when adding memebers/tags

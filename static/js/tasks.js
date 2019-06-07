@@ -273,7 +273,7 @@ function archiveTasks() {
                     }
                 }
             }
-            successBanner("Successfully archived tasks", "Tasks was archived succesfully. They may be viewed in the archive tab", 4);
+            successBanner("Successfully archived tasks", "Tasks was archived succesfully. They may be viewed in the archive tab", 6);
         }
 
         //close database after transaction is complete
