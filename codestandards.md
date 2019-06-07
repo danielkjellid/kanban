@@ -346,7 +346,57 @@ const name = "Capt. Janeway";
 
 ## Funksjoner
 
-## Klasser
+Navngi funksjonen på en slik måte at det er åpenbart hva den gjør. Lange descriptive navn forestrekkes over kort, inkonsise.
+
+### Dårlig
+
+```
+function open() {
+    //...
+}
+```
+
+### Bra
+
+```
+functoion openMainModal() {
+    //...
+}
+```
+
+Funksjoner som går over flere linjer, burde identeres slik som alt annet som går over flere linjer i standarden: hvert element på egen linje, etterfulgt av tilhørende komma.
+
+### Dårlig
+
+```
+function foo(bar,
+             baz,
+             quux) {
+  // ...
+}
+
+console.log(foo,
+  bar,
+  baz);
+```
+
+### Bra
+
+```
+function foo(
+  bar,
+  baz,
+  quux,
+) {
+  // ...
+}
+
+console.log(
+  foo,
+  bar,
+  baz,
+);
+```
 
 ## Kontrollsetninger
 
