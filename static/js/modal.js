@@ -94,7 +94,7 @@ function openEditModal() {
             if (getTask.result.tagName.toLowerCase() == "plan") {
                 let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
                 getTagSelectItem.setAttribute("selected", "selected");
-            } else if (getTask.result.tagName == "activity") {
+            } else if (getTask.result.tagName.toLowerCase() == "activity") {
                 let getTagSelectItem = document.getElementById("edit-tag-" + getTask.result.tagName.toLowerCase());
                 getTagSelectItem.setAttribute("selected", "selected");
             } else if (getTask.result.tagName.toLowerCase() == "some") {
