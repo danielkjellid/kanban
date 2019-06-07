@@ -408,7 +408,7 @@ function overDueBanner(title, task) {
 }
 
 //function for creating a banner on the front page when a task is past due.
-function successBanner(title, text) {
+function successBanner(title, text, time) {
     let getParent = document.getElementById("banners");
 
     let createNotification = document.createElement("div");
@@ -419,6 +419,7 @@ function successBanner(title, text) {
     let createNotificationMsg = document.createElement("p");
 
     createNotification.className = "notification is-success";
+    createNotification.id = "success-notification";
 
     createNotificationIcon.className = "notification-icon";
 
@@ -442,4 +443,14 @@ function successBanner(title, text) {
     createNotification.appendChild(createNotificationTxt);
     createNotificationTxt.appendChild(createNotificationTitle);
     createNotificationTxt.appendChild(createNotificationMsg);
+
+    let timeleft = time;
+    let timer = setInterval(function() {
+        timeleft--;
+        console.log(timeleft);
+        if(timeleft <= 0) {
+            document.getElementById("success-notification").remove();
+            clearInterval(timer);
+        }
+    }, 1000);
 }

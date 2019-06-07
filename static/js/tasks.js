@@ -267,12 +267,13 @@ function archiveTasks() {
                         requestUpdate.onsuccess = function() {
                             //function for removing DOM items from done list
                             deleteDoneList();
-                            successBanner("Successfully archived tasks", "Tasks was archived succesfully. They may be viewed in the archive tab");
+
                             console.log("Successfully archived tasks");
                         }
                     }
                 }
             }
+            successBanner("Successfully archived tasks", "Tasks was archived succesfully. They may be viewed in the archive tab", 4);
         }
 
         //close database after transaction is complete
