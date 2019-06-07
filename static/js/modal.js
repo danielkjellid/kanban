@@ -131,7 +131,7 @@ function openEditModal() {
             } else if (getTask.result.memberInitials.toLowerCase() == "lf") {
                 let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
                 getAssigneeSelectItem.setAttribute("selected", "selected");
-            } else if (ggetTask.result.memberInitials.toLowerCase() == "md") {
+            } else if (getTask.result.memberInitials.toLowerCase() == "md") {
                 let getAssigneeSelectItem = document.getElementById("edit-member-" + getTask.result.memberInitials.toLowerCase());
                 getAssigneeSelectItem.setAttribute("selected", "selected");
             } else if (getTask.result.memberInitials.toLowerCase() == "sk") {
@@ -165,6 +165,7 @@ function openNewModal(evt, pageName) {
     tabContent = document.getElementsByClassName("tab-content");
         for (i = 0; i < tabContent.length; i++) {
             tabContent[i].style.display = "none";
+            console.log(tabContent[i]);
         }
     
     //Get all elements with class="menu-item" and remove the class "active"

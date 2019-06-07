@@ -808,6 +808,7 @@ a.navbar-item,
 
 .modal-background {
   background-color: rgba(10, 10, 10, 0.86);
+  position: fixed;
 }
 
 .modal-content,
@@ -1041,11 +1042,40 @@ a.navbar-item,
   background-color: #fdf3c9;
   border-left: 5px solid #F7C75F;
   padding: 16px 12px 12px 16px;
-  height: auto;
+  height: aut0;
   margin-bottom: 20px;
   min-height: 85px;
   width: 100%;
 }
+
+@media screen and (max-width: 600px) {
+  .notification {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 796px) {
+  .notification {
+    height: 140px;
+  }
+
+  .notification-icon {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .notification {
+    height: 90px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .notification {
+    height: 90px;
+  }
+}
+
 
 .notification-icon {
   float: left;
@@ -1280,13 +1310,13 @@ a.navbar-item,
   display: inline-block;
   float: left !important;
   height: auto;
-  width: 65%;
+  width: 63%;
 }
 
 .task-card-footer .dueDate {
   display: inline-block;
   float: right !important;
-  width: 35%;
+  width: 37%;
 }
 
 .task-card-footer .dueDate span {

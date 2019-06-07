@@ -114,7 +114,7 @@ if (getModalTabMember) {
 
 if (getModalTabTag) {
     getModalTabTag.addEventListener("click", function() {
-        getModalTabTag(event, "new-tag-modal");
+        openNewModal(event, "new-tag-modal");
     })
 }
 
