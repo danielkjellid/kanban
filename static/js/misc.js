@@ -382,6 +382,7 @@ function overDueBanner(title, task) {
     let createNotificationMsg = document.createElement("p");
 
     createNotification.className = "notification";
+    createNotification.setAttribute("aria-label", "Notification notifying a task is overdue");
 
     createNotificationIcon.className = "notification-icon";
 
@@ -420,6 +421,7 @@ function successBanner(title, text, time) {
 
     createNotification.className = "notification is-success";
     createNotification.id = "success-notification";
+    createNotification.setAttribute("aria-label", "Notification notifying a successfull action");
 
     createNotificationIcon.className = "notification-icon";
 
